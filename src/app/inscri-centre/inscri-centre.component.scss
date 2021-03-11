@@ -1,0 +1,64 @@
+.form-control.ng-invalid.ng-dirty.ng-touched {
+  border: 2px solid red;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #1f5473;
+  box-shadow: 0 0 8px 0 #1f5473;
+}
+
+.inputWithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.inputWithIcon i {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  padding: 9px 8px;
+  color: #aaa;
+  transition: 0.3s;
+}
+.inputWithIconN i {
+  position: absolute;
+  left: 0px;
+  top: 5px;
+  padding: 9px 8px;
+  color: #aaa;
+  transition: 0.3s;
+}
+.inputWithIconN input[type="text"] {
+  padding-left: 40px;
+}
+.inputWithIconN {
+  position: relative;
+}
+.inputWithIcon input[type="text"]:focus + i {
+  color: #1f5473;
+}
+
+.resStyle {
+  margin-left: 280px;
+  margin-right: -150px;
+}
+
+@media screen and (max-width: 600px) {
+  .resStyle {
+    margin: 0;
+  }
+}

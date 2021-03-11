@@ -1,0 +1,190 @@
+<h2 class="text-center m-5" style="color: #d88c8a">Inscrivez votre centre</h2>
+<div class="container text-center mb-5">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="resStyle">
+        <div class="row">
+          <div class="form-group inputWithIcon col">
+            <input
+              placeholder="Nom de votre centre"
+              for="name"
+              required
+              pattern="^[a-zA-Z]+$"
+              ngModel
+              name="nom"
+              #name="ngModel"
+              id="name"
+              type="text"
+              class="form-control"
+            />
+            <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+            <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+              <div *ngIf="name?.errors?.required">Le nom est obligatoire</div>
+              <div *ngIf="name?.errors?.pattern">
+                Le nom ne doit pas contenir de chiffres
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group inputWithIcon col">
+            <input
+              for="adress"
+              placeholder="Adresse du centre"
+              required
+              ngModel
+              name="adresse"
+              #adress="ngModel"
+              id="adress"
+              type="text"
+              class="form-control"
+            />
+            <i class="fa fa-map-marker fa-lg fa-fw" aria-hidden="true"></i>
+            <div
+              class="alert alert-danger"
+              *ngIf="adress.touched && !adress.valid"
+            >
+              <div *ngIf="adress?.errors?.required">
+                L'adresse est obligatoire
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group inputWithIconN">
+          <input
+            for="mail"
+            placeholder="Email du centre"
+            required
+            email
+            ngModel
+            name="email"
+            #mail="ngModel"
+            id="mail"
+            type="text"
+            class="form-control"
+          />
+          <i class="fa fa-at fa-lg fa-fw" aria-hidden="true"></i>
+          <div class="alert alert-danger" *ngIf="mail.touched && !mail.valid">
+            <div *ngIf="mail?.errors?.required">Le mail est obligatoire</div>
+            <div *ngIf="mail?.errors?.email">Le mail doit etre valide</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group inputWithIcon col">
+            <input
+              for="password"
+              placeholder="Mot de passe"
+              required
+              minlength="6"
+              #password="ngModel"
+              type="password"
+              id="password"
+              class="form-control"
+              name="password"
+              ngModel
+            />
+            <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
+            <div
+              class="alert alert-danger"
+              *ngIf="password.touched && !password.valid"
+            >
+              <div *ngIf="password?.errors?.required">
+                Le mot de passe est obligatoire
+              </div>
+              <div *ngIf="password?.errors?.minlength">
+                Le mot de passe doit comprendre au moins 6 caratères
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group inputWithIcon col">
+            <input
+              for="phone"
+              placeholder="Numéro de téléphone"
+              required
+              minlength="8"
+              pattern="^[0-9]+$"
+              #phone="ngModel"
+              type="text"
+              id="phone"
+              class="form-control"
+              name="tel"
+              ngModel
+            />
+            <i class="fa fa-phone fa-lg fa-fw" aria-hidden="true"></i>
+            <div
+              class="alert alert-danger"
+              *ngIf="phone.touched && !phone.valid"
+            >
+              <div *ngIf="phone?.errors?.required">
+                Le numéro de téléphone est obligatoire
+              </div>
+              <div *ngIf="phone?.errors?.minlength || phone?.errors?.pattern">
+                Le numéro doit se composer de 8 chiffres
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input
+            for="des"
+            placeholder="Description"
+            required
+            #des="ngModel"
+            type="text"
+            id="des"
+            class="form-control"
+            name="description"
+            ngModel
+          />
+          <div class="alert alert-danger" *ngIf="des.touched && !des.valid">
+            <div *ngIf="des?.errors?.required">
+              La description est obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-check m-2">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flexCheckDefault1"
+          />
+          <label
+            class="form-check-label"
+            for="flexCheckDefault1"
+            style="color: #1f5473"
+          >
+            En appuient sur le bouton s'inscrire vous signer la charte de
+            confidentialité d'HydroLife
+          </label>
+        </div>
+        <div class="form-check m-2">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flexCheckDefault2"
+          />
+          <label
+            class="form-check-label"
+            for="flexCheckDefault2"
+            style="color: #1f5473"
+          >
+            En appuient sur le bouton s'inscrire vous vous engager a gardé les
+            informations personnelle des clients confidentielle et de ne pas les
+            vendre ni publiée dans tout endroit
+          </label>
+        </div>
+        <button
+          type="submit"
+          [disabled]="f.invalid"
+          class="btn text-white m-2"
+          style="background-color: #d88c8a"
+        >
+          S'inscrire
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

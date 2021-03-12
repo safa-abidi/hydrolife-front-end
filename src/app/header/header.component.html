@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-light">
-    <a class="navbar-brand" routerLink=""><img src="assets/img/logo.png" alt=""></a>
+    <a class="navbar-brand" routerLink=""><img src="assets/logo.png" alt="logo"></a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
         aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
     </div>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <div class="topnav">
         <div class="topnav-right">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 float-right">
@@ -17,12 +18,13 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" style="color: #1F5473;"><img (click)="open(content)" src="assets/img/enter.png" alt=""></a>
+                    <a class="nav-link" style="color: #1F5473;"><img (click)="open(content)" src="assets/enter.png" alt=""></a>
                 </li>
             </ul>
         </div>
         
       </div>
+    </div>
 </nav>
 
 <ng-template #content let-modal>

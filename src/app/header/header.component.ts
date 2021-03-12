@@ -34,5 +34,9 @@ export class HeaderComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+
+  onSubmit(){
+
+  }
 }
 

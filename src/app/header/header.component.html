@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-light">
+    <a class="navbar-brand" routerLink=""><img src="assets/img/logo.png" alt=""></a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+    </div>
+    <div class="topnav">
+        <div class="topnav-right">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 float-right">
+                <li class="nav-item active ">
+                    <a class="nav-link " routerLink="" style="color: #1F5473;">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+              
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="EspaceCentre" style="color: #1F5473;">Espace des centres</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" style="color: #1F5473;"><img (click)="open(content)" src="assets/img/enter.png" alt=""></a>
+                </li>
+            </ul>
+        </div>
+        
+      </div>
+</nav>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-center" id="modal-basic-title">Se connecter</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <input id="email" class="form-control" placeholder="Votre email" name="email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+      <div class="input-group">
+        <input id="password" type="password" class="form-control" placeholder="Votre mot de passe" name="password">
+      </div>
+    </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Connexion</button>
+  </div>
+</ng-template>

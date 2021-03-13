@@ -79,7 +79,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <form (ngSubmit)="onLogInUser()" #f="ngForm">
       <div class="form-group">
         <label for="email">Email</label>
         <div class="form-group inputWithIcon">
@@ -88,9 +88,9 @@
           required
           email
           ngModel
+          
           name="email"
           #mail="ngModel"
-          id="mail"
           type="text"
           class="form-control">
           <i class="fa fa-at fa-lg fa-fw" aria-hidden="true"></i>
@@ -107,7 +107,7 @@
           required
           #password="ngModel"
           type="password"
-          id="password"
+        
           class="form-control"
           name="password"
           ngModel >

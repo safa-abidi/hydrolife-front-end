@@ -20,6 +20,12 @@ export class CentreUserService {
       centre
     );
   }
+  public LogInCentreUsers(user: CentreUser): Observable<CentreUser> {
+    return this.http.post<any>(
+      `${this.apiServerUrl}/centre/authenticate`,
+      user
+    );
+  }
 
   public updateCentreUser(centre: CentreUser): Observable<CentreUser> {
     return this.http.put<CentreUser>(

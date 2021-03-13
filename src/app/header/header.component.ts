@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
+import { CentreUserService } from '../services/CentreUser.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +12,8 @@ export class HeaderComponent implements OnInit {
 
   closeResult = '';
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,
+              private service: CentreUserService) { }
 
   ngOnInit(): void {
   }
@@ -35,8 +38,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  onSubmit(){
-
+  onLogInUser(){
+  
   }
 }
 

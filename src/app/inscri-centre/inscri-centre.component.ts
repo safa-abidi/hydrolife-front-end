@@ -18,7 +18,7 @@ export class InscriCentreComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     console.log(form.value);
-    this.centreUserService.addCentreUsers(form.value).subscribe(
+    this.centreUserService.addUser(form.value).subscribe(
       (response: CentreUser) => {
         console.log(response);
         form.reset();

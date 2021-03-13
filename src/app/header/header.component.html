@@ -79,23 +79,20 @@
     </button>
   </div>
   <div class="modal-body">
-    <form (ngSubmit)="onLogInUser()" #f="ngForm">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="form-group">
         <label for="email">Email</label>
         <div class="form-group inputWithIcon">
           <input
+          aria-describedby="emailHelp"
           placeholder="Votre email"
-          required
-          email
-          ngModel
-          
-          name="email"
-          #mail="ngModel"
-          type="text"
+          formControlName="email"
+          type="email"
+          id="email"
           class="form-control">
           <i class="fa fa-at fa-lg fa-fw" aria-hidden="true"></i>
-          <div class="alert alert-danger" *ngIf="mail.touched && !mail.valid">
-            <div *ngIf="mail?.errors?.required">Le mail est obligatoire</div>
+          <div class="alert alert-danger" *ngIf="email?.touched && !email?.valid">
+            <div *ngIf="email?.errors?.required">Le mail est obligatoire</div>
           </div>
         </div>
       </div>
@@ -104,17 +101,14 @@
         <div class="form-group inputWithIcon">
           <input
           placeholder="Mot de passe"
-          required
-          #password="ngModel"
           type="password"
-        
           class="form-control"
-          name="password"
-          ngModel >
+          id="password"
+          FormControlName="password" >
           <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
           <div
               class="alert alert-danger"
-              *ngIf="password.touched && !password.valid"
+              *ngIf="password?.touched && !password?.valid"
             >
               <div *ngIf="password?.errors?.required">
                 Le mot de passe est obligatoire
@@ -122,13 +116,13 @@
             </div>
         </div>
       </div>
+      <div class="modal-footer">
+        <button type="submit"
+        class="btn text-white m-2"
+        style="background-color: #d88c8a"
+          (click)="modal.close('Save click')">Connexion</button>
+      </div>
     </form>
   </div>
-  <div class="modal-footer">
-    <button type="button"
-    [disabled]="f.invalid"
-    class="btn text-white m-2"
-    style="background-color: #d88c8a"
-      (click)="modal.close('Save click')">Connexion</button>
-  </div>
+  
 </ng-template>

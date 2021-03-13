@@ -61,6 +61,9 @@ export class CentreUserService {
     return this.http.get<any>(`${this.apiServerUrl}/centre/all`);
   }
 
+  getOneUser(id: String) {
+    return this.http.get<any>(`${this.apiServerUrl}/centre/all`)
+  }
 
   deleteUser(id: String) {
     return this.http.delete<any>(`${this.apiServerUrl}/centre/delete/${id}`)
@@ -73,6 +76,7 @@ export class CentreUserService {
   updateUser(user:CentreUser){
     return this.http.put<any>( `${this.apiServerUrl}/centre/update`, user);
   }
+
 
   //Register & Login
 

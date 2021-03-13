@@ -12,6 +12,7 @@ import { LogInCentreComponent } from './log-in-centre/log-in-centre.component';
 import { FooterComponent } from './footer/footer.component';
 import { CentreUserService } from './services/CentreUser.service';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
+import { CentreProfilComponent } from './centre-profil/centre-profil.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
     InscriCentreComponent,
     LogInCentreComponent,
     FooterComponent,
-    EspaceCentreComponent
+    EspaceCentreComponent,
+    CentreProfilComponent
   ],
   imports: [
     BrowserModule,

@@ -15,29 +15,27 @@ export class HeaderComponent implements OnInit {
   loginForm: FormGroup
   closeResult = '';
 
-  constructor(
-    private modalService: NgbModal,
+  constructor( private modalService: NgbModal,
     private fb: FormBuilder,
     private userService:CentreUserService ,
-    private router:Router
-    ) {
-
-    let formControls = {
-      email: new FormControl('',[
-        Validators.required,
-        Validators.email
-      ]),
-      password: new FormControl('',[
-        Validators.required,
-        Validators.minLength(6)
-      ])
+    private router:Router) { 
+      let formControls = {
+        Email: new FormControl('',[
+          Validators.required,
+          Validators.email
+        ]),
+        Password: new FormControl('',[
+          Validators.required,
+          Validators.minLength(6)
+        ])
+      }
+  
+      this.loginForm = this.fb.group(formControls)
     }
 
-    this.loginForm = this.fb.group(formControls)
-  }
 
-  get email() { return this.loginForm.get('email') }
-  get password() { return this.loginForm.get('password') }
+  get Email() { return this.loginForm.get('Email') };
+  get Password() { return this.loginForm.get('Password') };
 
 
   ngOnInit(): void {
@@ -45,27 +43,48 @@ export class HeaderComponent implements OnInit {
     let isLoggedIn = this.userService.isLoggedIn();
 
     if (isLoggedIn) {
-      this.router.navigate(['/LogInCentre']);
+      this.router.navigate(['/CentreProfil/:id']);
     } 
   }
 
   login() {
     let data = this.loginForm.value;
 
-    let user = new CentreUser(0,'','',data.email,'',data.password,'');
+    let user = new CentreUser(  
+      undefined,
+      undefined,
+      undefined,
+      data.Email,
+      data.Password,
+      undefined,
+      undefined
+      );
 
     this.userService.loginAdmin(user).subscribe(
       (res: { token: any; })=>{
         console.log(res);
-        let token = res.token;
+        let token = data.jwt;
+        console.log(token);
+        console.log(data[0]);
+
         localStorage.setItem("myToken",token);
-        this.router.navigate(['/LogInCentre']);
+        this.router.navigate(['/CentreProfil/:id']);
       },
       (err: any)=>{
         console.log(err);
         
       }
     );
+  
+  }
+  
+  loggedin(){
+    return localStorage.getItem("myToken");
+  }
+
+  logOut(){
+    this.router.navigate(['/EspaceCentre']);
+    return localStorage.removeItem("myToken");
     
   }
 

@@ -13,8 +13,6 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class LogInCentreComponent implements OnInit {
 
   loginForm: FormGroup;
-  isLoginFailed = false;
-  errorMes = '';
 
 
   constructor( private modalService: NgbModal,
@@ -35,45 +33,13 @@ export class LogInCentreComponent implements OnInit {
       this.loginForm = this.fb.group(formControls)
     }
 
-    get Email() { return this.loginForm.get('Email') };
-  get Password() { return this.loginForm.get('Password') };
+    
 
 
   ngOnInit(): void {
 
-    let isLoggedIn = this.userService.isLoggedIn();
-
-    if (isLoggedIn) {
-      this.router.navigate(['/CentreProfil/:id']);
-    } 
   }
 
-  login() {
-    let data = this.loginForm.value;
-
-    let user = new CentreUser(  
-      undefined,
-      undefined,
-      undefined,
-      data.Email,
-      data.Password,
-      undefined,
-      undefined
-      );
-
-    this.userService.loginAdmin(user).subscribe(
-      (res: { token: any; })=>{
-        console.log(res);
-        let token = res.token;
-        localStorage.setItem("myToken",token);
-        this.router.navigate(['/CentreProfil/:id']);
-      },
-      (err: any)=>{
-        console.log(err);
-        
-      }
-    );
   
-  }
 
 }

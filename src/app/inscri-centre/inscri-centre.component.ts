@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CentreUser } from '../models/CentreUser.model';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-inscri-centre',
@@ -12,7 +14,9 @@ import { CentreUser } from '../models/CentreUser.model';
 export class InscriCentreComponent implements OnInit {
   public centres: CentreUser[] = [];
 
-  constructor(private centreUserService: CentreUserService) {}
+  constructor(private centreUserService: CentreUserService,
+              private Router: Router,
+              private toastr: ToastrService) {}
 
   ngOnInit(): void {}
 
@@ -20,7 +24,9 @@ export class InscriCentreComponent implements OnInit {
     console.log(form.value);
     this.centreUserService.addUser(form.value).subscribe(
       (response: CentreUser) => {
+        this.Router.navigate(['']);
         console.log(response);
+        this.toastr.success('inscrit avec succée');
         form.reset();
       },
       (error: HttpErrorResponse) => {

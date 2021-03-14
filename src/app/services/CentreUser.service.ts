@@ -96,5 +96,9 @@ export class CentreUserService {
     }
   }
 
+  logOut(){
+    let token = localStorage.removeItem("myToken");
+  }
+
 
 }

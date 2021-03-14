@@ -59,10 +59,13 @@
           <li class="nav-item">
             <a class="nav-link" style="color: #1F5473;" routerLink="EspaceCentre">Espace centre</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" style="color: #1F5473;"><img routerLink="/LogInCentre" src="assets/enter.png"
+          <li class="nav-item" *ngIf="!loggedin()">
+            <a class="nav-link" style="color: #1F5473;"><img (click)="open(content)" src="assets/enter.png"
                 alt="login"></a>
 
+          </li>
+          <li *ngIf="loggedin()">
+            <a class="nav-link" style="color: #1F5473;" (click)="logOut()">logout</a>
           </li>
         </ul>
       </div>
@@ -71,7 +74,7 @@
 
 </body>
 
-<!--<ng-template #content let-modal>
+<ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title text-center" id="modal-basic-title">Se connecter</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -79,50 +82,46 @@
     </button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <form [formGroup]="loginForm" name="loginForm" (ngSubmit)="login()">
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="Email">Email</label>
         <div class="form-group inputWithIcon">
           <input
-          aria-describedby="emailHelp"
-          placeholder="Votre email"
-          formControlName="email"
-          type="email"
-          id="email"
+          aria-describedby="EmailHelp"
+          placeholder="Votre Email"
+          formControlName="Email"
+          type="Email"
+          id="Email"
+          class="form-control">
+          <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+          <div class="alert alert-danger" *ngIf="Email?.touched && !Email?.valid">
+            <div *ngIf="Email?.errors?.required">Le mail est obligatoire</div>
+          </div>
+        </div>
+        <div class="form-group inputWithIcon">
+          <input
+          aria-describedby="PasswordlHelp"
+          placeholder="Votre Mot de passe"
+          formControlName="Password"
+          type="Password"
+          id="Password"
           class="form-control">
           <i class="fa fa-at fa-lg fa-fw" aria-hidden="true"></i>
-          <div class="alert alert-danger" *ngIf="email?.touched && !email?.valid">
-            <div *ngIf="email?.errors?.required">Le mail est obligatoire</div>
+          <div class="alert alert-danger" *ngIf="Password?.touched && !Password?.valid">
+            <div *ngIf="Password?.errors?.required">Le Mot de passe est obligatoire</div>
           </div>
         </div>
       </div>
-      <div class="form-group ">
-        <label for="password">Mot de passe</label>
-        <div class="form-group inputWithIcon">
-          <input
-          placeholder="Mot de passe"
-          type="password"
-          class="form-control"
-          id="password"
-          FormControlName="password" >
-          <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
-          <div
-              class="alert alert-danger"
-              *ngIf="password?.touched && !password?.valid"
-            >
-              <div *ngIf="password?.errors?.required">
-                Le mot de passe est obligatoire
-              </div>
-            </div>
-        </div>
-      </div>
+  
       <div class="modal-footer">
         <button type="submit"
+        [disabled]="loginForm.invalid"
+        (click)="modal.close('Save click')"
         class="btn text-white m-2"
         style="background-color: #d88c8a"
-          (click)="modal.close('Save click')">Connexion</button>
+          >Connexion</button>
       </div>
     </form>
   </div>
   
-</ng-template>-->
+</ng-template>

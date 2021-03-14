@@ -10,53 +10,6 @@ export class CentreUserService {
 
   constructor(private http: HttpClient) {}
 
-  /*public getCentreUsers(): Observable<CentreUser[]> {
-    return this.http.get<CentreUser[]>(`${this.apiServerUrl}/centre/all`);
-  }
-
-  public addCentreUsers(centre: CentreUser): Observable<CentreUser> {
-    return this.http.post<CentreUser>(
-      `${this.apiServerUrl}/centre/add`,
-      centre
-    );
-  }
-  public LogInCentreUsers(user: CentreUser): Observable<CentreUser> {
-    return this.http.post<any>(
-      `${this.apiServerUrl}/centre/authenticate`,
-      user
-    );
-    console.log("connecté");
-  }
-  isLoggedIn(){
-
-    let token = localStorage.getItem("myToken");
-
-    if (token) {
-      return true ;
-    } else {
-      return false;
-    }
-  }
-
- /* public LogIn(email: string, password: string){
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(email + ':' + password) });
-    this.http.get( `${this.apiServerUrl}/centre/authenticate`,{headers,responseType: 'text' as 'json'});
-  }
-
-
-  public updateCentreUser(centre: CentreUser): Observable<CentreUser> {
-    return this.http.put<CentreUser>(
-      `${this.apiServerUrl}/centre/update`,
-      centre
-    );
-  }
-
-  public deleteCentreUser(CentreUserId: number): Observable<void> {
-    return this.http.delete<void>(
-      `${this.apiServerUrl}/centre/delete/${CentreUserId}`
-    );
-  }*/
-
   getAllUsers() {
     return this.http.get<any>(`${this.apiServerUrl}/centre/all`);
   }

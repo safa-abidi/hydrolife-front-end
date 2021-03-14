@@ -4,12 +4,13 @@ import { LogInCentreComponent } from './log-in-centre/log-in-centre.component';
 import { InscriCentreComponent} from './inscri-centre/inscri-centre.component';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
 import { CentreProfilComponent } from './centre-profil/centre-profil.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'InscriCentre', component: InscriCentreComponent },
   { path: 'LogInCentre', component: LogInCentreComponent },
   { path: 'EspaceCentre', component: EspaceCentreComponent },
-  { path: 'CentreProfil/:id', component: CentreProfilComponent }
+  { path: 'CentreProfil/:id', component: CentreProfilComponent, canActivate:[AuthGuard] }
 ];
 
 @NgModule({

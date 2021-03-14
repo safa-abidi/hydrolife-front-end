@@ -53,19 +53,22 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto w-100 justify-content-end">
-          <li class="nav-item active">
-            <a class="nav-link" style="color: #1F5473;" routerLink=""> Acceuil <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" style="color: #1F5473;" routerLink=""> Acceuil <span
+                class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color: #1F5473;" routerLink="EspaceCentre">Espace centre</a>
           </li>
           <li class="nav-item" *ngIf="!loggedin()">
-            <a class="nav-link" style="color: #1F5473;"><img (click)="open(content)" src="assets/enter.png"
-                alt="login"></a>
-
+            <a class="nav-link" style="color: #1F5473;" routerLink="EspaceCentre"
+              (click)="logOut()"><img (click)="open(content)" src="assets/login.png"
+              alt="login"></a>
           </li>
-          <li *ngIf="loggedin()">
-            <a class="nav-link" style="color: #1F5473;" (click)="logOut()">logout</a>
+
+          <li class="nav-item" *ngIf="loggedin()">
+            <a class="nav-link" class="btn" style="color: #1F5473; border-color: #1F5473;" routerLink="EspaceCentre"
+              (click)="logOut()">Logout</a>
           </li>
         </ul>
       </div>
@@ -86,42 +89,29 @@
       <div class="form-group">
         <label for="Email">Email</label>
         <div class="form-group inputWithIcon">
-          <input
-          aria-describedby="EmailHelp"
-          placeholder="Votre Email"
-          formControlName="Email"
-          type="Email"
-          id="Email"
-          class="form-control">
+          <input aria-describedby="EmailHelp" placeholder="Votre Email" formControlName="Email" type="Email" id="Email"
+            class="form-control">
           <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
           <div class="alert alert-danger" *ngIf="Email?.touched && !Email?.valid">
             <div *ngIf="Email?.errors?.required">Le mail est obligatoire</div>
+            <div *ngIf="Email?.errors?.email">Le mail doit etre valide</div>
           </div>
         </div>
         <div class="form-group inputWithIcon">
-          <input
-          aria-describedby="PasswordlHelp"
-          placeholder="Votre Mot de passe"
-          formControlName="Password"
-          type="Password"
-          id="Password"
-          class="form-control">
+          <input aria-describedby="PasswordlHelp" placeholder="Votre Mot de passe" formControlName="Password"
+            type="Password" id="Password" class="form-control">
           <i class="fa fa-at fa-lg fa-fw" aria-hidden="true"></i>
           <div class="alert alert-danger" *ngIf="Password?.touched && !Password?.valid">
             <div *ngIf="Password?.errors?.required">Le Mot de passe est obligatoire</div>
           </div>
         </div>
       </div>
-  
+
       <div class="modal-footer">
-        <button type="submit"
-        [disabled]="loginForm.invalid"
-        (click)="modal.close('Save click')"
-        class="btn text-white m-2"
-        style="background-color: #d88c8a"
-          >Connexion</button>
+        <button type="submit" [disabled]="loginForm.invalid" (click)="modal.close('Save click')"
+          class="btn text-white m-2" style="background-color: #d88c8a">Connexion</button>
       </div>
     </form>
   </div>
-  
+
 </ng-template>

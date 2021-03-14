@@ -4,6 +4,7 @@ import { CentreUserService } from '../services/CentreUser.service';
 import { Router } from '@angular/router';
 import { CentreUser } from '../models/CentreUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { JwtModule } from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-header',
@@ -64,8 +65,6 @@ export class HeaderComponent implements OnInit {
       (res: { token: any; })=>{
         console.log(res);
         let token = data.jwt;
-        console.log(token);
-        console.log(data[0]);
 
         localStorage.setItem("myToken",token);
         this.router.navigate(['/CentreProfil/:id']);

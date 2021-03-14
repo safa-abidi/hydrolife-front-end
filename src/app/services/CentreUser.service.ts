@@ -81,7 +81,7 @@ export class CentreUserService {
   //Register & Login
 
 
-  loginAdmin(user:CentreUser){
+  loginAdmin(user: CentreUser){
     return this.http.post<any>(`${this.apiServerUrl}/centre/authenticate`, user);
   }
 

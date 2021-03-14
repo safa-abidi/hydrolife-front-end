@@ -60,7 +60,7 @@
             <a class="nav-link" style="color: #1F5473;" routerLink="EspaceCentre">Espace centre</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="color: #1F5473;"><img (click)="open(content)" src="assets/enter.png"
+            <a class="nav-link" style="color: #1F5473;"><img routerLink="/LogInCentre" src="assets/enter.png"
                 alt="login"></a>
 
           </li>
@@ -71,7 +71,7 @@
 
 </body>
 
-<ng-template #content let-modal>
+<!--<ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title text-center" id="modal-basic-title">Se connecter</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -125,4 +125,4 @@
     </form>
   </div>
   
-</ng-template>
+</ng-template>-->

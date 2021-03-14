@@ -1,1 +1,38 @@
-<p>log-in-centre works!</p>
+<form [formGroup]="loginForm" name="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="Email">Email</label>
+      <div class="form-group inputWithIcon">
+        <input
+        aria-describedby="EmailHelp"
+        placeholder="Votre Email"
+        formControlName="Email"
+        type="Email"
+        id="Email"
+        class="form-control">
+        <i class="fa fa-at fa-lg fa-fw" aria-hidden="true"></i>
+        <div class="alert alert-danger" *ngIf="Email?.touched && !Email?.valid">
+          <div *ngIf="Email?.errors?.required">Le mail est obligatoire</div>
+        </div>
+      </div>
+      <div class="form-group inputWithIcon">
+        <input
+        aria-describedby="PasswordlHelp"
+        placeholder="Votre Mot de passe"
+        formControlName="Password"
+        type="Password"
+        id="Password"
+        class="form-control">
+        <i class="fa fa-at fa-lg fa-fw" aria-hidden="true"></i>
+        <div class="alert alert-danger" *ngIf="Password?.touched && !Password?.valid">
+          <div *ngIf="Password?.errors?.required">Le Mot de passe est obligatoire</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit"
+      class="btn text-white m-2"
+      style="background-color: #d88c8a"
+        >Connexion</button>
+    </div>
+  </form>

@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
     let isLoggedIn = this.userService.isLoggedIn();
 
     if (isLoggedIn) {
-      this.router.navigate(['/CentreProfil/:id']);
+      this.router.navigate(['/DashBoard']);
     } 
   }
 
@@ -68,7 +68,7 @@ export class HeaderComponent implements OnInit {
         let token = res.jwt;
 
         localStorage.setItem("myToken",token);
-        this.router.navigate(['/CentreProfil/:id']);
+        this.router.navigate(['/DashBoard']);
       },
       (err: any)=>{
         console.log(err);
@@ -83,7 +83,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut(){
-    this.router.navigate(['/EspaceCentre']);
+    this.router.navigate(['']);
     return localStorage.removeItem("myToken");
     
   }

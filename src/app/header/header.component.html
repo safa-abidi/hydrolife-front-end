@@ -61,13 +61,15 @@
             <a class="nav-link" style="color: #1F5473;" routerLink="EspaceCentre">Espace centre</a>
           </li>
           <li class="nav-item" *ngIf="!loggedin()">
-            <a class="nav-link" ><img (click)="open(content)" src="assets/login.png"
-              alt="login"></a>
+            <a class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>
           </li>
 
           <li class="nav-item" *ngIf="loggedin()">
             <a class="nav-link" class="btn" style="color: #1F5473; border-color: #1F5473;" routerLink="EspaceCentre"
               (click)="logOut()">Logout</a>
+          <li class="nav-item" *ngIf="loggedin()">
+            <a class="nav-link" class="btn" style="color: #1F5473; border-color: #1F5473;"
+              routerLink="DashBoard">DashBoard</a>
           </li>
         </ul>
       </div>

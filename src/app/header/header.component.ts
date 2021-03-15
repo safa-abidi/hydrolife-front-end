@@ -62,9 +62,10 @@ export class HeaderComponent implements OnInit {
       );
 
     this.userService.loginAdmin(user).subscribe(
-      (res: { token: any; })=>{
+      (res: { jwt: any; })=>{
         console.log(res);
-        let token = data.jwt;
+        
+        let token = res.jwt;
 
         localStorage.setItem("myToken",token);
         this.router.navigate(['/CentreProfil/:id']);

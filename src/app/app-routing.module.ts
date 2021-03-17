@@ -8,11 +8,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
+  { path: 'DashBoard/:id', component: DashboardComponent, canActivate:[AuthGuard] },
   { path: 'InscriCentre', component: InscriCentreComponent },
   { path: 'LogInCentre', component: LogInCentreComponent },
   { path: 'EspaceCentre', component: EspaceCentreComponent },
-  { path: 'CentreProfil', component: CentreProfilComponent, canActivate:[AuthGuard] },
-  { path: 'DashBoard/{id}', component: DashboardComponent, canActivate:[AuthGuard] }
+  { path: 'CentreProfil', component: CentreProfilComponent, canActivate:[AuthGuard] }
+  
 ];
 
 @NgModule({

@@ -38,13 +38,15 @@ export class HeaderComponent implements OnInit {
   get Password() { return this.loginForm.get('Password') };
 
 
-  ngOnInit(): void {
+  ngOnInit(): void {/*
+
+    
     
     let isLoggedIn = this.userService.isLoggedIn();
 
     if (isLoggedIn) {
-      this.router.navigate(['/DashBoard/{id}']);
-    } 
+      this.router.navigate(['/DashBoard/'+th]);
+    } */
   }
 
   login() {
@@ -63,17 +65,18 @@ export class HeaderComponent implements OnInit {
     this.userService.loginAdmin(user).subscribe(
       (res: { jwt: any; })=>{
         console.log(res);
-        
         let token = res.jwt;
 
         localStorage.setItem("myToken",token);
-        this.router.navigate(['/DashBoard/{id}']);
+        this.router.navigate(['/DashBoard/'+user.id]);
       },
       (err: any)=>{
         console.log(err);
         
       }
     );
+
+    
   
   }
   

@@ -10,28 +10,28 @@ export class CentreUserService {
   constructor(private http: HttpClient) {}
 
   getAllUsers() {
-    return this.http.get<any>(`${this.apiServerUrl}/centre/all`);
+    return this.http.get<any>(`${this.apiServerUrl}/api/centre/all`);
   }
 
   getOneUser(id: string) {
-    return this.http.get<any>(`${this.apiServerUrl}/centre/all`)
+    return this.http.get<any>(`${this.apiServerUrl}/api/centre/`+id)
   }
 
   deleteUser(id: string) {
-    return this.http.delete<any>(`${this.apiServerUrl}/centre/delete/${id}`)
+    return this.http.delete<any>(`${this.apiServerUrl}/api/centre/delete/${id}`)
   }
 
   addUser(user: CentreUser) {
-    return this.http.post<any>( `${this.apiServerUrl}/centre/add`, user);
+    return this.http.post<any>( `${this.apiServerUrl}/api/centre/add`, user);
   }
 
   updateUser(user:CentreUser){
-    return this.http.put<any>( `${this.apiServerUrl}/centre/update`, user);
+    return this.http.put<any>( `${this.apiServerUrl}/api/centre/update`, user);
   }
 
 
   loginAdmin(user: CentreUser){
-    return this.http.post<any>(`${this.apiServerUrl}/centre/authenticate`, user);
+    return this.http.post<any>(`${this.apiServerUrl}/api/centre/authenticate`, user);
   }
 
   isLoggedIn(){

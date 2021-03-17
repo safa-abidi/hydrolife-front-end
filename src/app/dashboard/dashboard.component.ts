@@ -22,9 +22,11 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
 
     let idUser = this.route.snapshot.params['id'];
-
+    console.log(idUser);
     this.userService.getOneUser(idUser).subscribe(
       result=>{
+        console.log(result);
+        
         this.info = result
       },
       error=>{

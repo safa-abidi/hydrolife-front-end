@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: 'InscriCentre', component: InscriCentreComponent },
   { path: 'LogInCentre', component: LogInCentreComponent },
   { path: 'EspaceCentre', component: EspaceCentreComponent },
-  { path: 'CentreProfil/:{id}', component: CentreProfilComponent, canActivate:[AuthGuard] },
-  { path: 'DashBoard', component: DashboardComponent, canActivate:[AuthGuard] }
+  { path: 'CentreProfil', component: CentreProfilComponent, canActivate:[AuthGuard] },
+  { path: 'DashBoard/{id}', component: DashboardComponent, canActivate:[AuthGuard] }
 ];
 
 @NgModule({

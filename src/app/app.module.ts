@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
@@ -37,10 +37,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule, 
     CommonModule,
     BrowserAnimationsModule, 
     ToastrModule.forRoot(),
+    RouterModule
   ],
   providers: [
     CentreUserService

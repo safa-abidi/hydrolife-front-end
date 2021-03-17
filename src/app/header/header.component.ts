@@ -4,7 +4,6 @@ import { CentreUserService } from '../services/CentreUser.service';
 import { Router } from '@angular/router';
 import { CentreUser } from '../models/CentreUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { JwtModule } from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-header',
@@ -44,7 +43,7 @@ export class HeaderComponent implements OnInit {
     let isLoggedIn = this.userService.isLoggedIn();
 
     if (isLoggedIn) {
-      this.router.navigate(['/DashBoard']);
+      this.router.navigate(['/DashBoard/{id}']);
     } 
   }
 
@@ -68,7 +67,7 @@ export class HeaderComponent implements OnInit {
         let token = res.jwt;
 
         localStorage.setItem("myToken",token);
-        this.router.navigate(['/DashBoard']);
+        this.router.navigate(['/DashBoard/{id}']);
       },
       (err: any)=>{
         console.log(err);

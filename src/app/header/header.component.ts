@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { CentreUserService } from '../services/CentreUser.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUser } from '../models/CentreUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
@@ -14,10 +14,13 @@ export class HeaderComponent implements OnInit {
 
   loginForm: FormGroup
   closeResult = '';
+  info: any;
+  
 
   constructor( private modalService: NgbModal,
     private fb: FormBuilder,
     private userService:CentreUserService ,
+    private route: ActivatedRoute,
     private router:Router) { 
       let formControls = {
         Email: new FormControl('',[
@@ -27,7 +30,9 @@ export class HeaderComponent implements OnInit {
         Password: new FormControl('',[
           Validators.required,
           Validators.minLength(6)
-        ])
+        ]),
+        
+
       }
   
       this.loginForm = this.fb.group(formControls)
@@ -37,19 +42,8 @@ export class HeaderComponent implements OnInit {
   get Email() { return this.loginForm.get('Email') };
   get Password() { return this.loginForm.get('Password') };
 
-
-  ngOnInit(): void {/*
-
-    
-    
-    let isLoggedIn = this.userService.isLoggedIn();
-
-    if (isLoggedIn) {
-      this.router.navigate(['/DashBoard/'+th]);
-    } */
-  }
-
   login() {
+    
     let data = this.loginForm.value;
 
     let user = new CentreUser(  
@@ -62,13 +56,27 @@ export class HeaderComponent implements OnInit {
       undefined
       );
 
+      this.userService.getUserDet(data.Email).subscribe(
+        (result)=>{
+          console.log(result);
+          
+          this.info = result;
+        },
+        (error)=>{
+          console.log(error);
+        }
+      )
+
     this.userService.loginAdmin(user).subscribe(
-      (res: { jwt: any; })=>{
+      (res: { jwt: any,
+              email: any})=>{
+                
         console.log(res);
         let token = res.jwt;
-
+        let Email = res.email;
+        
         localStorage.setItem("myToken",token);
-        this.router.navigate(['/DashBoard/'+user.id]);
+        this.router.navigate(['/DashBoard/'+this.info?.id]);
       },
       (err: any)=>{
         console.log(err);
@@ -77,8 +85,22 @@ export class HeaderComponent implements OnInit {
     );
 
     
+    
   
   }
+
+  ngOnInit(): void {/*
+
+    
+    
+    let isLoggedIn = this.userService.isLoggedIn();
+
+    if (isLoggedIn) {
+      this.router.navigate(['/DashBoard/'+this.login.]);
+    } */
+  }
+
+
   
   loggedin(){
     return localStorage.getItem("myToken");

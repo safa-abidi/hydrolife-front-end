@@ -1,48 +1,160 @@
-/* Prevent image stretching is it's resized */
-.card-img-top {
-    object-fit: cover;
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+
+  padding: 30px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-/* Make all cards in row the same height */
-.row {
-   display: flex;
-   flex-wrap: wrap;
+#menuToggle a
+{
+  text-decoration: none;
+  color: black;
+  
+  transition: color 0.3s ease;
 }
 
-.row > div[class*='col-'] {
-  display: flex;
+#menuToggle a:nth-of-type(1):hover
+{
+  color: #F062C3;
 }
 
-/* Hover effects */
-.card {
-  transition: -webkit-transform 0.3s ease;
-}
-.card:hover {
-  transform: scale(1.01, 1.01);
+#menuToggle a:nth-of-type(2):hover
+{
+  color: #36FAFF;
 }
 
-/* Responsive design for image heights */
-@media (min-width: 576px) { 
-  .card-img-top {
-    height: 50vw;
+#menuToggle a:nth-of-type(3):hover
+{
+  color: #DB731F;
+}
+
+#menuToggle a:nth-of-type(4):hover
+{
+  color: #587AF5;
+}
+
+#menuToggle input
+{
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 20px;
+
+  margin: 0;
+  padding: 20px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* Hides the checkbox */
+  z-index: 2; /* Places the checkbox over the hamburger icon */
+  
+  -webkit-touch-callout: none;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(1px, 3px);
+  background: #ffffff;
+}
+
+/* Hides the middle slice */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, 0);
+}
+
+/* Positions the menu absolutely at the top left of the screen */
+#menu
+{
+  position:relative;
+  left: 0;
+  list-style-type: none; 
+}
+
+#menu a
+{
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+
+  #menu {
+    display: flex;
+    flex-direction: row;
+
+    background: #ffffff;
+
+    padding: 0;
+    padding-left: 15px;
+    height: auto;
+
+  }
+
+  #menu a {
+    padding: 15px;
+  }
+
+
+  .underbar {
+    position: absolute;
+    top: 45px;
+    left: -15px;
+
+    width: 0;
+    height: 4px;
+    background: rgba(100,100,200,0);
+    -webkit-transition: 0.5s ease;
+  }
+
+  #menuToggle a:nth-of-type(1):hover ~ .underbar {
+    left: 28px;;
+    width: 48px;
+    background: rgba(240,98,195,1);
+  }
+
+  #menuToggle a:nth-of-type(2):hover ~ .underbar {
+    left: 100px;;
+    width: 48px;
+    background: rgba(54,250,255,1);
+  }
+
+  #menuToggle a:nth-of-type(3):hover ~ .underbar {
+    left: 172px;;
+    width: 68px;
+    background: rgba(219,115,31,1);
+  }
+
+  #menuToggle a:nth-of-type(4):hover ~ .underbar {
+    left: 265px;;
+    width: 112px;
+    background: rgba(88,122,245,1);
   }
 }
-
-@media (min-width: 768px) { 
-  .card-img-top {
-    height: 30vw;
-  }
-}
-
-@media (min-width: 992px) { 
-  .card-img-top {
-    height: 20vw;
-  }
-}
-
-@media (min-width: 1200px) { 
-  .card-img-top {
-    height: 20vw;
-  }
-}
-

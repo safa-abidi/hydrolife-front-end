@@ -14,7 +14,7 @@ export class CentreUserService {
   }
 
   getOneUser(id: string) {
-    return this.http.get<any>(`${this.apiServerUrl}/api/centre/get/${id}`)
+    return this.http.get<any>(`${this.apiServerUrl}/api/centre/find/${id}`)
   }
 
   getUserDet(email: string) {

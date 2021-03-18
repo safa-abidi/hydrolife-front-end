@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  info = [];
+  info: any;
 
   constructor(private http: HttpClient,
               private userService: CentreUserService,
@@ -23,6 +23,16 @@ export class DashboardComponent implements OnInit {
 
     let idUser = this.route.snapshot.params.id;
      
+    this.userService.getOneUser(idUser).subscribe(
+      (result)=>{
+        console.log(result);
+        
+        this.info = result;
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
    
   }
 

@@ -13,7 +13,7 @@ export class CentreUserService {
     return this.http.get<any>(`${this.apiServerUrl}/api/centre/all`);
   }
 
-  getOneUser(id: string) {
+  getOneUser(id: any) {
     return this.http.get<any>(`${this.apiServerUrl}/api/centre/find/${id}`)
   }
 
@@ -35,7 +35,7 @@ export class CentreUserService {
 
 
   loginAdmin(user: CentreUser){
-    return this.http.post<any>(`${this.apiServerUrl}/api/centre/authenticate`, user);
+    return this.http.post<any>(`${this.apiServerUrl}/api/authenticate`, user);
   }
 
   isLoggedIn(){

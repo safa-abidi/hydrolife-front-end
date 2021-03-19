@@ -5,11 +5,11 @@ import { CentreUser } from '../models/CentreUser.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-centre-service',
+  templateUrl: './centre-service.component.html',
+  styleUrls: ['./centre-service.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class CentreServiceComponent implements OnInit {
 
   info: any;
 
@@ -18,22 +18,20 @@ export class DashboardComponent implements OnInit {
               private route: ActivatedRoute
 
   ) { }
-
-  ngOnInit(): void {/*
-
+  ngOnInit(): void {
     let idUser = this.route.snapshot.params.id;
      
     this.userService.getOneUser(idUser).subscribe(
       (result)=>{
-        console.log(result);
         
         this.info = result;
       },
       (error)=>{
         console.log(error);
       }
-    )*/
-   
+    )
+
+
   }
 
 }

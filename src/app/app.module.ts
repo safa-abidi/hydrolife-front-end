@@ -17,6 +17,11 @@ import { CentreUserService } from './services/CentreUser.service';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
 import { CentreProfilComponent } from './centre-profil/centre-profil.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CentreServiceComponent } from './centre-service/centre-service.component';
+import { CentrePromotionComponent } from './centre-promotion/centre-promotion.component';
+import { CentreReservationComponent } from './centre-reservation/centre-reservation.component';
+import { CentreGallerieComponent } from './centre-gallerie/centre-gallerie.component';
+import { DashNavComponent } from './dash-nav/dash-nav.component';
 
 
 @NgModule({
@@ -30,7 +35,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FooterComponent,
     EspaceCentreComponent,
     CentreProfilComponent,
-    DashboardComponent
+    DashboardComponent,
+    CentreServiceComponent,
+    CentrePromotionComponent,
+    CentreReservationComponent,
+    CentreGallerieComponent,
+    DashNavComponent
   ],
   imports: [
     BrowserModule,

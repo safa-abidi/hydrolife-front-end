@@ -5,6 +5,12 @@ import { InscriCentreComponent} from './inscri-centre/inscri-centre.component';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
 import { CentreProfilComponent } from './centre-profil/centre-profil.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CentrePromotionComponent } from './centre-promotion/centre-promotion.component';
+import { CentreReservationComponent } from './centre-reservation/centre-reservation.component';
+import { CentreServiceComponent } from './centre-service/centre-service.component';
+import { CentreGallerieComponent } from './centre-gallerie/centre-gallerie.component';
+
+
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -12,7 +18,11 @@ const routes: Routes = [
   { path: 'InscriCentre', component: InscriCentreComponent },
   { path: 'LogInCentre', component: LogInCentreComponent },
   { path: 'EspaceCentre', component: EspaceCentreComponent },
-  { path: 'CentreProfil', component: CentreProfilComponent, canActivate:[AuthGuard] }
+  { path: 'CentreProfil/:id', component: CentreProfilComponent, canActivate:[AuthGuard] },
+  { path: 'CentrePromotion', component: CentrePromotionComponent, canActivate:[AuthGuard] },
+  { path: 'CentreReservation', component: CentreReservationComponent, canActivate:[AuthGuard] },
+  { path: 'CentreService', component: CentreServiceComponent, canActivate:[AuthGuard] },
+  { path: 'CentreGallerie', component: CentreGallerieComponent, canActivate:[AuthGuard] }
   
 ];
 

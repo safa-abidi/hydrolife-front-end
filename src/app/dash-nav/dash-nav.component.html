@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="p-4">
+
+      <div class="text-center">
+        <a routerLink="/DashBoard/{{ info?.id }}" >
+          Dashboard
+        </a>
+        <a routerLink="/CentreProfil/{{ info?.id }}">
+          Profile
+        </a>
+        <a routerLink="/CentreService/{{ info?.id.services }}" >
+          Service
+        </a>
+        <a routerLink="/CentrePromotion/{{ info?.promotions }}" >
+          Promotion
+        </a>
+        <a routerLink="/CentreReservation/{{ info?.id.reservations }}" >
+          Réservation
+        </a>
+        <a routerLink="/CentreGallerie/{{ info?.id.photos }}" >
+          Gellerie
+        </a>
+        <div class="underbar"></div>
+      </div>
+    </div>
+</div>

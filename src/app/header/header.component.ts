@@ -76,39 +76,37 @@ export class HeaderComponent implements OnInit {
         let Email = res.email;
         
         localStorage.setItem("myToken",token);
-        this.router.navigate(['/DashBoard/'+this.info?.id]);
+        localStorage.setItem("myId",this.info.id)
+        let id = localStorage.getItem("myId")
+        
+        this.router.navigate(['/DashBoard/'+id]);
       },
       (err: any)=>{
         console.log(err);
         
       }
     );
-
     
     
   
   }
+  
 
-  ngOnInit(): void {/*
-
-    
-    
-    let isLoggedIn = this.userService.isLoggedIn();
-
-    if (isLoggedIn) {
-      this.router.navigate(['/DashBoard/'+this.login.]);
-    } */
+  ngOnInit(): void {
+    let id = localStorage.getItem("myId")
   }
 
 
   
   loggedin(){
     return localStorage.getItem("myToken");
+
   }
 
   logOut(){
     this.router.navigate(['']);
     return localStorage.removeItem("myToken");
+    return localStorage.removeItem("myId");
     
   }
 

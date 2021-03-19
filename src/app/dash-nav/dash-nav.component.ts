@@ -3,13 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { CentreUserService } from '../services/CentreUser.service';
 import { CentreUser } from '../models/CentreUser.model';
 import { ActivatedRoute, Router } from '@angular/router';
-
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-dash-nav',
+  templateUrl: './dash-nav.component.html',
+  styleUrls: ['./dash-nav.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashNavComponent implements OnInit {
 
   info: any;
 
@@ -19,21 +18,17 @@ export class DashboardComponent implements OnInit {
 
   ) { }
 
-  ngOnInit(): void {/*
-
-    let idUser = this.route.snapshot.params.id;
+  ngOnInit(): void {
+    let idUser = localStorage.getItem("myId");
      
     this.userService.getOneUser(idUser).subscribe(
       (result)=>{
-        console.log(result);
-        
         this.info = result;
       },
       (error)=>{
         console.log(error);
       }
-    )*/
-   
+    )
   }
 
 }

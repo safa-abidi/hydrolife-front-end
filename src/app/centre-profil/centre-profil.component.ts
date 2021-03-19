@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CentreProfilComponent implements OnInit {
 
   info: any;
+  
 
   constructor(private http: HttpClient,
               private userService: CentreUserService,

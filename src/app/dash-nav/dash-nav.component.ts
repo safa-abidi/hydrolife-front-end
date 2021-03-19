@@ -18,6 +18,8 @@ export class DashNavComponent implements OnInit {
 
   ) { }
 
+  public isActive:boolean = true;
+
   ngOnInit(): void {
     let idUser = localStorage.getItem("myId");
      

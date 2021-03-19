@@ -1,3 +1,35 @@
 div a {
-    margin: 50px;
+    margin: 50px 50px;
+    color: #1f5473;
+    font-size: larger;
+    font-weight: 500;
+    
+  }
+div li {
+    list-style: none;
+}
+ a.active-link {
+    border-bottom: 3px solid #D88C8A;
+  }
+  a {
+    border-bottom: none;
+  }
+
+  /*------------------------------------------------------RESPONSIVE SECTION------------------------------------------------------------------------*/
+  @media screen and (max-width: 600px) {
+    div a {
+        margin: 0px 8px;
+        font-size:small;
+        font-weight: 500;
+        
+      }
+    }
+  @media screen and (min-width: 601px) and (max-width: 1200px) {
+    div a {
+        margin: 10px 10px;
+        font-size:medium;
+        font-weight: 500;
+        
+      }
+
   }

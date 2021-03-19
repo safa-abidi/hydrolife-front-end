@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { InscriCentreComponent } from './inscri-centre/inscri-centre.component';
-import { LogInCentreComponent } from './log-in-centre/log-in-centre.component';
 import { FooterComponent } from './footer/footer.component';
 import { CentreUserService } from './services/CentreUser.service';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
@@ -29,9 +28,7 @@ import { DashNavComponent } from './dash-nav/dash-nav.component';
     AppComponent,
     InscriCentreComponent,
     HeaderComponent,
-    LogInCentreComponent,
     InscriCentreComponent,
-    LogInCentreComponent,
     FooterComponent,
     EspaceCentreComponent,
     CentreProfilComponent,

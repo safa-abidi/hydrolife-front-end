@@ -1,0 +1,150 @@
+<br><br>
+<h2 class="text-center m-5" style="color: #d88c8a">Modifier vos informations</h2>
+<div class="container text-center mb-5">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form  [formGroup]="updateUserForm" (ngSubmit)="updateUser()" class="resStyle">
+        <div class="row">
+          <div class="form-group inputWithIcon col">
+            <input
+              placeholder="Nom de votre centre"
+              for="nom"
+              name="nom"
+              id="nom"
+              type="text"
+              class="form-control"
+              formControlName="nom" 
+            />
+            <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+            <div class="alert alert-danger" *ngIf="nom?.touched && !nom?.valid">
+              <div *ngIf="nom?.errors?.required">Le nom est obligatoire</div>
+              <div *ngIf="nom?.errors?.pattern">
+                Le nom ne doit pas contenir de chiffres
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group inputWithIcon col">
+            <input
+              for="adresse"
+              placeholder="Adresse du centre"
+              id="adresse"
+              type="text"
+              class="form-control"
+              formControlName="adresse"
+              name="adresse"
+            />
+            <i class="fa fa-map-marker fa-lg fa-fw" aria-hidden="true"></i>
+            <div
+              class="alert alert-danger"
+              *ngIf="adresse?.touched && !adresse?.valid"
+            >
+              <div *ngIf="adresse?.errors?.required">
+                L'adresse est obligatoire
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group inputWithIconN">
+          <input
+            for="email"
+            placeholder="Email du centre"
+            id="email"
+            type="text"
+            class="form-control"
+            formControlName="email"
+            name="email"
+          />
+          <i class="fa fa-at fa-lg fa-fw" aria-hidden="true"></i>
+          <div class="alert alert-danger" *ngIf="email?.touched && !email?.valid">
+            <div *ngIf="email?.errors?.required">Le email est obligatoire</div>
+            <div *ngIf="email?.errors?.eemail">Le email doit etre valide</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group inputWithIcon col">
+            <input
+              for="password"
+              placeholder="Mot de passe"
+              type="password"
+              id="password"
+              class="form-control"
+              name="password"
+              formControlName="password"
+
+            />
+            <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
+            <div
+              class="alert alert-danger"
+              *ngIf="password?.touched && !password?.valid"
+            >
+              <div *ngIf="password?.errors?.required">
+                Le mot de passe est obligatoire
+              </div>
+              <div *ngIf="password?.errors?.minlength">
+                Le mot de passe doit se composer de 8 caractére
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group inputWithIcon col">
+            <input
+              for="tel"
+              placeholder="Numéro de téléphone"
+              type="text"
+              id="tel"
+              class="form-control"
+              name="tel"
+              formControlName="tel"
+            />
+            <i class="fa fa-phone fa-lg fa-fw" aria-hidden="true"></i>
+            <div
+              class="alert alert-danger"
+              *ngIf="tel?.touched && !tel?.valid"
+            >
+              <div *ngIf="tel?.errors?.required">
+                Le numéro de téléphone est obligatoire
+              </div>
+              <div *ngIf="tel?.errors?.pattern">
+                Le numéro doit se composer de chiffres seulement
+              </div>
+              <div *ngIf="tel?.errors?.minlength">
+                Le numéro doit se composer de 8 chiffres
+              </div>
+              <div *ngIf="tel?.errors?.maxlength">
+                Le numéro ne doit pas dépasser 13 chiffres
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <textarea
+            for="description"
+            placeholder="Description"
+            type="text"
+            id="description"
+            class="form-control"
+            name="description"
+            formControlName="description"
+          ></textarea>
+          <div class="alert alert-danger" *ngIf="description?.touched && !description?.valid">
+            <div *ngIf="description?.errors?.required">
+              La description est obligatoire
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn text-white m-2"
+          style="background-color: #d88c8a"
+        >
+          Enregistrer
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<br><br><br>

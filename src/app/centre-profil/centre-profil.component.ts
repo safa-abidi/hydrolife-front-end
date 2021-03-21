@@ -24,9 +24,10 @@ export class CentreProfilComponent implements OnInit {
      
     this.userService.getOneUser(idUser).subscribe(
       (result)=>{
-        console.log(result);
+        
         
         this.info = result;
+        console.log(this.info);
       },
       (error)=>{
         console.log(error);

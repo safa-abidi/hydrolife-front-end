@@ -2,11 +2,11 @@ export class CentreUser {
 
   constructor(
     public id?: number,
-    public name?: string,
-    public adress?: string,
+    public nom?: string,
+    public adresse?: string,
     public email?: string,
     public password?: string,
-    public phone?: number,
-    public descip?: string
+    public tel?: number,
+    public description?: string
   ) {}
 }

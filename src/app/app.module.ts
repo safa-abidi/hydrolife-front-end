@@ -22,6 +22,7 @@ import { CentreReservationComponent } from './centre-reservation/centre-reservat
 import { CentreGallerieComponent } from './centre-gallerie/centre-gallerie.component';
 import { DashNavComponent } from './dash-nav/dash-nav.component';
 import { UpdateCentreProfilComponent } from './update-centre-profil/update-centre-profil.component';
+import { AjouterServiceComponent } from './ajouter-service/ajouter-service.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { UpdateCentreProfilComponent } from './update-centre-profil/update-centr
     CentreReservationComponent,
     CentreGallerieComponent,
     DashNavComponent,
-    UpdateCentreProfilComponent
+    UpdateCentreProfilComponent,
+    AjouterServiceComponent
   ],
   imports: [
     BrowserModule,

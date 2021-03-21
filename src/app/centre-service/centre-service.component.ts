@@ -12,19 +12,24 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CentreServiceComponent implements OnInit {
 
   info: any;
+  id: any;
 
   constructor(private http: HttpClient,
               private userService: CentreUserService,
               private route: ActivatedRoute
 
-  ) { }
+  ) {
+   this.id = localStorage.getItem("myId");
+   }
   ngOnInit(): void {
     let idUser = this.route.snapshot.params.id;
+    
      
-    this.userService.getOneUser(idUser).subscribe(
+    this.userService.getAllServices().subscribe(
       (result)=>{
         
         this.info = result;
+        console.log(this.info)
       },
       (error)=>{
         console.log(error);

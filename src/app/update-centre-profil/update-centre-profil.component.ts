@@ -96,8 +96,6 @@ export class UpdateCentreProfilComponent implements OnInit {
       data.password,
       data.tel,
       data.description);
-      
-    console.log(user);
     
 
     this.userService.updateUser(user).subscribe(

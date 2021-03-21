@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CentreUser } from '../models/CentreUser.model';
+import { Service } from '../models/Service.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -53,5 +54,28 @@ export class CentreUserService {
     let token = localStorage.removeItem("myToken");
   }
 
+  getAllServices() {
+    return this.http.get<any>(`${this.apiServerUrl}/api/service/all`);
+  }
+
+  getOneService(id: any) {
+    return this.http.get<any>(`${this.apiServerUrl}/api/service/find/${id}`)
+  }
+
+  deleteService(id: string) {
+    return this.http.delete<any>(`${this.apiServerUrl}/api/Service/delete/${id}`)
+  }
+
+  addService(service: Service) {
+    return this.http.post<any>( `${this.apiServerUrl}/api/service/add`, service);
+  }
+
+  updateService(service: Service){
+    return this.http.put<any>( `${this.apiServerUrl}/api/service/update`, service);
+  }
+  
+  getCentreServices(id: any) {
+    return this.http.get<any>(`${this.apiServerUrl}/api/service/findbycentre/{id}`)
+  }
 
 }

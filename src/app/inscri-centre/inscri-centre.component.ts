@@ -21,7 +21,6 @@ export class InscriCentreComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
     this.centreUserService.addUser(form.value).subscribe(
       (response: CentreUser) => {
         this.Router.navigate(['']);

@@ -39,4 +39,22 @@ export class CentreServiceComponent implements OnInit {
 
   }
 
+  delete(service: any){
+
+    let index = this.info.indexOf(service);
+    console.log(index);
+    
+    this.info.splice(index, 1);
+
+    this.userService.deleteService(service.id).subscribe(
+      res=>{
+        console.log(res);
+        
+      },
+      err =>{
+        console.log(err);
+      }
+    )
+  }
+
 }

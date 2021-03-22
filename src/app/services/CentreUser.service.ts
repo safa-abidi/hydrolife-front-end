@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CentreUser } from '../models/CentreUser.model';
-import { Service } from '../models/Service.model';
+import { Services } from '../models/Service.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -63,14 +63,14 @@ export class CentreUserService {
   }
 
   deleteService(id: string) {
-    return this.http.delete<any>(`${this.apiServerUrl}/api/Service/delete/${id}`)
+    return this.http.delete<any>(`${this.apiServerUrl}/api/service/delete/${id}`)
   }
 
-  addService(service: Service) {
+  addService(service: Services) {
     return this.http.post<any>( `${this.apiServerUrl}/api/service/add`, service);
   }
 
-  updateService(service: Service){
+  updateService(service: Services){
     return this.http.put<any>( `${this.apiServerUrl}/api/service/update`, service);
   }
   

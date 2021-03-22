@@ -107,7 +107,7 @@ export class UpdateCentreProfilComponent implements OnInit {
       err=>{
         console.log(err);
       }
-    )
+    );
 
   }
 

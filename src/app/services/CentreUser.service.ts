@@ -4,11 +4,17 @@ import { CentreUser } from '../models/CentreUser.model';
 import { Services } from '../models/Service.model';
 import { environment } from 'src/environments/environment';
 
+
 @Injectable({ providedIn: 'root' })
 export class CentreUserService {
+
+
   private apiServerUrl = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient
+              /*private headers: HttpHeaders*/) {}
+
+              
 
   getAllUsers() {
     return this.http.get<any>(`${this.apiServerUrl}/api/centre/all`);
@@ -65,10 +71,18 @@ export class CentreUserService {
   deleteService(id: string) {
     return this.http.delete<any>(`${this.apiServerUrl}/api/service/delete/${id}`)
   }
+ 
+  getAllServicesOfCenter(id: string){
+    return this.http.get<any>(`${this.apiServerUrl}/api/service/findbycentre/${id}`)
+  }
+
 
   addService(service: Services) {
-    return this.http.post<any>( `${this.apiServerUrl}/api/service/add`, service);
+    let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+  
+    return this.http.post<any>( `${this.apiServerUrl}/api/service/add`,service,{headers: header}  );
   }
+
 
   updateService(service: Services){
     return this.http.put<any>( `${this.apiServerUrl}/api/service/update`, service);

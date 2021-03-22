@@ -5,13 +5,14 @@
     <div class="row no-gutters">
       <div class="col">
         <div class="card-body">
+          {{ i }}
           <h5 class="card-title"> {{ service?.libelle_service }} </h5>
           <p class="card-text">{{ service?.description_service }}</p>
           <p class="card-text"><p>{{ service?.prix_service }} TND / personne</p>
          
         </div>
       </div>
-      <button class="btn btn-danger" (click)="delete(service)">sup</button>
     </div>
+    <button class="btn btn-danger" (click)="delete(service)">sup</button>
   </div>
 </div>

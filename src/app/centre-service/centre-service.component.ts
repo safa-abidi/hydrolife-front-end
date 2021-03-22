@@ -25,36 +25,32 @@ export class CentreServiceComponent implements OnInit {
     let idUser = this.route.snapshot.params.id;
     
      
-    this.userService.getAllServices().subscribe(
+    this.userService.getAllServicesOfCenter(this.id).subscribe(
       (result)=>{
         
         this.info = result;
-        console.log(this.info)
       },
       (error)=>{
         console.log(error);
       }
     )
-
-
   }
 
-  delete(service: any){
+  delete(service: any){ 
 
     let index = this.info.indexOf(service);
-    console.log(index);
-    
     this.info.splice(index, 1);
 
-    this.userService.deleteService(service.id).subscribe(
+    this.userService.deleteService(service.id_service).subscribe(
       res=>{
+        
         console.log(res);
         
       },
       err =>{
         console.log(err);
       }
-    )
+    );
   }
 
 }

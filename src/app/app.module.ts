@@ -24,6 +24,8 @@ import { DashNavComponent } from './dash-nav/dash-nav.component';
 import { UpdateCentreProfilComponent } from './update-centre-profil/update-centre-profil.component';
 import { AjouterServiceComponent } from './ajouter-service/ajouter-service.component';
 import { UpdateServiceComponent } from './update-service/update-service.component';
+import { AjouterPromotionComponent } from './ajouter-promotion/ajouter-promotion.component';
+import { UpdatePromotionComponent } from './update-promotion/update-promotion.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { UpdateServiceComponent } from './update-service/update-service.componen
     DashNavComponent,
     UpdateCentreProfilComponent,
     AjouterServiceComponent,
-    UpdateServiceComponent
+    UpdateServiceComponent,
+    AjouterPromotionComponent,
+    UpdatePromotionComponent
   ],
   imports: [
     BrowserModule,

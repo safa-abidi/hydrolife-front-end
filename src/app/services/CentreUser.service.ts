@@ -84,7 +84,6 @@ export class CentreUserService {
     return this.http.post<any>( `${this.apiServerUrl}/api/service/add`,service,{headers: header}  );
   }
 
-
   updateService(service: ServiceUpdate){
     let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
     return this.http.put<any>( `${this.apiServerUrl}/api/service/update`, service,{headers: header});

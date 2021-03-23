@@ -10,6 +10,7 @@ import { CentreServiceComponent } from './centre-service/centre-service.componen
 import { CentreGallerieComponent } from './centre-gallerie/centre-gallerie.component';
 import { UpdateCentreProfilComponent } from './update-centre-profil/update-centre-profil.component';
 import { AjouterServiceComponent } from './ajouter-service/ajouter-service.component';
+import { UpdateServiceComponent } from './update-service/update-service.component';
 
 
 import { AuthGuard } from './auth.guard';
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'CentreService/:id', component: CentreServiceComponent, canActivate:[AuthGuard] },
   { path: 'CentreGallerie', component: CentreGallerieComponent, canActivate:[AuthGuard] },
   { path: 'UpdateCentreProfil/:id', component: UpdateCentreProfilComponent , canActivate:[AuthGuard] },
-  { path: 'AjouterService/:id', component: AjouterServiceComponent , canActivate:[AuthGuard] }
+  { path: 'AjouterService/:id', component: AjouterServiceComponent , canActivate:[AuthGuard] },
+  { path: 'UpdateService/:id_service', component: UpdateServiceComponent , canActivate:[AuthGuard] }
   
 ];
 

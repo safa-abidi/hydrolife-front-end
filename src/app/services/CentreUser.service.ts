@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CentreUser } from '../models/CentreUser.model';
 import { Services } from '../models/Service.model';
+import { ServiceUpdate } from '../models/ServiceUpdate.model';
 import { environment } from 'src/environments/environment';
 
 
@@ -84,8 +85,9 @@ export class CentreUserService {
   }
 
 
-  updateService(service: Services){
-    return this.http.put<any>( `${this.apiServerUrl}/api/service/update`, service);
+  updateService(service: ServiceUpdate){
+    let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+    return this.http.put<any>( `${this.apiServerUrl}/api/service/update`, service,{headers: header});
   }
   
   getCentreServices(id: any) {

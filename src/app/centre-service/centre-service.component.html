@@ -1,18 +1,25 @@
 <app-dash-nav></app-dash-nav>
 <div class="container">
-<button class="btn btn-warning" routerLink="/AjouterService/{{ id }}">add</button>
-<div class="card mb-3" style="max-width: 540px;" *ngFor="let service of info; let i = index">
+  <div>
+    <button class="button my-5" routerLink="/AjouterService/{{ id }}"><span>Nouveau service </span></button>
+
+  <div *ngIf="info?.length == 0" class="alert alert-warning">Vous n'avez aucun service </div>
+  <div class="card mb-3" *ngFor="let service of info; let i = index">
     <div class="row no-gutters">
       <div class="col">
         <div class="card-body">
-          {{ i }}
           <h5 class="card-title"> {{ service?.libelle_service }} </h5>
           <p class="card-text">{{ service?.description_service }}</p>
-          <p class="card-text"><p>{{ service?.prix_service }} TND / personne</p>
-         
+          <p class="card-text">
+          <p>{{ service?.prix_service }} TND / personne</p>
+
         </div>
       </div>
+      <button class="buttonSup " (click)="delete(service)">Supprimer <span> <i class="fa fa-trash fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+      <button class="buttonMod " routerLink="/UpdateService/{{ service.id_service }}">Modifier
+        <span> <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i> </span></button>
     </div>
-    <button class="btn btn-danger" (click)="delete(service)">sup</button>
   </div>
+  <button class="button my-5" routerLink="/AjouterService/{{ id }}"><span>Nouveau service </span></button>
+</div>
 </div>

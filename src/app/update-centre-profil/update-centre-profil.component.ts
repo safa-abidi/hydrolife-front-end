@@ -71,7 +71,7 @@ export class UpdateCentreProfilComponent implements OnInit {
       (res: any)=>{
         let CentreUser = res;
 
-        this.updateUserForm.patchValue({
+          this.updateUserForm.patchValue({
           nom : CentreUser.nom,
           adresse: CentreUser.adresse,
           email: CentreUser.email,

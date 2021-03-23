@@ -23,6 +23,7 @@ import { CentreGallerieComponent } from './centre-gallerie/centre-gallerie.compo
 import { DashNavComponent } from './dash-nav/dash-nav.component';
 import { UpdateCentreProfilComponent } from './update-centre-profil/update-centre-profil.component';
 import { AjouterServiceComponent } from './ajouter-service/ajouter-service.component';
+import { UpdateServiceComponent } from './update-service/update-service.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { AjouterServiceComponent } from './ajouter-service/ajouter-service.compo
     CentreGallerieComponent,
     DashNavComponent,
     UpdateCentreProfilComponent,
-    AjouterServiceComponent
+    AjouterServiceComponent,
+    UpdateServiceComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 
-export class Services {
+export class ServiceUpdate {
 
     constructor(public id_service?: number,
                 public libelle_service?: string,

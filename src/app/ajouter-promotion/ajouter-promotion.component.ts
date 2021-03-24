@@ -6,6 +6,7 @@ import { Services } from '../models/Service.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CentreUser } from '../models/CentreUser.model';
 import { ToastrService } from 'ngx-toastr';
+import {}
 
 @Component({
   selector: 'app-ajouter-promotion',
@@ -73,6 +74,15 @@ export class AjouterPromotionComponent implements OnInit {
       }
     );
     
+  }
+
+  minDate = new Date()
+  maxDate = new Date(2019, 1, 25)
+
+  dateFilter = (date: any) => {
+    const day = date.getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 0 && day !== 6;
   }
 
 }

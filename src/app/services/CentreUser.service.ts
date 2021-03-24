@@ -112,11 +112,13 @@ getOnePromotion(id: any) {
 }
 
 deletePromotion(id: string) {
-  return this.http.delete<any>(`${this.apiServerUrl}/api/promotion/delete/${id}`)
+  let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+  return this.http.delete<any>(`${this.apiServerUrl}/api/promotion/delete/${id}`, {headers: header})
 }
 
 getAllPromotionsOfCenter(id: string){
-  return this.http.get<any>(`${this.apiServerUrl}/api/promotion/findbycentre/${id}`)
+  let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+  return this.http.get<any>(`${this.apiServerUrl}/api/promotion/findbycentre/${id}`,{headers: header})
 }
 
 addPromotion(promotion: Promotion) {

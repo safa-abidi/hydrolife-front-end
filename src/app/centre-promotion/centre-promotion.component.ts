@@ -25,26 +25,30 @@ export class CentrePromotionComponent implements OnInit {
 
   ngOnInit(): void {
 
-    /*let idUser = this.route.snapshot.params.id;
+    let idUser = this.route.snapshot.params.id;
+    console.log(idUser);
+    
     
      
-    this.userService.getAllServicesOfCenter(this.id).subscribe(
+    this.userService.getAllPromotionsOfCenter(idUser).subscribe(
       (result)=>{
         
         this.info = result;
+        console.log(result);
+        
       },
       (error)=>{
         console.log(error);
       }
-    )*/
+    )
   }
 
-  delete(promotion: any){ /*
+  delete(promotion: any){ 
 
-    let index = this.info.indexOf(service);
+    let index = this.info.indexOf(promotion);
     this.info.splice(index, 1);
 
-    this.userService.deleteService(service.id_service).subscribe(
+    this.userService.deletePromotion(promotion.id_promo).subscribe(
       res=>{
         
         console.log(res);
@@ -53,7 +57,7 @@ export class CentrePromotionComponent implements OnInit {
       err =>{
         console.log(err);
       }
-    );*/
+    );
   }
 
 }

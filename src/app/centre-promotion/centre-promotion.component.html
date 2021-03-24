@@ -8,10 +8,12 @@
     <div class="row no-gutters">
       <div class="col">
         <div class="card-body">
-          <h5 class="card-title"> titre</h5>
-          <p class="card-text"> description </p>
-          <p class="card-text">
-          <p></p>
+          {{ i }}
+          <h5 class="card-title">{{ promotion?.titre_promo }}</h5>
+          <p class="card-text"> {{ promotion?.description_promo }} </p>
+          <p class="card-text"> {{ promotion?.date_debut_promo }} </p>
+          <p class="card-text"> {{ promotion?.date_fin_promo }} </p>
+          <p class="card-text"> {{ promotion?.pourcentage }} </p>
 
         </div>
       </div>

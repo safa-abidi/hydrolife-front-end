@@ -6,7 +6,6 @@ import { Services } from '../models/Service.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CentreUser } from '../models/CentreUser.model';
 import { ToastrService } from 'ngx-toastr';
-import {}
 
 @Component({
   selector: 'app-ajouter-promotion',

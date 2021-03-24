@@ -4,6 +4,7 @@ import { CentreUser } from '../models/CentreUser.model';
 import { Services } from '../models/Service.model';
 import { ServiceUpdate } from '../models/ServiceUpdate.model';
 import { environment } from 'src/environments/environment';
+import { Promotion } from '../models/Promotion.model';
 
 
 @Injectable({ providedIn: 'root' })
@@ -16,7 +17,7 @@ export class CentreUserService {
               /*private headers: HttpHeaders*/) {}
 
               
-
+/*--------------CENTRE SERVICE------------------------------*/
   getAllUsers() {
     return this.http.get<any>(`${this.apiServerUrl}/api/centre/all`);
   }
@@ -61,6 +62,11 @@ export class CentreUserService {
     let token = localStorage.removeItem("myToken");
   }
 
+  /*--------------CENTRE SERVICE------------------------------*/
+
+
+  /*--------------SERVICE SERVICE------------------------------*/
+
   getAllServices() {
     return this.http.get<any>(`${this.apiServerUrl}/api/service/all`);
   }
@@ -92,5 +98,41 @@ export class CentreUserService {
   getCentreServices(id: any) {
     return this.http.get<any>(`${this.apiServerUrl}/api/service/findbycentre/{id}`)
   }
+
+/*--------------SERVICE SERVICE------------------------------*/
+
+/*--------------PROMOTION SERVICE------------------------------*/
+
+getAllPromotion() {
+  return this.http.get<any>(`${this.apiServerUrl}/api/promotion/all`);
+}
+
+getOnePromotion(id: any) {
+  return this.http.get<any>(`${this.apiServerUrl}/api/promotion/find/${id}`)
+}
+
+deletePromotion(id: string) {
+  return this.http.delete<any>(`${this.apiServerUrl}/api/promotion/delete/${id}`)
+}
+
+getAllPromotionsOfCenter(id: string){
+  return this.http.get<any>(`${this.apiServerUrl}/api/promotion/findbycentre/${id}`)
+}
+
+addPromotion(promotion: Promotion) {
+  let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+
+  return this.http.post<any>( `${this.apiServerUrl}/api/promotion/add`,promotion,{headers: header}  );
+}
+
+updatePromotion(promotion: Promotion){
+  let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+  return this.http.put<any>( `${this.apiServerUrl}/api/promotion/update`, promotion ,{headers: header});
+}
+
+
+/*--------------PROMOTION SERVICE------------------------------*/
+
+
 
 }

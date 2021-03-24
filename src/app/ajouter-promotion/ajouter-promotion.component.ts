@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUserService } from '../services/CentreUser.service';
-import { Services } from '../models/Service.model';
+import { Promotion } from '../models/Promotion.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CentreUser } from '../models/CentreUser.model';
 import { ToastrService } from 'ngx-toastr';
@@ -12,6 +12,9 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './ajouter-promotion.component.html',
   styleUrls: ['./ajouter-promotion.component.scss']
 })
+
+
+
 export class AjouterPromotionComponent implements OnInit {
 
   
@@ -28,7 +31,7 @@ export class AjouterPromotionComponent implements OnInit {
     let formControls = {
       titre_promo: new FormControl('',[
         Validators.required,
-        Validators.pattern("[A-Za-z .'-]+")
+        Validators.pattern("[A-Za-z/ é è / .'-]+")
       ]),
       description_promo: new FormControl('',[
         Validators.required
@@ -36,16 +39,28 @@ export class AjouterPromotionComponent implements OnInit {
       pourcentage: new FormControl('',[
         Validators.required,
         Validators.pattern("[0-9]+")
+      ]),
+      date_debut_promo: new FormControl('',[
+        Validators.required,
+        Validators.pattern("[0-9.'-]+")
+      ]),
+      date_fin_promo: new FormControl('',[
+        Validators.required,
+        Validators.pattern("[0-9.'-]+")
       ])
     }
 
     this.addPromotionForm = this.fb.group(formControls)
     
    }
+
+
     
   get titre_promo() { return this.addPromotionForm.get('titre_promo') }
   get description_promo() { return this.addPromotionForm.get('description_promo') }
   get pourcentage() { return this.addPromotionForm.get('pourcentage') }
+  get date_debut_promo() { return this.addPromotionForm.get('date_debut_promo') }
+  get date_fin_promo() { return this.addPromotionForm.get('date_fin_promo') }
 
   ngOnInit(): void {
   }
@@ -55,18 +70,20 @@ export class AjouterPromotionComponent implements OnInit {
     let idUser = localStorage.getItem("myId");
     let data = this.addPromotionForm.value;
     
-    let service = new Services(
-      data.libelle_service,
-      data.description_service,
-      data.prix_service,  
+    let promotion = new Promotion(
+      data.titre_promo,
+      data.description_promo,
+      data.date_debut_promo,
+      data.date_fin_promo,
+      data.pourcentage
       );
       
-    this.userService.addService(service).subscribe(
+    this.userService.addPromotion(promotion).subscribe(
       res=>{
         
         this.toastr.success(res.message);
 
-       this.router.navigate(['/CentreService/'+ idUser]);
+       this.router.navigate(['/CentrePromotion/'+ idUser]);
       },
       err=>{
         console.log(err);
@@ -75,13 +92,13 @@ export class AjouterPromotionComponent implements OnInit {
     
   }
 
-  minDate = new Date()
+  /*minDate = new Date()
   maxDate = new Date(2019, 1, 25)
 
   dateFilter = (date: any) => {
     const day = date.getDay();
     // Prevent Saturday and Sunday from being selected.
     return day !== 0 && day !== 6;
-  }
+  }*/
 
 }

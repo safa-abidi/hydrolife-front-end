@@ -8,17 +8,17 @@
     <div class="row no-gutters">
       <div class="col">
         <div class="card-body">
-          {{ i }}
-          <h5 class="card-title">{{ promotion?.titre_promo }}</h5>
+          <h2 class="card-title my-2">Intitulé de la promotion : {{ promotion?.titre_promo }}</h2>
           <p class="card-text"> {{ promotion?.description_promo }} </p>
-          <p class="card-text"> {{ promotion?.date_debut_promo }} </p>
-          <p class="card-text"> {{ promotion?.date_fin_promo }} </p>
-          <p class="card-text"> {{ promotion?.pourcentage }} </p>
+          
+          <h3 class="card-text">Date de debut : {{ promotion?.date_debut_promo | date:'shortDate'| date:'dd-MM-yyyy' }} </h3>
+          <h3 class="card-text">Date de fin : {{ promotion?.date_fin_promo | date:'shortDate' | date:'dd-MM-yyyy' }} </h3>
+          <h3 class="card-text">Taux : {{ promotion?.pourcentage }} % </h3>
 
         </div>
       </div>
       <button class="buttonSup" (click)="delete(promotion)" >Supprimer <span> <i class="fa fa-trash fa-lg fa-fw" aria-hidden="true"></i> </span></button>
-      <button class="buttonMod " routerLink="/UpdatePromotion/">Modifier
+      <button class="buttonMod " routerLink="/UpdatePromotion/{{ promotion?.id_promo }}">Modifier
         <span> <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i> </span></button>
     </div>
   </div>

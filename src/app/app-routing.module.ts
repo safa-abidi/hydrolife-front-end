@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'AjouterService/:id', component: AjouterServiceComponent , canActivate:[AuthGuard] },
   { path: 'UpdateService/:id_service', component: UpdateServiceComponent , canActivate:[AuthGuard] },
   { path: 'AjouterPromotion/:id', component: AjouterPromotionComponent , canActivate:[AuthGuard] },
-  { path: 'UpdatePromotion/:id_promo', component: UpdateServiceComponent , canActivate:[AuthGuard] }
+  { path: 'UpdatePromotion/:id_promo', component: UpdatePromotionComponent , canActivate:[AuthGuard] }
   
 ];
 

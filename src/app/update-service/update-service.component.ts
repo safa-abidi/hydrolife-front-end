@@ -77,7 +77,7 @@ export class UpdateServiceComponent implements OnInit {
     this.userService.updateService(service).subscribe(
       res=>{
 
-       this.router.navigate(['/CentreService/'+localStorage.getItem("myId")]);
+       this.router.navigate(['/UpdatePromotion/'+localStorage.getItem("myId")]);
 
       },
       err=>{

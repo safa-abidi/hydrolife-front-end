@@ -13,8 +13,7 @@ export class CentreUserService {
 
   private apiServerUrl = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient
-              /*private headers: HttpHeaders*/) {}
+  constructor(private http: HttpClient) {}
 
               
 /*--------------CENTRE SERVICE------------------------------*/

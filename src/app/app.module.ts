@@ -70,6 +70,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 
@@ -92,7 +93,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     AjouterServiceComponent,
     UpdateServiceComponent,
     AjouterPromotionComponent,
-    UpdatePromotionComponent
+    UpdatePromotionComponent,
+    GalleryComponent
 
   ],
   imports: [

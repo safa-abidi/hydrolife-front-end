@@ -1,6 +1,6 @@
 
 <br><br><br><br><br>
-<h2 class="text-center m-5" style="color: #d88c8a">Ajouter un nouveau service</h2>
+<h2 class="text-center m-5" style="color: #d88c8a">Ajouter une promotion</h2>
 <div class="container text-center mb-5">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
@@ -45,30 +45,35 @@
                 La promotion ne doit pas contenir de lettres
               </div>
             </div>
+            <mat-form-field>
+              <input matInput [min]="minDate" [max]="maxDate" [matDatepickerFilter]="dateFilter" [matDatepicker]="myDatepicker">
+              <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+              <mat-datepicker  #myDatepicker></mat-datepicker>
+            </mat-form-field>
           </div>
  
         </div>
-        <div class="form-group inputWithIcon col">
+        <div class="form-group">
          
-            <textarea
-              for="description_promo"
-              placeholder="Description"
-              id="description_promo"
-              type="text"
-              class="form-control"
-              formControlName="description_promo"
-              name="description_promo"
-            ></textarea>
-            <i class="fa fa-usd fa-lg fa-fw" aria-hidden="true"></i>
-            <div
-              class="alert alert-danger"
-              *ngIf="description_promo?.touched && !description_promo?.valid"
-            >
-              <div *ngIf="description_promo?.errors?.required">
-                La description est obligatoire
-              </div>
+          <textarea
+            for="description_promo"
+            placeholder="Description"
+            id="description_promo"
+            type="text"
+            class="form-control"
+            formControlName="description_promo"
+            name="description_promo"
+          ></textarea>
+          <div
+            class="alert alert-danger"
+            *ngIf="description_promo?.touched && !description_promo?.valid"
+          >
+            <div *ngIf="description_promo?.errors?.required">
+              La description est obligatoire
             </div>
           </div>
+        </div>
+      
         <button
           type="submit"
           [disabled]="f.invalid"

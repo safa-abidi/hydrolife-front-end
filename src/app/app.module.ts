@@ -13,6 +13,7 @@ import { HeaderComponent } from './header/header.component';
 import { InscriCentreComponent } from './inscri-centre/inscri-centre.component';
 import { FooterComponent } from './footer/footer.component';
 import { CentreUserService } from './services/CentreUser.service';
+import { ImageService } from './services/Image.service';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
 import { CentreProfilComponent } from './centre-profil/centre-profil.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -154,6 +155,7 @@ import { GalleryComponent } from './gallery/gallery.component';
   ],
   providers: [
     CentreUserService,
+    ImageService,
   ],
   bootstrap: [AppComponent]
 })

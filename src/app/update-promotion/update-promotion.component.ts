@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUserService } from '../services/CentreUser.service';
 import { PromotionUpdate } from '../models/PromotionUpdate.model';
@@ -46,7 +46,18 @@ export class UpdatePromotionComponent implements OnInit {
       ])
     }
 
-    this.updatePromotionForm = this.fb.group(formControls)
+    this.updatePromotionForm = this.fb.group(formControls);
+
+   /* function formatDate(date: any) {
+  
+
+      const d = new Date(date);
+      let month = '' + (d.getMonth() + 1);
+      let day = '' + d.getDate();
+      const year = d.getFullYear();
+      if (month.length < 2) month = '0' + month;
+      if (day.length < 2) day = '0' + day;
+      return [year, month, day].join('-');}*/
     
    }
 
@@ -60,7 +71,11 @@ export class UpdatePromotionComponent implements OnInit {
    pipe = new DatePipe('en-US');
   now = Date.now();
 
+
+
   ngOnInit(): void {
+
+   
 
     let idProm = this.route.snapshot.params.id_promo;
     
@@ -98,6 +113,7 @@ export class UpdatePromotionComponent implements OnInit {
     )
     this.userService.updatePromotion(promotion).subscribe(
       res=>{
+        this.toastr.success("promotion mit à jour avec succès");
 
        this.router.navigate(['/CentrePromotion/'+localStorage.getItem("myId")]);
 

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUserService } from '../services/CentreUser.service';
 import { CentreUser } from '../models/CentreUser.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-centre-profil',
@@ -17,7 +18,8 @@ export class UpdateCentreProfilComponent implements OnInit {
     private fb: FormBuilder,
     private route:ActivatedRoute,
     private userService:CentreUserService,
-    private router : Router
+    private router : Router,
+    private toastr: ToastrService
   ) {
 
     let formControls = {
@@ -100,7 +102,8 @@ export class UpdateCentreProfilComponent implements OnInit {
 
     this.userService.updateUser(user).subscribe(
       res=>{
-        console.log(res);
+        
+        this.toastr.success("Profil mit à jour");
 
         this.router.navigate(['/CentreProfil/'+idUser]);
       },

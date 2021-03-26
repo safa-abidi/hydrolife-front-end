@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUserService } from '../services/CentreUser.service';
 import { Services } from '../models/Service.model';
-import { HttpErrorResponse } from '@angular/common/http';
-import { CentreUser } from '../models/CentreUser.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -64,7 +62,7 @@ export class AjouterServiceComponent implements OnInit {
     this.userService.addService(service).subscribe(
       res=>{
         
-        this.toastr.success(res.message);
+        this.toastr.success("Nouveau service ajouté avec succès");
 
        this.router.navigate(['/CentreService/'+ idUser]);
       },

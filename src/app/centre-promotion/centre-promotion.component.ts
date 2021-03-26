@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CentreUserService } from '../services/CentreUser.service';
-import { CentreUser } from '../models/CentreUser.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-centre-promotion',
@@ -18,7 +18,8 @@ export class CentrePromotionComponent implements OnInit {
   constructor(
     private http: HttpClient,
               private userService: CentreUserService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private toastr: ToastrService
   ) { 
     this.id = localStorage.getItem("myId");
   }
@@ -51,7 +52,7 @@ export class CentrePromotionComponent implements OnInit {
     this.userService.deletePromotion(promotion.id_promo).subscribe(
       res=>{
         
-        console.log(res);
+        this.toastr.show("promotion supprimé");
         
       },
       err =>{

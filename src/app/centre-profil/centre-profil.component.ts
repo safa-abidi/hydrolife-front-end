@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CentreUserService } from '../services/CentreUser.service';
-import { CentreUser } from '../models/CentreUser.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-centre-profil',
   templateUrl: './centre-profil.component.html',
@@ -25,9 +24,8 @@ export class CentreProfilComponent implements OnInit {
     this.userService.getOneUser(idUser).subscribe(
       (result)=>{
         
-        
         this.info = result;
-        console.log(this.info);
+
       },
       (error)=>{
         console.log(error);

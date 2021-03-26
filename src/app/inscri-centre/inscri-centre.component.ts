@@ -25,11 +25,11 @@ export class InscriCentreComponent implements OnInit {
       (response: CentreUser) => {
         this.Router.navigate(['']);
         console.log(response);
-        this.toastr.success('inscrit avec succée');
+        this.toastr.success('Votre centre est inscrit avec succée');
         form.reset();
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.toastr.error("Ce centre est deja inscrit");
       }
     );
   }

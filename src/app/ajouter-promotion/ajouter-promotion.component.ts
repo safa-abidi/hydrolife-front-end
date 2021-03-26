@@ -3,8 +3,6 @@ import { FormGroup, FormControl, FormBuilder, Validators, NgForm } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUserService } from '../services/CentreUser.service';
 import { Promotion } from '../models/Promotion.model';
-import { HttpErrorResponse } from '@angular/common/http';
-import { CentreUser } from '../models/CentreUser.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -81,12 +79,12 @@ export class AjouterPromotionComponent implements OnInit {
     this.userService.addPromotion(promotion).subscribe(
       res=>{
         
-        this.toastr.success(res.message);
+        this.toastr.success("promotion ajouté avec succès");
 
        this.router.navigate(['/CentrePromotion/'+ idUser]);
       },
       err=>{
-        console.log(err);
+        this.toastr.error("Promotion non ajouté");
       }
     );
     

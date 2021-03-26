@@ -4,6 +4,7 @@ import { CentreUserService } from '../services/CentreUser.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUser } from '../models/CentreUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +22,8 @@ export class HeaderComponent implements OnInit {
     private fb: FormBuilder,
     private userService:CentreUserService ,
     private route: ActivatedRoute,
-    private router:Router) { 
+    private router:Router,
+    private toastr: ToastrService) { 
       let formControls = {
         Email: new FormControl('',[
           Validators.required,
@@ -100,13 +102,16 @@ export class HeaderComponent implements OnInit {
   
   loggedin(){
     return localStorage.getItem("myToken");
+   
 
   }
 
   logOut(){
+    this.toastr.show("Déconnexion réussite à bientôt");
     this.router.navigate(['']);
     return localStorage.removeItem("myToken");
     return localStorage.removeItem("myId");
+    
     
   }
 

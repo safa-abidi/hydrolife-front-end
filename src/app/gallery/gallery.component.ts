@@ -3,6 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { ImageService } from '../services/Image.service'
 import { Image } from '../models/Image.model'
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
+import { Validators } from '@angular/forms';
+
+import { ToastrService } from 'ngx-toastr';
+import { FormBuilder}from '@angular/forms';
+import { Router } from '@angular/router';
+import { HttpResponse } from '@angular/common/http';
+import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-gallery',
@@ -11,13 +18,64 @@ import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 })
 export class GalleryComponent implements OnInit {
 
-  ngOnInit(): void {
+  dataForm!: FormBuilder;
 
+  public message: string = "";
+  userFile: any;
+
+  constructor(public crudApi: ImageService){}
+
+
+
+  ResetForm() {
+    this.crudApi.dataForm.reset();
+}
+onSubmit() {
+  
+    this.addData();
+    
+}
+
+  addData() {
+    const formData = new  FormData();
+    const article = this.crudApi.dataForm.value;
+    
+    formData.append('article',JSON.stringify(article));
+    formData.append('file',this.userFile);
+    this.crudApi.createData(formData).subscribe( data => {
+    
+     // this.router.navigate(['/articles']); 
+    });
   }
 
-  constructor(private httpClient: HttpClient) { }
+  onSelectFile(event: any) {
+    if (event.target.files.length > 0)
+    {
+      const file = event.target.files[0];
+      this.userFile = file;
+     // this.f['profile'].setValue(file);
+ 
+    var mimeType = event.target.files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = "Only images are supported.";
+      return;
+    }
 
-  selectedFile!: File;
+   
+      
+    }
+  }
+  ngOnInit(){
+    
+  }
+}
+ /* ngOnInit(): void {
+
+  }*/
+
+  //constructor(private httpClient: HttpClient) { }
+
+  /*selectedFile!: File;
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;
@@ -39,7 +97,9 @@ export class GalleryComponent implements OnInit {
     
     //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
     const uploadImageData = new FormData();
+    let photo = new Image("ddddd","ddddd");
     uploadImageData.append('imageFile', this.selectedFile , this.selectedFile.name);
+    this.updateServiceForm.append('', this.imageName);
     console.log(this.selectedFile.name);
     
   
@@ -71,9 +131,5 @@ export class GalleryComponent implements OnInit {
           this.base64Data = this.retrieveResonse.picByte;
           this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
         }
-      );*/
-  }
-
-}
-
-
+      );
+  }*/

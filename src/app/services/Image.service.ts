@@ -2,10 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Image } from '../models/Image.model';
+import { Observable } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 
 @Injectable({ providedIn: 'root' })
 export class ImageService {
+    public dataForm!:  FormGroup; 
 
     private apiServerUrl = environment.apiBaseUrl;
 
@@ -28,5 +31,9 @@ export class ImageService {
     deleteImage(id: string){
         return this.http.delete<any>(`${this.apiServerUrl}/api/photo//delete/${id}`)
     }
+
+      createData(formData: FormData): Observable<any> {
+        return this.http.post(`${this.apiServerUrl}`, formData);
+      }
     }
 

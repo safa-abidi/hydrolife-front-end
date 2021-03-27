@@ -84,6 +84,7 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['/DashBoard/'+id]);
       },
       (err: any)=>{
+        this.toastr.error("Mot de passe ou email erroné");
         console.log(err);
         
       }
@@ -108,7 +109,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     this.toastr.show("Déconnexion réussite à bientôt");
-    this.router.navigate(['']);
+    this.router.navigate(['/Home']);
     return localStorage.removeItem("myToken");
     return localStorage.removeItem("myId");
     

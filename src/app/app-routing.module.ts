@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 import { InscriCentreComponent} from './inscri-centre/inscri-centre.component';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
 import { CentreProfilComponent } from './centre-profil/centre-profil.component';
@@ -13,11 +14,13 @@ import { AjouterServiceComponent } from './ajouter-service/ajouter-service.compo
 import { UpdateServiceComponent } from './update-service/update-service.component';
 import { AjouterPromotionComponent } from './ajouter-promotion/ajouter-promotion.component';
 import { UpdatePromotionComponent } from './update-promotion/update-promotion.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
+  { path: 'Home', component: HomeComponent },
   { path: 'DashBoard/:id', component: DashboardComponent, canActivate:[AuthGuard] },
   { path: 'InscriCentre', component: InscriCentreComponent },
   { path: 'EspaceCentre', component: EspaceCentreComponent },
@@ -30,7 +33,20 @@ const routes: Routes = [
   { path: 'AjouterService/:id', component: AjouterServiceComponent , canActivate:[AuthGuard] },
   { path: 'UpdateService/:id_service', component: UpdateServiceComponent , canActivate:[AuthGuard] },
   { path: 'AjouterPromotion/:id', component: AjouterPromotionComponent , canActivate:[AuthGuard] },
-  { path: 'UpdatePromotion/:id_promo', component: UpdatePromotionComponent , canActivate:[AuthGuard] }
+  { path: 'UpdatePromotion/:id_promo', component: UpdatePromotionComponent , canActivate:[AuthGuard] },
+
+
+
+
+
+
+
+
+
+
+  { path: 'Not-Found', component: FourOhFourComponent },
+  { path: '**', redirectTo: '/Not-Found' }
+
   
 ];
 

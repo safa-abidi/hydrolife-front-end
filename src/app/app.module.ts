@@ -72,6 +72,8 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { GalleryComponent } from './gallery/gallery.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -95,7 +97,9 @@ import { GalleryComponent } from './gallery/gallery.component';
     UpdateServiceComponent,
     AjouterPromotionComponent,
     UpdatePromotionComponent,
-    GalleryComponent
+    GalleryComponent,
+    FourOhFourComponent,
+    HomeComponent
 
   ],
   imports: [

@@ -23,7 +23,7 @@ export class InscriCentreComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.centreUserService.addUser(form.value).subscribe(
       (response: CentreUser) => {
-        this.Router.navigate(['']);
+        this.Router.navigate(['/Home']);
         console.log(response);
         this.toastr.success('Votre centre est inscrit avec succée');
         form.reset();

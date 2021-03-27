@@ -1,17 +1,28 @@
+<form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+    <input type="hidden"  formControlName="id" id="id">
 
-  <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
-<div class="form-group">
-    <label>File Upload  </label>
-        <input type="file" accept="image/*" (change)="onSelectFile($event)">
+    <div class="form-group">
+      <label>Titre photo </label>
+      <input type="text" class="form-control" formControlName="titre_photo" id="titre_photo" name="titre_photo">
+    </div>
 
-</div>
-<div class="form-group">
-    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
-    <a class="btn btn-outline-success" routerLink="/articles"><i class="fa fa-plus-square"></i> Liste</a>
-  </div>
+    <div class="form-group">
+      <label>description photo  </label>
+      <input type="text" class="form-control" formControlName="description" id="description" name="description">
+    </div>
 
-</form>
 
+
+
+    <div class="form-group">
+        <label>File Upload  </label>
+            <input type="file" accept="image/*" (change)="onSelectFile($event)">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    </div>
+  </form>
+ 
 
 
 

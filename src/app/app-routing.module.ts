@@ -15,6 +15,9 @@ import { UpdateServiceComponent } from './update-service/update-service.componen
 import { AjouterPromotionComponent } from './ajouter-promotion/ajouter-promotion.component';
 import { UpdatePromotionComponent } from './update-promotion/update-promotion.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { GalleryComponent } from './gallery/gallery.component';
+
+
 
 
 import { AuthGuard } from './auth.guard';
@@ -34,6 +37,7 @@ const routes: Routes = [
   { path: 'UpdateService/:id_service', component: UpdateServiceComponent , canActivate:[AuthGuard] },
   { path: 'AjouterPromotion/:id', component: AjouterPromotionComponent , canActivate:[AuthGuard] },
   { path: 'UpdatePromotion/:id_promo', component: UpdatePromotionComponent , canActivate:[AuthGuard] },
+  { path: 'Gallery/:id', component: GalleryComponent , canActivate:[AuthGuard] },
 
 
 

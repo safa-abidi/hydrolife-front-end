@@ -6,8 +6,51 @@ import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 
 
+
+import { HttpRequest, HttpEvent} from '@angular/common/http';
+
+
+import { FormBuilder,  FormControl, ReactiveFormsModule,Validators } from '@angular/forms';
+
+
 @Injectable({ providedIn: 'root' })
 export class ImageService {
+
+
+
+  public dataForm!:  FormGroup; 
+
+
+  constructor(private http: HttpClient) { }
+ 
+  private apiServerUrl = environment.apiBaseUrl;
+
+
+ 
+  createData(formData: FormData): Observable<any> {
+    return this.http.post(`${this.apiServerUrl}/api/photo/add`, formData);
+  }
+  
+ 
+  deleteData(id: number): Observable<any> {
+   
+    return this.http.delete(`${this.apiServerUrl}/api/photo//delete/${id}`, { responseType: 'text' });
+  }
+
+
+  uploadFile(file: File): Observable<HttpEvent<{}>> {
+		const formdata: FormData = new FormData();
+		formdata.append('file', file);
+		const req = new HttpRequest('POST', '<Server URL of the file upload>', formdata, {
+			  reportProgress: true,
+			  responseType: 'text'
+		});
+	
+		return this.http.request(req);
+   }
+
+
+  /*
     public dataForm!:  FormGroup; 
 
     private apiServerUrl = environment.apiBaseUrl;
@@ -34,6 +77,6 @@ export class ImageService {
 
       createData(formData: FormData): Observable<any> {
         return this.http.post(`${this.apiServerUrl}`, formData);
-      }
+      }*/
     }
 

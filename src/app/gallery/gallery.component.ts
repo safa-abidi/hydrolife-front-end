@@ -5,9 +5,11 @@ import { Image } from '../models/Image.model'
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Validators } from '@angular/forms';
 
+
+;
 import { ToastrService } from 'ngx-toastr';
-import { FormBuilder}from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule }from '@angular/forms';
+
 import { HttpResponse } from '@angular/common/http';
 import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
 
@@ -23,18 +25,28 @@ export class GalleryComponent implements OnInit {
   public message: string = "";
   userFile: any;
 
-  constructor(public crudApi: ImageService){}
+  constructor(public crudApi: ImageService ,public fb: FormBuilder,public toastr: ToastrService,
+ 
+    
+    ) { }
 
+    get f() { return this.crudApi.dataForm.controls; }
 
-
-  ResetForm() {
-    this.crudApi.dataForm.reset();
-}
+    ResetForm() {
+      this.crudApi.dataForm.reset();
+  }
 onSubmit() {
   
     this.addData();
     
 }
+
+infoForm() {
+  this.crudApi.dataForm = this.fb.group({
+    titre_photo: ['', [Validators.required]],
+    description: ['', [Validators.required]]
+    });
+  }
 
   addData() {
     const formData = new  FormData();
@@ -43,6 +55,8 @@ onSubmit() {
     formData.append('article',JSON.stringify(article));
     formData.append('file',this.userFile);
     this.crudApi.createData(formData).subscribe( data => {
+      console.log("add data tab3ath");
+      
     
      // this.router.navigate(['/articles']); 
     });

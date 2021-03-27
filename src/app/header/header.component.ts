@@ -108,7 +108,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut(){
-    this.toastr.show("Déconnexion réussite à bientôt");
+    this.toastr.success("Déconnexion réussite à bientôt");
     this.router.navigate(['/Home']);
     return localStorage.removeItem("myToken");
     return localStorage.removeItem("myId");

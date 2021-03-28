@@ -71,7 +71,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
-import { GalleryComponent } from './gallery/gallery.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { HomeComponent } from './home/home.component';
 import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.component';
@@ -98,7 +97,6 @@ import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.co
     UpdateServiceComponent,
     AjouterPromotionComponent,
     UpdatePromotionComponent,
-    GalleryComponent,
     FourOhFourComponent,
     HomeComponent,
     AjouterGallerieComponent

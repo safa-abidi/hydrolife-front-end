@@ -36,7 +36,6 @@
     opacity: 1;
     right: 0;
   }
-
   
   .buttonMod {
     border-radius: 4px;
@@ -78,7 +77,6 @@
     right: 0;
   }
 
-
   .buttonSup {
     border-radius: 4px;
     background-color: #1f5473;
@@ -118,3 +116,40 @@
     opacity: 1;
     right: 0;
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+	font-family: 'Roboto', sans-serif; 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container	{
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	margin: 0 auto;
+	max-width: 1170px;
+	padding: 20px;
+}
+
+.polaroid {
+	background: #ffffff;
+	padding: 15px 15px 40px;
+}
+
+.photo {
+	height: 400px;
+	margin-bottom: 10px;
+	object-fit: cover;
+	width: 100%;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+p {
+	font-size: 0.8rem;
+}

@@ -1,27 +1,75 @@
+<app-dash-nav></app-dash-nav>
+<div class="container">
+  <button class="button my-5" routerLink="/AjouterGallerie/{{ idCentre }}"><span>Nouvelle photo </span></button>
+</div>
+<div class="container">
+  <div *ngIf="crudApi.listData?.length == 0" class="alert alert-warning p-4">Vous n'avez aucune photo </div>
+	<div class="polaroid" *ngFor="let item of crudApi.listData ">
+		<img class="photo"   src = "{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}" alt="">		
+		<div class="capition">
+			<h2>{{item.titre_photo}}</h2>
+			<p>{{item.description}}.</p>
+          <button class="buttonSup" (click) = "removeData(item.id_photo)" >Supprimer <span> <i class="fa fa-trash fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+		</div>		
+	</div>	
+  
+</div>
+<div class="container">
+<button  *ngIf="crudApi.listData?.length > 3" class="button my-5" routerLink="/AjouterGallerie/{{ idCentre }}"><span>Nouvelle photo </span></button>
+</div>
 
- <div class="pricing-header mx-auto">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--<div class="pricing-header mx-auto">
    <div class="table-responsive">
     <table class="table table-bordered table-responsive-sm table-responsive-md
    table-responsive-lg">
-    <thead>
-    <tr>
-    <th scope="col">titre</th>
-    <th scope="col">des </th>
-    <th scope="col">Image </th>
-    <th>
-        <a class="btn btn-outline-success"><i class="fa fa-plus-square"></i> Create New</a>
-    </th>
-    </tr>
-    </thead>
+
     <tbody>
 
 
-    <tr *ngFor="let item of crudApi.listData ">
+    <tr >
     <th class ="hidden"></th>
     <td>{{item.titre_photo}}</td>
     <td>{{item.description}}</td>
     <td><img class="card-img-top img-responsive"
-      src = "{{this.crudApi.host+'/api/photo/all'}}" 
+      src = "{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}"
       style = "height :200px;width:fil-content"></td>
    
     <td><button class="btn btn-warning btn btn-outline-dark ml-1"  (click) = "selectData(item)">
@@ -32,4 +80,4 @@
          </tbody>
          </table>
          </div>
-       </div>
+       </div>-->

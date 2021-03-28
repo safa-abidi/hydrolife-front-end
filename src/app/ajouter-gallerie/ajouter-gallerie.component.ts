@@ -30,8 +30,11 @@ export class AjouterGallerieComponent implements OnInit {
 
 
      }
-     this.addPhoto = this.fb.group(formControls)
+     this.addPhoto = this.fb.group(formControls);
+
     }
+    get titre_photo() { return this. addPhoto.get('titre_photo') }
+    get description() { return this. addPhoto.get('description') }
 
     ResetForm() {
       this.crudApi.dataForm.reset();
@@ -56,9 +59,14 @@ onSubmit() {
       this.toastr.success("Photo ajouté avec succès");
 
       this.router.navigate(['/CentreGallerie/'+ idUser]);
-      
+    },
+    err => {
+      this.toastr.error("Photo non ajouté réessayer");
 
-    });
+      this.router.navigate(['/CentreGallerie/'+ idUser]);
+    }
+    
+    );
   }
   public documentFile: any= File;
 
@@ -67,7 +75,10 @@ onSubmit() {
     const file=event.target.files[0];
   this.documentFile=file;
   }
+
+  id = localStorage.getItem("myId");
   ngOnInit(){
+  
     
   }
 

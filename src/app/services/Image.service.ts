@@ -31,11 +31,17 @@ export class ImageService {
     let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
     return this.http.get(`${this.apiServerUrl}/api/photo/all`, {headers: header});
   }
+
+  getByCentreId(idCentre: string){  
+   
+    let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+    return this.http.get(`${this.apiServerUrl}/api/photo/findbycentre/${idCentre}`, {headers: header});
+  }
   
  
   deleteData(id: number): Observable<any> {
    
-    return this.http.delete(`${this.apiServerUrl}/api/photo//delete/${id}`, { responseType: 'text' });
+    return this.http.delete(`${this.apiServerUrl}/api/photo/delete/${id}`, { responseType: 'text' });
   }
 
 }

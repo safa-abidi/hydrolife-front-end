@@ -6,21 +6,18 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl }from '@angular/forms';
 
 @Component({
-  selector: 'app-gallery',
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss']
+  selector: 'app-ajouter-gallerie',
+  templateUrl: './ajouter-gallerie.component.html',
+  styleUrls: ['./ajouter-gallerie.component.scss']
 })
-export class GalleryComponent implements OnInit {
-
+export class AjouterGallerieComponent implements OnInit {
 
   addPhoto: FormGroup
 
   public message: string = "";
   userFile: any;
 
-  idUser: number | undefined;
-
-  constructor(public crudApi: ImageService ,public fb: FormBuilder, private router : Router, public toastr: ToastrService,
+  constructor(public crudApi: ImageService ,private router : Router,  public fb: FormBuilder,public toastr: ToastrService,
  
     
     ) {let formControls = {
@@ -35,7 +32,6 @@ export class GalleryComponent implements OnInit {
      }
      this.addPhoto = this.fb.group(formControls)
     }
-
 
     ResetForm() {
       this.crudApi.dataForm.reset();
@@ -52,13 +48,15 @@ onSubmit() {
     console.log(photo);
     let idUser = localStorage.getItem("myId");
     
+    
     formData.append('photo',JSON.stringify(photo));
     formData.append('file',this.documentFile);
     this.crudApi.createData(formData).subscribe( data => {
-      
+
       this.toastr.success("Photo ajouté avec succès");
 
-      this.router.navigate(['/Gallery/'+ idUser]);
+      this.router.navigate(['/CentreGallerie/'+ idUser]);
+      
 
     });
   }
@@ -72,4 +70,5 @@ onSubmit() {
   ngOnInit(){
     
   }
+
 }

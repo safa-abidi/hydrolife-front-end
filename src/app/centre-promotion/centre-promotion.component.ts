@@ -27,8 +27,6 @@ export class CentrePromotionComponent implements OnInit {
   ngOnInit(): void {
 
     let idUser = this.route.snapshot.params.id;
-    console.log(idUser);
-    
     
      
     this.userService.getAllPromotionsOfCenter(idUser).subscribe(

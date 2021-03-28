@@ -1,2 +1,35 @@
-<app-dash-nav></app-dash-nav>
-<p>centre-gallerie works!</p>
+
+ <div class="pricing-header mx-auto">
+   <div class="table-responsive">
+    <table class="table table-bordered table-responsive-sm table-responsive-md
+   table-responsive-lg">
+    <thead>
+    <tr>
+    <th scope="col">titre</th>
+    <th scope="col">des </th>
+    <th scope="col">Image </th>
+    <th>
+        <a class="btn btn-outline-success"><i class="fa fa-plus-square"></i> Create New</a>
+    </th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr *ngFor="let item of crudApi.listData ">
+    <th class ="hidden"></th>
+    <td>{{item.titre_photo}}</td>
+    <td>{{item.description}}</td>
+    <td><img class="card-img-top img-responsive"
+      src = "{{this.crudApi.host+'/api/photo/all'}}" 
+      style = "height :200px;width:fil-content"></td>
+   
+    <td><button class="btn btn-warning btn btn-outline-dark ml-1"  (click) = "selectData(item)">
+      <i class="fa fa-pencil-square-o" ></i></button></td>
+   <td><button class="btn btn-danger btn btn-outline-dark ml-1" (click) = "removeData(item.id)">
+      <i class="fa fa-trash-o"></i></button></td>
+       </tr>
+         </tbody>
+         </table>
+         </div>
+       </div>

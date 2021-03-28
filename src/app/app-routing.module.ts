@@ -16,6 +16,7 @@ import { AjouterPromotionComponent } from './ajouter-promotion/ajouter-promotion
 import { UpdatePromotionComponent } from './update-promotion/update-promotion.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.component';
 
 
 
@@ -31,13 +32,14 @@ const routes: Routes = [
   { path: 'CentrePromotion/:id', component: CentrePromotionComponent, canActivate:[AuthGuard] },
   { path: 'CentreReservation', component: CentreReservationComponent, canActivate:[AuthGuard] },
   { path: 'CentreService/:id', component: CentreServiceComponent, canActivate:[AuthGuard] },
-  { path: 'CentreGallerie', component: CentreGallerieComponent, canActivate:[AuthGuard] },
+  { path: 'CentreGallerie/:id', component: CentreGallerieComponent, canActivate:[AuthGuard] },
   { path: 'UpdateCentreProfil/:id', component: UpdateCentreProfilComponent , canActivate:[AuthGuard] },
   { path: 'AjouterService/:id', component: AjouterServiceComponent , canActivate:[AuthGuard] },
   { path: 'UpdateService/:id_service', component: UpdateServiceComponent , canActivate:[AuthGuard] },
   { path: 'AjouterPromotion/:id', component: AjouterPromotionComponent , canActivate:[AuthGuard] },
   { path: 'UpdatePromotion/:id_promo', component: UpdatePromotionComponent , canActivate:[AuthGuard] },
   { path: 'Gallery/:id', component: GalleryComponent , canActivate:[AuthGuard] },
+  { path: 'AjouterGallerie/:id', component: AjouterGallerieComponent , canActivate:[AuthGuard] },
 
 
 

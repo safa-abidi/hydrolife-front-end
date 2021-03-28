@@ -74,6 +74,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { GalleryComponent } from './gallery/gallery.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { HomeComponent } from './home/home.component';
+import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.component';
 
 
 
@@ -99,7 +100,8 @@ import { HomeComponent } from './home/home.component';
     UpdatePromotionComponent,
     GalleryComponent,
     FourOhFourComponent,
-    HomeComponent
+    HomeComponent,
+    AjouterGallerieComponent
 
   ],
   imports: [

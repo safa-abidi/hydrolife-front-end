@@ -7,6 +7,7 @@ export class CentreUser {
     public email?: string,
     public password?: string,
     public tel?: number,
-    public description?: string
+    public description?: string,
+    //public profilePic?: string
   ) {}
 }

@@ -5,6 +5,8 @@ import { Services } from '../models/Service.model';
 import { ServiceUpdate } from '../models/ServiceUpdate.model';
 import { environment } from 'src/environments/environment';
 import { Promotion } from '../models/Promotion.model';
+import { Observable } from 'rxjs';
+import { CentreUserUpdate } from '../models/CentreUserUpdate.model';
 
 
 @Injectable({ providedIn: 'root' })
@@ -33,12 +35,18 @@ export class CentreUserService {
     return this.http.delete<any>(`${this.apiServerUrl}/api/centre/delete/${id}`)
   }
 
+  createData(formData: FormData): Observable<any> {
+    let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+    return this.http.post(`${this.apiServerUrl}/api/centre/add`, formData, {headers: header});
+  }
+
   addUser(user: CentreUser) {
     return this.http.post<any>( `${this.apiServerUrl}/api/centre/add`, user);
   }
 
-  updateUser(user:CentreUser){
-    return this.http.put<any>( `${this.apiServerUrl}/api/centre/update`, user);
+  updateUser(user:CentreUserUpdate){
+    let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+    return this.http.put<any>( `${this.apiServerUrl}/api/centre/update`, user, {headers: header});
   }
 
 

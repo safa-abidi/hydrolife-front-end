@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUserService } from '../services/CentreUser.service';
-import { CentreUser } from '../models/CentreUser.model';
+import { CentreUserUpdate } from '../models/CentreUserUpdate.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -90,7 +90,7 @@ export class UpdateCentreProfilComponent implements OnInit {
   updateUser() {
     let data = this.updateUserForm.value;
     let idUser = this.route.snapshot.params.id;
-    let user = new CentreUser(
+    let user = new CentreUserUpdate(
       idUser,
       data.nom,
       data.adresse,

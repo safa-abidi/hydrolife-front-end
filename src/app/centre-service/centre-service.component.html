@@ -4,14 +4,18 @@
     <button class="button my-5" routerLink="/AjouterService/{{ id }}"><span>Nouveau service </span></button>
 
   <div *ngIf="info?.length == 0" class="alert alert-warning">Vous n'avez aucun service </div>
-  <div class="card mb-3" *ngFor="let service of info; let i = index">
+  <div class="card mb-3" *ngFor="let service of info;">
     <div class="row no-gutters">
       <div class="col">
         <div class="card-body">
-          <h5 class="card-title"> {{ service?.libelle_service }} </h5>
-          <p class="card-text">{{ service?.description_service }}</p>
+          <div class="row">
+          <h2 class="ml-2"> Titre du service :</h2>
+          <h3 class="card-title mt-1 ml-1">  {{ service?.libelle_service }} </h3>
+          </div>
+            <h4 class="card-text "> {{ service?.description_service }} </h4>
+          <p class="card-text"></p>
           <p class="card-text">
-          <p>{{ service?.prix_service }} TND / personne</p>
+          <p>Prix : {{ service?.prix_service }} TND / personne</p>
 
         </div>
       </div>

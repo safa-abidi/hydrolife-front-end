@@ -41,7 +41,7 @@ export class CentreGallerieComponent implements OnInit {
   } 
 
   removeData(id: number) {
-    if (window.confirm('Etes-vous sur de vouloire suprimée cette photo ?')) {
+   
     this.crudApi.deleteData(id)
       .subscribe(
         data => {
@@ -50,6 +50,8 @@ export class CentreGallerieComponent implements OnInit {
         },
         error => console.log(error));
   }
+
+  
   }
 
-}
+

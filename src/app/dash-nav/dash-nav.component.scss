@@ -5,6 +5,9 @@ div a {
     font-weight: 500;
     
   }
+  div a:hover{
+    text-decoration: none;
+}
 div li {
     list-style: none;
 }
@@ -15,6 +18,10 @@ div li {
     border-bottom: none;
   }
 
+  .all{
+    margin-left: 100px;
+  }
+
   /*------------------------------------------------------RESPONSIVE SECTION------------------------------------------------------------------------*/
   @media screen and (max-width: 600px) {
     div a {
@@ -23,6 +30,9 @@ div li {
         font-weight: 500;
         
       }
+      .all{
+        margin-left: 0px;
+      }
     }
   @media screen and (min-width: 601px) and (max-width: 1200px) {
     div a {
@@ -30,6 +40,9 @@ div li {
         font-size:medium;
         font-weight: 500;
         
+      }
+      .all{
+        margin-left: 0px;
       }
 
   }

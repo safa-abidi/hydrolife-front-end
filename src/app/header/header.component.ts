@@ -81,7 +81,7 @@ export class HeaderComponent implements OnInit {
         localStorage.setItem("myId",this.info.id)
         let id = localStorage.getItem("myId")
         
-        this.router.navigate(['/DashBoard/'+id]);
+        this.router.navigate(['/CentreProfil/'+id]);
       },
       (err: any)=>{
         this.toastr.error("Mot de passe ou email erroné");

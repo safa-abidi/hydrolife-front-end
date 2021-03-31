@@ -4,7 +4,6 @@ import { HomeComponent } from './home/home.component';
 import { InscriCentreComponent} from './inscri-centre/inscri-centre.component';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
 import { CentreProfilComponent } from './centre-profil/centre-profil.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { CentrePromotionComponent } from './centre-promotion/centre-promotion.component';
 import { CentreReservationComponent } from './centre-reservation/centre-reservation.component';
 import { CentreServiceComponent } from './centre-service/centre-service.component';
@@ -24,7 +23,6 @@ import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
-  { path: 'DashBoard/:id', component: DashboardComponent, canActivate:[AuthGuard] },
   { path: 'InscriCentre', component: InscriCentreComponent },
   { path: 'EspaceCentre', component: EspaceCentreComponent },
   { path: 'CentreProfil/:id', component: CentreProfilComponent, canActivate:[AuthGuard] },

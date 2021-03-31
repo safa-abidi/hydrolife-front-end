@@ -10,6 +10,15 @@ export class FourOhFourComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    
   }
+
+  loggedin(){
+    return localStorage.getItem("myToken");
+   
+
+  }
+
 
 }

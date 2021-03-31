@@ -16,7 +16,6 @@ import { CentreUserService } from './services/CentreUser.service';
 import { ImageService } from './services/Image.service';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
 import { CentreProfilComponent } from './centre-profil/centre-profil.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { CentreServiceComponent } from './centre-service/centre-service.component';
 import { CentrePromotionComponent } from './centre-promotion/centre-promotion.component';
 import { CentreReservationComponent } from './centre-reservation/centre-reservation.component';
@@ -86,7 +85,6 @@ import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.co
     FooterComponent,
     EspaceCentreComponent,
     CentreProfilComponent,
-    DashboardComponent,
     CentreServiceComponent,
     CentrePromotionComponent,
     CentreReservationComponent,

@@ -76,6 +76,9 @@ import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.co
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @NgModule({
   declarations: [
@@ -156,6 +159,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     PortalModule,
     ScrollingModule,
     IvyCarouselModule,
+    NgbModule
   ],
   providers: [
     CentreUserService,

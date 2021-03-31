@@ -16,7 +16,7 @@
 
 <body>
 
-  <nav class="navbar sticky-top navbar-expand-lg bg-light">
+  <nav class="navbar sticky-top navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" *ngIf='!loggedin()' routerLink=""><img src="assets/logo.png" alt="logo"></a>
       <a class="navbar-brand" *ngIf='loggedin()' ><img src="assets/logo.png" alt="logo"></a>
@@ -28,14 +28,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto w-100 justify-content-end">
           <li class="nav-item" *ngIf="!loggedin()">
-            <a class="nav-link" style="color: #1F5473;" routerLink=""> Acceuil <span
+            <a routerLinkActive="active-link" class="nav-link"  routerLink="Home"> Acceuil <span
                 class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item" *ngIf="!loggedin()">
-            <a class="nav-link" style="color: #1F5473;" routerLink="EspaceCentre">Espace centre</a>
+            <a routerLinkActive="active-link" class="nav-link"  routerLink="EspaceCentre">Espace centre</a>
           </li>
           <li class="nav-item" *ngIf="!loggedin()">
-            <a class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>
+            <a routerLinkActive="active-link" class="nav-link"  routerLink="#">Les centres</a>
+          </li>
+          <li class="nav-item" *ngIf="!loggedin()">
+            <a  class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>
           </li>
 
           <li class="nav-item" *ngIf="loggedin()">

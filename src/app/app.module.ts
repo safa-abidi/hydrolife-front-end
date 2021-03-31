@@ -73,6 +73,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { HomeComponent } from './home/home.component';
 import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 
 
@@ -154,6 +155,7 @@ import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.co
     OverlayModule,
     PortalModule,
     ScrollingModule,
+    IvyCarouselModule,
   ],
   providers: [
     CentreUserService,

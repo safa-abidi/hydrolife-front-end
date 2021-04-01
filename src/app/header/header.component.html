@@ -16,7 +16,7 @@
 
 <body>
 
-  <nav class="navbar sticky-top navbar-expand-lg">
+  <nav class="navbar sticky-top navbar-expand-lg bg-light ">
     <div class="container">
       <a class="navbar-brand" *ngIf='!loggedin()' routerLink=""><img src="assets/logo.png" alt="logo"></a>
       <a class="navbar-brand" *ngIf='loggedin()' ><img src="assets/logo.png" alt="logo"></a>
@@ -85,7 +85,7 @@
 
       <div class="modal-footer">
         <button type="submit" [disabled]="loginForm.invalid" (click)="modal.close('Save click')"
-          class="btn text-white m-2" style="background-color: #d88c8a">Connexion</button>
+          class=" btn text-white m-2" style="background-color: #d88c8a; border-radius: 100px;">Connexion</button>
       </div>
     </form>
   </div>

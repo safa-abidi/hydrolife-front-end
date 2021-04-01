@@ -1,5 +1,5 @@
 
-<h2 class="text-center m-5" style="color: #d88c8a">Ajoutez a votre gallerie</h2>
+<h1 class="text-center m-5" style="color: #d88c8a">Ajoutez a votre gallerie</h1>
 <div class="container text-center mb-5">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
@@ -30,7 +30,7 @@
         </div>
         <input type="file" accept="image/*" placeholder="Cliquez ici" (change)="onSelectFile($event)">
         <div class="form-group">
-          <button type="submit" [disabled]="f.invalid" class="btn text-white m-1" style="background-color: #d88c8a"> <i
+          <button type="submit" [disabled]="f.invalid" class="btn text-white m-1" style="background-color: #d88c8a; border-radius: 30px;"> <i
               class="fa fa-database fa-lg fa-fw" aria-hidden="true"></i>Enregistrer</button>
           <button class="btn m-1" style="color: #1f5473" routerLink="/CentreGallerie/{{ id }}">Annuler</button>
         </div>

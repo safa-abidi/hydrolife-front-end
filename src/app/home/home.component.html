@@ -1,38 +1,6 @@
 
-   <!--   <carousel  class="carou"
-      [objectFit]="'cover'"
-      [cellWidth]= "'100%'"
-      [arrowsOutside]="true"
-      [autoplay]="true"
-      [loop]="true"
-      [cellsToShow]="1">
-        <div class="carousel-cell" style="box-sizing: 500px;">
-            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
-        </div>
-        <div class="carousel-cell">
-            <img 
-            src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
-        </div>
-        <div class="carousel-cell">
-            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
-        </div>
-    </carousel>-->
-
-  <!--  <ngb-carousel #carousel [interval]="10000" 
-    [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
-        <ng-template ngbSlide *ngFor="let img of images; index as i">
-          <div class="carousel-caption ">
-            <h3>My slide {{i + 1}} title</h3>
-          </div>
-      
-            <div class="picsum-img-wrapper">
-              <img style="width: 100%;" [src]="img" alt="My image {{i + 1}} description">
-            </div>
-
-        </ng-template>
-      </ngb-carousel>-->
-     
-      <ngb-carousel #ngcarousel >
+     <div class="row">
+      <ngb-carousel #ngcarousel class="">
        
         <ng-template ngbSlide id="one">
           <div class="picsum-img-wrapper">
@@ -49,11 +17,18 @@
             <img src="assets/carousel 3.png" alt="Slide 3">
           </div>
         </ng-template>
-        
       </ngb-carousel>
-  
-      <form onsubmit="event.preventDefault();" role="search">
-        <label for="search">Search for stuff</label>
-        <input id="search" type="search" placeholder="Search..." autofocus required />
-        <button type="submit">Go</button>    
-      </form>
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="search_wrap search_wrap_3">
+        <div class="search_box">
+          <input type="text" class="input" placeholder="search...">
+          <div class="btn btn_common">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

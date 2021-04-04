@@ -1,7 +1,7 @@
 
 
 ngb-carousel img {
-   width: 100%;
+   	width: 100%;
     outline: none;
 }
 
@@ -48,7 +48,7 @@ ngb-carousel {
 }
 
 .search_wrap{
-	width: 500px;
+	width: 800px;
 	margin: 38px auto;
 }
 
@@ -58,26 +58,39 @@ ngb-carousel {
 	height: 60px;
 }
 
+input[type="text"]
+{
+    
+    
+}
+
 .search_wrap .search_box .input{
 	position: absolute;
-	top: 0;
+	top: -110px;
 	left: 0;
-	width: 120%;
-//	height: 50%;
+	width: 145%;
+	height: 120%;
 	padding: 10px 20px;
 	border-radius: 3px;
 	font-size: 18px;
+	background: transparent;
+	border: 1px solid #d88c8a;
 }
 
 .search_wrap .search_box .btn{
 	position: absolute;
 //	top: 0px;
 //	right: 1000px;
-	width: 50px;
-	height: 80%;
-	background: #d88c8a;
+	width: 70px;
+	height: 110%;
+//	background: #d88c8a;
 	z-index: 1;
 	cursor: pointer;
+}
+
+.btn_common{
+	left:650px; 
+	bottom: 102px;
 }
 
 
@@ -107,6 +120,7 @@ ngb-carousel {
 .search-sec{
     padding: 2rem;
 }
+
 .search-slt{
     display: block;
     width: 100%;
@@ -116,9 +130,13 @@ ngb-carousel {
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
-    height: calc(3rem + 2px) !important;
+  //  height: calc(3rem + 2px) !important;
     border-radius:0;
 }
+
+/*-------------------------------------------------------------RESPONSIVE PART----------------------------------------------------------------*/
+
+
 @media (min-width: 992px){
     .search-sec{
         position: relative;
@@ -126,10 +144,7 @@ ngb-carousel {
        
     }
 }
-.btn_common{
-	left:547px; 
-	bottom: 11px;
-}
+
 
 @media (max-width: 600px){
     .search-sec{

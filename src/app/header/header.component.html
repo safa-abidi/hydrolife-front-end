@@ -16,9 +16,9 @@
 
 <body>
 
-  <nav class="navbar sticky-top navbar-expand-lg" style="background-color: black;">
+  <nav class="navbar fixed-top navbar-expand-lg bg-light">
     <div class="container">
-      <a class="navbar-brand" *ngIf='!loggedin()' routerLink=""><img src="assets/logo.png" alt="logo"></a>
+      <a class="navbar-brand" *ngIf='!loggedin()' routerLink="Home"><img src="assets/logo.png" alt="logo"></a>
       <a class="navbar-brand" *ngIf='loggedin()' ><img src="assets/logo.png" alt="logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

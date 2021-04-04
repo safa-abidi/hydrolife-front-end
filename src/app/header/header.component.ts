@@ -6,6 +6,8 @@ import { CentreUser } from '../models/CentreUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -133,5 +135,6 @@ export class HeaderComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+  
 }
 

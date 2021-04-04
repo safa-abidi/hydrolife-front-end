@@ -48,7 +48,7 @@ ngb-carousel {
 }
 
 .search_wrap{
-	width: 800px;
+//	width: 800px;
 	margin: 38px auto;
 }
 
@@ -56,12 +56,6 @@ ngb-carousel {
 	position: relative;
 	width: 500px;
 	height: 60px;
-}
-
-input[type="text"]
-{
-    
-    
 }
 
 .search_wrap .search_box .input{
@@ -116,7 +110,6 @@ input[type="text"]
 	border-radius: 50%;
 }
 
-
 .search-sec{
     padding: 2rem;
 }
@@ -134,22 +127,10 @@ input[type="text"]
     border-radius:0;
 }
 
-/*-------------------------------------------------------------RESPONSIVE PART----------------------------------------------------------------*/
-
-
-@media (min-width: 992px){
-    .search-sec{
-        position: relative;
-        top: -700px;
-       
-    }
-}
-
-
 @media (max-width: 600px){
-    .search-sec{
+  /*  .search-sec{
 		
-    }
+    }*/
 	.btn_common{
 		left:5px; 
 		bottom: 11px;
@@ -158,3 +139,167 @@ input[type="text"]
 }
   
 
+.form-control.ng-invalid.ng-dirty.ng-touched {
+    border: 2px solid red;
+  }
+  
+  input[type="Email"] {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+  
+  input[type="password"] {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+  
+  input[type="Email"]:focus {
+    border-color: #1f5473;
+    box-shadow: 0 0 8px 0 #1f5473;
+  }
+  
+  
+  .inputWithIcon input[type="Email"] {
+    padding-left: 50px;
+  }
+  
+  input[type="password"]:focus {
+    border-color: #1f5473;
+    box-shadow: 0 0 8px 0 #1f5473;
+  }
+  
+  
+  .inputWithIcon input[type="password"] {
+    padding-left: 40px;
+  }
+  .inputWithIcon {
+    position: relative;
+  }
+  
+  .inputWithIcon i {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: 0.3s;
+  }
+  
+  .inputWithIcon input[type="Email"]:focus + i {
+    color: #1f5473;
+  }
+  .inputWithIcon input[type="password"]:focus + i {
+    color: #1f5473;
+  }
+  
+  .resStyle {
+    margin-left: 280px;
+    margin-right: -150px;
+  }
+
+  div a {
+
+    color: white;
+    font-size: large; 
+  }
+  
+  div a:hover{
+    text-decoration: none;
+}
+div li {
+    list-style: none;
+}
+ a.active-link {
+    border-bottom: 2px solid #d88c8a;
+  }
+  a {
+    border-bottom: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .resStyle {
+      margin: 0;
+    }
+  }
+  
+  .header_change{
+ 
+	  background-color: lightgray;
+  }
+  .header_change div a {
+       
+    color: #1F5473;
+    font-size: large; 
+  }
+
+#wrap {
+  margin-left: 60px;
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  padding: 0;
+  position: relative;
+}
+
+input[type="text"] {
+  height: 60px;
+  font-size: 1.2rem;
+  display: inline-block;
+  border: none;
+  outline: none;
+  color: #1F5473;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  cursor: pointer;
+}
+
+input[type="text"]:focus:hover {
+  border-bottom: 1px solid #BBB;
+}
+
+input[type="text"]:focus {
+  width: 300px;
+  z-index: 1;
+  border-bottom: 1px solid #BBB;
+  cursor: text;
+}
+.search {
+  height: 50%;
+ // width: auto;
+  display: inline-block;
+  //text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  z-index: 2;
+  cursor: pointer;
+  transition: opacity .4s ease;
+}
+
+@media (min-width: 992px){
+  .search-sec{
+      position: relative;
+      top: -700px;
+     
+  }
+}

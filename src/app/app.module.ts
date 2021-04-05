@@ -74,9 +74,8 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { HomeComponent } from './home/home.component';
 import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
-
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LesCentresComponent } from './les-centres/les-centres.component';
 
 
 
@@ -101,7 +100,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UpdatePromotionComponent,
     FourOhFourComponent,
     HomeComponent,
-    AjouterGallerieComponent
+    AjouterGallerieComponent,
+    LesCentresComponent
 
   ],
   imports: [

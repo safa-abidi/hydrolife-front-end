@@ -59,20 +59,21 @@ ngb-carousel {
 }
 
 .search_wrap .search_box .input{
-	position: absolute;
-	top: -110px;
-	left: 0;
-	width: 145%;
-	height: 120%;
+//	position: absolute;
+	top: -40px;
+	left: 50px;
+	width: 55%;
+	height: 60%;
 	padding: 10px 20px;
 	border-radius: 3px;
 	font-size: 18px;
+//  background-color: whitesmoke;
 	background: transparent;
-	border: 1px solid #d88c8a;
+	border: 2px solid #d88c8a;
 }
 
 .search_wrap .search_box .btn{
-	position: absolute;
+//	position: absolute;
 //	top: 0px;
 //	right: 1000px;
 	width: 70px;
@@ -83,15 +84,15 @@ ngb-carousel {
 }
 
 .btn_common{
-	left:650px; 
+	left: 650px; 
 	bottom: 102px;
 }
 
 
 .search_wrap .search_box .btn.btn_common .fas{
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	top: -25%;
+	left: 60%;
 	transform: translate(-50%,-50%);
 	color: #fff;
 	font-size: 20px;
@@ -132,10 +133,12 @@ ngb-carousel {
 		
     }*/
 	.btn_common{
-		left:5px; 
+		left: 5px; 
 		bottom: 11px;
 	}
-	
+	.searchbar{
+    display: none;
+  }
 }
   
 
@@ -235,8 +238,9 @@ div li {
   }
   
   .header_change{
+    display: none;
  
-	  background-color: lightgray;
+	//  background-color: lightgray;
   }
   .header_change div a {
        
@@ -302,4 +306,44 @@ input[type="text"]:focus {
       top: -700px;
      
   }
+}
+
+.welcText{
+  font-size: 40px;
+  margin-top: 150px;
+  margin-left: 25px;
+  position:absolute;
+  clear: both;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.welcPara{
+  line-height: 1.6;
+  font-size: 15px;
+  top: 400px;
+  margin-left: 25px;
+  position:absolute;
+  clear: both;
+
+}
+
+.sec2Text{
+  font-size: 40px;
+  margin-top: 80px;
+  margin-left: -150px;
+  position:absolute;
+  clear: both;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.sec2Para{
+  line-height: 1.6;
+  font-size: 18px;
+  top: 350px;
+  margin-left: -150px;
+  position:absolute;
+ // clear: both;
+
 }

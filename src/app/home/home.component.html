@@ -1,4 +1,3 @@
-   
 <head>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -13,43 +12,56 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
-  <nav [class.header_change]="header_var"  class="navbar fixed-top navbar-expand-lg">
-    <div  class="container">
-      <a class="navbar-brand" *ngIf='!loggedin()' routerLink="Home"><img  src="assets/logo.png" alt="logo"></a>
-      <a  *ngIf='loggedin()' ><img  src="assets/logo.png" alt="logo"></a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent " class="mt-4">
-        <ul class="navbar-nav mr-auto w-100 justify-content-end">
-          <li class="nav-item" *ngIf="header_var">
+<nav [class.header_change]="header_var" class="navbar fixed-top navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" *ngIf='!loggedin()' style="margin-bottom: 60px;" routerLink="/Home"><img
+        src="assets/logo.png" alt="logo"></a>
+    <a class="navbar-brand" *ngIf='loggedin()'><img src="assets/logo.png" alt="logo"></a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent " class="mt-4">
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item" *ngIf="header_var">
             <div id="wrap">
               <form action="" autocomplete="on">
               <input id="search" name="search" type="text" placeholder="Que cherchez vous ?">
               <img src="assets/search.png" id="search_submit" class="search">
               </form>
             </div>
-          </li>
-          <li class="nav-item" *ngIf="!loggedin()">
-            <a  class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>
-          </li>
-          <li class="nav-item" *ngIf="!loggedin()">
-            <a routerLinkActive="active-link" class="nav-link"  routerLink="/Home"> Acceuil <span
-                class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item" *ngIf="!loggedin()">
-            <a routerLinkActive="active-link" class="nav-link"  routerLink="/EspaceCentre">Espace centre</a>
-          </li>
-          <li class="nav-item" *ngIf="!loggedin()">
-            <a routerLinkActive="active-link" class="nav-link"  routerLink="#">Les centres</a>
-          </li>
-    
-          <li class="nav-item" *ngIf="loggedin()">
-            <a class="nav-link" class="btn" style="color: #1F5473; border-color: #1F5473;" routerLink="EspaceCentre"
-              (click)="logOut()">
-              <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>
-              Logout</a>
-        </ul>
-      </div>
+          </li>-->
+        <li class="nav-item searchbar">
+          <div>
+            <div class="search_wrap search_wrap_3">
+              <div class="search_box">
+                <input type="text" class="input search-slt" placeholder="Que cherchez vous ? ">
+                <div class="btn btn_common">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item" *ngIf="!loggedin()">
+          <a routerLinkActive="active-link" class="nav-link" routerLink="/Home"> Acceuil <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" *ngIf="!loggedin()">
+          <a routerLinkActive="active-link" class="nav-link" routerLink="/EspaceCentre">Espace centre</a>
+        </li>
+        <li class="nav-item" *ngIf="!loggedin()">
+          <a routerLinkActive="active-link" class="nav-link" routerLink="/LesCentres">Les centres</a>
+        </li>
+        <li class="nav-item" *ngIf="loggedin()">
+          <a class="nav-link" class="btn" style="color: #1F5473; border-color: #1F5473;" routerLink="EspaceCentre"
+            (click)="logOut()">
+            <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>
+            Logout</a>
+        </li>
+        <li class="nav-item" *ngIf="!loggedin()">
+          <a class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
 <ng-template #content let-modal>
   <div class="modal-header">
@@ -87,37 +99,63 @@
     </form>
   </div>
 </ng-template>
-    
-    <section>
-      <ngb-carousel #ngcarousel class="">
-        <ng-template ngbSlide id="one">
-          <div class="picsum-img-wrapper">
-            <img src="assets/carousel.png" alt="Slide 1">
-          </div>
-        </ng-template>
-        <ng-template ngbSlide id="two">
-          <div class="picsum-img-wrapper">
-            <img src="assets/carousel 2.png" alt="Slide 2">
-          </div>
-        </ng-template>
-        <ng-template ngbSlide id="three">
-          <div class="picsum-img-wrapper">
-            <img src="assets/carousel 3.png" alt="Slide 3">
-          </div>
-        </ng-template>
-      </ngb-carousel>
-    </section>
-    <section class="search-sec">
-      <div class="search-wrappe">
-        <div class="container">
-          <div class="search_wrap search_wrap_3">
-            <div class="search_box">
-              <input type="text" class="input search-slt" placeholder="Que cherchez vous ? ">
-              <div class="btn btn_common" >
-                <i class="fas fa-search"></i>
-              </div>
-            </div>
-          </div>
-        </div>
+
+<section>
+  <ngb-carousel #ngcarousel class="">
+    <ng-template ngbSlide id="one">
+      <div class="picsum-img-wrapper">
+        <img src="assets/carousel.png" alt="Slide 1">
       </div>
-    </section>
+    </ng-template>
+    <ng-template ngbSlide id="two">
+      <div class="picsum-img-wrapper">
+        <img src="assets/carousel 2.png" alt="Slide 2">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="three">
+      <div class="picsum-img-wrapper">
+        <img src="assets/carousel 3.png" alt="Slide 3">
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</section>
+
+<section>
+  <div class="row">
+    <div class="col-6">
+      <img src="assets/sec1.png" class="img-fluid">
+    </div>
+    <div class="col-1"></div>
+    <div class="col-4 d-flex">
+      <div class="my-4 p-5 col-10" style="background-color: black;"></div>
+      <h1 class="welcText text-white ">Bienvenue a Hydro<span style="color: black;">Life</span></h1>
+      <p class="welcPara text-white ">Lorem ipsum dolor sit amet,  consectetur adipisci<span style="color: black;">ng 
+        elit, sed</span> do eiusmod tempor incididunt ut labore et 
+        dolore magna aliqua  elit, sed do eiusmod tempor incididunt ut labore et 
+        dolore magna aliqua</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-4 d-flex">
+      
+      <div class="my-4 p-5 col-10" style="background-color: #D88C8A;"></div>
+      
+      <h1 class="sec2Text">Les centres inscrits </h1>
+  
+      <p class="sec2Para">Lorem ipsum dolor sit amet,  consectetur adipiscing 
+        elit, sed do eiusmod tempor incididunt ut labore et 
+        dolore magna aliqua  elit, sed do eiusmod tempor incididunt ut labore et 
+        dolore magna aliqua</p>
+      
+    </div>
+    
+    <div class="col-6">
+      <img src="assets/sec2.png" class="img-fluid">
+    </div>
+  </div>
+</section>

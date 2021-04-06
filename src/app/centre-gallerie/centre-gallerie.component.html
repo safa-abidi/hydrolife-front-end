@@ -1,0 +1,84 @@
+<app-header></app-header>
+<app-dash-nav></app-dash-nav>
+<div class="container">
+  <button class="button my-5" routerLink="/AjouterGallerie/{{ idCentre }}"><span>Nouvelle photo </span></button>
+</div>
+<div class="container">
+  <div *ngIf="crudApi.listData?.length == 0" class="alert alert-warning p-4">Vous n'avez aucune photo </div>
+	<div class="polaroid" *ngFor="let item of crudApi.listData ">
+		<img class="photo"   src = "{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}" alt="">		
+		<div class="capition">
+			<h2>{{item.titre_photo}}</h2>
+			<p>{{item.description}}.</p>
+          <button class="buttonSup" (click) = "removeData(item.id_photo)" >Supprimer <span> <i class="fa fa-trash fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+		</div>		
+	</div>	
+  
+</div>
+<div class="container">
+<button  *ngIf="crudApi.listData?.length > 3" class="button my-5" routerLink="/AjouterGallerie/{{ idCentre }}"><span>Nouvelle photo </span></button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--<div class="pricing-header mx-auto">
+   <div class="table-responsive">
+    <table class="table table-bordered table-responsive-sm table-responsive-md
+   table-responsive-lg">
+
+    <tbody>
+
+
+    <tr >
+    <th class ="hidden"></th>
+    <td>{{item.titre_photo}}</td>
+    <td>{{item.description}}</td>
+    <td><img class="card-img-top img-responsive"
+      src = "{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}"
+      style = "height :200px;width:fil-content"></td>
+   
+    <td><button class="btn btn-warning btn btn-outline-dark ml-1"  (click) = "selectData(item)">
+      <i class="fa fa-pencil-square-o" ></i></button></td>
+   <td><button class="btn btn-danger btn btn-outline-dark ml-1" (click) = "removeData(item.id)">
+      <i class="fa fa-trash-o"></i></button></td>
+       </tr>
+         </tbody>
+         </table>
+         </div>
+       </div>-->

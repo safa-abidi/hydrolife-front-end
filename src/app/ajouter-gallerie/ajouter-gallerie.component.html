@@ -1,0 +1,42 @@
+<app-header></app-header>
+<br>
+<h1 class="text-center m-5" style="color: #d88c8a">Ajoutez a votre gallerie</h1>
+<div class="container text-center mb-5">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form [formGroup]="addPhoto" #f="ngForm" (ngSubmit)="onSubmit()" class="resStyle">
+        <div class="row">
+          <div class="form-group inputWithIcon col">
+            <input placeholder="Titre de la photo" for="titre_photo" name="titre_photo" id="titre_photo" type="text"
+              class="form-control" formControlName="titre_photo" />
+            <i class="fa fa-font fa-lg fa-fw" aria-hidden="true"></i>
+            <div class="alert alert-danger" *ngIf="titre_photo?.touched && !titre_photo?.valid">
+              <div *ngIf="titre_photo?.errors?.required">
+                Le titre de la photo est obligatoire
+              </div>
+              <div *ngIf="titre_photo?.errors?.pattern">
+                Le titre de la photo ne doit pas contenir de chiffres
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea for="description" placeholder="Description" id="description" type="text" class="form-control"
+            formControlName="description" name="description"></textarea>
+          <div class="alert alert-danger" *ngIf="description?.touched && !description?.valid">
+            <div *ngIf="description?.errors?.required">
+              La description est obligatoire
+            </div>
+          </div>
+        </div>
+        <input type="file" accept="image/*" placeholder="Cliquez ici" (change)="onSelectFile($event)">
+        <div class="form-group">
+          <button type="submit" [disabled]="f.invalid" class="btn text-white m-1" style="background-color: #d88c8a; border-radius: 30px;"> <i
+              class="fa fa-database fa-lg fa-fw" aria-hidden="true"></i>Enregistrer</button>
+          <button class="btn m-1" style="color: #1f5473" routerLink="/CentreGallerie/{{ id }}">Annuler</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<br>

@@ -1,0 +1,49 @@
+div a {
+   
+  color: #1f5473;
+  font-size: large;
+  margin-right: 50px;
+  
+}
+div a:hover{
+  text-decoration: none;
+}
+div li {
+  list-style: none;
+}
+a.active-link {
+  border-bottom: 3px solid #D88C8A;
+}
+a {
+  border-bottom: none;
+}
+
+.all{
+  margin-left: 250px;
+  margin-top: 50px;
+}
+
+/*------------------------------------------------------RESPONSIVE SECTION------------------------------------------------------------------------*/
+@media screen and (max-width: 600px) {
+  div a {
+      margin: 0px 8px;
+      font-size:small;
+      font-weight: 500;
+      
+    }
+    .all{
+      margin-left: 0px;
+    }
+  }
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  div a {
+      margin: 10px 10px;
+      font-size:medium;
+      font-weight: 500;
+      
+    }
+    .all{
+      margin-left: 0px;
+    }
+
+}

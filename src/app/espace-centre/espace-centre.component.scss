@@ -1,0 +1,176 @@
+
+.bg{
+    background-image:url('https://images.unsplash.com/photo-1556760544-74068565f05c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+    background-size: cover;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 22%;
+
+}
+  .cap{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: white;
+    text-shadow: 2px 2px 3px #000000;
+    
+  }
+  .con {
+      margin-bottom: 40px;
+      font-size: 1.2rem;
+  }
+
+  .conH1 {
+    margin-bottom: 40px;
+    font-size: 3rem;
+  }
+
+  .bg2{
+    background-image:url('https://images.unsplash.com/photo-1551672746-89991811c186?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80');
+    background-size: cover;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 15%;
+    border-radius: 15px;
+
+}
+.con1{
+  margin-bottom: 40px;
+  font-size: 1.7rem;
+}
+
+  .card-deck {
+    margin: 0 -15px;
+    justify-content: space-between;
+  }
+  
+  .card-deck .card {
+    margin: 0 0 1rem;
+  }
+  
+  .button {
+    border-radius: 4px;
+    background-color: #D88C8A;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 5px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  /* ----------------------------RESPONSIVE SECTION-------------------------------------*/ 
+
+  @media screen and (max-width: 600px) {
+    .con  {
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+    .cap{
+      top: 5%;
+      left: 3%;
+      
+    }
+    
+  .conH1 {
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+  }
+  .button {
+    font-size: 0.9rem;
+    padding: 5px;
+    width: 100px;
+    margin: 0px;
+  }
+  }
+
+  @media screen and (min-width: 601px) and (max-width: 991px) {
+    .con  {
+      margin-bottom: 5px;
+
+    }
+    .cap{
+      top: 5%;
+      left: 3%;
+      
+    }
+    
+  .conH1 {
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+  }
+  .button {
+    font-size: 0.9rem;
+    padding: 5px;
+    width: 100px;
+    margin: 0px;
+  }
+  }
+
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .card-deck .card {
+      -ms-flex: 0 0 48.7%;
+      flex: 0 0 48.7%;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .card-deck .card {
+      -ms-flex: 0 0 32%;
+      flex: 0 0 32%;
+    }
+  }
+  
+  @media (min-width: 992px)
+  {
+    .card-deck .card {
+      -ms-flex: 0 0 24%;
+      flex: 0 0 24%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .con1  {
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+  }
+  @media screen and (min-width: 601px) and (max-width: 991px) {
+    .con1  {
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+    
+  }

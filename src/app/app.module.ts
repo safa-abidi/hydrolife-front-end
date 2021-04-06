@@ -76,6 +76,7 @@ import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.co
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LesCentresComponent } from './les-centres/les-centres.component';
+import { AgmCoreModule } from '@agm/core'
 
 
 
@@ -159,7 +160,10 @@ import { LesCentresComponent } from './les-centres/les-centres.component';
     PortalModule,
     ScrollingModule,
     IvyCarouselModule,
-    NgbModule
+    NgbModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCg4ftotzdikPk2i8he77RWPuoFF6apJVw'
+    })
   ],
   providers: [
     CentreUserService,

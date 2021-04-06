@@ -59,7 +59,7 @@
           <a class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>
         </li>
       </ul>
-      
+
     </div>
   </div>
 </nav>
@@ -162,3 +162,10 @@
     </div>
   </div>
 </section>
+
+<agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+  <agm-marker
+    [latitude]="latitude"
+    [longitude]="longitude"
+    *ngIf="locationChosen"></agm-marker>
+</agm-map>

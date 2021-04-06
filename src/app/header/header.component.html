@@ -35,7 +35,7 @@
             <a routerLinkActive="active-link" class="nav-link"  routerLink="/EspaceCentre">Espace centre</a>
           </li>
           <li class="nav-item" *ngIf="!loggedin()">
-            <a routerLinkActive="active-link" class="nav-link"  routerLink="#">Les centres</a>
+            <a routerLinkActive="active-link" class="nav-link"  routerLink="/LesCentres">Les centres</a>
           </li>
           <li class="nav-item" *ngIf="!loggedin()">
             <a  class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>

@@ -6,6 +6,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import '~ngx-toastr/toastr';
 
+
 .form-control.ng-invalid.ng-dirty.ng-touched {
     border: 2px solid red;
   }

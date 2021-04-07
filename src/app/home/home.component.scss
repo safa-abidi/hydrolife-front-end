@@ -326,7 +326,7 @@ input[type="text"]:focus {
 .welcPara{
   line-height: 1.6;
   font-size: 15px;
-  top: 400px;
+  top: 1100px;
   margin-left: 25px;
   position:absolute;
   clear: both;
@@ -369,5 +369,71 @@ input[type="text"]:focus {
   margin-left: -30px;
   position:absolute;
 
+}
+
+.boxsec1{
+  background-color: black;
+  width: 355px;
+  height: 550px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .imgSec1{
+    display: none;
+  }
+
+  .boxsec1{
+    position: static;
+  
+    width: 300px;
+    height: 550px;
+  }
+
+  .welcText{
+    font-size: 25px;
+  }
+  .welcText span{
+    color: white;
+    font-size: 25px;
+  }
+  
+  .welcPara{
+    line-height: 1.6;
+    font-size: 15px;
+    top: 600px;
+    margin-left: 25px;
+  
+  }
 
 }
+
+@media screen and (min-width: 601px) and (max-width: 992px) {
+
+  .boxsec1{
+    position: static;
+    width: 310px;
+    height: 350px;
+  }
+
+  .welcText{
+    font-size: 20px;
+    margin-top: 100px;
+    margin-left: 50px;
+    position:absolute;
+    clear: both;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  
+  .welcPara{
+    line-height: 1.6;
+    font-size: 15px;
+    top: 650px;
+  //  margin-left: 25px;
+  //  position:absolute;
+    clear: both;
+  
+  }
+}
+

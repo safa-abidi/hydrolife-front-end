@@ -4,8 +4,18 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>HydroLife</mat-toolbar>
     <mat-nav-list>
+      <div class="searchbarRes">
+        <div class="search_wrapRes search_wrap_3Res">
+          <div class="search_boxRes">
+            <input type="text" class="inputRes search-sltRes" placeholder="vous cherchez ?">
+            <div class="btn btn_commonRes">
+              <i class="fas"><img src="assets/search.png" alt="" class="searchRes"></i>
+            </div>
+          </div>
+        </div>
+      </div>
       <a mat-list-item routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link" routerLink="/Home"> Acceuil <span
         class="sr-only">(current)</span></a>
     <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link" routerLink="/EspaceCentre">Espace centre</a>
@@ -18,7 +28,7 @@
   </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar>
+    <mat-toolbar class="fixed-top ">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -29,7 +39,16 @@
       </button>
       <a mat-list-item class="navbar-brand" *ngIf='!loggedin()' routerLink="/Home"><img src="assets/logo.png" alt="logo"></a>
       <a mat-list-item class="navbar-brand" *ngIf='loggedin()'><img src="assets/logo.png" alt="logo"></a>
-     
+        <div class="searchbar mt-4">
+          <div class="search_wrap search_wrap_3">
+            <div class="search_box">
+              <input type="text" class="input search-slt" placeholder="Que cherchez vous ? ">
+              <div class="btn btn_common">
+                <i class="fas"><img src="assets/search.png" alt="" class="search"></i>
+              </div>
+            </div>
+          </div>
+        </div>
       <span class="spacer"></span>
       <div  [ngClass]="{ hidden: (isHandset$ | async) }">
         <a mat-list-item routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link" routerLink="/Home"> Acceuil <span
@@ -43,6 +62,7 @@
       <a mat-list-item *ngIf="!loggedin()" class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>
       </div>
     </mat-toolbar>
+    <ng-content></ng-content>
     <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -40,12 +40,10 @@
 
 <section>
   <div class="row">
-    <div class="col-2"></div>
-    <div class="col-4 d-flex">
-      <div class="my-4 p-5 col-10" style="background-color: #D88C8A; position: relative;">
-        <button class="btn text-white m-2 p-2" routerLink="/LesCentres" style="font-size: 1.2rem; background-color: #1F5473; border-radius: 100px; position: absolute;
-          bottom: 100px;
-          left: -100px;">Consulter les centres</button>
+    <div class="col-1"></div>
+    <div class="col d-flex">
+      <div class="my-4 p-5 boxsec2">
+        <button class="btn text-white m-2 p-2 buttsec2" routerLink="/LesCentres">Consulter les centres</button>
       </div>
       <h1 class="sec2Text">Les centres inscrits </h1>
       <p class="sec2Para">Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -54,23 +52,23 @@
         dolore magna aliqua</p>
     </div>
     <div class="col-6">
-      <img src="assets/sec2.png" class="img-fluid">
+      <img src="assets/sec2.png" class="img-fluid imgSec2">
     </div>
   </div>
 </section>
 
-<agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" class="mx-3">
+<agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
   <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
 </agm-map>
 
-<section>
+<section class="mt-4">
   <div class="row">
     <div class="col-6">
-      <img src="assets/sec3.png" class="img-fluid">
+      <img src="assets/sec3.png" class="img-fluid imgSec3">
     </div>
     <div class="col-1"></div>
     <div class=" d-flex">
-      <div class="my-5 p-5" style="background-color: #1F5473; width: 450px; height: 350px; ">
+      <div class="my-5 p-5 boxsec3">
         <h1 class="sec3Text text-white">Pourquoi l'hydrothérapie ?</h1>
         <p class="sec3Para  text-white">L’eau chauffée soulage et atténue de nombreuses pathologies: <br>
           douleurs articulaires, problèmes de circulation sanguine,<br> problèmes respiratoires, maladies de peau… 

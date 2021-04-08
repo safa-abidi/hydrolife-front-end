@@ -21,28 +21,25 @@ export class HomeComponent implements OnInit {
   @ViewChild('ngcarousel', { static: true }) ngCarousel!: NgbCarousel;
 
 
-  // Move to specific slide
+
   navigateToSlide(item: any) {
     this.ngCarousel.select(item);
     console.log(item)
   }
 
-  // Move to previous slide
   getToPrev() {
     this.ngCarousel.prev();
   }
 
-  // Move to next slide
   goToNext() {
     this.ngCarousel.next();
   }
 
-  // Pause slide
+
   stopCarousel() {
     this.ngCarousel.pause();
   }
 
-  // Restart carousel
   restartCarousel() {
     this.ngCarousel.cycle();
   }

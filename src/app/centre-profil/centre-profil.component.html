@@ -2,12 +2,10 @@
 <app-dash-nav></app-dash-nav>
 <div class="container">
   <div class="row">
-    <div class="text-center logo col-2">
-      <img class="img-fluid mb-2" src="assets/Ellipse 2.png" alt="logo">
-    </div>
     <div class="col-1"></div>
-    <div class="text-left  col-9">
-      <h2 class="mb-5">{{ info?.nom }}</h2>
+    <div class="text-left  col-9" style="margin-left: -100px;">
+      <h2 class="mb-5">Nom : {{ info?.nom }}</h2>
+      Description : 
       <p>{{ info?.description }}</p>
     </div>
   </div>

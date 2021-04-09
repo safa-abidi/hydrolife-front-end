@@ -79,7 +79,8 @@ import { LesCentresComponent } from './les-centres/les-centres.component';
 import { AgmCoreModule } from '@agm/core';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { NavbarHomeComponent } from './navbar-home/navbar-home.component'
+import { NavbarHomeComponent } from './navbar-home/navbar-home.component';
+import { CentreDetailComponent } from './centre-detail/centre-detail.component'
 
 
 
@@ -107,7 +108,8 @@ import { NavbarHomeComponent } from './navbar-home/navbar-home.component'
     AjouterGallerieComponent,
     LesCentresComponent,
     NavbarComponent,
-    NavbarHomeComponent
+    NavbarHomeComponent,
+    CentreDetailComponent
 
   ],
   imports: [

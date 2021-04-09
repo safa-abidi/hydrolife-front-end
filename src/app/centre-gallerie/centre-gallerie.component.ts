@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../services/Image.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Image } from '../models/Image.model';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { MatDialogConfig } from '@angular/material/dialog';
 
 
 @Component({

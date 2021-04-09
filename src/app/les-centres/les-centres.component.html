@@ -1,5 +1,25 @@
 
 <app-navbar>
-    <p>les-centres works!</p>
+<div class="container">
+  <div class="card mb-3" *ngFor="let centre of info;">
+    <div class="row no-gutters">
+      <div class="col">
+        <div class="card-body">
+          <div class="row">
+          <h2 class="ml-2"> Nom du centre :</h2>
+          <h3 class="card-title mt-1 ml-1">  {{ centre?.nom }} </h3>
+          </div>
+            <h4 class="card-text "> {{ centre?.adresse }} </h4>
+          <p class="card-text"></p>
+          <p class="card-text">
+          <p>{{ centre?.description }}</p>
+          <button class="btn" routerLink="/CentreDetail/{{ centre?.id }}">Voir plus</button>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
 </app-navbar>
 

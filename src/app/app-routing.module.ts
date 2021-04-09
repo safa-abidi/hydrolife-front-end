@@ -16,6 +16,7 @@ import { UpdatePromotionComponent } from './update-promotion/update-promotion.co
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.component';
 import { LesCentresComponent } from './les-centres/les-centres.component';
+import { CentreDetailComponent } from './centre-detail/centre-detail.component';
 
 
 
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'UpdatePromotion/:id_promo', component: UpdatePromotionComponent , canActivate:[AuthGuard] },
   { path: 'AjouterGallerie/:id', component: AjouterGallerieComponent , canActivate:[AuthGuard] },
   { path: 'LesCentres', component: LesCentresComponent },
+  { path: 'CentreDetail/:id', component: CentreDetailComponent },
 
 
 

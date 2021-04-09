@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
-import { Image } from '../models/Image.model';
 
 
 @Injectable({ providedIn: 'root' })
@@ -37,11 +36,20 @@ export class ImageService {
     let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
     return this.http.get(`${this.apiServerUrl}/api/photo/findbycentre/${idCentre}`, {headers: header});
   }
+
+  getByCentreIdBis(idCentre: string){  
+   
+    return this.http.get(`${this.apiServerUrl}/api/photo/findbycentre/${idCentre}`);
+  }
   
  
   deleteData(id: number): Observable<any> {
    
     return this.http.delete(`${this.apiServerUrl}/api/photo/delete/${id}`, { responseType: 'text' });
   }
+
+   getPhoto(id : number , idCentre: number){
+    return this.http.get(`${this.apiServerUrl}/api/photo/get/${id}/bycentre/${idCentre}`)
+   }
 
 }

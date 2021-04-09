@@ -19,7 +19,7 @@ export class CentreUserService {
 
               
 /*--------------CENTRE SERVICE------------------------------*/
-  getAllUsers() {
+  getAllCentres() {
     return this.http.get<any>(`${this.apiServerUrl}/api/centre/all`);
   }
 

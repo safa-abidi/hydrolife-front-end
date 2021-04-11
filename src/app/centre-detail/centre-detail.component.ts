@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CentreUserService } from '../services/CentreUser.service';
 import { ImageService } from '../services/Image.service';
+import {MatDialog} from '@angular/material/dialog';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { SecuDialogComponent } from '../secu-dialog/secu-dialog.component';
 
 export interface Tile {
   color: string;
@@ -27,7 +29,12 @@ export class CentreDetailComponent implements OnInit {
   constructor(private userService: CentreUserService,
     public crudApi: ImageService, 
     private route: ActivatedRoute,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal,
+    public dialog: MatDialog) { }
+
+    openDialog() {
+      this.dialog.open(SecuDialogComponent);
+    }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params.id;
@@ -36,7 +43,6 @@ export class CentreDetailComponent implements OnInit {
       (result)=>{
         
         this.info = result;
-        console.log(this.info);
         
       },
       (error)=>{
@@ -49,7 +55,8 @@ export class CentreDetailComponent implements OnInit {
       (result)=>{
         
         this.services = result;
-        console.log(this.services);
+        console.log(result);
+        
         
       },
       (error)=>{
@@ -66,7 +73,6 @@ export class CentreDetailComponent implements OnInit {
     
     this.crudApi.getByCentreIdBis(id).subscribe(
       response =>{this.crudApi.listData = response;
-        console.log(response);
         
       }
      );
@@ -81,24 +87,6 @@ export class CentreDetailComponent implements OnInit {
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
     this.locationChosen = true;
-  }
-
-  open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
   }
 
 }

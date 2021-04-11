@@ -6,9 +6,10 @@
       <div>
         <h1 class="nom"> {{ info?.nom }} </h1>
         <p class="mt-2">{{ info?.description }}</p>
-    
+
       </div>
       <div>
+        <div *ngIf="crudApi.listData?.length == 0" class="alert alert-warning mt-5">Aucune photo n'est disponible </div>
         <mat-grid-list cols="2" rowHeight="2:1" class="my-5">
           <mat-grid-tile *ngFor="let item of crudApi.listData ">
             <img src="{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}" alt=""
@@ -18,69 +19,58 @@
       </div>
     </div>
     <div class="row">
-    <div class="col-8">
-    <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" class="col-2">
-      <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
-    </agm-map>
-</div>
-<div class="col-4"> 
-  <h1 class="mb-5 nom2">Pour nous retrouver : </h1> 
-  <div class="row my-4">
-    <i class="fa fa-map-marker fa-2x fa-fw" aria-hidden="true" style="color: #D88C8A;"></i>
-    <h2 class="adresse"> {{ info?.adresse }} </h2>
-  </div>
-  <div class="row my-4">
-    <i class="fa fa-at fa-2x fa-fw mt-1" aria-hidden="true" style="color: #D88C8A;"></i>
-    <h2 class="">{{ info?.email }}</h2>
-  </div>
-  <div class="row mb-5">
-    <i class="fa fa-phone fa-2x fa-fw " aria-hidden="true" style="color: #D88C8A;"></i>
-    <h2 class="">{{ info?.tel }}</h2>
-</div>
-<button class="button" routerLink=""><span>Réserver </span></button>
-</div>
-</div>
-<div class="row my-5 ml-2">
-    <img src="assets/corona.png" style="width:12%">
-  <div class="mx-5 mt-2">
-    <h1>Mesures supplémentaires de santé et de sécurité </h1>
-    <p>Cet établissement a pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous assurer un séjour en toute sécurité.</p>
-    <button style="color: #1f5473;" class="btn p-0" (click)="open(content)">Voir les mesures liées à la santé et à la sécurité</button>
-    <ng-template #content let-modal>
-      <div class="modal-header">
-        <h4 class="modal-title text-center" id="modal-basic-title">Se connecter</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="col-8">
+        <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" class="col-2">
+          <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+        </agm-map>
       </div>
-      <div class="modal-body">
-    <p>fdhdhdhddh</p>
-      </div>
-    </ng-template>
-  </div>
-</div>
-</div>
-</app-navbar>
-
-
-<div class="card mb-3">
-  <div class="row no-gutters">
-    <div class="col">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-6">
-            <img src="assets/carousel 2.png" class="img-fluid">
-          </div>
-          <div class="col-6 ">
-           
-    
-       
-      
-          </div>
+      <div class="col-4">
+        <h1 class="mb-5 nom2">Pour nous retrouver : </h1>
+        <div class="row my-4">
+          <i class="fa fa-map-marker fa-2x fa-fw" aria-hidden="true" style="color: #D88C8A;"></i>
+          <h2 class="adresse"> {{ info?.adresse }} </h2>
         </div>
-
-        
+        <div class="row my-4">
+          <i class="fa fa-at fa-2x fa-fw mt-1" aria-hidden="true" style="color: #D88C8A;"></i>
+          <h2 class="">{{ info?.email }}</h2>
+        </div>
+        <div class="row mb-5">
+          <i class="fa fa-phone fa-2x fa-fw " aria-hidden="true" style="color: #D88C8A;"></i>
+          <h2 class="">{{ info?.tel }}</h2>
+        </div>
       </div>
     </div>
+    <div class="row my-5 ml-2">
+      <img src="assets/corona.png" style="width:12%">
+      <div class="mx-5 mt-2">
+        <h1>Mesures supplémentaires de santé et de sécurité </h1>
+        <p>Cet établissement a pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous assurer
+          une détante en toute sécurité.</p>
+        <button style="color: #1f5473;" class="btn p-0" mat-button (click)="openDialog()">Voir les mesures liées à la
+          santé et à la sécurité</button>
+      </div>
+    </div>
+    <h1 class="mb-5 nom2">Nos services : </h1>
+    <div>
+      
+      <div *ngIf="services?.length == 0" class="alert alert-warning mt-5">Aucun service n'est disponible </div>
+      <div class="mb-3" *ngFor="let service of services;">
+        <div class="row no-gutters">
+          <div class="row">
+            <img class="col-3" src="assets/carousel 2.png" alt="">
+            <div>
+              <h1>{{ service?.libelle_service }} </h1>
+              <p> {{ service?.description_service }} </p>
+              <h3>Prix : {{ service?.prix_service }} TND / personne</h3>
+            </div>
+            <div>
+              <button class="button" routerLink=""><span>Réserver </span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
-</div>
+</app-navbar>

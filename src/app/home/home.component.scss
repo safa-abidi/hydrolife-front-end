@@ -333,7 +333,7 @@ input[type="text"]:focus {
 .sec2Text{
   font-size: 40px;
   margin-top: 80px;
-  margin-left: -150px;
+  margin-left: 80px;
   position:absolute;
   clear: both;
   display: inline-block;
@@ -343,8 +343,8 @@ input[type="text"]:focus {
 .sec2Para{
   line-height: 1.6;
   font-size: 18px;
-  top: 350px;
-  margin-left: -150px;
+  top: 300px;
+  margin-left: -80px;
   position:absolute;
   clear: both;
 }
@@ -376,7 +376,7 @@ input[type="text"]:focus {
 .boxsec1{
   background-color: black;
   width: 355px;
-  height: 550px;
+  height: 500px;
 }
 
 @media screen and (max-width: 600px) {

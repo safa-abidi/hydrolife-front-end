@@ -7,6 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUser } from '../models/CentreUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { SecuDialogComponent } from '../secu-dialog/secu-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 import { HostListener } from '@angular/core';
 
@@ -56,7 +58,8 @@ export class HomeComponent implements OnInit {
     private userService:CentreUserService ,
     private route: ActivatedRoute,
     private router:Router,
-    private toastr: ToastrService) { 
+    private toastr: ToastrService,
+    public dialog: MatDialog) { 
       let formControls = {
         Email: new FormControl('',[
           Validators.required,
@@ -186,6 +189,11 @@ export class HomeComponent implements OnInit {
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
     this.locationChosen = true;
+  }
+
+  
+  openDialog() {
+    this.dialog.open(SecuDialogComponent);
   }
 
 }

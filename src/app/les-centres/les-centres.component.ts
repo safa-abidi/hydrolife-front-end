@@ -11,9 +11,6 @@ import { ImageService } from '../services/Image.service';
 export class LesCentresComponent implements OnInit {
 
   info: any;
-  photo: any;
- // idCentre = [];
-  idPhoto: any;
 
   constructor(
     private userService: CentreUserService,
@@ -28,25 +25,14 @@ export class LesCentresComponent implements OnInit {
       (result)=>{
         
         this.info = result;
+        console.log(result);
         
       },
       (error)=>{
         console.log(error);
       }
     );
-      
-      
-  /*  this.userImage.getPhoto(17 , 1).subscribe(
-      (result)=>{
-        
-        this.photo = result;
-        console.log(this.photo);
-        
-      },
-      (error)=>{
-        console.log(error);
-      }
-    );*/
+
 
   }
 

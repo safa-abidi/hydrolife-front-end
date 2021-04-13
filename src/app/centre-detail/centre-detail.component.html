@@ -19,12 +19,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-8">
+      <div class="col-12 col-sm-12">
         <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" class="col-2">
           <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
         </agm-map>
       </div>
-      <div class="col-4">
+      <div class="col-12 mt-5">
         <h1 class="mb-5 nom2">Pour nous retrouver : </h1>
         <div class="row my-4">
           <i class="fa fa-map-marker fa-2x fa-fw" aria-hidden="true" style="color: #D88C8A;"></i>
@@ -40,25 +40,22 @@
         </div>
       </div>
     </div>
-    <div class="row my-5 ml-2">
-      <img src="assets/corona.png" style="width:12%">
-      <div class="mx-5 mt-2">
+    <div class="row my-5">
+      <div class="col-3 col-md-2">
+      <img src="assets/corona.png">
+    </div>
+      <div class=" mt-2 col-9 col-md-10">
         <h1>Mesures supplémentaires de santé et de sécurité </h1>
         <p>Cet établissement a pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous assurer
           une détante en toute sécurité.</p>
-        <button style="color: #1f5473;" class="btn p-0" mat-button (click)="openDialog()">Voir les mesures liées à la
-          santé et à la sécurité</button>
+        <button style="color: #1f5473;" class="btn p-0" mat-button (click)="openDialog()">Voir les mesures de sécurité</button>
       </div>
     </div>
     <h1 class="mb-5 nom2">Nos services : </h1>
-    <div>
-      
       <div *ngIf="services?.length == 0" class="alert alert-warning mt-5">Aucun service n'est disponible </div>
       <div class="mb-3" *ngFor="let service of services;">
-        <div class="row no-gutters">
           <div class="row">
-            <img class="col-3" src="assets/carousel 2.png" alt="">
-            <div>
+            <div class="col-6">
               <h1>{{ service?.libelle_service }} </h1>
               <p> {{ service?.description_service }} </p>
               <h3>Prix : {{ service?.prix_service }} TND / personne</h3>
@@ -68,8 +65,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
 
   </div>

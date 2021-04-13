@@ -1,29 +1,30 @@
-
 <app-navbar-home>
 <section>
+  
   <ngb-carousel #ngcarousel class="">
     <ng-template ngbSlide id="one">
       <div class="picsum-img-wrapper">
-        <img src="assets/carousel.png" alt="Slide 1">
+        <img src="assets/carousel.jpg" alt="Slide 1">
       </div>
     </ng-template>
     <ng-template ngbSlide id="two">
       <div class="picsum-img-wrapper">
-        <img src="assets/carousel 2.png" alt="Slide 2">
+        <img src="assets/carousel 2.jpg" alt="Slide 2">
       </div>
     </ng-template>
     <ng-template ngbSlide id="three">
       <div class="picsum-img-wrapper">
-        <img src="assets/carousel 3.png" alt="Slide 3">
+        <img src="assets/carousel 3.jpg" alt="Slide 3">
       </div>
     </ng-template>
   </ngb-carousel>
 </section>
 
-<section>
+<section class="my-3">
+
   <div class="row">
-    <div class="col-6  imgSec1">
-      <img src="assets/sec1.png" class="img-fluid">
+    <div class="col-7 imgSec1">
+      <img src="assets/sec1.jpg" class="img-fluid">
     </div>
     <div class="col-1 "></div>
     <div class="d-flex">
@@ -57,6 +58,19 @@
   </div>
 </section>
 
+<section class="container">
+<div class="row my-5 ml-2">
+  <img src="assets/corona.png" style="width:12%">
+  <div class="mx-5 mt-2">
+    <h1>Mesures supplémentaires de santé et de sécurité </h1>
+    <p>Les établissements ont pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous assurer
+      une détante en toute sécurité.</p>
+    <button style="color: #1f5473;" class="btn p-0" mat-button (click)="openDialog()">Voir les mesures liées à la
+      santé et à la sécurité</button>
+  </div>
+</div>
+</section>
+
 <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
   <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
 </agm-map>
@@ -64,7 +78,7 @@
 <section class="mt-4">
   <div class="row">
     <div class="col-6">
-      <img src="assets/sec3.png" class="img-fluid imgSec3">
+      <img src="assets/sec3.jpg" class="img-fluid imgSec3">
     </div>
     <div class="col-1"></div>
     <div class=" d-flex">

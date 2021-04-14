@@ -17,6 +17,7 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.component';
 import { LesCentresComponent } from './les-centres/les-centres.component';
 import { CentreDetailComponent } from './centre-detail/centre-detail.component';
+import { InscriClientComponent } from './inscri-client/inscri-client.component';
 
 
 
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'AjouterGallerie/:id', component: AjouterGallerieComponent , canActivate:[AuthGuard] },
   { path: 'LesCentres', component: LesCentresComponent },
   { path: 'CentreDetail/:id', component: CentreDetailComponent },
+  { path: 'InscriClient', component: InscriClientComponent },
 
 
 

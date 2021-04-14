@@ -1,9 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [ngClass]="{ hidden: !(isHandset$ | async) }"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [ngClass]="{ hidden: !(isHandset$ | async) }"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
     <mat-toolbar>HydroLife</mat-toolbar>
     <mat-nav-list>
       <div class="searchbarRes">
@@ -16,50 +14,53 @@
           </div>
         </div>
       </div>
-      <a mat-list-item routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link" routerLink="/Home"> Acceuil <span
-        class="sr-only">(current)</span></a>
-    <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link" routerLink="/EspaceCentre">Espace centre</a>
-    <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link" routerLink="/LesCentres">Les centres</a>
-    <a mat-list-item class="nav-link" *ngIf="loggedin()" class="btn" style="color: #1F5473; border-color: #1F5473;" routerLink="EspaceCentre"
-      (click)="logOut()">
-      <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>
-      Logout</a>>
-    <a mat-list-item *ngIf="!loggedin()" class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>
-  </mat-nav-list>
+      <a mat-list-item routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link" routerLink="/Home"> Acceuil
+        <span class="sr-only">(current)</span></a>
+      <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link"
+        routerLink="/EspaceCentre">Espace centre</a>
+      <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link" routerLink="/LesCentres">Les
+        centres</a>
+      <a mat-list-item class="nav-link" *ngIf="loggedin()" class="btn" style="color: #1F5473; border-color: #1F5473;"
+        routerLink="EspaceCentre" (click)="logOut()">
+        <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>
+        Logout</a>>
+      <a mat-list-item *ngIf="!loggedin()" class="nav-link"><img (click)="open(content)" src="assets/login.png"
+          alt="login"></a>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar class="fixed-top ">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <a mat-list-item class="navbar-brand" *ngIf='!loggedin()' routerLink="/Home"><img src="assets/logo.png" alt="logo"></a>
+      <a mat-list-item class="navbar-brand" *ngIf='!loggedin()' routerLink="/Home"><img src="assets/logo.png"
+          alt="logo"></a>
       <a mat-list-item class="navbar-brand" *ngIf='loggedin()'><img src="assets/logo.png" alt="logo"></a>
-        <div class="searchbar mt-4">
-          <div class="search_wrap search_wrap_3">
-            <div class="search_box">
-              <input type="text" class="input search-slt" placeholder="Que cherchez vous ? ">
-              <div class="btn btn_common">
-                <i class="fas"><img src="assets/search.png" alt="" class="search"></i>
-              </div>
+      <div class="searchbar mt-4">
+        <div class="search_wrap search_wrap_3">
+          <div class="search_box">
+            <input type="text" class="input search-slt" placeholder="Que cherchez vous ? ">
+            <div class="btn btn_common">
+              <i class="fas"><img src="assets/search.png" alt="" class="search"></i>
             </div>
           </div>
         </div>
+      </div>
       <span class="spacer"></span>
-      <div  [ngClass]="{ hidden: (isHandset$ | async) }">
-        <a mat-list-item routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link" routerLink="/Home"> Acceuil <span
-          class="sr-only">(current)</span></a>
-      <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link" routerLink="/EspaceCentre">Espace centre</a>
-      <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link" routerLink="/LesCentres">Les centres</a>
-      <a mat-list-item class="nav-link" *ngIf="loggedin()" class="btn" style="color: #1F5473; border-color: #1F5473;" routerLink="EspaceCentre"
-        (click)="logOut()">
-        <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>
-        Logout</a>>
-      <a mat-list-item *ngIf="!loggedin()" class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>
+      <div [ngClass]="{ hidden: (isHandset$ | async) }">
+        <a mat-list-item routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link" routerLink="/Home"> Acceuil
+          <span class="sr-only">(current)</span></a>
+        <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link"
+          routerLink="/EspaceCentre">Espace centre</a>
+        <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link"
+          routerLink="/LesCentres">Les centres</a>
+        <a mat-list-item class="nav-link" *ngIf="loggedin()" class="btn" style="color: #1F5473; border-color: #1F5473;"
+          routerLink="EspaceCentre" (click)="logOut()">
+          <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>
+          Logout</a>>
+        <a mat-list-item *ngIf="!loggedin()" class="nav-link"><img (click)="open(content)" src="assets/login.png"
+            alt="login"></a>
       </div>
     </mat-toolbar>
     <ng-content></ng-content>
@@ -95,11 +96,14 @@
           </div>
         </div>
       </div>
-      <div class="modal-footer">
+      <hr>
         <button type="submit" [disabled]="loginForm.invalid" (click)="modal.close('Save click')"
           class=" btn text-white m-2" style="background-color: #d88c8a; border-radius: 100px;">Connexion</button>
-          
-      </div>
     </form>
+    <div class="row">
+      <p class="mx-5 mt-3">Vous ne faite pas partie de la famille ? <a routerLink="/InscriClient"
+          (click)="modal.close('Save click')" style="color:#1F5473; font-size: medium;">Inscrivez-vous ici</a></p>
+
+    </div>
   </div>
 </ng-template>

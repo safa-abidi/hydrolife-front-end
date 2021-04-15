@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientUserService } from './../services/ClientUser.service';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ClientUser } from '../models/ClientUser.model';
@@ -83,8 +82,8 @@ export class InscriClientComponent implements OnInit {
       data.adresse,
       data.email,
       data.password,
-      data.tel,
       data.prenom,
+      data.tel,
       data.dateNaissance
 
       );

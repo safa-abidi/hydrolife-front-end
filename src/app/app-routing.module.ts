@@ -18,6 +18,7 @@ import { AjouterGallerieComponent } from './ajouter-gallerie/ajouter-gallerie.co
 import { LesCentresComponent } from './les-centres/les-centres.component';
 import { CentreDetailComponent } from './centre-detail/centre-detail.component';
 import { InscriClientComponent } from './inscri-client/inscri-client.component';
+import { LoginClientComponent } from './login-client/login-client.component';
 
 
 
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'LesCentres', component: LesCentresComponent },
   { path: 'CentreDetail/:id', component: CentreDetailComponent },
   { path: 'InscriClient', component: InscriClientComponent },
+  { path: 'LoginClient', component: LoginClientComponent },
 
 
 

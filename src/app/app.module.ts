@@ -82,7 +82,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { NavbarHomeComponent } from './navbar-home/navbar-home.component';
 import { CentreDetailComponent } from './centre-detail/centre-detail.component';
 import { SecuDialogComponent } from './secu-dialog/secu-dialog.component';
-import { InscriClientComponent } from './inscri-client/inscri-client.component'
+import { InscriClientComponent } from './inscri-client/inscri-client.component';
+import { LoginClientComponent } from './login-client/login-client.component'
 
 
 
@@ -113,7 +114,8 @@ import { InscriClientComponent } from './inscri-client/inscri-client.component'
     NavbarHomeComponent,
     CentreDetailComponent,
     SecuDialogComponent,
-    InscriClientComponent
+    InscriClientComponent,
+    LoginClientComponent
 
   ],
   imports: [

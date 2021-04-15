@@ -1,67 +1,100 @@
-<app-navbar>
 
-  <br><br>
-  <div class="d-flex">
-    <div class="col-sm-12 col-md-6 glob">
-      <div class="">
-        <h1 class="text-center ml-5" style="color: #d88c8a">Inscrivez-vous</h1>
-        <div class="">
-          <div class="">
-            <div class="">
-              <form [formGroup]="addClientForm" #f="ngForm" (ngSubmit)="onSubmit()" class="resStyle">
-                <div class="row">
-                  <div class="form-group inputWithIcon col">
-                    <input placeholder="Votre nom" for="nom" name="nom" id="nom" type="text" class="form-control"
-                      formControlName="nom" />
-                    <i class="fa fa-user fa-lg fa-fw mt-1" aria-hidden="true"></i>
-                    <div class="alert alert-danger" *ngIf="nom?.touched && !nom?.valid">
-                      <div *ngIf="nom?.errors?.required">Le nom est obligatoire</div>
-                      <div *ngIf="nom?.errors?.pattern">
-                        Le nom ne doit pas contenir de chiffres
+  <app-navbar>
+
+<div class="container">
+  <div class="row py-5 mt-4 align-items-center">
+      <!-- For Demo Purpose -->
+      <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+          <img src="assets/inscri2.jpeg" alt="" class="img-fluid mb-3 d-none d-md-block">
+          <h1>Devenez memebre de la famille</h1>
+          <p class="font-italic text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, seddo eiusmod tempor incididunt ut labore et
+          dolore magna aliqua elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua</p>
+      </div>
+
+      <div class="col-md-7 col-lg-6 ml-auto">
+          <form class="form" [formGroup]="addClientForm" #f="ngForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+
+                  <div class="input-group col-lg-6 mb-4">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text bg-white px-4 border-md border-right-0">
+                              <i class="fa fa-user text-muted"></i>
+                          </span>
                       </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group col">
-                    <input placeholder="Votre prenom" for="prenom" name="prenom" id="prenom" type="text"
-                      class="form-control" formControlName="prenom" />
-                    <div class="alert alert-danger" *ngIf="prenom?.touched && !prenom?.valid">
-                      <div *ngIf="prenom?.errors?.required">Le prenom est obligatoire</div>
-                      <div *ngIf="prenom?.errors?.pattern">
-                        Le prenom ne doit pas contenir de chiffres
+                      <input placeholder="Votre nom" for="nom" name="nom" id="nom" type="text"
+                      formControlName="nom" class="form-control bg-white border-left-0 border-md">
+                      <div class="alert-danger p-2" *ngIf="nom?.touched && !nom?.valid">
+                        <div *ngIf="nom?.errors?.required">Le nom est obligatoire</div>
+                        <div *ngIf="nom?.errors?.pattern">
+                          Le nom ne doit pas contenir de chiffres
+                        </div>
                       </div>
-                    </div>
                   </div>
 
-                </div>
-
-                <div class="form-group inputWithIconN">
-                  <input for="adresse" placeholder="Adresse du centre" id="adresse" type="text" class="form-control"
-                    formControlName="adresse" name="adresse" />
-                  <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
-                  <div class="alert alert-danger" *ngIf="adresse?.touched && !adresse?.valid">
-                    <div *ngIf="adresse?.errors?.required">
-                      L'adresse est obligatoire
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-
-                  <div class="form-group inputWithIcon col">
-                    <input for="email" placeholder="Email du centre" id="email" type="text" class="form-control"
-                      formControlName="email" name="email" />
-                    <i class="fa fa-at fa-lg" aria-hidden="true"></i>
-                    <div class="alert alert-danger" *ngIf="email?.touched && !email?.valid">
-                      <div *ngIf="email?.errors?.required">Le email est obligatoire</div>
-                      <div *ngIf="email?.errors?.eemail">Le email doit etre valide</div>
-                    </div>
+                  <div class="input-group col-lg-6 mb-4">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text bg-white px-4 border-md border-right-0">
+                              <i class="fa fa-user text-muted"></i>
+                          </span>
+                      </div>
+                      <input placeholder="Votre prenom" for="prenom" name="prenom" id="prenom" type="text"
+                       formControlName="prenom" class="form-control bg-white border-left-0 border-md">
+                       <div class="p-2 alert-danger" *ngIf="prenom?.touched && !prenom?.valid">
+                        <div *ngIf="prenom?.errors?.required">Le prenom est obligatoire</div>
+                        <div *ngIf="prenom?.errors?.pattern">
+                          Le prenom ne doit pas contenir de chiffres
+                        </div>
+                      </div>
                   </div>
 
-                  <div class="form-group inputWithIcon col">
-                    <input for="password" placeholder="Mot de passe" type="password" id="password" class="form-control"
-                      name="password" formControlName="password" />
-                    <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
+                               <div class="input-group col-lg-12 mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                        <i class="fa fa-phone-square text-muted"></i>
+                                    </span>
+                                </div>
+                                <input for="tel" placeholder="Numéro de téléphone" type="text" id="tel"
+                                name="tel" formControlName="tel"  class="form-control bg-white border-md border-left-0 pl-3">
+                                <div class="alert alert-danger" *ngIf="tel?.touched && !tel?.valid">
+                                  <div *ngIf="tel?.errors?.required">
+                                    Le numéro de téléphone est obligatoire
+                                  </div>
+                                  <div *ngIf="tel?.errors?.pattern">
+                                    Le numéro doit se composer de chiffres seulement
+                                  </div>
+                                  <div *ngIf="tel?.errors?.minlength">
+                                    Le numéro doit se composer de 8 chiffres
+                                  </div>
+                                  <div *ngIf="tel?.errors?.maxlength">
+                                    Le numéro ne doit pas dépasser 13 chiffres
+                                  </div>
+                                </div>
+                            </div>
+          
+                  <div class="input-group col-lg-6 mb-4">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text bg-white px-4 border-md border-right-0">
+                              <i class="fa fa-envelope text-muted"></i>
+                          </span>
+                      </div>
+                      <input for="email" placeholder="Votre Email" id="email" type="text"
+                      formControlName="email" name="email" class="form-control bg-white border-left-0 border-md">
+                      <div class="alert alert-danger" *ngIf="email?.touched && !email?.valid">
+                        <div *ngIf="email?.errors?.required">Le email est obligatoire</div>
+                        <div *ngIf="email?.errors?.email">Le email doit etre valide</div>
+                      </div>
+                  </div>
+
+                  <div class="input-group col-lg-6 mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                            <i class="fa fa-key text-muted"></i>
+                        </span>
+                    </div>
+                    <input for="password" placeholder="Mot de passe" type="password" id="password"
+                    name="password" formControlName="password" class="form-control bg-white border-left-0 border-md">
                     <div class="alert alert-danger" *ngIf="password?.touched && !password?.valid">
                       <div *ngIf="password?.errors?.required">
                         Le mot de passe est obligatoire
@@ -70,76 +103,74 @@
                         Le mot de passe doit se composer de 8 caractére
                       </div>
                     </div>
-                  </div>
                 </div>
-                <div class="row">
-                  <div class="form-group inputWithIcon col">
-                    <input for="tel" placeholder="Numéro de téléphone" type="text" id="tel" class="form-control"
-                      name="tel" formControlName="tel" />
-                    <i class="fa fa-phone fa-lg fa-fw" aria-hidden="true"></i>
-                    <div class="alert alert-danger" *ngIf="tel?.touched && !tel?.valid">
-                      <div *ngIf="tel?.errors?.required">
-                        Le numéro de téléphone est obligatoire
+
+                  <div class="input-group col-lg-12 mb-4">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text bg-white px-4 border-md border-right-0">
+                              <i class="fa fa-map-marker text-muted"></i>
+                          </span>
                       </div>
-                      <div *ngIf="tel?.errors?.pattern">
-                        Le numéro doit se composer de chiffres seulement
+                      <input for="adresse" placeholder="Adresse du centre" id="adresse" type="text"
+                      formControlName="adresse" name="adresse" class="form-control bg-white border-left-0 border-md">
+                      <div class="alert alert-danger" *ngIf="adresse?.touched && !adresse?.valid">
+                        <div *ngIf="adresse?.errors?.required">
+                          L'adresse est obligatoire
+                        </div>
                       </div>
-                      <div *ngIf="tel?.errors?.minlength">
-                        Le numéro doit se composer de 8 chiffres
-                      </div>
-                      <div *ngIf="tel?.errors?.maxlength">
-                        Le numéro ne doit pas dépasser 13 chiffres
-                      </div>
-                    </div>
                   </div>
 
-                  <div class="form-group inputWithIcon col">
-                    <input placeholder="Date de naissance (Année/Mois/Jour)" for="dateNaissance" name="dateNaissance"
-                      id="dateNaissance" type="text" class="form-control" formControlName="dateNaissance" />
-                    <i class="fa fa-calendar fa-lg fa-fw" aria-hidden="true"></i>
-                    <div class="alert alert-danger" *ngIf="dateNaissance?.touched && !dateNaissance?.valid">
-                      <div *ngIf="dateNaissance?.errors?.required">
-                        La date fin est obligatoire
+                  <div class="input-group col-lg-12 mb-4">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text bg-white px-4 border-md border-right-0">
+                              <i class="fa fa-calendar text-muted"></i>
+                          </span>
                       </div>
-                      <div *ngIf="dateNaissance?.errors?.pattern">
-                        La promotion doit etre écrit sous cette forme Année/Mois/Jour
+                      <input placeholder="Date de naissance (Année/Mois/Jour)" for="dateNaissance" name="dateNaissance"
+                      id="dateNaissance" type="text" formControlName="dateNaissance" class="form-control bg-white border-left-0 border-md">
+                      <div class="alert alert-danger" *ngIf="dateNaissance?.touched && !dateNaissance?.valid">
+                        <div *ngIf="dateNaissance?.errors?.required">
+                          La date de naissance est obligatoire
+                        </div>
+                        <div *ngIf="dateNaissance?.errors?.pattern">
+                          La date de naissance doit etre écrit sous cette forme Année/Mois/Jour
+                        </div>
                       </div>
-                    </div>
                   </div>
-                </div>
-                <button type="submit" class="btn text-white m-2" style="background-color: #d88c8a; border-radius: 30px;"
-                  [disabled]="f.invalid">
-                  Enregistrer
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+
+                  <div class="form-group col-lg-12 mx-auto mb-0">
+                      <button type="submit" class="btn btn-block py-2"  [disabled]="f.invalid" 
+                      style="background-color: #D88C8A; border-radius: 30px;">
+                          <span class="text-white">Crée votre compte</span>
+                      </button>
+                  </div>
+
+                  <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                      <div class="border-bottom w-100 ml-5"></div>
+                      <span class="px-2 small text-muted font-weight-bold text-muted">OU</span>
+                      <div class="border-bottom w-100 mr-5"></div>
+                  </div>
+
+                  <div class="form-group col-lg-12 mx-auto">
+                      <a style=" border-radius: 30px;" href="#" class="btn btn-primary btn-block py-2 btn-facebook">
+                          <i class="fa fa-facebook-f mr-2"></i>
+                          <span class="font-weight-bold">Continuer avec Facebook</span>
+                      </a>
+                      <a  style=" border-radius: 30px;" href="#" class="btn btn-primary btn-block py-2 btn-twitter">
+                          <i class="fa fa-twitter mr-2"></i>
+                          <span class="font-weight-bold">Continue avec Twitter</span>
+                      </a>
+                  </div>
+
+                  <div class="text-center w-100">
+                      <p class="text-muted font-weight-bold">Déja inscrit ? <a  routerLink="/LoginClient" 
+                         class="ml-2" style="color: #1f5473;">Connectez-vous ici</a></p>
+                  </div>
+
+              </div>
+          </form>
       </div>
-    </div>
-
-    <div class="col-6 imgSec1">
-      <img src="assets/inscri.jpg" class="img-fluid ">
-    </div>
   </div>
-  <section class="my-3">
+</div>
 
-    <div class="d-flex">
-      <div class="col-6 imgSec1">
-        <img src="assets/inscri2.jpeg" class="img-fluid ">
-      </div>
-      <div class="col-1 "></div>
-      <div class="d-flex">
-        <div class="my-4 p-5 boxsec1"></div>
-        <h1 class="welcText text-white ">Pourquoi s'inscrire à HydroLife ?</h1>
-        <p class="welcPara text-white text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit, seddo eiusmod tempor incididunt ut labore et
-          dolore magna aliqua elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua</p>
-      </div>
-
-    </div>
-  </section>
-
-
-</app-navbar>
+  </app-navbar>

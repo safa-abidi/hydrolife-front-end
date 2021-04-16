@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { CentreUserService } from '../services/CentreUser.service';
+import { ClientUserService } from '../services/ClientUser.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUser } from '../models/CentreUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
@@ -27,6 +28,7 @@ export class NavbarHomeComponent {
      private modalService: NgbModal,
     private fb: FormBuilder,
     private userService:CentreUserService ,
+    private ClientService: ClientUserService,
     private route: ActivatedRoute,
     private router:Router,
     private toastr: ToastrService) { 
@@ -102,7 +104,15 @@ export class NavbarHomeComponent {
   
 
   ngOnInit(): void {
-    let id = localStorage.getItem("myId")
+    let id = localStorage.getItem("myId");
+    let idClient = localStorage.getItem("myIdClient");
+
+    this.ClientService.getOneClient(idClient).subscribe(
+      (resultat: any) => {
+        this.info = resultat;
+        
+      }
+    )
   }
 
 
@@ -110,16 +120,26 @@ export class NavbarHomeComponent {
   loggedin(){
     return localStorage.getItem("myToken");
    
+  }
 
+   
+  Clientloggedin(){
+    return localStorage.getItem("myTokenClient");
+   
   }
 
   logOut(){
     this.toastr.success("Déconnexion réussite à bientôt");
     this.router.navigate(['/Home']);
-    return localStorage.removeItem("myToken");
-    return localStorage.removeItem("myId");
-    
-    
+    return localStorage.removeItem("myToken"),
+    localStorage.removeItem("myId");
+  }
+
+  logOutClient(){
+    this.toastr.success("Déconnexion réussite à bientôt");
+    this.router.navigate(['/Home']);
+    return localStorage.removeItem("myTokenClient"),
+    localStorage.removeItem("myIdClient");
   }
 
   open(content: any) {

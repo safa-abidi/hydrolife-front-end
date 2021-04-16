@@ -25,6 +25,7 @@ export class CentreDetailComponent implements OnInit {
   services: any;
   public list:any = [];
   closeResult = '';
+  idClient:any;
 
   constructor(private userService: CentreUserService,
     public crudApi: ImageService, 
@@ -36,7 +37,15 @@ export class CentreDetailComponent implements OnInit {
       this.dialog.open(SecuDialogComponent);
     }
 
+    Clientloggedin(){
+      return localStorage.getItem("myTokenClient");
+     
+    }
+
   ngOnInit(): void {
+    this.idClient = localStorage.getItem("myIdClient");
+    
+    
     let id = this.route.snapshot.params.id;
 
     this.userService.getOneUser(id).subscribe(
@@ -55,9 +64,7 @@ export class CentreDetailComponent implements OnInit {
       (result)=>{
         
         this.services = result;
-        console.log(result);
-        
-        
+
       },
       (error)=>{
         console.log(error);
@@ -88,5 +95,7 @@ export class CentreDetailComponent implements OnInit {
     this.longitude = event.coords.lng;
     this.locationChosen = true;
   }
+
+   
 
 }

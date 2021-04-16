@@ -98,7 +98,10 @@ export class NavbarComponent {
     
   
   }
-  
+  Clientloggedin(){
+    return localStorage.getItem("myTokenClient");
+   
+  }
 
   ngOnInit(): void {
     let id = localStorage.getItem("myId")

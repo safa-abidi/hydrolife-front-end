@@ -58,15 +58,38 @@
         <a mat-list-item class="nav-link" *ngIf="loggedin()" class="btn" style="color: #1F5473; border-color: #1F5473;"
           routerLink="EspaceCentre" (click)="logOut()">
           <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>
-          Logout</a>>
+          Logout</a>
         <a mat-list-item *ngIf="!loggedin()" class="nav-link"><img (click)="open(content)" src="assets/login.png"
             alt="login"></a>
       </div>
     </mat-toolbar>
+      <mat-toolbar>
+        <span>My Application</span>
+      </mat-toolbar>
+    
+      <mat-toolbar  *ngIf="Clientloggedin()">
+       <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Bienvenue <span style="color: #d88c8a;">{{ info?.nom }}</span></span>
+      <span class="example-spacer"></span>
+      <a mat-list-item class="nav-link btn"
+      routerLink="/MonProfil/{{ info?.id }}">Mon profil</a>
+      <a mat-list-item class="nav-link btn"
+      routerLink="EspaceCentre" (click)="logOutClient()">
+      Logout</a>
+    </mat-toolbar>
+    
     <ng-content></ng-content>
     <!-- Add Content Here -->
   </mat-sidenav-content>
+
+  
+
 </mat-sidenav-container>
+
+
+
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title text-center" id="modal-basic-title">Se connecter</h4>

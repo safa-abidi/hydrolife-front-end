@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientUserService } from './../services/ClientUser.service';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ClientUser } from '../models/ClientUser.model';
@@ -12,7 +12,8 @@ import { ClientUser } from '../models/ClientUser.model';
 })
 export class LoginClientComponent implements OnInit {
 
-  addClientForm: FormGroup
+  logClientForm: FormGroup;
+  info: any;
 
   constructor(
     private fb: FormBuilder,
@@ -22,19 +23,6 @@ export class LoginClientComponent implements OnInit {
   ) {
 
     let formControls = {
-      nom: new FormControl('',[
-        Validators.required,
-        Validators.pattern("[A-Za-z .'-]+"),
-        Validators.minLength(2)
-      ]),
-      prenom: new FormControl('',[
-        Validators.required,
-        Validators.pattern("[A-Za-z .'-]+"),
-        Validators.minLength(2)
-      ]),
-      adresse: new FormControl('',[
-        Validators.required
-      ]),
       email: new FormControl('',[
         Validators.required,
         Validators.email
@@ -42,64 +30,90 @@ export class LoginClientComponent implements OnInit {
       password: new FormControl('',[
         Validators.required,
         Validators.minLength(6)
-      ]),
-      tel: new FormControl('',[
-        Validators.required,
-        Validators.pattern("[0-9]+"),
-        Validators.minLength(8),
-        Validators.maxLength(13)
-      ]),
-      dateNaissance: new FormControl('',[
-        Validators.required,
-        Validators.pattern("[0-9.'-]+")
-      ]),
+      ])
     }
 
-    this.addClientForm = this.fb.group(formControls)
+    this.logClientForm = this.fb.group(formControls)
   }
-  get nom() { return this.addClientForm.get('nom') }
-  get adresse() { return this.addClientForm.get('adresse') }
-  get email() { return this.addClientForm.get('email') }
-  get password() { return this.addClientForm.get('password') }
-  get tel() { return this.addClientForm.get('tel') }
-  get prenom() { return this.addClientForm.get('prenom') }
-  get dateNaissance() { return this.addClientForm.get('dateNaissance') }
+  get email() { return this.logClientForm.get('email') }
+  get password() { return this.logClientForm.get('password') }
 
 
 
 
   
   ngOnInit(): void {
+
+    let id = localStorage.getItem("myIdClient")
   }
 
 
-  onSubmit(){
-
-    let data = this.addClientForm.value;
+  onSubmit() {
     
+    let data = this.logClientForm.value;
+
     let client = new ClientUser(
-      data.nom,
-      data.adresse,
+      undefined,
+      undefined,
       data.email,
       data.password,
-      data.tel,
-      data.prenom,
-      data.dateNaissance
+      undefined,
+      undefined,
+      undefined
 
       );
-      
-    this.userService.addUser(client).subscribe(
-      res=>{
-        
-        this.toastr.success("Vos êtes inscrits avec succès");
-        this.router.navigate(['/Home']);
 
+      this.userService.getUserDet(data.email).subscribe(
+        (result)=>{
+          
+          this.info = result;
+        },
+        (error)=>{
+          console.log(error);
+        }
+      )
+
+    this.userService.loginAdmin(client).subscribe(
+      (res: { jwt: any,
+              email: any})=>{
+                
+        console.log(res);
+        let token = res.jwt;
+        let Email = res.email;
+        
+        localStorage.setItem("myTokenClient",token);
+        localStorage.setItem("myIdClient",this.info.id)
+        let id = localStorage.getItem("myIdClient")
+        
+        this.router.navigate(['/Home/'+id]);
       },
-      err=>{
-        this.toastr.error("Compte déja existant");
+      (err: any)=>{
+        this.toastr.error("Mot de passe ou email erroné");
+        
+        console.log(err);
+        
       }
     );
     
+    
+  
   }
+
+  
+  loggedin(){
+    return localStorage.getItem("myToken");
+   
+
+  }
+
+  logOut(){
+    this.toastr.success("Déconnexion réussite à bientôt");
+    this.router.navigate(['/Home']);
+    return localStorage.removeItem("myToken");
+    return localStorage.removeItem("myId");
+    
+    
+  }
+
 
 }

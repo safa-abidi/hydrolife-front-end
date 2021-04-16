@@ -39,10 +39,23 @@
       <a mat-list-item class="nav-link" *ngIf="loggedin()" class="btn" style="color: #1F5473; border-color: #1F5473;" routerLink="EspaceCentre"
         (click)="logOut()">
         <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>
-        Logout</a>>
+        Logout</a>
       <a mat-list-item *ngIf="!loggedin()" class="nav-link"><img (click)="open(content)" src="assets/login.png" alt="login"></a>
       </div>
     </mat-toolbar>
+    <mat-toolbar  *ngIf="Clientloggedin()">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+       <mat-icon>menu</mat-icon>
+     </button>
+     <span>My App</span>
+     <span class="example-spacer"></span>
+     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+       <mat-icon>favorite</mat-icon>
+     </button>
+     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+   </mat-toolbar>
     <ng-content></ng-content>
     <!-- Add Content Here -->
   </mat-sidenav-content>

@@ -102,9 +102,13 @@ export class NavbarHomeComponent {
   
   }
   
-
   ngOnInit(): void {
     let id = localStorage.getItem("myId");
+    this.info = this.loginClient()
+ 
+  }
+
+  loginClient(){
     let idClient = localStorage.getItem("myIdClient");
 
     this.ClientService.getOneClient(idClient).subscribe(
@@ -114,7 +118,6 @@ export class NavbarHomeComponent {
       }
     )
   }
-
 
   
   loggedin(){

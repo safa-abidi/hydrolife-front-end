@@ -302,3 +302,14 @@ a {
     .example-spacer {
       flex: 1 1 auto;
     }
+
+    input[type="text"] {
+      width: 100%;
+      border: 2px solid #aaa;
+      border-radius: 4px;
+      margin: 8px 0;
+      outline: none;
+      padding: 8px;
+      box-sizing: border-box;
+      transition: 0.3s;
+    }

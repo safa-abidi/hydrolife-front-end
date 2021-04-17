@@ -9,6 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUser } from '../models/CentreUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ClientProfilComponent } from '../client-profil/client-profil.component';
+import {MatDialog} from '@angular/material/dialog';
 
 import { HostListener } from '@angular/core';
 
@@ -31,7 +33,8 @@ export class NavbarHomeComponent {
     private ClientService: ClientUserService,
     private route: ActivatedRoute,
     private router:Router,
-    private toastr: ToastrService) { 
+    private toastr: ToastrService,
+    public dialog: MatDialog) { 
       let formControls = {
         Email: new FormControl('',[
           Validators.required,
@@ -190,6 +193,10 @@ export class NavbarHomeComponent {
       map(result => result.matches),
       shareReplay()
     );
+
+    openDialog() {
+      this.dialog.open(ClientProfilComponent);
+    }
 
 
 }

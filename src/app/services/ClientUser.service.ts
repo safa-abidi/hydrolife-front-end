@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { ClientUser } from "../models/ClientUser.model";
+import { ClientUserUpdate } from "../models/ClientUserUpdate.model";
 import { environment } from 'src/environments/environment';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({ providedIn: 'root' })
 export class ClientUserService {
@@ -39,6 +40,11 @@ export class ClientUserService {
     
       ClientlogOut(){
         let token = localStorage.removeItem("myTokenClient");
+      }
+
+      updateClient(user:ClientUserUpdate){
+        let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myTokenClient"));
+        return this.http.put<any>( `${this.apiServerUrl}/api/client/update`, user, {headers: header});
       }
     
  }

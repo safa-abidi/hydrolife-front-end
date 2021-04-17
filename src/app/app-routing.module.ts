@@ -21,6 +21,8 @@ import { InscriClientComponent } from './inscri-client/inscri-client.component';
 import { LoginClientComponent } from './login-client/login-client.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ClientProfilComponent } from './client-profil/client-profil.component';
+import { UpdateClientProfilComponent } from './update-client-profil/update-client-profil.component';
+
 
 
 
@@ -54,6 +56,8 @@ const routes: Routes = [
   { path: 'LoginClient', component: LoginClientComponent },
   { path: 'Reservation/:id', component: ReservationComponent, canActivate:[ResAuthGuard] },
   { path: 'MonProfil/:id', component: ClientProfilComponent, canActivate:[ClientAuthGuard] },
+  { path: 'UpdateClientProfil/:id', component: UpdateClientProfilComponent, canActivate:[ClientAuthGuard] },
+
 
 
 

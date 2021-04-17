@@ -85,7 +85,8 @@ import { SecuDialogComponent } from './secu-dialog/secu-dialog.component';
 import { InscriClientComponent } from './inscri-client/inscri-client.component';
 import { LoginClientComponent } from './login-client/login-client.component';
 import { ReservationComponent } from './reservation/reservation.component';
-import { ClientProfilComponent } from './client-profil/client-profil.component'
+import { ClientProfilComponent } from './client-profil/client-profil.component';
+import { UpdateClientProfilComponent } from './update-client-profil/update-client-profil.component';
 
 
 
@@ -119,7 +120,8 @@ import { ClientProfilComponent } from './client-profil/client-profil.component'
     InscriClientComponent,
     LoginClientComponent,
     ReservationComponent,
-    ClientProfilComponent
+    ClientProfilComponent,
+    UpdateClientProfilComponent
 
   ],
   imports: [

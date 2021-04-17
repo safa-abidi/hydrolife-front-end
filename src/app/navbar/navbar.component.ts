@@ -10,6 +10,8 @@ import { CentreUser } from '../models/CentreUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { HostListener } from '@angular/core';
+import { ClientProfilComponent } from '../client-profil/client-profil.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-navbar',
@@ -30,7 +32,8 @@ export class NavbarComponent {
     private ClientService: ClientUserService,
     private route: ActivatedRoute,
     private router:Router,
-    private toastr: ToastrService) { 
+    private toastr: ToastrService,
+    public dialog: MatDialog) { 
       let formControls = {
         Email: new FormControl('',[
           Validators.required,
@@ -187,5 +190,9 @@ loginClient(){
       map(result => result.matches),
       shareReplay()
     );
+
+    openDialog() {
+      this.dialog.open(ClientProfilComponent);
+    }
 
 }

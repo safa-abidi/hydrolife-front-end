@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ClientUserService } from '../services/ClientUser.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-client-profil',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientProfilComponent implements OnInit {
 
-  constructor() { }
+  info: any;
+  
+
+  constructor(private http: HttpClient,
+              private userService: ClientUserService,
+              private route: ActivatedRoute
+
+  ) { }
 
   ngOnInit(): void {
+  //  let idUser = this.route.snapshot.params.id;
+    let idUser = localStorage.getItem("myIdClient");
+     
+    this.userService.getOneClient(idUser).subscribe(
+      (result)=>{
+        
+        this.info = result;
+        console.log(result);
+        
+
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 
 }

@@ -23,7 +23,7 @@
       <a mat-list-item class="nav-link" *ngIf="loggedin()" class="btn" style="color: #1F5473; border-color: #1F5473;"
         routerLink="EspaceCentre" (click)="logOut()">
         <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>Logout</a>
-        <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" routerLink="/MonProfil/{{ info?.id }}">Mon profil</a>
+        <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" (click)="openDialog()">Mon profil</a>
         <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" routerLink="EspaceCentre" (click)="logOutClient()">Logout</a>
       <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" class="nav-link"><img (click)="open(content)" src="assets/login.png"
           alt="login"></a>
@@ -60,7 +60,7 @@
           routerLink="EspaceCentre" (click)="logOut()">
           <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>
           Logout</a>
-        <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" routerLink="/MonProfil/{{ info?.id }}">Mon profil</a>
+        <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" (click)="openDialog()">Mon profil</a>
         <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" routerLink="EspaceCentre" (click)="logOutClient()">Logout</a>
         <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" class="nav-link"><img (click)="open(content)"
             src="assets/login.png" alt="login"></a>

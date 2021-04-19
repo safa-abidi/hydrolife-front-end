@@ -42,30 +42,32 @@
     </div>
     <div class="row my-5">
       <div class="col-3 col-md-2">
-      <img src="assets/corona.png">
-    </div>
+        <img src="assets/corona.png">
+      </div>
       <div class=" mt-2 col-9 col-md-10">
         <h1>Mesures supplémentaires de santé et de sécurité </h1>
         <p>Cet établissement a pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous assurer
           une détante en toute sécurité.</p>
-        <button style="color: #1f5473;" class="btn p-0" mat-button (click)="openDialog()">Voir les mesures de sécurité</button>
+        <button style="color: #1f5473;" class="btn p-0" mat-button (click)="openDialog()">Voir les mesures de
+          sécurité</button>
       </div>
     </div>
     <h1 class="mb-5 nom2">Nos services : </h1>
-      <div *ngIf="services?.length == 0" class="alert alert-warning mt-5">Aucun service n'est disponible </div>
-      <div class="mb-3" *ngFor="let service of services;">
-          <div class="row">
-            <div class="col-6">
-              <h1>{{ service?.libelle_service }} </h1>
-              <p> {{ service?.description_service }} </p>
-              <h3>Prix : {{ service?.prix_service }} TND / personne</h3>
-            </div>
-            <div>
-              <button class="button" *ngIf="Clientloggedin()" routerLink="/Reservation/{{idClient}}"><span>Réserver </span></button>
-              <button class="button" *ngIf="!Clientloggedin()" routerLink="/LoginClient"><span>Réserver </span></button>
-            </div>
-          </div>
+    <div *ngIf="services?.length == 0" class="alert alert-warning mt-5">Aucun service n'est disponible </div>
+    <div class="mb-3" *ngFor="let service of services;">
+      <div class="row">
+        <div class="col-6">
+          <h1>{{ service?.libelle_service }} </h1>
+          <p> {{ service?.description_service }} </p>
+          <h3>Prix : {{ service?.prix_service }} TND / personne</h3>
         </div>
+        <div>
+          <button class="button" *ngIf="Clientloggedin()" routerLink="/Reservation/{{idClient}}"><span>Réserver
+            </span></button>
+          <button class="button" *ngIf="!Clientloggedin()" routerLink="/LoginClient"><span>Réserver </span></button>
+        </div>
+      </div>
+    </div>
 
 
   </div>

@@ -41,6 +41,12 @@ export class ImageService {
    
     return this.http.get(`${this.apiServerUrl}/api/photo/findbycentre/${idCentre}`);
   }
+
+  
+  getByCentreIdBiss(idCentre: number){  
+   
+    return this.http.get(`${this.apiServerUrl}/api/photo/findbycentre/${idCentre}`);
+  }
   
  
   deleteData(id: number): Observable<any> {

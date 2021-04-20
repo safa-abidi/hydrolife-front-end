@@ -48,7 +48,6 @@ onSubmit() {
   addData() {
     const formData = new  FormData();
     const photo = this.addPhoto.value;
-    console.log(photo);
     let idUser = localStorage.getItem("myId");
     
     

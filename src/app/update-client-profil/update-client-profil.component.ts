@@ -53,8 +53,7 @@ export class UpdateClientProfilComponent implements OnInit {
         Validators.maxLength(13)
       ]),
       dateNaissance: new FormControl('',[
-        Validators.required,
-        Validators.pattern("[0-9.'-]+")
+        Validators.required
       ]),
     }
 
@@ -67,17 +66,14 @@ export class UpdateClientProfilComponent implements OnInit {
   get tel() { return this.updateClientForm.get('tel') }
   get prenom() { return this.updateClientForm.get('prenom') }
   get dateNaissance() { return this.updateClientForm.get('dateNaissance') }
-
-
-
-
   
-
+idUser: any;
   ngOnInit(): void {
-    let idUser = this.route.snapshot.params.id;
+     
+
+    this.idUser = this.route.snapshot.params.id;
     
-    
-    this.userService.getOneClient(idUser).subscribe(
+    this.userService.getOneClient(this.idUser).subscribe(
       (res: any)=>{
         let ClientUserUpdate = res;
 
@@ -87,7 +83,7 @@ export class UpdateClientProfilComponent implements OnInit {
           email: ClientUserUpdate.email,
           tel: ClientUserUpdate.tel,
           prenom: ClientUserUpdate.prenom,
-          dateNaissance: ClientUserUpdate.dateNaissance,
+          dateNaissance: ClientUserUpdate.dateNaissance
         })
         
       },
@@ -96,6 +92,7 @@ export class UpdateClientProfilComponent implements OnInit {
       }
     )
   }
+
   updateUser() {
     let data = this.updateClientForm.value;
     let idUser = this.route.snapshot.params.id;
@@ -110,7 +107,6 @@ export class UpdateClientProfilComponent implements OnInit {
       data.dateNaissance
       );
     
-
     this.userService.updateClient(user).subscribe(
       res=>{
         

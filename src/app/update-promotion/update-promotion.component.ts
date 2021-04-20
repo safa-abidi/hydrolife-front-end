@@ -37,12 +37,10 @@ export class UpdatePromotionComponent implements OnInit {
         Validators.pattern("[0-9]+")
       ]),
       date_debut_promo: new FormControl('',[
-        Validators.required,
-        Validators.pattern("[0-9.'-]+")
+        Validators.required
       ]),
       date_fin_promo: new FormControl('',[
-        Validators.required,
-        Validators.pattern("[0-9.'-]+")
+        Validators.required
       ])
     }
 
@@ -124,5 +122,8 @@ export class UpdatePromotionComponent implements OnInit {
     );
 
   }
-
+  range = new FormGroup({
+    date_debut_promo: new FormControl(),
+    date_fin_promo: new FormControl()
+  });
 }

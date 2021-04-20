@@ -50,9 +50,8 @@ export class InscriClientComponent implements OnInit {
         Validators.maxLength(13)
       ]),
       dateNaissance: new FormControl('',[
-        Validators.required,
-        Validators.pattern("[0-9.'-]+")
-      ]),
+        Validators.required
+      ])
     }
 
     this.addClientForm = this.fb.group(formControls)
@@ -63,7 +62,7 @@ export class InscriClientComponent implements OnInit {
   get password() { return this.addClientForm.get('password') }
   get tel() { return this.addClientForm.get('tel') }
   get prenom() { return this.addClientForm.get('prenom') }
-  get dateNaissance() { return this.addClientForm.get('dateNaissance') }
+  get dateNaissance() { return this.addClientForm.get('dateNaissance'); }
 
 
 
@@ -97,6 +96,8 @@ export class InscriClientComponent implements OnInit {
       },
       err=>{
         this.toastr.error("Compte déja existant");
+        console.log(err);
+        
       }
     );
     

@@ -13,7 +13,7 @@
               name="titre_promo"
               id="titre_promo"
               type="text"
-              class="form-control"
+              class="form-control inputt"
               formControlName="titre_promo" 
             />
             <i class="fa fa-font fa-lg fa-fw" aria-hidden="true"></i>
@@ -33,7 +33,7 @@
               name="pourcentage"
               id="pourcentage"
               type="text"
-              class="form-control"
+              class="form-control inputt"
               formControlName="pourcentage" 
             />
             <i class="fa fa-percent fa-lg fa-fw" aria-hidden="true"></i>
@@ -49,55 +49,20 @@
           </div>
   
         </div>
-        <div class="row">
-        <div class="form-group inputWithIcon col">
-          <input
-            placeholder="Date début (Année/Mois/Jour)"
-            for="date_debut_promo"
-            name="date_debut_promo"
-            id="date_debut_promo"
-            type="text"
-            class="form-control"
-            formControlName="date_debut_promo" 
-          />
-          <i class="fa fa-calendar fa-lg fa-fw" aria-hidden="true"></i>
-          <div class="alert alert-danger" *ngIf="date_debut_promo?.touched && !date_debut_promo?.valid">
-            <div *ngIf="date_debut_promo?.errors?.required">
-                La date début est obligatoire
-              </div>
-            <div *ngIf="date_debut_promo?.errors?.pattern">
-              La promotion doit etre écrit sous cette forme Année/Mois/Jour
-            </div>
-          </div>
-        </div>
-        <div class="form-group inputWithIcon col">
-          <input
-            placeholder="Date fin (Année/Mois/Jour)"
-            for="date_fin_promo"
-            name="date_fin_promo"
-            id="date_fin_promo"
-            type="text"
-            class="form-control"
-            formControlName="date_fin_promo" 
-          />
-          <i class="fa fa-calendar fa-lg fa-fw" aria-hidden="true"></i>
-          <div class="alert alert-danger" *ngIf="date_fin_promo?.touched && !date_fin_promo?.valid">
-            <div *ngIf="date_fin_promo?.errors?.required">
-                La date fin est obligatoire
-              </div>
-            <div *ngIf="date_fin_promo?.errors?.pattern">
-              La promotion doit etre écrit sous cette forme Année/Mois/Jour
-            </div>
-          </div>
-        </div>
-      </div>
-
-        <!--<mat-date-range-picker #rangePicker>
-          <mat-date-range-picker-actions>
-            <button mat-button matDateRangePickerCancel>Cancel</button>
-            <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
-          </mat-date-range-picker-actions>
-        </mat-date-range-picker>-->
+        <mat-form-field appearance="fill">
+          <mat-label>Modifiez la date de début et de fin de la promotion</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Date de début" for="date_debut_promo" name="date_debut_promo" id="date_debut_promo"
+              formControlName="date_debut_promo">
+            <input matEndDate placeholder="Date de fin" for="date_fin_promo" name="date_fin_promo" id="date_fin_promo"
+              formControlName="date_fin_promo">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+          <mat-error *ngIf="range.controls.date_debut_promo.hasError('matStartDateInvalid')">Invalid start date
+          </mat-error>
+          <mat-error *ngIf="range.controls.date_fin_promo.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+        </mat-form-field>
         
         <div class="form-group">
          
@@ -106,7 +71,7 @@
             placeholder="Description"
             id="description_promo"
             type="text"
-            class="form-control"
+            class="form-control inputt"
             formControlName="description_promo"
             name="description_promo"
           ></textarea>

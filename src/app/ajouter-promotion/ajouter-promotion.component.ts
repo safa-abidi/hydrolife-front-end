@@ -16,6 +16,8 @@ import { ToastrService } from 'ngx-toastr';
 export class AjouterPromotionComponent implements OnInit {
 
   
+
+  
   addPromotionForm: FormGroup
   idUser: number | undefined;
 
@@ -39,12 +41,10 @@ export class AjouterPromotionComponent implements OnInit {
         Validators.pattern("[0-9]+")
       ]),
       date_debut_promo: new FormControl('',[
-        Validators.required,
-        Validators.pattern("[0-9.'-]+")
+        Validators.required
       ]),
       date_fin_promo: new FormControl('',[
-        Validators.required,
-        Validators.pattern("[0-9.'-]+")
+        Validators.required
       ])
     }
 
@@ -61,6 +61,7 @@ export class AjouterPromotionComponent implements OnInit {
   get date_fin_promo() { return this.addPromotionForm.get('date_fin_promo') }
 
   ngOnInit(): void {
+    
   }
 
   addPromotion(){
@@ -90,13 +91,10 @@ export class AjouterPromotionComponent implements OnInit {
     
   }
 
-  /*minDate = new Date()
-  maxDate = new Date(2019, 1, 25)
+  id = localStorage.getItem("myId")
 
-  dateFilter = (date: any) => {
-    const day = date.getDay();
-    // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
-  }*/
-
+  range = new FormGroup({
+    date_debut_promo: new FormControl(),
+    date_fin_promo: new FormControl()
+  });
 }

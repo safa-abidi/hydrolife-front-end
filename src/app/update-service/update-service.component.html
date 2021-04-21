@@ -1,92 +1,61 @@
 <app-navbar>
-<br><br><br><br><br>
-<h2 class="text-center m-5" style="color: #d88c8a">Modification de service</h2>
-<div class="container text-center mb-5">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <form  [formGroup]="updateServiceForm" #f="ngForm" (ngSubmit)="updateService()" class="resStyle">
-        <div class="row">
-          <div class="form-group inputWithIcon col">
-            <input
-              placeholder="Intitulé du service"
-              for="libelle_service"
-              name="libelle_service"
-              id="libelle_service"
-              type="text"
-              class="form-control"
-              formControlName="libelle_service" 
-            />
-            <i class="fa fa-font fa-lg fa-fw" aria-hidden="true"></i>
-            <div class="alert alert-danger" *ngIf="libelle_service?.touched && !libelle_service?.valid">
-              <div *ngIf="libelle_service?.errors?.required">
+  <br><br><br><br><br>
+  <h1 class="text-center m-5" style="color: #d88c8a">Modification de service</h1>
+  <div class="container text-center mb-5">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <form [formGroup]="updateServiceForm" #f="ngForm" (ngSubmit)="updateService()" class="resStyle">
+          <div class="row">
+            <div class="form-group inputWithIcon col">
+              <input placeholder="Intitulé du service" for="libelle_service" name="libelle_service" id="libelle_service"
+                type="text" class="form-control" formControlName="libelle_service" />
+              <i class="fa fa-font fa-lg fa-fw" aria-hidden="true"></i>
+              <div class="alert alert-danger" *ngIf="libelle_service?.touched && !libelle_service?.valid">
+                <div *ngIf="libelle_service?.errors?.required">
                   L'intitulé du service est obligatoire
                 </div>
-              <div *ngIf="libelle_service?.errors?.pattern">
-                L'intitulé du service ne doit pas contenir de chiffres
+                <div *ngIf="libelle_service?.errors?.pattern">
+                  L'intitulé du service ne doit pas contenir de chiffres
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group inputWithIcon col">
+
+              <input for="prix_service" placeholder="prix (par personne)" id="prix_service" type="text"
+                class="form-control" formControlName="prix_service" name="prix_service" />
+              <i class="fa fa-usd fa-lg fa-fw" aria-hidden="true"></i>
+              <div class="alert alert-danger" *ngIf="prix_service?.touched && !prix_service?.valid">
+                <div *ngIf="prix_service?.errors?.required">
+                  Le prix est obligatoire
+                </div>
+                <div *ngIf="prix_service?.errors?.pattern">
+                  Le prix ne doit pas contenir de lettre
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea for="description_service" placeholder="description du service" type="text"
+              id="description_service" class="form-control" name="description_service"
+              formControlName="description_service"></textarea>
+            <div class="alert alert-danger" *ngIf="description_service?.touched && !description_service?.valid">
+              <div *ngIf="description_service?.errors?.required">
+                La description est obligatoire
               </div>
             </div>
           </div>
 
-          <div class="form-group inputWithIcon col">
-         
-            <input
-              for="prix_service"
-              placeholder="prix (par personne)"
-              id="prix_service"
-              type="text"
-              class="form-control"
-              formControlName="prix_service"
-              name="prix_service"
-            />
-            <i class="fa fa-usd fa-lg fa-fw" aria-hidden="true"></i>
-            <div
-              class="alert alert-danger"
-              *ngIf="prix_service?.touched && !prix_service?.valid"
-            >
-              <div *ngIf="prix_service?.errors?.required">
-                Le prix est obligatoire
-              </div>
-              <div *ngIf="prix_service?.errors?.pattern">
-                Le prix ne doit pas contenir de lettre
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <textarea
-            for="description_service"
-            placeholder="description du service"
-            type="text"
-            id="description_service"
-            class="form-control"
-            name="description_service"
-            formControlName="description_service"
-          ></textarea>
-          <div class="alert alert-danger" *ngIf="description_service?.touched && !description_service?.valid">
-            <div *ngIf="description_service?.errors?.required">
-              La description est obligatoire
-            </div>
-          </div>
-        </div>
-       
-        <button
-          type="submit"
-          [disabled]="f.invalid"
-          class="btn text-white m-2"
-          style="background-color: #d88c8a;border-radius: 30px;"
-        >
-          Modifier
-        </button>
-        <button
-        routerLink="/CentreService/{{ id }}"
-        class="btn m-2"
-        style="color: #1f5473; "
-      >
-        Annuler
-      </button>
-      </form>
+          <button type="submit" [disabled]="f.invalid" class="btn text-white m-2"
+            style="background-color: #d88c8a;border-radius: 30px;">
+            Modifier
+          </button>
+          <button routerLink="/CentreService/{{ id }}" class="btn m-2" style="color: #1f5473; ">
+            Annuler
+          </button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </app-navbar>
 <br><br><br><br><br>

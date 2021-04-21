@@ -62,14 +62,14 @@ export class UpdateCentreProfilComponent implements OnInit {
 
 
 
-
+  idUser: any;
   
 
   ngOnInit(): void {
-    let idUser = this.route.snapshot.params.id;
+    this.idUser = this.route.snapshot.params.id;
     
     
-    this.userService.getOneUser(idUser).subscribe(
+    this.userService.getOneUser(this.idUser).subscribe(
       (res: any)=>{
         let CentreUser = res;
 

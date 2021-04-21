@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar>
 <app-dash-nav></app-dash-nav>
 <div class="container">
   <button class="button my-5" routerLink="/AjouterGallerie/{{ idCentre }}"><span>Nouvelle photo </span></button>
@@ -19,7 +19,7 @@
 <button  *ngIf="crudApi.listData?.length > 3" class="button my-5" routerLink="/AjouterGallerie/{{ idCentre }}"><span>Nouvelle photo </span></button>
 </div>
 
-
+</app-navbar>
 
 
 

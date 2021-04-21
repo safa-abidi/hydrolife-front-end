@@ -14,6 +14,7 @@ export class AjouterServiceComponent implements OnInit {
 
   addServiceForm: FormGroup
   idUser: number | undefined;
+  id: any;
 
   constructor(
     private fb: FormBuilder,
@@ -46,6 +47,8 @@ export class AjouterServiceComponent implements OnInit {
   get prix_service() { return this.addServiceForm.get('prix_service') }
 
   ngOnInit(): void {
+    
+    this.id = localStorage.getItem("myId");
   }
 
   addService(){

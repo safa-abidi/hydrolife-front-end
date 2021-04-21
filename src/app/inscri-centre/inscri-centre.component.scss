@@ -1,5 +1,4 @@
 
-
 .form-control.ng-invalid.ng-dirty.ng-touched {
     border: 2px solid red;
   }
@@ -15,13 +14,32 @@
     transition: 0.3s;
   }
 
+  input[type="password"] {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+
   input[type="text"]:focus {
     border-color: #1f5473;
     box-shadow: 0 0 8px 0 #1f5473;
   }
   
+  input[type="password"]:focus {
+    border-color: #1f5473;
+    box-shadow: 0 0 8px 0 #1f5473;
+  }
   
   .inputWithIcon input[type="text"] {
+    padding-left: 40px;
+  }
+
+  .inputWithIcon input[type="password"] {
     padding-left: 40px;
   }
 
@@ -37,6 +55,7 @@
     color: #aaa;
     transition: 0.3s;
   }
+
   .inputWithIconN i {
     position: absolute;
     left: 0px;
@@ -45,13 +64,24 @@
     color: #aaa;
     transition: 0.3s;
   }
+
   .inputWithIconN input[type="text"] {
     padding-left: 40px;
   }
+
+  .inputWithIconN input[type="password"] {
+    padding-left: 40px;
+  }
+
   .inputWithIconN {
     position: relative;
   }
+  
   .inputWithIcon input[type="text"]:focus + i {
+    color: #1f5473;
+  }
+
+  .inputWithIcon input[type="password"]:focus + i {
     color: #1f5473;
   }
   

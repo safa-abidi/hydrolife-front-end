@@ -275,9 +275,7 @@ input[type="text"]:focus {
 
 .search {
   height: 50%;
- // width: auto;
   display: inline-block;
-  //text-indent: -10000px;
   border: none;
   position: absolute;
   top: 8px;
@@ -379,6 +377,79 @@ input[type="text"]:focus {
   height: 500px;
 }
 
+.containerr {
+  position: relative; 
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wordCarousel {
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 1px 1px black;
+  div {
+      overflow: hidden;
+      position: relative;
+      float: right;
+      height: 65px;
+      padding-top: 10px;
+      margin-top: -10px;
+      li {
+          color: #1F5473;
+          font-weight: 700;
+          padding: 0 10px;
+          height: 45px;
+          margin-bottom: 45px;
+          display: block;
+          text-shadow: none;
+      }
+  }
+}
+
+.flip2 { animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip3 { animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+.flip4 { animation: flip4 10s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
+
+@keyframes flip2 {
+  0% { margin-top: -180px; }
+  5% { margin-top: -90px;  }
+  50% { margin-top: -90px; }
+  55% { margin-top: 0px; }
+  99.99% { margin-top: 0px; }
+  100% { margin-top: -270px; }
+}
+
+@keyframes flip3 {
+  0% { margin-top: -270px; }
+  5% { margin-top: -180px; }
+  33% { margin-top: -180px; }
+  38% { margin-top: -90px; }
+  66% { margin-top: -90px; }
+  71% { margin-top: 0px; }
+  99.99% { margin-top: 0px; }
+  100% { margin-top: -270px; }
+}
+
+@keyframes flip4 {
+  0% { margin-top: -360px; }
+  5% { margin-top: -270px; }
+  25% { margin-top: -270px; }
+  30% { margin-top: -180px; }
+  50% { margin-top: -180px; }
+  55% { margin-top: -90px; }
+  75% { margin-top: -90px; }
+  80% { margin-top: 0px; }
+  99.99% { margin-top: 0px; }
+  100% { margin-top: -270px; }
+}
+
+
 @media screen and (max-width: 600px) {
 
   .imgSec1{
@@ -406,15 +477,26 @@ input[type="text"]:focus {
     margin-left: 25px;
   }
 
+  .wordCarousel {
+    font-size: 1.5rem;
+    font-weight: 200;
+  }
+
 }
 
 @media screen and (min-width: 601px) and (max-width: 992px) {
 
   .boxsec1{
     position: static;
-    width: 310px;
+    width: 260px;
     height: 350px;
   }
+
+  .wordCarousel {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
 
   .welcText{
     font-size: 20px;
@@ -429,21 +511,66 @@ input[type="text"]:focus {
   .welcPara{
     line-height: 1.6;
     font-size: 15px;
-    top: 650px;
+    top: 750px;
     clear: both;
   
   }
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1024px)  {
+
+  .boxsec1{
+    position: static;
+    width: 300px;
+    height: 550px;
+  }
+
+  .welcText{
+    font-size: 25px;
+  }
+  .welcText span{
+    color: white;
+    font-size: 25px;
+  }
+
+  .wordCarousel {
+    font-size: 2.7rem;
+    font-weight: 300;
+  }
 
   .welcPara{
     font-size: 18px;
-    top: 1200px;
+    top: 1000px;
     margin-left: 25px;
-    margin-right: 20px;
+    margin-right: 40px;
   }
   
+}
+
+@media screen and (min-width: 1440px) and (max-width: 2560px) { 
+
+  .boxsec1{
+    position: static;
+    width: 400px;
+    height: 550px;
+  }
+
+  .welcText{
+    font-size: 35px;
+  }
+
+
+  .wordCarousel {
+    font-size: 2.7rem;
+    font-weight: 300;
+  }
+
+  .welcPara{
+    font-size: 18px;
+    top: 1500px;
+    margin-left: 25px;
+    margin-right: 95px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -575,3 +702,21 @@ input[type="text"]:focus {
   
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .boxsec3{
+    width: 400px; 
+    height: 450px; 
+  }
+  
+  .sec3Text{
+    font-size: 25px;
+    margin-left: 0px;
+  }
+  
+  .sec3Para{
+    margin-left: -30px;
+    margin-right: 20px;
+  
+  }
+ }

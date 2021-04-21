@@ -1,7 +1,13 @@
 
 <app-navbar-home>
 <section>
-  
+
+
+
+
+
+<div class="containerr">
+
   <ngb-carousel #ngcarousel>
     <ng-template ngbSlide id="one">
       <div class="picsum-img-wrapper">
@@ -15,10 +21,25 @@
     </ng-template>
     <ng-template ngbSlide id="three">
       <div class="picsum-img-wrapper">
-        <img src="assets/carousel 3.jpg" alt="Slide 3">
+        <img src="assets/inscri2.jpeg" alt="Slide 3">
       </div>
     </ng-template>
   </ngb-carousel>
+
+  <h4 class="wordCarousel centered">
+    <span>Bienvenue a Hydro </span>
+    <div>
+        <ul class="flip3" style="padding: 0;">
+            <li style="color: #D88C8A;   text-shadow: 1px 1px 1px black;">Life</li>
+            <li>Nature</li>
+            <li>Vie</li>
+           
+            
+        </ul>
+    </div>
+  </h4>
+
+</div>
 </section>
 
 <section class="my-3">
@@ -30,7 +51,7 @@
     <div class="col-1 "></div>
     <div class="d-flex">
       <div class="my-4 p-5 boxsec1"></div>
-      <h1 class="welcText text-white ">Bienvenue a Hydro<span class="exp">Life</span></h1>
+      <h1 class="welcText text-white ">Bienvenue a HydroLife</h1>
       <p class="welcPara text-white ">Lorem ipsum dolor sit amet, consectetur adipiscing
           elit, seddo eiusmod tempor incididunt ut labore et
         dolore magna aliqua elit, sed do eiusmod tempor incididunt ut labore et
@@ -60,16 +81,18 @@
 </section>
 
 <section class="container">
-<div class="row my-5 ml-2">
-  <img src="assets/corona.png" style="width:12%">
-  <div class="mx-5 mt-2">
-    <h1>Mesures supplémentaires de santé et de sécurité </h1>
-    <p>Les établissements ont pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous assurer
-      une détante en toute sécurité.</p>
-    <button style="color: #1f5473;" class="btn p-0" mat-button (click)="openDialog()">Voir les mesures liées à la
-      santé et à la sécurité</button>
+  <div class="row my-5 ">
+    <div class="col-3 col-md-2 d-md-inline d-none">
+      <img src="assets/corona.png">
+    </div>
+    <div class=" mt-2 col-9 col-md-10">
+      <h1>Mesures supplémentaires de santé et de sécurité </h1>
+      <p>Cet établissement a pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous assurer
+        une détante en toute sécurité.</p>
+      <button style="color: #1f5473;" class="btn p-0" mat-button (click)="openDialog()">Voir les mesures de
+        sécurité</button>
+    </div>
   </div>
-</div>
 </section>
 
 <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">

@@ -96,12 +96,16 @@
   @media screen and (max-width: 600px) {
     .con  {
       margin-bottom: 5px;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
     .cap{
       top: 5%;
       left: 3%;
       
+    }
+    .con1{
+      margin-bottom: 0px;
+      font-size: 1.2rem;
     }
     
   .conH1 {
@@ -109,8 +113,8 @@
     font-size: 1.3rem;
   }
   .button {
-    font-size: 0.9rem;
-    padding: 5px;
+    font-size: 0.8rem;
+    padding: 4px;
     width: 100px;
     margin: 0px;
   }
@@ -125,6 +129,11 @@
       top: 5%;
       left: 3%;
       
+    }
+
+    .con1 h2{
+      margin-bottom: 0px;
+      font-size: 1rem;
     }
     
   .conH1 {

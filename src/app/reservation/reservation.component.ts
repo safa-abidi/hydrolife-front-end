@@ -7,12 +7,14 @@ import { CentreUserService } from '../services/CentreUser.service';
 import { Router } from '@angular/router';
 import { ReservationService } from '../services/Reservation.service';
 
+
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.scss']
 })
 export class ReservationComponent implements OnInit {
+
 
   service: any;
   addReservationForm: FormGroup;
@@ -47,15 +49,13 @@ export class ReservationComponent implements OnInit {
   get date_debut_res() { return this.addReservationForm.get('date_debut_res'); }
 
   ngOnInit(): void {
-
-        
+  
     let id = this.route.snapshot.params.id;
 
     this.userService.getOneService(id).subscribe(
       (result)=>{
         
         this.service = result;
-        console.log(this.service);
         this.userService.getOneUser(this.service.idCentre).subscribe(
           (result)=>{
             this.info=result
@@ -67,13 +67,12 @@ export class ReservationComponent implements OnInit {
       }
     );
 
-
-
   }
 
   onSubmit(){ 
     let data = this.addReservationForm.value;
     let idService = this.route.snapshot.params.id;
+    let id = localStorage.getItem("myIdClient");
 
     let dets = new Reservation(
       data.date_debut_res,
@@ -90,27 +89,13 @@ export class ReservationComponent implements OnInit {
       },
       err=>{
         this.toastr.success("Votre réservation a été faite avec success");
-        //this.router.navigate(['/Home']);
-        console.log(err);
+        this.router.navigate(['/Home/'+id]);
         
       }
     );
     
     }
 
-  /*  myFilter = (d: Date | null): boolean => {
-      const minDate:any
-
-      
-      // Prevent Saturday and Sunday from being selected.
-      return minDate:new Date()
-    }*/
-
-    minDate: Moment;
-    maxDate: Moment;
-    myFilter = (m: Moment | null): boolean => {
-      const dateNum = (m || moment()).date();
-      return dateNum >= 10 && dateNum <= 25;
-    } 
-
+    minDate = new Date();
+   
 }

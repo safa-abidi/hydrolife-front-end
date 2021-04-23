@@ -94,6 +94,7 @@ export class NavbarComponent {
         this.router.navigate(['/CentreProfil/'+id]);
       },
       (err: any)=>{
+        this.loginForm.reset();
         this.toastr.error("Mot de passe ou email erroné");
         console.log(err);
         

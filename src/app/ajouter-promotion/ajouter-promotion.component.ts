@@ -86,6 +86,8 @@ export class AjouterPromotionComponent implements OnInit {
       },
       err=>{
         this.toastr.error("Promotion non ajouté");
+        console.log(err);
+        
       }
     );
     

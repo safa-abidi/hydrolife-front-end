@@ -62,7 +62,7 @@
           <h3>Prix : {{ service?.prix_service }} TND / personne</h3>
         </div>
         <div>
-          <button class="button" *ngIf="Clientloggedin()" routerLink="/Reservation/{{idClient}}"><span>Réserver
+          <button class="button" *ngIf="Clientloggedin()" routerLink="/Reservation/{{service.id_service}}"><span>Réserver
             </span></button>
           <button class="button" *ngIf="!Clientloggedin()" routerLink="/LoginClient"><span>Réserver </span></button>
         </div>

@@ -46,111 +46,18 @@ export class HomeComponent implements OnInit {
     this.ngCarousel.cycle();
   }
 
-
-
-  loginForm: FormGroup
   closeResult = '';
   info: any;
   
 
   constructor( private modalService: NgbModal,
-    private fb: FormBuilder,
-    private userService:CentreUserService ,
-    private route: ActivatedRoute,
-    private router:Router,
-    private toastr: ToastrService,
-    public dialog: MatDialog) { 
-      let formControls = {
-        Email: new FormControl('',[
-          Validators.required,
-          Validators.email
-        ]),
-        Password: new FormControl('',[
-          Validators.required,
-          Validators.minLength(6)
-        ]),
-        
+    public dialog: MatDialog) { }
 
-      }
-  
-      this.loginForm = this.fb.group(formControls)
-    }
-
-
-  get Email() { return this.loginForm.get('Email') };
-  get Password() { return this.loginForm.get('Password') };
-
-  login() {
     
-    let data = this.loginForm.value;
-
-    let user = new CentreUser(  
-      undefined,
-      undefined,
-      undefined,
-      data.Email,
-      data.Password,
-      undefined
-
-      );
-
-      this.userService.getUserDet(data.Email).subscribe(
-        (result)=>{
-          console.log(result);
-          
-          this.info = result;
-        },
-        (error)=>{
-          console.log(error);
-        }
-      )
-
-    this.userService.loginAdmin(user).subscribe(
-      (res: { jwt: any,
-              email: any})=>{
-                
-        console.log(res);
-        let token = res.jwt;
-        let Email = res.email;
-        
-        localStorage.setItem("myToken",token);
-        localStorage.setItem("myId",this.info.id)
-        let id = localStorage.getItem("myId")
-        
-        this.router.navigate(['/CentreProfil/'+id]);
-      },
-      (err: any)=>{
-        this.toastr.error("Mot de passe ou email erroné");
-        console.log(err);
-        
-      }
-    );
-    
-    
-  
-  }
-  
-
   ngOnInit(): void {
     let id = localStorage.getItem("myId")
   }
 
-
-  
-  loggedin(){
-    return localStorage.getItem("myToken");
-   
-
-  }
-
-  logOut(){
-    this.toastr.success("Déconnexion réussite à bientôt");
-    this.router.navigate(['/Home']);
-    return localStorage.removeItem("myToken");
-    return localStorage.removeItem("myId");
-    
-    
-  }
 
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {

@@ -4,7 +4,8 @@
   <button class="button my-5" routerLink="/AjouterGallerie/{{ idCentre }}"><span>Nouvelle photo </span></button>
 </div>
 <div class="container">
-  <div *ngIf="crudApi.listData?.length == 0" class="alert alert-warning p-4">Vous n'avez aucune photo </div>
+  <div *ngIf="crudApi.listData?.length == 0">
+  <div class="alert alert-warning p-4"> <p> Vous n'avez aucune photo </p> </div></div>
 	<div class="polaroid" *ngFor="let item of crudApi.listData ">
 		<img class="photo"   src = "{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}" alt="">		
 		<div class="capition">

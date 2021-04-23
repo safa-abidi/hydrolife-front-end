@@ -1,6 +1,6 @@
 <app-navbar>
   <br><br>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-3 d-none d-sm-inline ">
         <img src="assets/lescentres.jpeg" alt="" class="img-fluid mb-3 d-none d-md-block">
@@ -20,7 +20,6 @@
                   <i class="fa fa-map-marker fa-2x fa-fw" aria-hidden="true" style="color: #D88C8A;"></i>
                   <h3 class="mt-2"> {{ centre?.adresse }} </h3>
                 </div>
-                <p class="card-text"></p>
                 <p class="card-text">
                 <p>{{ centre?.description }}</p>
                 <button class="button" routerLink="/CentreDetail/{{ centre?.id }}"><span>Voir plus </span></button>
@@ -39,8 +38,9 @@
   
       </div>
     </div>
+    <div class="container">
     <div class="row my-5">
-      <div class="col-4 col-md-2">
+      <div class="col-4 col-md-1 mr-4">
         <img src="assets/corona.png">
       </div>
       <div class=" mt-2 col-12 col-md-10">
@@ -48,10 +48,11 @@
         <p>Les établissements inscrit a HydroLife ont pris des mesures supplémentaires concernant la santé et
           l'hygiène afin de vous assurer
           une détante en toute sécurité.</p>
-        <button style="color: white; background-color: #D88C8A; border-radius: 30px;" class="btn p-2"
+        <button style="color: white; background-color: #D88C8A; border-radius: 30px;" class="btn py-2 px-3"
           (click)="openDialog()">Voir les mesures de
           sécurité</button>
       </div>
+    </div>
     </div>
   </div>
   

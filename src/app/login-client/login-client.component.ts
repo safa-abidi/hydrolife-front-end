@@ -38,10 +38,6 @@ export class LoginClientComponent implements OnInit {
   get email() { return this.logClientForm.get('email') }
   get password() { return this.logClientForm.get('password') }
 
-
-
-
-  
   ngOnInit(): void {
 
     let id = localStorage.getItem("myIdClient")
@@ -84,36 +80,17 @@ export class LoginClientComponent implements OnInit {
         localStorage.setItem("myTokenClient",token);
         localStorage.setItem("myIdClient",this.info.id)
         let id = localStorage.getItem("myIdClient")
-        
-        this.router.navigate(['/Home/'+id]);
+        this.logClientForm.reset();
+        this.router.navigate(['/LesCentres/'+id]);
       },
       (err: any)=>{
+        this.logClientForm.reset();
         this.toastr.error("Mot de passe ou email erroné");
-        
         console.log(err);
         
       }
     );
-    
-    
   
   }
-
-  
-  loggedin(){
-    return localStorage.getItem("myToken");
-   
-
-  }
-
-  logOut(){
-    this.toastr.success("Déconnexion réussite à bientôt");
-    this.router.navigate(['/Home']);
-    return localStorage.removeItem("myToken");
-    return localStorage.removeItem("myId");
-    
-    
-  }
-
 
 }

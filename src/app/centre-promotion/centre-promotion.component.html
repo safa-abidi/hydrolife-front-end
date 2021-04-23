@@ -3,8 +3,9 @@
 <div class="container">
   <div>
     <button class="button my-5" routerLink="/AjouterPromotion/{{ id }}"><span>Nouvelle promotion </span></button>
-
-  <div *ngIf="info?.length == 0" class="alert alert-warning">Vous n'avez aucune promotion </div>
+<div *ngIf="info?.length == 0">
+  <br><br><br><br>
+  <div  class="alert alert-warning">Vous n'avez aucune promotion </div><br><br><br><br></div>
   <div class="card mb-3" *ngFor="let promotion of info; let i = index">
     <div class="row no-gutters">
       <div class="col">

@@ -4,7 +4,7 @@ import { CentreUserService } from '../services/CentreUser.service';
 import { ImageService } from '../services/Image.service';
 import {MatDialog} from '@angular/material/dialog';
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import  { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SecuDialogComponent } from '../secu-dialog/secu-dialog.component';
 
 export interface Tile {
@@ -64,6 +64,7 @@ export class CentreDetailComponent implements OnInit {
       (result)=>{
         
         this.services = result;
+        
 
       },
       (error)=>{

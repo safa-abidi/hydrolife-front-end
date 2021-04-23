@@ -48,11 +48,11 @@
             src="assets/login.png" alt="login"></a>
       </div>
     </mat-toolbar>
-    <mat-toolbar *ngIf="Clientloggedin()">
-      <span class="ml-2">Bienvenue <span style="color: #d88c8a;">{{ info?.nom }}</span></span>
+    <mat-toolbar style="background-color: white;" *ngIf="Clientloggedin()">
+      <span class="ml-2" style="font-size: x-large;">Bienvenue <span style="color: #d88c8a;">{{ info?.nom }}</span></span>
     </mat-toolbar>
     <ng-content></ng-content>
-    <!-- Add Content Here -->
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 <ng-template #content let-modal>

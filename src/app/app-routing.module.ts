@@ -31,6 +31,7 @@ import { UpdateClientProfilComponent } from './update-client-profil/update-clien
 import { AuthGuard } from './auth.guard';
 import { ClientAuthGuard } from './authClient.guard';
 import { ResAuthGuard } from './authRes.guard';
+import { ClienttAuthGuard } from './authClientt.guard';
 
 
 const routes: Routes = [
@@ -51,9 +52,10 @@ const routes: Routes = [
   { path: 'UpdatePromotion/:id_promo', component: UpdatePromotionComponent , canActivate:[AuthGuard] },
   { path: 'AjouterGallerie/:id', component: AjouterGallerieComponent , canActivate:[AuthGuard] },
   { path: 'LesCentres', component: LesCentresComponent },
+  { path: 'LesCentres/:id', component: LesCentresComponent, canActivate:[ResAuthGuard] },
   { path: 'CentreDetail/:id', component: CentreDetailComponent },
   { path: 'InscriClient', component: InscriClientComponent },
-  { path: 'LoginClient', component: LoginClientComponent },
+  { path: 'LoginClient', component: LoginClientComponent, canActivate:[ClienttAuthGuard] },
   { path: 'Reservation/:id', component: ReservationComponent, canActivate:[ResAuthGuard] },
   { path: 'MonProfil/:id', component: ClientProfilComponent, canActivate:[ClientAuthGuard] },
   { path: 'UpdateClientProfil/:id', component: UpdateClientProfilComponent, canActivate:[ClientAuthGuard] },

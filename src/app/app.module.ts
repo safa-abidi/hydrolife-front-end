@@ -87,6 +87,8 @@ import { LoginClientComponent } from './login-client/login-client.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ClientProfilComponent } from './client-profil/client-profil.component';
 import { UpdateClientProfilComponent } from './update-client-profil/update-client-profil.component';
+import { MyReservationComponent } from './my-reservation/my-reservation.component';
+import { ReservationDetailComponent } from './reservation-detail/reservation-detail.component';
 
 
 
@@ -121,7 +123,9 @@ import { UpdateClientProfilComponent } from './update-client-profil/update-clien
     LoginClientComponent,
     ReservationComponent,
     ClientProfilComponent,
-    UpdateClientProfilComponent
+    UpdateClientProfilComponent,
+    MyReservationComponent,
+    ReservationDetailComponent
 
   ],
   imports: [

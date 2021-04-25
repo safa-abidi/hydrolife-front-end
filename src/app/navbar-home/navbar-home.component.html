@@ -14,17 +14,15 @@
           </div>
         </div>
       </div>
-      <a mat-list-item routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link" routerLink="/Home"> Acceuil
+      <a mat-list-item style="color: #1F5473;" routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link" routerLink="/Home"> Acceuil
         <span class="sr-only">(current)</span></a>
-      <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" routerLinkActive="active-link" class="nav-link"
-        routerLink="/EspaceCentre">Espace centre</a>
-      <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link" routerLink="/LesCentres">Les
+      <a mat-list-item style="color: #1F5473;" *ngIf="!loggedin() && !Clientloggedin()" routerLinkActive="active-link" class="nav-link"
+        routerLink="/EspaceCentre" style="color: #1F5473;">Espace centre</a>
+      <a mat-list-item style="color: #1F5473;" *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link" routerLink="/LesCentres">Les
         centres</a>
-      <a mat-list-item class="nav-link" *ngIf="loggedin()" class="btn" style="color: #1F5473; border-color: #1F5473;"
-        routerLink="EspaceCentre" (click)="logOut()">
-        <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>Logout</a>
-        <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" (click)="openDialog()">Mon profil</a>
-        <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" routerLink="EspaceCentre" (click)="logOutClient()">Logout</a>
+        <a mat-list-item style="color: #1F5473;" class="nav-link btn" routerLink="/MyReservation/{{ info?.id }}" *ngIf="!loggedin() && Clientloggedin()">Mes réservations</a>
+        <a mat-list-item style="color: #1F5473;" class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" (click)="openDialog()">Mon profil</a>
+        <a mat-list-item style="color: #1F5473;" class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" routerLink="EspaceCentre" (click)="logOutClient()">Logout</a>
       <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" class="nav-link"><img (click)="open(content)" src="assets/login.png"
           alt="login"></a>
     </mat-nav-list>
@@ -56,10 +54,7 @@
           routerLink="/EspaceCentre">Espace centre</a>
         <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link"
           routerLink="/LesCentres">Les centres</a>
-        <a mat-list-item class="nav-link" *ngIf="loggedin()" class="btn" style="color: #1F5473; border-color: #1F5473;"
-          routerLink="EspaceCentre" (click)="logOut()">
-          <i class="fa fa-sign-out-alt fa-lg fa-fw" aria-hidden="true"></i>
-          Logout</a>
+          <a mat-list-item style="color: #1F5473;" class="nav-link btn" routerLink="/MyReservation/{{ info?.id }}" *ngIf="!loggedin() && Clientloggedin()">Mes réservations</a>
         <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" (click)="openDialog()">Mon profil</a>
         <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" routerLink="EspaceCentre" (click)="logOutClient()">Logout</a>
         <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" class="nav-link"><img (click)="open(content)"

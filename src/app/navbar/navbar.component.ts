@@ -121,6 +121,8 @@ loginClient(){
   this.ClientService.getOneClient(idClient).subscribe(
     (resultat: any) => {
       this.info = resultat;
+      console.log(resultat);
+      
       
     }
   )

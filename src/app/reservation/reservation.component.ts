@@ -37,7 +37,7 @@ export class ReservationComponent implements OnInit {
         Validators.maxLength(1)
 
       ]),
-      date_debut_res: new FormControl('',[
+      date_res: new FormControl('',[
         Validators.required
       ])
     }
@@ -46,7 +46,7 @@ export class ReservationComponent implements OnInit {
   }
 
   get nbre_personnes_res() { return this.addReservationForm.get('nbre_personnes_res') }
-  get date_debut_res() { return this.addReservationForm.get('date_debut_res'); }
+  get date_res() { return this.addReservationForm.get('date_res'); }
 
   ngOnInit(): void {
   
@@ -75,7 +75,7 @@ export class ReservationComponent implements OnInit {
     let id = localStorage.getItem("myIdClient");
 
     let dets = new Reservation(
-      data.date_debut_res,
+      data.date_res,
       data.nbre_personnes_res 
       );
 

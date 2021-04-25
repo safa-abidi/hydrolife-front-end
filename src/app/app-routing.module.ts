@@ -22,6 +22,7 @@ import { LoginClientComponent } from './login-client/login-client.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ClientProfilComponent } from './client-profil/client-profil.component';
 import { UpdateClientProfilComponent } from './update-client-profil/update-client-profil.component';
+import { MyReservationComponent } from './my-reservation/my-reservation.component';
 
 
 
@@ -42,7 +43,7 @@ const routes: Routes = [
   { path: 'EspaceCentre', component: EspaceCentreComponent },
   { path: 'CentreProfil/:id', component: CentreProfilComponent, canActivate:[AuthGuard] },
   { path: 'CentrePromotion/:id', component: CentrePromotionComponent, canActivate:[AuthGuard] },
-  { path: 'CentreReservation', component: CentreReservationComponent, canActivate:[AuthGuard] },
+  { path: 'CentreReservation/:id', component: CentreReservationComponent, canActivate:[AuthGuard] },
   { path: 'CentreService/:id', component: CentreServiceComponent, canActivate:[AuthGuard] },
   { path: 'CentreGallerie/:id', component: CentreGallerieComponent, canActivate:[AuthGuard] },
   { path: 'UpdateCentreProfil/:id', component: UpdateCentreProfilComponent , canActivate:[AuthGuard] },
@@ -59,6 +60,9 @@ const routes: Routes = [
   { path: 'Reservation/:id', component: ReservationComponent, canActivate:[ResAuthGuard] },
   { path: 'MonProfil/:id', component: ClientProfilComponent, canActivate:[ClientAuthGuard] },
   { path: 'UpdateClientProfil/:id', component: UpdateClientProfilComponent, canActivate:[ClientAuthGuard] },
+  { path: 'MyReservation/:id', component: MyReservationComponent, canActivate:[ResAuthGuard] },
+
+  
 
 
 

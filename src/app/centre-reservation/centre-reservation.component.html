@@ -1,5 +1,28 @@
 <app-navbar>
+    <app-dash-nav></app-dash-nav>
+    <br><br><br>
+    <div class="container">
+        <div *ngIf="info?.length == 0">
+            <br><br><br><br>
+            <div class="alert alert-warning">Vous n'avez aucune réservation </div><br><br><br><br>
+        </div>
+        <div class="card mb-3" *ngFor="let reservation of info">
+            <div class="row no-gutters">
+                <div class="col">
+                    <div class="card-body">
+                        <h2 class="card-title my-2">Nom du client : {{ reservation?.nomClient }} {{ reservation?.prenomClient }}</h2>
+                        <h3 class="card-text"> Service : {{ reservation?.nomService }} </h3>
 
-<app-dash-nav></app-dash-nav>
-<p>centre-reservation works!</p>
+                        <h3 class="card-text">Date de réservation : {{ reservation?.date_res | date:'shortDate'| date:'dd-MM-yyyy' }} </h3>
+                        <h3 class="card-text">Nombre de personnes : {{ reservation?.nbre_personnes_res }} </h3>
+
+                    </div>
+                </div>
+                <button class="buttonSup" (click)="delete(reservation)">Anulée <span> <i class="fa fa-ban fa-lg fa-fw"
+                            aria-hidden="true"></i> </span></button>
+                <button class="buttonMod" (click)="openDialog(reservation?.id_res)">Voir details<span> <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+            </div>
+        </div>
+    </div>
+<br><br><br><br>
 </app-navbar>

@@ -1,0 +1,153 @@
+.button {
+    border-radius: 30px;
+    background-color: #D88C8A;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1rem;
+    padding: 8px;
+    width: 185px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  
+  .buttonMod {
+    border-radius: 30px;
+    background-color: #D88C8A;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1rem;
+    padding: 5px;
+    width: 145px;
+    height: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 48px;
+  }
+  
+  .buttonMod span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .buttonMod span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .buttonMod:hover span {
+    padding-right: 25px;
+  }
+  
+  .buttonMod:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+
+  .buttonSup {
+    border-radius: 30px;
+    background-color: #1f5473;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1rem;
+    padding: 3px;
+    width: 140px;
+    height: 40px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 48px;
+  }
+  
+  .buttonSup span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .buttonSup span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .buttonSup:hover span {
+    padding-right: 25px;
+  }
+  
+  .buttonSup:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+/*---------------------------------------------------------RESPONSIVE SECTION----------------------------------------------------------------------------*/
+
+
+
+@media screen and (max-width: 600px) {
+    .buttonMod {
+        font-size: 1.1rem;
+        padding: 3px;
+        width: 150px;
+        height: 50px;
+        margin-left: 250px;
+      }
+  
+  }
+  @media screen and (min-width: 601px) and (max-width: 767px) {
+    .buttonMod {
+        font-size: 1.1rem;
+        padding: 3px;
+        width: 150px;
+        height: 50px;
+        margin-left: 310px;
+      }
+    }
+    @media screen and (min-width: 768px) and (max-width: 991px)  {
+        .buttonMod {
+            font-size: 1.1rem;
+            padding: 3px;
+            width: 150px;
+            height: 50px;
+            margin-left: 490px;
+          }
+        }

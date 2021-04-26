@@ -119,6 +119,16 @@
     right: 0;
   }
 
+  .trash {
+    height: 25px;
+    width: auto;
+    display: inline-block;
+    border: none;
+    right: 15px;
+    z-index: 2;
+    cursor: pointer;
+  }
+
 /*---------------------------------------------------------RESPONSIVE SECTION----------------------------------------------------------------------------*/
 
 

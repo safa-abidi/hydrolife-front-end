@@ -25,10 +25,10 @@
                 <button class="button" routerLink="/CentreDetail/{{ centre?.id }}"><span>Voir plus </span></button>
                 <div *ngIf="centre.photos?.length == 0" class="alert alert-warning mt-5">Aucune photo n'est disponible
                 </div>
-                <mat-grid-list cols="2" rowHeight="2:1" class="my-5">
+                <mat-grid-list cols="3" rowHeight="3:2" class="my-5">
                   <mat-grid-tile *ngFor="let item of centre.photos ">
                     <img src="{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}"
-                      style="object-fit: cover; width: 100%; height: 100%;">
+                      style="object-fit: cover; width: 100%; height: 100%;" >
                   </mat-grid-tile>
                 </mat-grid-list>
               </div>

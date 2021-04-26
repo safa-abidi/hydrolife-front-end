@@ -6,7 +6,7 @@
             <div class="col-12 col-lg-6">
                 <div class="card bg-light mb-3">
                     <div class="card-body">
-                        <img class="img-fluid" src="assets/client.jpg" />
+                        <img class="img-fluid rounded" src="assets/client.jpg" />
                         <h2 class="text-center">{{ service?.libelle_service }}</h2>
                     </div>
                 </div>
@@ -22,8 +22,23 @@
                             <div class="form-group">
                                 <label for="colors">Nombre de personne<span class="text-danger">*</span> </label>
                                 <input min="1" max="5" placeholder="*5 personnes par réservation maximum" class="form-control"
-                                    for="nbre_personnes_res" id="nbre_personnes_res" type="number"
+                                    for="nbre_personnes_res" id="nbre_personnes_res" type="text"
                                     formControlName="nbre_personnes_res" name="nbre_personnes_res">
+                                    <div class="alert alert-danger" *ngIf="nbre_personnes_res?.touched && !nbre_personnes_res?.valid">
+                                        <div *ngIf="nbre_personnes_res?.errors?.required">
+                                          Le nombre de personnes est obligatoire
+                                        </div>
+                                        <div *ngIf="nbre_personnes_res?.errors?.minlength">
+                                          Le nombre de personnes doit etre compris entre 1 et 5
+                                        </div>
+                                        <div *ngIf="nbre_personnes_res?.errors?.maxlength">
+                                            Le nombre de personnes doit etre compris entre 1 et 5
+                                          </div>
+                                          <div *ngIf="nbre_personnes_res?.errors?.pattern">
+                                            Le nombre de personnes ne doit pas contenire de lettres et doit etre compris entre 1 et 5
+                                          </div>
+                                      </div>
+                                      
 
                             </div>
                             <div class="form-group">

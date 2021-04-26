@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
-import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { CentreUserService } from '../services/CentreUser.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CentreUser } from '../models/CentreUser.model';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { SecuDialogComponent } from '../secu-dialog/secu-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import {CentreUserService} from '../services/CentreUser.service';
 
 import { HostListener } from '@angular/core';
 
@@ -51,10 +47,24 @@ export class HomeComponent implements OnInit {
   
 
   constructor( private modalService: NgbModal,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private userService: CentreUserService) { }
 
     
   ngOnInit(): void {
+
+    this.userService.getAllPromotion().subscribe(
+      (result)=>{
+        
+        this.info = result;
+        console.log(this.info);
+        
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+    
     let id = localStorage.getItem("myId")
   }
 

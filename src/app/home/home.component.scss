@@ -377,15 +377,43 @@ input[type="text"]:focus {
   height: 500px;
 }
 
+.boxsec4{
+  background-color: #1F5473;
+  width: 355px;
+  height: 500px;
+}
+
+.PromText{
+  font-size: 40px;
+  margin-top: 150px;
+  margin-left: 25px;
+  position:absolute;
+  clear: both;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.PromPara{
+  color: red;
+  font-size: 40px;
+  margin-top: 200px;
+  margin-left: 25px;
+  position:absolute;
+  clear: both;
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .containerr {
   position: relative; 
 }
 
 .centered {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 20%;
+  left: 30%;
+ // transform: translate(-50%, -50%);
+ // margin-left: 70px;
 }
 
 .wordCarousel {
@@ -402,14 +430,21 @@ input[type="text"]:focus {
       margin-top: -10px;
       li {
           color: #1F5473;
-          font-weight: 700;
+          font-weight: 500;
           padding: 0 10px;
           height: 45px;
           margin-bottom: 45px;
           display: block;
           text-shadow: none;
+       
       }
   }
+}
+
+.x{
+
+    font-size: 3.4rem;
+  
 }
 
 .flip2 { animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
@@ -457,13 +492,16 @@ input[type="text"]:focus {
   }
 
   .boxsec1{
-    position: static;
-    width: 300px;
-    height: 550px;
+  position: relative;
+  width: 355px;
+  height: 550px;
   }
 
   .welcText{
-    font-size: 25px;
+    font-size: 30px;
+    margin-top: 80px;
+    margin-left: 30px;
+    position:absolute
   }
   .welcText span{
     color: white;
@@ -475,11 +513,22 @@ input[type="text"]:focus {
     font-size: 15px;
     top: 600px;
     margin-left: 25px;
+    margin-right: 80px;
   }
 
   .wordCarousel {
-    font-size: 1.5rem;
-    font-weight: 200;
+    font-size: 2rem;
+    font-weight: 250;
+
+  }
+  .x{
+    font-size: 2rem;
+  }
+  .centered {
+
+    top: 20%;
+    left: 10%;
+
   }
 
 }
@@ -493,8 +542,18 @@ input[type="text"]:focus {
   }
 
   .wordCarousel {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 300;
+  }
+
+  .x{
+    font-size: 3rem;
+  }
+  .centered {
+
+    top: 20%;
+    left: 20%;
+
   }
 
 
@@ -534,8 +593,18 @@ input[type="text"]:focus {
   }
 
   .wordCarousel {
-    font-size: 2.7rem;
-    font-weight: 300;
+    font-size: 4rem;
+    font-weight: 400;
+  }
+
+  .x{
+    font-size: 3.5rem;
+  }
+  .centered {
+
+    top: 20%;
+    left: 27%;
+
   }
 
   .welcPara{
@@ -547,7 +616,7 @@ input[type="text"]:focus {
   
 }
 
-@media screen and (min-width: 1440px) and (max-width: 2560px) { 
+@media screen and (min-width: 1300px) and (max-width: 2560px) { 
 
   .boxsec1{
     position: static;
@@ -561,15 +630,25 @@ input[type="text"]:focus {
 
 
   .wordCarousel {
-    font-size: 2.7rem;
-    font-weight: 300;
+    font-size: 4rem;
+    font-weight: 400;
+  }
+
+  .x{
+    font-size: 3.2rem;
+  }
+  .centered {
+
+    top: 20%;
+    left: 30%;
+
   }
 
   .welcPara{
-    font-size: 18px;
-    top: 1500px;
-    margin-left: 25px;
-    margin-right: 95px;
+    line-height: 1.6;
+    font-size: 15px;
+    top: 1200px;
+    clear: both;
   }
 }
 
@@ -672,13 +751,24 @@ input[type="text"]:focus {
 }
 
 .boxsec3{
-  width: 350px; 
-  height: 450px; 
+  position: relative;
+  width: 355px;
+  height: 550px;
 }
 
 .sec3Text{
   font-size: 25px;
-  margin-left: -10px;
+  margin-top: 80px;
+  margin-left: 0px;
+  position:absolute;
+}
+
+.sec3Para{
+  line-height: 1.6;
+  font-size: 15px;
+  top: 100px;
+  margin-left: 0px;
+  margin-right: 10px;
 }
 
 }

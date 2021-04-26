@@ -9,7 +9,7 @@
           <div class="search_boxRes">
             <input type="text" class="inputRes search-sltRes" placeholder="vous cherchez ?">
             <div class="btn btn_commonRes">
-              <i class="fas"><img src="assets/search.png" alt="" class="searchRes"></i>
+              <img src="assets/search.png" class="searchRes">
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
       </div>
       <span class="spacer"></span>
       <div [ngClass]="{ hidden: (isHandset$ | async) }">
-        <a mat-list-item routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link" routerLink="/Home"> Acceuil
+        <a mat-list-item routerLinkActive="active-link" *ngIf="!loggedin() && !Clientloggedin()" class="nav-link" routerLink="/Home"> Acceuil
           <span class="sr-only">(current)</span></a>
         <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" routerLinkActive="active-link" class="nav-link"
           routerLink="/EspaceCentre">Espace centre</a>

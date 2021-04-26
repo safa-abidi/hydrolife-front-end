@@ -37,7 +37,7 @@
           routerLink="/EspaceCentre">Espace centre</a>
         <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link"
           routerLink="/LesCentres">Les centres</a>
-          <a mat-list-item class="nav-link btn" routerLink="/MyReservation/{{ info?.id }}" *ngIf="!loggedin() && Clientloggedin()">Mes réservations</a>
+          <a mat-list-item class="nav-link btn" routerLinkActive="active-link" routerLink="/MyReservation/{{ info?.id }}" *ngIf="!loggedin() && Clientloggedin()">Mes réservations</a>
         <a mat-list-item class="nav-link" *ngIf="loggedin()" style="color: #1F5473;"
           routerLink="EspaceCentre" (click)="logOut()">Logout</a>
         <a mat-list-item class="nav-link btn"  *ngIf="!loggedin() && Clientloggedin()" (click)="openDialog()">Mon profil</a>

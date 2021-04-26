@@ -89,7 +89,8 @@ import { ClientProfilComponent } from './client-profil/client-profil.component';
 import { UpdateClientProfilComponent } from './update-client-profil/update-client-profil.component';
 import { MyReservationComponent } from './my-reservation/my-reservation.component';
 import { ReservationDetailComponent } from './reservation-detail/reservation-detail.component';
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 
 @NgModule({
@@ -129,6 +130,10 @@ import { ReservationDetailComponent } from './reservation-detail/reservation-det
 
   ],
   imports: [
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
     BrowserModule,
     AppRoutingModule,
     FormsModule,

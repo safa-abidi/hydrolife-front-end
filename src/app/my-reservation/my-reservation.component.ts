@@ -161,31 +161,7 @@ today:any;
         },
         draggable: true,
       },
-      {
-        start: startOfDay(new Date()),
-        title: 'An event with no end date',
-        color: this.colors.yellow,
-        actions: this.actions,
-      },
-      {
-        start: subDays(endOfMonth(new Date()), 3),
-        end: addDays(endOfMonth(new Date()), 3),
-        title: 'A long event that spans 2 months',
-        color: this.colors.blue,
-        allDay: true,
-      },
-      {
-        start: addHours(startOfDay(new Date()), 2),
-        end: addHours(new Date(), 2),
-        title: 'A draggable and resizable event',
-        color: this.colors.yellow,
-        actions: this.actions,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true,
-        },
-        draggable: true,
-      },
+     
     ];
   
     activeDayIsOpen: boolean = true;
@@ -229,26 +205,7 @@ today:any;
       this.modal.open(this.modalContent, { size: 'lg' });
     }
   
-    addEvent(): void {
-      this.events = [
-        ...this.events,
-        {
-          title: 'New event',
-          start: startOfDay(new Date()),
-          end: endOfDay(new Date()),
-          color: this.colors.red,
-          draggable: true,
-          resizable: {
-            beforeStart: true,
-            afterEnd: true,
-          },
-        },
-      ];
-    }
-  
-    deleteEvent(eventToDelete: CalendarEvent) {
-      this.events = this.events.filter((event) => event !== eventToDelete);
-    }
+
   
     setView(view: CalendarView) {
       this.view = view;

@@ -17,7 +17,7 @@
                 <div class="card bg-light mb-3">
                     <div class="card-body">
                         <p class="price mb-3">{{ service?.prix_service }} TND</p>
-                      <!--  <p class="price_discounted">149.90 $</p>-->
+                        <p class="price_discounted">149.90 $</p>
                         <form class="form" [formGroup]="addReservationForm" #f="ngForm" (ngSubmit)="onSubmit()">
                             <div class="form-group">
                                 <label for="colors">Nombre de personne<span class="text-danger">*</span> </label>
@@ -48,7 +48,7 @@
                         </form>
                         <div class="product_rassurance">
                             <ul class="list-inline">
-                                <li class="list-inline-item"><i class="fa fa-credit-card fa-2x"></i><br />paiement 100%
+                                <li class="list-inline-item mr-5"><i class="fa fa-credit-card fa-2x"></i><br />paiement 100%
                                     sécurisé</li>
                                 <li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br />+216 {{info?.tel}}
                                 </li>

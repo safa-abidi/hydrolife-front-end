@@ -321,6 +321,15 @@ input[type="text"]:focus {
   left: 40px;
 }
 
+.buttsec4{
+  font-size: 1.2rem; 
+  background-color: #D88C8A; 
+  border-radius: 100px; 
+ // position: absolute;
+  bottom: 100px;
+  left: 40px;
+}
+
 .boxsec2{
   background-color: #D88C8A; 
   position: relative;
@@ -384,9 +393,9 @@ input[type="text"]:focus {
 }
 
 .PromText{
-  font-size: 40px;
+  font-size: 30px;
   margin-top: 150px;
-  margin-left: 25px;
+  margin-left: 10px;
   position:absolute;
   clear: both;
   display: inline-block;
@@ -394,9 +403,8 @@ input[type="text"]:focus {
 }
 
 .PromPara{
-  color: red;
-  font-size: 40px;
-  margin-top: 200px;
+  font-size: 20px;
+  margin-top: 220px;
   margin-left: 25px;
   position:absolute;
   clear: both;

@@ -1,0 +1,70 @@
+<app-navbar>
+    <br><br>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 col-lg-6">
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <img class="img-fluid rounded" src="assets/client.jpg" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-lg-6 add_to_cart_block">
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <form class="form" [formGroup]="UpdateReservationForm"
+                            (ngSubmit)="updateReservation()">
+                            <div class="form-group">
+                                <label for="colors">Nombre de personne<span class="text-danger">*</span> </label>
+                                <input min="1" max="5" placeholder="*5 personnes par réservation maximum"
+                                    class="form-control" for="nbre_personnes_res" id="nbre_personnes_res" type="text"
+                                    formControlName="nbre_personnes_res" name="nbre_personnes_res">
+                                <div class="alert alert-danger"
+                                    *ngIf="nbre_personnes_res?.touched && !nbre_personnes_res?.valid">
+                                    <div *ngIf="nbre_personnes_res?.errors?.required">
+                                        Le nombre de personnes est obligatoire
+                                    </div>
+                                    <div *ngIf="nbre_personnes_res?.errors?.minlength">
+                                        Le nombre de personnes doit etre compris entre 1 et 5
+                                    </div>
+                                    <div *ngIf="nbre_personnes_res?.errors?.maxlength">
+                                        Le nombre de personnes doit etre compris entre 1 et 5
+                                    </div>
+                                    <div *ngIf="nbre_personnes_res?.errors?.pattern">
+                                        Le nombre de personnes ne doit pas contenire de lettres et doit etre compris
+                                        entre 1 et 5
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label>Séléctionez la date de votre séance</label>
+                                <div class="input-group mb-3">
+
+                                    <mat-form-field class="col-12" appearance="fill">
+                                        <mat-label>Date de votre séance</mat-label>
+                                        <input [min]="minDate" matInput [matDatepicker]="picker" for="date_res"
+                                            name="date_res" id="date_res" formControlName="date_res">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-12  mx-auto mb-0 ">
+                                <button type="submit" class="btn  btn-lg btn-block"
+                                    style="background-color: #D88C8A; border-radius: 30px;">
+                                    <span class="text-white text-uppercase">Modifier</span>
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-navbar>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
-import { FormGroup } from '@angular/forms';
+import { ReservationUpdate } from '../models/ReservationUpdate.model'
+import { Reservation } from '../models/Reservation.model';
 
 
 @Injectable({ providedIn: 'root' })
@@ -37,6 +37,11 @@ export class ReservationService {
   deleteRes(id: any) {
 
     return this.http.delete<any>( `${this.apiServerUrl}/api/reservation/delete/${id}`);
+  }
+
+  updateReservation(reservation:Reservation){
+    let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myTokenClient"))
+    return this.http.put<any>( `${this.apiServerUrl}/api/reservation/update`, reservation,{headers: header});
   }
   
   

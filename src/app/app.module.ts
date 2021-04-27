@@ -91,6 +91,10 @@ import { MyReservationComponent } from './my-reservation/my-reservation.componen
 import { ReservationDetailComponent } from './reservation-detail/reservation-detail.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { PromotionAllComponent } from './promotion-all/promotion-all.component';
+import { AjouterPromSerComponent } from './ajouter-prom-ser/ajouter-prom-ser.component';
+import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
 
 
 @NgModule({
@@ -126,10 +130,14 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     ClientProfilComponent,
     UpdateClientProfilComponent,
     MyReservationComponent,
-    ReservationDetailComponent
+    ReservationDetailComponent,
+    PromotionAllComponent,
+    AjouterPromSerComponent,
+    UpdateReservationComponent
 
   ],
   imports: [
+    NgImageSliderModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

@@ -134,6 +134,12 @@ addPromotion(promotion: Promotion) {
   return this.http.post<any>( `${this.apiServerUrl}/api/promotion/add`,promotion,{headers: header}  );
 }
 
+addPromotionForService(idService:any , promotion: Promotion) {
+  let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+
+  return this.http.post<any>( `${this.apiServerUrl}/api/promotion/${idService}/add`,promotion,{headers: header}  );
+}
+
 updatePromotion(promotion: Promotion){
   let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
   return this.http.put<any>( `${this.apiServerUrl}/api/promotion/update`, promotion ,{headers: header});

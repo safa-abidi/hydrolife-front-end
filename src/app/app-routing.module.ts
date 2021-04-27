@@ -23,6 +23,10 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { ClientProfilComponent } from './client-profil/client-profil.component';
 import { UpdateClientProfilComponent } from './update-client-profil/update-client-profil.component';
 import { MyReservationComponent } from './my-reservation/my-reservation.component';
+import { PromotionAllComponent } from './promotion-all/promotion-all.component';
+import { AjouterPromSerComponent } from './ajouter-prom-ser/ajouter-prom-ser.component';
+import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
+
 
 
 
@@ -51,6 +55,7 @@ const routes: Routes = [
   { path: 'UpdateService/:id_service', component: UpdateServiceComponent , canActivate:[AuthGuard] },
   { path: 'AjouterPromotion/:id', component: AjouterPromotionComponent , canActivate:[AuthGuard] },
   { path: 'UpdatePromotion/:id_promo', component: UpdatePromotionComponent , canActivate:[AuthGuard] },
+  { path: 'AjouterPromotionSer/:id', component: AjouterPromSerComponent , canActivate:[AuthGuard] },
   { path: 'AjouterGallerie/:id', component: AjouterGallerieComponent , canActivate:[AuthGuard] },
   { path: 'LesCentres', component: LesCentresComponent },
   { path: 'LesCentres/:id', component: LesCentresComponent, canActivate:[ResAuthGuard] },
@@ -58,9 +63,11 @@ const routes: Routes = [
   { path: 'InscriClient', component: InscriClientComponent },
   { path: 'LoginClient', component: LoginClientComponent, canActivate:[ClienttAuthGuard] },
   { path: 'Reservation/:id', component: ReservationComponent, canActivate:[ResAuthGuard] },
+  { path: 'UpdateReservation/:id_res', component: UpdateReservationComponent , canActivate:[ResAuthGuard] },
   { path: 'MonProfil/:id', component: ClientProfilComponent, canActivate:[ClientAuthGuard] },
   { path: 'UpdateClientProfil/:id', component: UpdateClientProfilComponent, canActivate:[ClientAuthGuard] },
   { path: 'MyReservation/:id', component: MyReservationComponent, canActivate:[ResAuthGuard] },
+  { path: 'AllPromotions', component: PromotionAllComponent },
 
   
 

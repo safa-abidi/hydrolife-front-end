@@ -81,7 +81,30 @@
 </section>
 
 
+<section class="my-3">
 
+  <div class="d-flex">
+    <div class="col-7 imgSec1">
+      <img src="assets/sec1.jpg" class="img-fluid">
+    </div>
+    <div class="col-1 "></div>
+    <div class="d-flex">
+      <div class="my-4 p-5 boxsec4"></div>
+      <h1 class="PromText text-white ">Promotion de la semaine</h1>
+      <div class=" text-white PromPara " *ngFor="let promotion of info; let i=index;">
+        <div *ngIf="3>i" class="d-flex mb-3">
+        -  {{ promotion?.titre_promo }} 
+          <div class="font-weight-bold mx-2">
+            {{ promotion?.pourcentage }} %
+          </div>
+        </div>
+          <button class="btn text-white m-2 p-2 buttsec4" routerLink="/AllPromotions">Consulter les promotions</button>
+      </div>
+ 
+    </div>
+
+  </div>
+</section>
 
 <section class="container">
 

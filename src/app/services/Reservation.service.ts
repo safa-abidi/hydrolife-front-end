@@ -39,9 +39,9 @@ export class ReservationService {
     return this.http.delete<any>( `${this.apiServerUrl}/api/reservation/delete/${id}`);
   }
 
-  updateReservation(reservation:Reservation){
+  updateReservation(reservation:Reservation,idService:any){
     let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myTokenClient"))
-    return this.http.put<any>( `${this.apiServerUrl}/api/reservation/update`, reservation,{headers: header});
+    return this.http.put<any>( `${this.apiServerUrl}/api/reservation/${idService}/update`, reservation,{headers: header});
   }
   
   

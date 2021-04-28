@@ -4,8 +4,10 @@ import { CentreUserService } from '../services/CentreUser.service';
 import { ImageService } from '../services/Image.service';
 import {MatDialog} from '@angular/material/dialog';
 
+
 import  { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SecuDialogComponent } from '../secu-dialog/secu-dialog.component';
+import { ImageDetailComponent } from '../image-detail/image-detail.component';
 
 export interface Tile {
   color: string;
@@ -37,21 +39,32 @@ export class CentreDetailComponent implements OnInit {
       this.dialog.open(SecuDialogComponent);
     }
 
+    openDialogPic(event:any) {
+      var target = event.target || event.srcElement || event.currentTarget;
+      var idAttr = target.attributes.id;
+      var value = idAttr.nodeValue;
+      var id =localStorage.setItem("idImg",value)
+      this.dialog.open(ImageDetailComponent);
+    }
+
+
     Clientloggedin(){
       return localStorage.getItem("myTokenClient");
      
     }
 
+
   ngOnInit(): void {
-    this.idClient = localStorage.getItem("myIdClient");
-    
-    
+    this.idClient = localStorage.getItem("myIdClient");    
+  
     let id = this.route.snapshot.params.id;
 
     this.userService.getOneUser(id).subscribe(
       (result)=>{
         
         this.info = result;
+        console.log(result);
+        
         
       },
       (error)=>{

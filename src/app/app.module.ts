@@ -95,6 +95,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { PromotionAllComponent } from './promotion-all/promotion-all.component';
 import { AjouterPromSerComponent } from './ajouter-prom-ser/ajouter-prom-ser.component';
 import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
+import { ImageDetailComponent } from './image-detail/image-detail.component';
 
 
 @NgModule({
@@ -133,7 +134,8 @@ import { UpdateReservationComponent } from './update-reservation/update-reservat
     ReservationDetailComponent,
     PromotionAllComponent,
     AjouterPromSerComponent,
-    UpdateReservationComponent
+    UpdateReservationComponent,
+    ImageDetailComponent
 
   ],
   imports: [

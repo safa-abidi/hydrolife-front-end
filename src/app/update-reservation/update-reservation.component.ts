@@ -90,13 +90,13 @@ export class UpdateReservationComponent implements OnInit {
       Reserva.prenomClient
 
     )
-    this.reservationService.updateReservation(Reservation).subscribe(
+    this.reservationService.updateReservation(Reservation,Reserva.idService).subscribe(
       res=>{
         console.log(res);
         
         this.toastr.success("Reservation mit à jour avec succès ");
 
-    //   this.router.navigate(['/MyReservation/'+localStorage.getItem("myIdClient")]);
+       this.router.navigate(['/MyReservation/'+localStorage.getItem("myIdClient")]);
 
       },
       err=>{

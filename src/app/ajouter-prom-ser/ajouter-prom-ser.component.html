@@ -36,9 +36,9 @@
             <mat-form-field appearance="fill">
               <mat-label>Entrez la date de début et de fin de la promotion</mat-label>
               <mat-date-range-input [rangePicker]="picker">
-                <input matStartDate placeholder="Date de début" for="date_debut_promo" name="date_debut_promo" id="date_debut_promo"
+                <input [min]="minDate" matStartDate placeholder="Date de début" for="date_debut_promo" name="date_debut_promo" id="date_debut_promo"
                   formControlName="date_debut_promo">
-                <input matEndDate placeholder="Date de fin" for="date_fin_promo" name="date_fin_promo" id="date_fin_promo"
+                <input [min]="minDate" matEndDate placeholder="Date de fin" for="date_fin_promo" name="date_fin_promo" id="date_fin_promo"
                   formControlName="date_fin_promo">
               </mat-date-range-input>
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

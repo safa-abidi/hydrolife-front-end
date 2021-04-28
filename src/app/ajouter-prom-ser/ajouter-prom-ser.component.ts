@@ -96,4 +96,6 @@ export class AjouterPromSerComponent implements OnInit {
     date_fin_promo: new FormControl()
   });
 
+  minDate = new Date();
+
 }

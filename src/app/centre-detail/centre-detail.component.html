@@ -12,12 +12,14 @@
         <div *ngIf="crudApi.listData?.length == 0" class="alert alert-warning mt-5">Aucune photo n'est disponible </div>
         <mat-grid-list cols="2" rowHeight="2:1" class="my-5">
           <mat-grid-tile *ngFor="let item of crudApi.listData ">
-            <img src="{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}" alt=""
-              style="object-fit: cover; width: 100%; height: 100%;">
+            <a (click)="openDialogPic($event)" >
+            <img id="{{item.id_photo}}" src="{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}"
+              style="object-fit: cover; width: 100%; height: 100%;"></a>
           </mat-grid-tile>
         </mat-grid-list>
       </div>
     </div>
+
     <div class="row">
       <div class="col-12 col-sm-12">
         <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" class="col-2">

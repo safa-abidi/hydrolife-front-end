@@ -56,9 +56,13 @@ export class ReservationComponent implements OnInit {
       (result)=>{
         
         this.service = result;
+        console.log(this.service);
         this.userService.getOneUser(this.service.idCentre).subscribe(
           (result)=>{
             this.info=result
+            console.log(this.info);
+            
+            
           }
         )
       },

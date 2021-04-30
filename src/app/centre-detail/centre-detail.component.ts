@@ -29,7 +29,8 @@ export class CentreDetailComponent implements OnInit {
   closeResult = '';
   idClient:any;
 
-  constructor(private userService: CentreUserService,
+  constructor(
+    public userService: CentreUserService,
     public crudApi: ImageService, 
     private route: ActivatedRoute,
     private modalService: NgbModal,

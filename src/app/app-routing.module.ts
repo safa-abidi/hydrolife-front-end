@@ -26,6 +26,8 @@ import { MyReservationComponent } from './my-reservation/my-reservation.componen
 import { PromotionAllComponent } from './promotion-all/promotion-all.component';
 import { AjouterPromSerComponent } from './ajouter-prom-ser/ajouter-prom-ser.component';
 import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
+import { HistoReservationComponent } from './histo-reservation/histo-reservation.component';
+import { HistoResClientComponent } from './histo-res-client/histo-res-client.component';
 
 
 
@@ -47,6 +49,7 @@ const routes: Routes = [
   { path: 'EspaceCentre', component: EspaceCentreComponent },
   { path: 'CentreProfil/:id', component: CentreProfilComponent, canActivate:[AuthGuard] },
   { path: 'CentrePromotion/:id', component: CentrePromotionComponent, canActivate:[AuthGuard] },
+  { path: 'HistoRes/:id', component: HistoReservationComponent, canActivate:[AuthGuard] },
   { path: 'CentreReservation/:id', component: CentreReservationComponent, canActivate:[AuthGuard] },
   { path: 'CentreService/:id', component: CentreServiceComponent, canActivate:[AuthGuard] },
   { path: 'CentreGallerie/:id', component: CentreGallerieComponent, canActivate:[AuthGuard] },
@@ -65,6 +68,7 @@ const routes: Routes = [
   { path: 'Reservation/:id', component: ReservationComponent, canActivate:[ResAuthGuard] },
   { path: 'UpdateReservation/:id_res', component: UpdateReservationComponent , canActivate:[ResAuthGuard] },
   { path: 'MonProfil/:id', component: ClientProfilComponent, canActivate:[ClientAuthGuard] },
+  { path: 'History/:id', component: HistoResClientComponent, canActivate:[ClientAuthGuard] },
   { path: 'UpdateClientProfil/:id', component: UpdateClientProfilComponent, canActivate:[ClientAuthGuard] },
   { path: 'MyReservation/:id', component: MyReservationComponent, canActivate:[ResAuthGuard] },
   { path: 'AllPromotions', component: PromotionAllComponent },

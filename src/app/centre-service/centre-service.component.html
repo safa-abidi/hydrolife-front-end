@@ -1,18 +1,22 @@
 <app-navbar>
 <app-dash-nav></app-dash-nav>
+<br>
 <div class="container">
   <div>
     <button class="button my-5" routerLink="/AjouterService/{{ id }}"><span>Nouveau service </span></button>
 <div *ngIf="info?.length == 0">
   <br><br><br><br>
   <div  class="alert alert-warning"> <p> Vous n'avez aucun service </p></div> <br><br><br></div>
-  <div class="card mb-3" *ngFor="let service of info;">
+  <div class="card mb-3" *ngFor="let service of userService.listData;">
     <div class="row no-gutters">
+      <div class="col" >
+        <img style="width: 80%;" src = "{{this.userService.host+'/api/service/get/'+ service.id_service +'/bycentre/' +service.idCentre}}">		
+      </div>
       <div class="col">
         <div class="card-body">
-          <div class="row">
-          <h2 class="ml-2"> Titre du service :</h2>
-          <h3 class="card-title mt-1 ml-1">  {{ service?.libelle_service }} </h3>
+          <div class="">
+          <h2 class=""> Titre du service :</h2>
+          <h3 class="card-title mt-1">  {{ service?.libelle_service }} </h3>
           </div>
             <h4 class="card-text "> {{ service?.description_service }} </h4>
           <p class="card-text"></p>
@@ -31,4 +35,5 @@
   <button *ngIf="info?.length > 5" class="button my-5" routerLink="/AjouterService/{{ id }}"><span>Nouveau service </span></button>
 </div>
 </div>
+<br>
 </app-navbar>

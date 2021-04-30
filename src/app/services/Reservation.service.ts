@@ -43,6 +43,26 @@ export class ReservationService {
     let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myTokenClient"))
     return this.http.put<any>( `${this.apiServerUrl}/api/reservation/${idService}/update`, reservation,{headers: header});
   }
+
+  UpCommingReservation(idCentre:any){
+
+    return this.http.get<any>( `${this.apiServerUrl}/api/reservation/aVenirCentre/${idCentre}`);
+  }
+
+  OldReservation(idCentre:any){
+
+    return this.http.get<any>( `${this.apiServerUrl}/api/reservation/historiqueCentre/${idCentre}`);
+  }
+
+  UpCommingReservationClient(idClient:any){
+
+    return this.http.get<any>( `${this.apiServerUrl}/api/reservation/aVenirClient/${idClient}`);
+  }
+
+  OldReservationClient(idClient:any){
+
+    return this.http.get<any>( `${this.apiServerUrl}/api/reservation/historiqueClient/${idClient}`);
+  }
   
   
 

@@ -93,8 +93,6 @@
     cursor: pointer;
     margin: 48px;
   }
-
-
   
   .buttonSup span {
     cursor: pointer;
@@ -121,41 +119,6 @@
     right: 0;
   }
 
-  .butt {
-    border-radius: 30px;
-    background-color: #1f5473;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 1rem;
-    transition: all 0.5s;
-    cursor: pointer;
-  }
-
-  .butt span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  .butt span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .butt:hover span {
-    padding-right: 25px;
-  }
-  
-  .butt:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
 /*---------------------------------------------------------RESPONSIVE SECTION----------------------------------------------------------------------------*/
 
 

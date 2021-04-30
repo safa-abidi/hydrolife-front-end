@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { ReservationService } from '../services/Reservation.service';
+import { CentreUserService } from '../services/CentreUser.service';
 import { ReservationUpdate } from '../models/ReservationUpdate.model';
 
 @Component({
@@ -16,8 +17,10 @@ export class UpdateReservationComponent implements OnInit {
   Reservation: any;
   UpdateReservationForm: FormGroup;
   info: any;
+  service:any;
 
   constructor(
+    private userService: CentreUserService,
     private reservationService: ReservationService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -33,7 +36,7 @@ export class UpdateReservationComponent implements OnInit {
         Validators.maxLength(1)
 
       ]),
-      date_res: new FormControl('',[
+      dateRes: new FormControl('',[
         Validators.required
       ])
     }
@@ -41,24 +44,33 @@ export class UpdateReservationComponent implements OnInit {
     this.UpdateReservationForm = this.fb.group(formControls)
   }
 
-  get date_res() { return this.UpdateReservationForm.get('date_res'); }
+  get dateRes() { return this.UpdateReservationForm.get('dateRes'); }
   get nbre_personnes_res() { return this.UpdateReservationForm.get('nbre_personnes_res') }
 
 
   ngOnInit(): void {
 
-    
-
     let idRes = this.route.snapshot.params.id_res;
-    
     
     this.reservationService.getOneRes(idRes).subscribe(
       (res: any)=>{
-        let Reserva = res;
+          let Reserva = res;
    
-        this.UpdateReservationForm.patchValue({
+          this.UpdateReservationForm.patchValue({
           nbre_personnes_res: Reserva.nbre_personnes_res,
-          date_res: Reserva.date_res
+          dateRes: Reserva.dateRes
+
+        });
+    this.userService.getOneService(Reserva.idService).subscribe(
+      (res: any)=>{
+          this.service = res;
+        
+        });
+    this.userService.getOneUser(Reserva.idCentre).subscribe(
+        (res: any)=>{
+
+          this.info = res;
+          
         });
         
       },
@@ -70,9 +82,6 @@ export class UpdateReservationComponent implements OnInit {
   }
 
   updateReservation() {
-
-    
-
     
     let data = this.UpdateReservationForm.value;
     let idRes = this.route.snapshot.params.id_res;
@@ -81,7 +90,7 @@ export class UpdateReservationComponent implements OnInit {
         let Reserva = res; 
     let Reservation = new ReservationUpdate(
       idRes,
-      data.date_res,
+      data.dateRes,
       data.nbre_personnes_res,
       Reserva.idCentre,
       Reserva.idService,

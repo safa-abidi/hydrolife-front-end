@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="p-5 all">
       <div class="text-center d-flex">
         <li><a routerLinkActive="active-link" routerLink="/CentreProfil/{{ info?.id }}">
@@ -11,7 +11,10 @@
           Promotions
         </a></li>
         <li><a routerLinkActive="active-link" routerLink="/CentreReservation/{{ info?.id }}" >
-          Réservations
+          Réservations à venir
+        </a></li>
+        <li><a routerLinkActive="active-link" routerLink="/HistoRes/{{ info?.id }}" >
+          Historique réservations
         </a></li>
         <li><a routerLinkActive="active-link" routerLink="/CentreGallerie/{{ info?.id }}" >
           Galerie
@@ -19,3 +22,4 @@
       </div>
     </div>
 </div>
+

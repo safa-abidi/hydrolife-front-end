@@ -4,29 +4,27 @@ import { ToastrService } from 'ngx-toastr';
 import { ReservationService } from '../services/Reservation.service';
 import { ReservationDetailComponent } from '../reservation-detail/reservation-detail.component'
 
+
 @Component({
-  selector: 'app-centre-reservation',
-  templateUrl: './centre-reservation.component.html',
-  styleUrls: ['./centre-reservation.component.scss']
+  selector: 'app-histo-reservation',
+  templateUrl: './histo-reservation.component.html',
+  styleUrls: ['./histo-reservation.component.scss']
 })
-export class CentreReservationComponent implements OnInit {
+export class HistoReservationComponent implements OnInit {
 
   info:any;
-  infoClient:any;
-  infoService:any;
 
   constructor(
     private resService: ReservationService,
     private toastr: ToastrService,
     public dialog: MatDialog
-
   ) { }
 
   ngOnInit(): void {
 
     let id = localStorage.getItem("myId");
 
-    this.resService.UpCommingReservation(id).subscribe(
+    this.resService.OldReservation(id).subscribe(
       (result)=>{
         this.info = result;
         console.log(this.info);
@@ -47,7 +45,7 @@ export class CentreReservationComponent implements OnInit {
     this.resService.deleteRes(reservation.id_res).subscribe(
       res=>{
         
-        this.toastr.show("réservation suprimée");
+        this.toastr.show("réservation annulée");
         
       },
       err =>{

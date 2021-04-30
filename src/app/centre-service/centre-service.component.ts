@@ -15,7 +15,7 @@ export class CentreServiceComponent implements OnInit {
   id: any;
 
   constructor(private http: HttpClient,
-              private userService: CentreUserService,
+              public userService: CentreUserService,
               private route: ActivatedRoute,
               private toastr: ToastrService
 
@@ -29,13 +29,16 @@ export class CentreServiceComponent implements OnInit {
     this.userService.getAllServicesOfCenter(this.id).subscribe(
       (result)=>{
         
-        this.info = result;
+        this.userService.listData = result;
+        
       },
       (error)=>{
         console.log(error);
       }
     )
   }
+
+  
 
   delete(service: any){ 
 

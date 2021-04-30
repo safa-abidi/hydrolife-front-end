@@ -22,7 +22,6 @@
     width: 120px;
     transition: all 0.5s;
     cursor: pointer;
-    margin-left: 700px;
   }
   
   .button span {
@@ -54,16 +53,4 @@
     height: 400px;
   }
 
-  @media screen and (max-width: 600px) {
-
-    .button {
-      margin-left: 0px;
-    }
-  }
   
-  @media screen and (min-width: 601px) and (max-width: 992px) {
-
-    .button {
-      margin-left: 0px;
-    }
-  }

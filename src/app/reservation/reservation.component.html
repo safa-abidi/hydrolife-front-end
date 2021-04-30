@@ -6,7 +6,8 @@
             <div class="col-12 col-lg-6">
                 <div class="card bg-light mb-3">
                     <div class="card-body">
-                        <img class="img-fluid rounded" src="assets/client.jpg" />
+                        <img class="img-fluid rounded" 
+                        src = "{{this.userService.host+'/api/service/get/'+ service.id_service +'/bycentre/' +service.idCentre}}">
                         <h2 class="text-center">{{ service?.libelle_service }}</h2>
                     </div>
                 </div>
@@ -17,7 +18,7 @@
                 <div class="card bg-light mb-3">
                     <div class="card-body">
                         <p class="price mb-3">{{ service?.prix_service }} TND</p>
-                        <p class="price_discounted">149.90 $</p>
+                        <!--<p class="price_discounted">149.90 $</p>-->
                         <form class="form" [formGroup]="addReservationForm" #f="ngForm" (ngSubmit)="onSubmit()">
                             <div class="form-group">
                                 <label for="colors">Nombre de personne<span class="text-danger">*</span> </label>
@@ -47,8 +48,8 @@
 
                                     <mat-form-field class="col-12" appearance="fill">
                                         <mat-label>Date de votre séance</mat-label>
-                                        <input [min]="minDate"  matInput [matDatepicker]="picker" for="date_res"
-                                            name="date_res" id="date_res" formControlName="date_res">
+                                        <input [min]="minDate"  matInput [matDatepicker]="picker" for="dateRes"
+                                            name="dateRes" id="dateRes" formControlName="dateRes">
                                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                         <mat-datepicker #picker></mat-datepicker>
                                     </mat-form-field>

@@ -21,7 +21,7 @@ export class ReservationComponent implements OnInit {
   info: any;
 
   constructor(
-    private userService: CentreUserService,
+    public userService: CentreUserService,
     private reservationService: ReservationService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -37,7 +37,7 @@ export class ReservationComponent implements OnInit {
         Validators.maxLength(1)
 
       ]),
-      date_res: new FormControl('',[
+      dateRes: new FormControl('',[
         Validators.required
       ])
     }
@@ -46,7 +46,7 @@ export class ReservationComponent implements OnInit {
   }
 
   get nbre_personnes_res() { return this.addReservationForm.get('nbre_personnes_res') }
-  get date_res() { return this.addReservationForm.get('date_res'); }
+  get dateRes() { return this.addReservationForm.get('dateRes'); }
 
   ngOnInit(): void {
   
@@ -79,7 +79,7 @@ export class ReservationComponent implements OnInit {
     let id = localStorage.getItem("myIdClient");
 
     let dets = new Reservation(
-      data.date_res,
+      data.dateRes,
       data.nbre_personnes_res 
       );
 

@@ -7,6 +7,8 @@
                 <div class="card bg-light mb-3">
                     <div class="card-body">
                         <img class="img-fluid rounded" src="assets/client.jpg" />
+                        <h2 class="text-center">{{ service?.libelle_service }}</h2>
+                        
                     </div>
                 </div>
             </div>
@@ -15,6 +17,7 @@
             <div class="col-12 col-lg-6 add_to_cart_block">
                 <div class="card bg-light mb-3">
                     <div class="card-body">
+                        <p class="price mb-3">{{ service?.prix_service }} TND</p>
                         <form class="form" [formGroup]="UpdateReservationForm"
                             (ngSubmit)="updateReservation()">
                             <div class="form-group">
@@ -47,8 +50,8 @@
 
                                     <mat-form-field class="col-12" appearance="fill">
                                         <mat-label>Date de votre séance</mat-label>
-                                        <input [min]="minDate" matInput [matDatepicker]="picker" for="date_res"
-                                            name="date_res" id="date_res" formControlName="date_res">
+                                        <input [min]="minDate" matInput [matDatepicker]="picker" for="dateRes"
+                                            name="dateRes" id="dateRes" formControlName="dateRes">
                                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                         <mat-datepicker #picker></mat-datepicker>
                                     </mat-form-field>
@@ -61,7 +64,30 @@
                                 </button>
                             </div>
                         </form>
+                        <div class="product_rassurance">
+                            <ul class="list-inline">
+                                <li class="list-inline-item mr-5"><i class="fa fa-credit-card fa-2x"></i><br />paiement 100%
+                                    sécurisé</li>
+                                <li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br />+216 {{info?.tel}}
+                                </li>
+                            </ul>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+                <div class="card border-light mb-3">
+                    <div style="background-color: #1f5473;" class="card-header text-white text-uppercase"><i
+                            class="fa fa-align-justify"></i> Description</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{ service?.description_service }}
+                        </p>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@
             <div class="alert alert-warning">Vous n'avez aucune réservation à venir </div><br><br><br><br>
         </div>
         <div *ngIf="info?.length != 0">
-            <h1>Vos réservation à venir :</h1>
+            <h1 class="mb-5">Vos réservation passée :</h1>
             </div>
         <div class="card mb-3" *ngFor="let reservation of info">
             <div class="row no-gutters">

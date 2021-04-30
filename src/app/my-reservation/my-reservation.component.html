@@ -1,31 +1,54 @@
 <app-navbar>
-    <div *ngIf="info?.length == 0">
-    <div  class="alert alert-warning"> <p> Vous n'avez aucun info </p></div> <br><br><br></div>
-    <div>
-    <div class="card mb-3" *ngFor="let ress of info" >
-      <div class="row no-gutters"  >
+
+  <div class="container">
+<br><br>
+  <div *ngIf="info?.length == 0">
+    <br><br>
+    <button class="col-3 p-2 butt my-5" routerLink="/LesCentres"><span>Réserver une séance par ici ! </span></button>
+
+    <div  class="alert alert-warning">Vous n'avez aucune réservation </div><br><br><br><br>
+
+  </div>
+  <button class="col-3 p-2 butt my-5" routerLink="/History/{{ id }}"><span>Consultez votre historique ici </span></button>
+
+    <div class="card mb-3" *ngFor="let ress of info">
+      <div class="row no-gutters">
         <div class="col">
           <div class="card-body">
-            <div class="row">
-            <h2 class="ml-2"> Titre du info :</h2>
-            <h3 class="card-title mt-1 ml-1">  {{ ress?.idService }} </h3>
-            </div>
-              <h4 class="card-text "> {{ ress?.nbre_personnes_res }} </h4>
-              <h4 class="card-text" > {{ ress?.date_res  | date:'shortDate'| date:'dd-MM-yyyy' }} </h4>
-            <p class="card-text"></p>
-            <p class="card-text">
-            <p>Prix : {{ ress?.montant }} TND</p>
+            <h2 class="card-title my-2"> {{ ress?.nomService }} </h2>
+            <h3 class="card-text"> Pour : {{ ress?.nbre_personnes_res }} personnes</h3>
+            
+            <h3 class="card-text">Prévu pour le : {{ ress?.dateRes  | date:'shortDate'| date:'dd-MM-yyyy' }} </h3>
+            <h3 class="card-text">Prix totale : {{ ress?.montant }} TND </h3>
   
           </div>
         </div>
+        <button class="buttonMod " routerLink="/UpdateReservation/{{ ress?.id_res }}">Modifier
+          <span> <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i> </span></button>
       </div>
-      <button class="buttonMod" routerLink="/UpdateReservation/{{ ress?.id_res }}">Modifier<span> <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i> </span></button>
-    </div></div>
-</app-navbar>
+    </div>
+    
+  </div>
+  <br><br><br><br>
+  <div class="container-fluid">
+    <h2>Voir encore d'autre service :</h2>
+  <div class="card-deck">
+  <div class="card" *ngFor="let service of service">
+    <a routerLink="/Reservation/{{ service?.id_service }}"><img class="col-12 col-md-8 col-lg-5 card-img-top" 
+      src = "{{this.centreService.host+'/api/service/get/'+ service.id_service +'/bycentre/' +service.idCentre}}">		</a>
 
+    <div class="card-body">
+        <h5 class="card-title">{{ service?.libelle_service }}</h5>
+        <p class="card-text">{{ service?.description_service }}</p>
+        <p class="card-text">{{ service?.prix_service }} TND par personne</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+  </app-navbar>
 
-
-<div class="row text-center">
+<!--<div class="row text-center">
   <div class="col-md-4">
     <div class="btn-group">
       <div
@@ -140,5 +163,5 @@
       OK
     </button>
   </div>
-</ng-template>
+</ng-template>-->
 

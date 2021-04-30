@@ -12,6 +12,10 @@ import { CentreUserUpdate } from '../models/CentreUserUpdate.model';
 @Injectable({ providedIn: 'root' })
 export class CentreUserService {
 
+  host :string = "http://localhost:8080";
+
+  listData: any;
+
 
   private apiServerUrl = environment.apiBaseUrl;
 
@@ -95,6 +99,11 @@ export class CentreUserService {
     let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
   
     return this.http.post<any>( `${this.apiServerUrl}/api/service/add`,service,{headers: header}  );
+  }
+
+  createDataSer(formData: FormData): Observable<any> {
+    let header = new HttpHeaders().set("Authorization","Bearer " + localStorage.getItem("myToken"));
+    return this.http.post(`${this.apiServerUrl}/api/service/add`, formData, {headers: header});
   }
 
   updateService(service: ServiceUpdate){

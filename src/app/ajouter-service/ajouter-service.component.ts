@@ -51,29 +51,33 @@ export class AjouterServiceComponent implements OnInit {
     this.id = localStorage.getItem("myId");
   }
 
-  addService(){
-
+  addData() {
+    const formData = new  FormData();
+    const service = this.addServiceForm.value;
     let idUser = localStorage.getItem("myId");
-    let data = this.addServiceForm.value;
     
-    let service = new Services(
-      data.libelle_service,
-      data.description_service,
-      data.prix_service,  
-      );
-      
-    this.userService.addService(service).subscribe(
-      res=>{
-        
-        this.toastr.success("Nouveau service ajouté avec succès");
+    
+    formData.append('service',JSON.stringify(service));
+    formData.append('file',this.documentFile);
+    this.userService.createDataSer(formData).subscribe( data => {
 
-       this.router.navigate(['/CentreService/'+ idUser]);
-      },
-      err=>{
-        console.log(err);
-      }
-    );
+      this.toastr.success("ser bi taswira ajouté avec succès");
+
+      this.router.navigate(['/CentreService/'+ idUser]);
+    },
+    err => {
+      this.toastr.error("ser bi taswira non ajouté réessayer");
+
+    }
     
+    );
+  }
+  public documentFile: any= File;
+
+  onSelectFile(event: any) {
+
+    const file=event.target.files[0];
+    this.documentFile=file;
   }
 
 }

@@ -96,6 +96,8 @@ import { PromotionAllComponent } from './promotion-all/promotion-all.component';
 import { AjouterPromSerComponent } from './ajouter-prom-ser/ajouter-prom-ser.component';
 import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
+import { HistoReservationComponent } from './histo-reservation/histo-reservation.component';
+import { HistoResClientComponent } from './histo-res-client/histo-res-client.component';
 
 
 @NgModule({
@@ -135,7 +137,9 @@ import { ImageDetailComponent } from './image-detail/image-detail.component';
     PromotionAllComponent,
     AjouterPromSerComponent,
     UpdateReservationComponent,
-    ImageDetailComponent
+    ImageDetailComponent,
+    HistoReservationComponent,
+    HistoResClientComponent
 
   ],
   imports: [

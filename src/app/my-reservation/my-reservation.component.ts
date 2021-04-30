@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { ReservationService } from '../services/Reservation.service';
+import { CentreUserService } from '../services/CentreUser.service';
 import {
   ChangeDetectionStrategy,
   ViewChild,
@@ -50,10 +51,13 @@ export class MyReservationComponent implements OnInit {
   };
 
   info:any;
-today:any;
+  today:any;
   currentdate:any;
+  service:any;
+  id = this.route.snapshot.params.id;
 
   constructor(
+    public centreService: CentreUserService,
     private resService: ReservationService,
     private route: ActivatedRoute,
     private cd: ChangeDetectorRef,
@@ -66,6 +70,14 @@ today:any;
 
   ngOnInit(): void {
 
+
+    this.centreService.getAllServices().subscribe(
+      (result)=>{
+        this.service = result
+        console.log(this.service);
+        
+      })
+
   //  let   today:any;
    // console.log(this.info?.date_debut_res < today);
    // this.isExpirationExpired(this.res);
@@ -75,27 +87,20 @@ today:any;
     let id = this.route.snapshot.params.id;
     
 
-    this.resService.getAllResOfClient(id).subscribe(
+    this.resService.UpCommingReservationClient(id).subscribe(
       (result)=>{
         let   today= this.date.transform(new Date());
-        console.log(today);
+       // console.log(today);
         
         
         this.info = result;
-        console.log(result);
+        console.log(result);          
 
-
-
-       let   theDate = this.date.transform(this.info?.[0].date_res);
-       console.log(theDate);
-
-          
-
-         // console.log(this.info?.[n].date_res.toLocaleString());
+         /* console.log(this.info?.[n].date_res.toLocaleString());
          if ( theDate! < today!)
          { console.log("jdid")}
          else   { console.log("historique") }
-          ;
+          ;*/
           
   
           

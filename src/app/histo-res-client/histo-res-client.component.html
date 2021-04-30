@@ -1,0 +1,52 @@
+<app-navbar>
+
+    <div class="container">
+  <br><br>
+    <div *ngIf="info?.length == 0">
+      <br><br>
+      <button class="col-3 p-2 butt my-5" routerLink="/LesCentres"><span>Réserver une séance par ici ! </span></button>
+  
+      <div  class="alert alert-warning">Vous n'avez aucune réservation </div><br><br><br><br>
+  
+    </div>
+
+    <h2 class="mb-5">Vos réservations passée :</h2>
+  
+      <div class="card mb-3" *ngFor="let reservation of info">
+        <div class="row no-gutters">
+          <div class="col">
+            <div class="card-body">
+              <h2 class="card-title my-2"> {{ reservation?.nomService }} </h2>
+              <h3 class="card-text"> Pour : {{ reservation?.nbre_personnes_res }} personnes</h3>
+              
+              <h3 class="card-text">Prévu pour le : {{ reservation?.dateRes  | date:'shortDate'| date:'dd-MM-yyyy' }} </h3>
+              <h3 class="card-text">Prix totale : {{ reservation?.montant }} TND </h3>
+    
+            </div>
+          </div>
+          <button class="buttonSup" (click)="delete(reservation)">Supprimer <span> <i class="fa fa-ban fa-lg fa-fw"
+            aria-hidden="true"></i> </span></button>
+        </div>
+      </div>
+      
+    </div>
+    <br><br><br><br>
+    <div class="container-fluid">
+      <h2>Voir encore d'autre service :</h2>
+    <div class="card-deck">
+    <div class="card" *ngFor="let service of service">
+      <a routerLink="/Reservation/{{ service?.id_service }}"><img class="col-12 col-md-8 col-lg-5 card-img-top" 
+        src = "{{this.centreService.host+'/api/service/get/'+ service.id_service +'/bycentre/' +service.idCentre}}">		</a>
+  
+      <div class="card-body">
+          <h5 class="card-title">{{ service?.libelle_service }}</h5>
+          <p class="card-text">{{ service?.description_service }}</p>
+          <p class="card-text">{{ service?.prix_service }} TND par personne</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+    </app-navbar>
+  
+  

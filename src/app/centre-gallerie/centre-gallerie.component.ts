@@ -33,6 +33,8 @@ export class CentreGallerieComponent implements OnInit {
     this.idCentre = localStorage.getItem("myId");
     this.crudApi.getByCentreId(this.idCentre).subscribe(
       response =>{this.crudApi.listData = response;
+
+        
       }
      );
    

@@ -3,29 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { ReservationService } from '../services/Reservation.service';
 import { CentreUserService } from '../services/CentreUser.service';
-import {
-  ChangeDetectionStrategy,
-  ViewChild,
-  TemplateRef,
-} from '@angular/core';
-import {
-  startOfDay,
-  endOfDay,
-  subDays,
-  addDays,
-  endOfMonth,
-  isSameDay,
-  isSameMonth,
-  addHours,
-} from 'date-fns';
+import {ChangeDetectionStrategy,ViewChild,TemplateRef,} from '@angular/core';
+import {isSameDay,isSameMonth,} from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {
-  CalendarEvent,
-  CalendarEventAction,
-  CalendarEventTimesChangedEvent,
-  CalendarView,
-} from 'angular-calendar';
+import { CalendarEvent,CalendarEventAction,CalendarView,CalendarEventTimesChangedEvent,} from 'angular-calendar';
 
 @Component({
   selector: 'app-my-reservation',
@@ -37,23 +19,16 @@ export class MyReservationComponent implements OnInit {
 
    colors: any = {
     red: {
-      primary: '#ad2121',
-      secondary: '#FAE3E3',
-    },
-    blue: {
-      primary: '#1e90ff',
-      secondary: '#D1E8FF',
-    },
-    yellow: {
-      primary: '#e3bc08',
-      secondary: '#FDF1BA',
-    },
+      primary: '#1f5473',
+    }
   };
 
   info:any;
+  err:any;
   today:any;
   currentdate:any;
   service:any;
+  events:any;
   id = this.route.snapshot.params.id;
 
   constructor(
@@ -74,50 +49,53 @@ export class MyReservationComponent implements OnInit {
     this.centreService.getAllServices().subscribe(
       (result)=>{
         this.service = result
-        console.log(this.service);
         
       })
-
-  //  let   today:any;
-   // console.log(this.info?.date_debut_res < today);
-   // this.isExpirationExpired(this.res);
-//console.log(this.info?.date_debut_res);
-//console.log(today);
 
     let id = this.route.snapshot.params.id;
     
 
     this.resService.UpCommingReservationClient(id).subscribe(
       (result)=>{
-        let   today= this.date.transform(new Date());
-       // console.log(today);
-        
         
         this.info = result;
-        console.log(result);          
-
-         /* console.log(this.info?.[n].date_res.toLocaleString());
-         if ( theDate! < today!)
-         { console.log("jdid")}
-         else   { console.log("historique") }
-          ;*/
-          
-  
-          
-          
-         
 
       },
       (error)=>{
         console.log(error);
       }
     )
+    this.loadevents();
 
   }
 
-
-  
-
+  loadevents(){
+    this.resService.getAllResOfClient(this.id).subscribe(Res =>{
+      this.events = []; 
+      
+      for(let reservation of Res){
+        let event = {
+          id: reservation.id_res,
+          start: new Date(reservation.dateRes),
+          title: reservation.nomService ,
+          end: reservation.montant,
+          color: this.colors.red ,
+          resizable: {
+            beforeStart: false,
+            afterEnd: false,
+          },
+          draggable: false,
+         
+        }; console.log(event);
+        
+        
+        
+        this.events.push(event);
+      }
+    },
+    err => this.err = <any>err
+    );
+  }
   
     @ViewChild('modalContent', { static: true }) modalContent!: TemplateRef<any>;
   
@@ -140,34 +118,12 @@ export class MyReservationComponent implements OnInit {
           this.handleEvent('Edited', event);
         },
       },
-      {
-        label: '<i class="fas fa-fw fa-trash-alt"></i>',
-        a11yLabel: 'Delete',
-        onClick: ({ event }: { event: CalendarEvent }): void => {
-          this.events = this.events.filter((iEvent) => iEvent !== event);
-          this.handleEvent('Deleted', event);
-        },
-      },
+  
     ];
   
     refresh: Subject<any> = new Subject();
   
-    events: CalendarEvent[] = [
-      {
-        start: subDays(startOfDay(new Date()), 1),
-        end: addDays(new Date(), 1),
-        title: 'A 3 day event',
-        color: this.colors.red,
-        actions: this.actions,
-        allDay: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true,
-        },
-        draggable: true,
-      },
-     
-    ];
+
   
     activeDayIsOpen: boolean = true;
   
@@ -186,24 +142,7 @@ export class MyReservationComponent implements OnInit {
         this.viewDate = date;
       }
     }
-  
-    eventTimesChanged({
-      event,
-      newStart,
-      newEnd,
-    }: CalendarEventTimesChangedEvent): void {
-      this.events = this.events.map((iEvent) => {
-        if (iEvent === event) {
-          return {
-            ...event,
-            start: newStart,
-            end: newEnd,
-          };
-        }
-        return iEvent;
-      });
-      this.handleEvent('Dropped or resized', event);
-    }
+
   
     handleEvent(action: string, event: CalendarEvent): void {
       this.modalData = { event, action };
@@ -220,12 +159,3 @@ export class MyReservationComponent implements OnInit {
       this.activeDayIsOpen = false;
     }
   }
-  
-
-
-
-/*
-Safèè sent Yesterday at 12:34 AM
-heya teb3a khatr adheka aleh nahkillk aleha , teb3a l affichage , 
-heya kelmt historique todhher s3iba ema heya juste t9aren date reserva par rapport 
-date lyoum keni asgher ray historique ken akber ray a venir*/

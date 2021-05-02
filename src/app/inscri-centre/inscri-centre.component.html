@@ -286,7 +286,7 @@
         </div>
 
         <div class="form-group">
-          <input
+          <textarea
             for="des"
             placeholder="Description"
             required
@@ -296,7 +296,7 @@
             class="form-control"
             name="description"
             ngModel
-          />
+          ></textarea>
           <div class="alert alert-danger" *ngIf="des.touched && !des.valid">
             <div *ngIf="des?.errors?.required">
               La description est obligatoire

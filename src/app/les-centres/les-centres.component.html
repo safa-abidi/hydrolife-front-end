@@ -28,8 +28,8 @@
                 <mat-grid-list cols="3" rowHeight="3:2" class="my-5">
                   <mat-grid-tile *ngFor="let item of centre.photos;let i=index;">
                     <div *ngIf="3>i " class="d-flex mb-3">
-                    <img src="{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}"
-                      style="object-fit: cover; width: 100%; height: 100%;" >
+                      <img src="{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}"
+                        style="object-fit: cover; width: 100%; height: 100%;">
                     </div>
                   </mat-grid-tile>
                 </mat-grid-list>
@@ -37,25 +37,24 @@
             </div>
           </div>
         </div>
-  
+
       </div>
     </div>
     <div class="container">
-    <div class="row my-5">
-      <div class="col-4 col-md-1 mr-4">
-        <img src="assets/corona.png">
+      <div class="row my-5">
+        <div class="col-4 col-md-1 mr-4">
+          <img src="assets/corona.png">
+        </div>
+        <div class=" mt-2 col-12 col-md-10">
+          <h1>Mesures supplémentaires de santé et de sécurité </h1>
+          <p>Les établissements inscrits à HydroLife ont pris des mesures supplémentaires concernant la santé et
+            l'hygiène afin de vous assurer une détante en toute sécurité.</p>
+          <button style="color: white; background-color: #D88C8A; border-radius: 30px;" class="btn py-2 px-3"
+            (click)="openDialog()">Voir les mesures de
+            sécurité</button>
+        </div>
       </div>
-      <div class=" mt-2 col-12 col-md-10">
-        <h1>Mesures supplémentaires de santé et de sécurité </h1>
-        <p>Les établissements inscrit a HydroLife ont pris des mesures supplémentaires concernant la santé et
-          l'hygiène afin de vous assurer
-          une détante en toute sécurité.</p>
-        <button style="color: white; background-color: #D88C8A; border-radius: 30px;" class="btn py-2 px-3"
-          (click)="openDialog()">Voir les mesures de
-          sécurité</button>
-      </div>
-    </div>
     </div>
   </div>
-  
+
 </app-navbar>

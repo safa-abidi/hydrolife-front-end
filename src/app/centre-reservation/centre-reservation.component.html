@@ -8,19 +8,19 @@
                 <div class="btn-group " style="background-color: #D88C8A; border-radius: 30px;">
                     <div class="btn text-white" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
                         (viewDateChange)="closeOpenMonthViewDay()">
-                         précédant
+                         Précédant
                     </div>
                     <div class="btn text-white" mwlCalendarToday [(viewDate)]="viewDate">
                         Aujourd'hui
                     </div>
                     <div class="btn text-white " mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
                         (viewDateChange)="closeOpenMonthViewDay()">
-                         prochain
+                         Prochain
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'fr' }}</h3>
+                <h3 class="text-capitalize">{{ viewDate | calendarDate:(view + 'ViewTitle'):'Fr' }}</h3>
             </div>
             <div class="col-md-4">
                 <div class="btn-group" style="background-color: #1f5473; border-radius: 30px;">
@@ -41,15 +41,15 @@
         </div>
         <br />
         <div [ngSwitch]="view">
-            <mwl-calendar-month-view  locale="fr" *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+            <mwl-calendar-month-view  locale="Fr" *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
                 [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
-                (eventClicked)="handleEvent('Clicked', $event.event)">
+                (eventClicked)="handleEvent('Clicked', $event.event)" class="text-capitalize">
             </mwl-calendar-month-view>
             <mwl-calendar-week-view locale="fr" *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
-                [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)">
+                [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" class="text-capitalize">
             </mwl-calendar-week-view>
             <mwl-calendar-day-view locale="fr" *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events"
-                [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)">
+                [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" class="text-capitalize">
             </mwl-calendar-day-view>
         </div>
     </div>
@@ -194,7 +194,7 @@
                     </div>
                 </div>
 
-                <button class="buttonSup" (click)="delete(reservation)">Supprimer <span> <i
+                <button class="buttonSup" (click)="deleteE(reservation)">Supprimer <span> <i
                             class="fa fa-ban fa-lg fa-fw" aria-hidden="true"></i> </span></button>
                 <button class="buttonMod" (click)="openDialog(reservation?.id_res)">Voir details<span> <i
                             class="fa fa-info-circle fa-lg fa-fw" aria-hidden="true"></i> </span></button>

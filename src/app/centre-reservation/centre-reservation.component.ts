@@ -91,6 +91,24 @@ export class CentreReservationComponent implements OnInit {
     );
   }
 
+  deleteE(reservation: any){ 
+
+    let index = this.info.indexOf(reservation);
+    this.info.splice(index, 1);
+    
+
+    this.resService.deleteRes(reservation.id).subscribe(
+      res=>{
+        
+        this.toastr.show("réservation suprimée");
+        
+      },
+      err =>{
+        console.log(err);
+      }
+    );
+  }
+
 
   openDialog(id_res:any) {
    localStorage.setItem("idRes",id_res)

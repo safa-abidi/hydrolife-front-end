@@ -21,8 +21,8 @@
                         <!--<p class="price_discounted">149.90 $</p>-->
                         <form class="form" [formGroup]="addReservationForm" #f="ngForm" (ngSubmit)="onSubmit()">
                             <div class="form-group">
-                                <label for="colors">Nombre de personne<span class="text-danger">*</span> </label>
-                                <input min="1" max="5" placeholder="*5 personnes par réservation maximum" class="form-control"
+                                <label for="colors">Nombre de personnes<span class="text-danger">*</span> </label>
+                                <input placeholder="Nombre de personnes" class="form-control"
                                     for="nbre_personnes_res" id="nbre_personnes_res" type="text"
                                     formControlName="nbre_personnes_res" name="nbre_personnes_res">
                                     <div class="alert alert-danger" *ngIf="nbre_personnes_res?.touched && !nbre_personnes_res?.valid">
@@ -30,13 +30,13 @@
                                           Le nombre de personnes est obligatoire
                                         </div>
                                         <div *ngIf="nbre_personnes_res?.errors?.minlength">
-                                          Le nombre de personnes doit etre compris entre 1 et 5
+                                          Le nombre de personnes doit etre compris entre 1 et 20
                                         </div>
                                         <div *ngIf="nbre_personnes_res?.errors?.maxlength">
-                                            Le nombre de personnes doit etre compris entre 1 et 5
+                                            Le nombre de personnes doit etre compris entre 1 et 20
                                           </div>
                                           <div *ngIf="nbre_personnes_res?.errors?.pattern">
-                                            Le nombre de personnes ne doit pas contenire de lettres et doit etre compris entre 1 et 5
+                                            Le nombre de personnes ne doit pas contenire de lettres et doit etre compris entre 1 et 20
                                           </div>
                                       </div>
                                       
@@ -58,7 +58,7 @@
                             <div class="form-group col-lg-12  mx-auto mb-0 ">
                                 <button type="submit" class="btn  btn-lg btn-block"
                                     style="background-color: #D88C8A; border-radius: 30px;" [disabled]="f.invalid">
-                                    <span class="text-white text-uppercase">reserver</span>
+                                    <span class="text-white">Réserver</span>
                                 </button>
                             </div>
                         </form>

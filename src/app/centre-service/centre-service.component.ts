@@ -30,6 +30,8 @@ export class CentreServiceComponent implements OnInit {
       (result)=>{
         
         this.userService.listData = result;
+        console.log(result);
+        
         
       },
       (error)=>{
@@ -44,6 +46,8 @@ export class CentreServiceComponent implements OnInit {
 
     let index = this.info.indexOf(service);
     this.info.splice(index, 1);
+    console.log(index);
+    
 
     this.userService.deleteService(service.id_service).subscribe(
       res=>{

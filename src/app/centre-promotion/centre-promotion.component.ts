@@ -50,7 +50,7 @@ export class CentrePromotionComponent implements OnInit {
     this.userService.deletePromotion(promotion.id_promo).subscribe(
       res=>{
         
-        this.toastr.show("promotion supprimé");
+        this.toastr.warning("promotion supprimé");
         
       },
       err =>{

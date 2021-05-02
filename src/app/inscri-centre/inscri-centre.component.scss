@@ -14,6 +14,17 @@
     transition: 0.3s;
   }
 
+  textarea {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+
   input[type="password"] {
     width: 100%;
     border: 2px solid #aaa;
@@ -26,6 +37,11 @@
   }
 
   input[type="text"]:focus {
+    border-color: #1f5473;
+    box-shadow: 0 0 8px 0 #1f5473;
+  }
+
+  textarea:focus {
     border-color: #1f5473;
     box-shadow: 0 0 8px 0 #1f5473;
   }

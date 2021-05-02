@@ -2,11 +2,11 @@
 <div class=" emp-profile">
     <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="profile-head">
                 <div class="row">
                     <div class="col-md-7">
-                        <h2>Libelle du service:</h2>
+                        <h2>Libellé du service:</h2>
                     </div>
                     <div class="col-md-5 mt-1">
                         <h3> {{ info?.nomService }}  </h3>
@@ -14,17 +14,17 @@
                 </div>
                 <div class="row">
                     <div class="col-md-7">
-                        <h2>Date réservation:</h2>
+                        <h2>Date de la réservation:</h2>
                     </div>
                     <div class="col-md-5 mt-1">
                         <h3> {{ info?.dateRes | date:'shortDate' | date:'dd-MM-yyyy' }}  </h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <h2>Montant total:</h2>
                     </div>
-                    <div class="col-md-4 mt-1">
+                    <div class="col-md-5 mt-1">
                         <h3> {{ info?.montant}} TND </h3>
                     </div>
                 </div>

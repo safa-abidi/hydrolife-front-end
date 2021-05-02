@@ -32,9 +32,10 @@ export class ReservationComponent implements OnInit {
     let formControls = {
       nbre_personnes_res: new FormControl('',[
         Validators.required,
-        Validators.pattern("[0-5]+"),
+        Validators.pattern("[0-9]+"),
         Validators.minLength(1),
-        Validators.maxLength(1)
+        Validators.maxLength(2)
+
 
       ]),
       dateRes: new FormControl('',[

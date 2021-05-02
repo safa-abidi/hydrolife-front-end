@@ -1,32 +1,208 @@
 <app-navbar>
     <app-dash-nav></app-dash-nav>
     <br><br><br>
+
+    <div class="container">
+        <div class="d-flex text-center">
+            <div class="col-md-4">
+                <div class="btn-group " style="background-color: #D88C8A; border-radius: 30px;">
+                    <div class="btn text-white" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+                        (viewDateChange)="closeOpenMonthViewDay()">
+                         précédant
+                    </div>
+                    <div class="btn text-white" mwlCalendarToday [(viewDate)]="viewDate">
+                        Aujourd'hui
+                    </div>
+                    <div class="btn text-white " mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+                        (viewDateChange)="closeOpenMonthViewDay()">
+                         prochain
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'fr' }}</h3>
+            </div>
+            <div class="col-md-4">
+                <div class="btn-group" style="background-color: #1f5473; border-radius: 30px;">
+                    <div class="btn text-white" (click)="setView(CalendarView.Month)"
+                        [class.active]="view === CalendarView.Month">
+                        Mois
+                    </div>
+                    <div class="btn text-white" (click)="setView(CalendarView.Week)"
+                        [class.active]="view === CalendarView.Week">
+                        Semaine
+                    </div>
+                    <div class="btn text-white" (click)="setView(CalendarView.Day)"
+                        [class.active]="view === CalendarView.Day">
+                        Jour
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div [ngSwitch]="view">
+            <mwl-calendar-month-view  locale="fr" *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+                [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+                (eventClicked)="handleEvent('Clicked', $event.event)">
+            </mwl-calendar-month-view>
+            <mwl-calendar-week-view locale="fr" *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
+                [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)">
+            </mwl-calendar-week-view>
+            <mwl-calendar-day-view locale="fr" *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events"
+                [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)">
+            </mwl-calendar-day-view>
+        </div>
+    </div>
+
+    <ng-template #modalContent let-close="close">
+        <div class="modal-header">
+            <h4 class="modal-title">Détail réservation</h4>
+            <button type="button" class="close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="d-flex">
+
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h2>Libelle du service:</h2>
+                            </div>
+                            <div class="col-md-5 mt-1">
+                                <h3> {{ modalData?.event?.actions }} </h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h2>Date réservation:</h2>
+                            </div>
+                            <div class="col-md-5 mt-1">
+                                <h3> {{ modalData?.event?.start | date:'shortDate' | date:'dd-MM-yyyy' }} </h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h2>Montant total:</h2>
+                            </div>
+                            <div class="col-md-4 mt-1">
+                                <h3> {{ modalData?.event?.end }} TND </h3>
+                         
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" emp-profile">
+
+
+
+                    <div class="profile-head">
+                        <h1 class="mb-3">
+                            Coordonnée du client :
+                        </h1>
+
+                    </div>
+
+            <div class="row">
+
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <i class="fa fa-user fa-lg px-2" style="color: #D88C8A;"></i>
+                                    <label>Nom et prénom</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p> {{ infoClient?.prenom }} {{ infoClient?.nom }} </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <i class="fa fa-envelope fa-lg px-2" style="color: #D88C8A;"></i>
+
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p> {{ infoClient?.email }} </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <i class="fa fa-phone-square fa-lg px-2" style="color: #D88C8A;"></i>
+                                    <label>Num de tél</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ infoClient?.tel }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <i class="fa fa-map-marker fa-lg px-2" style="color: #D88C8A;"></i>
+                                    <label>Adresse</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ infoClient?.adresse }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <i class="fa fa-calendar fa-lg px-2" style="color: #D88C8A;"></i>
+                                    <label>Date de naissance</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ infoClient?.dateNaissance| date:'shortDate' | date:'dd-MM-yyyy' }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+
+            <button class="buttonSup" (click)="close()" (click)="delete(modalData?.event)">Supprimer <span> <i
+                        class="fa fa-ban fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+            <button class="buttonMod " (click)="close()">Fermer</button>
+        </div>
+    </ng-template>
+
     <div class="container">
         <div *ngIf="info?.length == 0">
             <br><br><br><br>
-            <div class="alert alert-warning">Vous n'avez aucune réservation à venir </div><br><br><br><br>
+            <div class="alert alert-warning">Vous n'avez aucune réservation </div><br><br><br><br>
         </div>
         <div *ngIf="info?.length != 0">
             <h1>Vos réservation à venir :</h1>
-            </div>
+        </div>
         <div class="card mb-3" *ngFor="let reservation of info">
             <div class="row no-gutters">
                 <div class="col">
                     <div class="card-body">
-                        <h2 class="card-title my-2">Nom du client : {{ reservation?.nomClient }} {{ reservation?.prenomClient }}</h2>
+                        <h2 class="card-title my-2">Nom du client : {{ reservation?.nomClient }} {{
+                            reservation?.prenomClient }}</h2>
                         <h3 class="card-text"> Service : {{ reservation?.nomService }} </h3>
 
-                        <h3 class="card-text">Date de réservation : {{ reservation?.dateRes | date:'shortDate'| date:'dd-MM-yyyy' }} </h3>
+                        <h3 class="card-text">Date de réservation : {{ reservation?.dateRes | date:'shortDate'|
+                            date:'dd-MM-yyyy' }} </h3>
                         <h3 class="card-text">Nombre de personnes : {{ reservation?.nbre_personnes_res }} </h3>
 
                     </div>
                 </div>
 
-                <button class="buttonSup" (click)="delete(reservation)">Supprimer <span> <i class="fa fa-ban fa-lg fa-fw"
-                            aria-hidden="true"></i> </span></button>
-                <button class="buttonMod" (click)="openDialog(reservation?.id_res)">Voir details<span> <i class="fa fa-info-circle fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+                <button class="buttonSup" (click)="delete(reservation)">Supprimer <span> <i
+                            class="fa fa-ban fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+                <button class="buttonMod" (click)="openDialog(reservation?.id_res)">Voir details<span> <i
+                            class="fa fa-info-circle fa-lg fa-fw" aria-hidden="true"></i> </span></button>
             </div>
         </div>
     </div>
-<br><br><br><br>
+
+
+
+    <br><br><br><br>
 </app-navbar>

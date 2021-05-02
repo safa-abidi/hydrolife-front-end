@@ -98,6 +98,7 @@ import { UpdateReservationComponent } from './update-reservation/update-reservat
 import { ImageDetailComponent } from './image-detail/image-detail.component';
 import { HistoReservationComponent } from './histo-reservation/histo-reservation.component';
 import { HistoResClientComponent } from './histo-res-client/histo-res-client.component';
+import { ThankUPageComponent } from './thank-upage/thank-upage.component';
 
 
 @NgModule({
@@ -139,7 +140,8 @@ import { HistoResClientComponent } from './histo-res-client/histo-res-client.com
     UpdateReservationComponent,
     ImageDetailComponent,
     HistoReservationComponent,
-    HistoResClientComponent
+    HistoResClientComponent,
+    ThankUPageComponent
 
   ],
   imports: [

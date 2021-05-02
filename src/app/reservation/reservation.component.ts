@@ -88,12 +88,12 @@ export class ReservationComponent implements OnInit {
       res=>{
         
         this.toastr.success("Votre réservation a été faite avec success");
-        this.router.navigate(['/Home']);
+        this.router.navigate(['/CheckOut/'+id]);
 
       },
       err=>{
         this.toastr.success("Votre réservation a été faite avec success");
-        this.router.navigate(['/Home/'+id]);
+        this.router.navigate(['/CheckOut/'+id]);
         
       }
     );

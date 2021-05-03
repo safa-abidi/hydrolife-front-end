@@ -8,15 +8,12 @@ import {isSameDay,isSameMonth,} from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent,CalendarEventAction,CalendarView,CalendarEventTimesChangedEvent,} from 'angular-calendar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClientUserService } from '../services/ClientUser.service';
 import { registerLocaleData } from '@angular/common';
-import localeFr from '@angular/common/locales/fr'; // to register french
+import localeFr from '@angular/common/locales/fr';
 
 registerLocaleData(localeFr);
-
-
-
 
 
 @Component({
@@ -25,9 +22,6 @@ registerLocaleData(localeFr);
   styleUrls: ['./centre-reservation.component.scss']
 })
 export class CentreReservationComponent implements OnInit {
-
-
-  
 
   colors: any = {
     red: {
@@ -49,19 +43,19 @@ export class CentreReservationComponent implements OnInit {
     private toastr: ToastrService,
     public dialog: MatDialog,
     private route: ActivatedRoute,
-    private modal: NgbModal
+    private modal: NgbModal,
+    private router : Router,
 
   ) { }
 
   ngOnInit(): void {
 
-   
-
     let id = localStorage.getItem("myId");
 
-    this.resService.UpCommingReservation(id).subscribe(
+    this.resService.OldReservation(id).subscribe(
       (result)=>{
         this.info = result;
+        console.log(this.info);
         
       },
       (error)=>{
@@ -76,14 +70,12 @@ export class CentreReservationComponent implements OnInit {
   delete(modalData: any){ 
 
     let index = this.info.indexOf(modalData);
-    this.info.splice(index, 1);
-    
+    this.info.splice(index, 1); 
 
-    this.resService.deleteRes(modalData.id).subscribe(
+    this.resService.deleteRes(modalData.idRes).subscribe(
       res=>{
         
-        this.toastr.show("réservation suprimée");
-        
+        this.toastr.show("réservation suprimée")    
       },
       err =>{
         console.log(err);
@@ -91,16 +83,15 @@ export class CentreReservationComponent implements OnInit {
     );
   }
 
-  deleteE(reservation: any){ 
+  deleteHisto(reservation: any){ 
 
     let index = this.info.indexOf(reservation);
     this.info.splice(index, 1);
-    
 
-    this.resService.deleteRes(reservation.id).subscribe(
+    this.resService.deleteRes(reservation.id_res).subscribe(
       res=>{
         
-        this.toastr.show("réservation suprimée");
+        this.toastr.show("réservation annulée");
         
       },
       err =>{
@@ -109,21 +100,19 @@ export class CentreReservationComponent implements OnInit {
     );
   }
 
-
   openDialog(id_res:any) {
-   localStorage.setItem("idRes",id_res)
-    this.dialog.open(ReservationDetailComponent);
-  }
-
-
+    localStorage.setItem("idRes",id_res)
+     this.dialog.open(ReservationDetailComponent);
+   }
 
   loadevents(){
     this.resService.getAllResOfCentre(this.id).subscribe(Res =>{
-      this.events = []; console.log(Res);
+      this.events = [];
       
       for(let reservation of Res){
         let event = { 
           id: reservation.idClient,
+          idRes: reservation.id_res,
           start: new Date(reservation.dateRes),
           title: reservation.nomClient + ' ' + reservation.prenomClient + ' / ' +  reservation.nomService,
           end: reservation.montant,
@@ -142,9 +131,7 @@ export class CentreReservationComponent implements OnInit {
             
             this.infoClient = result;},
             err => console.log(err)
-            )
-            
-        
+            ) 
         
         this.events.push(event);
       }
@@ -179,11 +166,7 @@ export class CentreReservationComponent implements OnInit {
   
     refresh: Subject<any> = new Subject();
   
-
-  
     activeDayIsOpen: boolean = true;
-  
-
   
     dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
       if (isSameMonth(date, this.viewDate)) {

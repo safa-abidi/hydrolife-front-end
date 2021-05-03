@@ -10,7 +10,7 @@
                         (viewDateChange)="closeOpenMonthViewDay()">
                          Précédant
                     </div>
-                    <div class="btn text-white" mwlCalendarToday [(viewDate)]="viewDate">
+                    <div class="btn text-white gg" mwlCalendarToday [(viewDate)]="viewDate">
                         Aujourd'hui
                     </div>
                     <div class="btn text-white " mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
@@ -97,8 +97,6 @@
         </div>
         <div class=" emp-profile">
 
-
-
                     <div class="profile-head">
                         <h1 class="mb-3">
                             Coordonnée du client :
@@ -165,7 +163,7 @@
         </div>
         <div class="modal-footer">
 
-            <button class="buttonSup" (click)="close()" (click)="delete(modalData?.event)">Supprimer <span> <i
+            <button class="buttonSup" (click)="close()" (click)="delete(modalData?.event)" routerLink="/CentreReservation/{{ id }}">Supprimer <span> <i
                         class="fa fa-ban fa-lg fa-fw" aria-hidden="true"></i> </span></button>
             <button class="buttonMod " (click)="close()">Fermer</button>
         </div>
@@ -174,30 +172,27 @@
     <div class="container">
         <div *ngIf="info?.length == 0">
             <br><br><br><br>
-            <div class="alert alert-warning">Vous n'avez aucune réservation </div><br><br><br><br>
+            <div class="alert alert-warning">Vous n'avez aucune réservation à venir </div><br><br><br><br>
         </div>
         <div *ngIf="info?.length != 0">
-            <h1>Vos réservation à venir :</h1>
-        </div>
+            <h1 class="my-4">Vos réservations passées :</h1>
+            </div>
         <div class="card mb-3" *ngFor="let reservation of info">
             <div class="row no-gutters">
                 <div class="col">
                     <div class="card-body">
-                        <h2 class="card-title my-2">Nom du client : {{ reservation?.nomClient }} {{
-                            reservation?.prenomClient }}</h2>
+                        <h2 class="card-title my-2">Nom du client : {{ reservation?.nomClient }} {{ reservation?.prenomClient }}</h2>
                         <h3 class="card-text"> Service : {{ reservation?.nomService }} </h3>
 
-                        <h3 class="card-text">Date de réservation : {{ reservation?.dateRes | date:'shortDate'|
-                            date:'dd-MM-yyyy' }} </h3>
+                        <h3 class="card-text">Date de réservation : {{ reservation?.dateRes | date:'shortDate'| date:'dd-MM-yyyy' }} </h3>
                         <h3 class="card-text">Nombre de personnes : {{ reservation?.nbre_personnes_res }} </h3>
 
                     </div>
                 </div>
 
-                <button class="buttonSup" (click)="deleteE(reservation)">Supprimer <span> <i
-                            class="fa fa-ban fa-lg fa-fw" aria-hidden="true"></i> </span></button>
-                <button class="buttonMod" (click)="openDialog(reservation?.id_res)">Voir details<span> <i
-                            class="fa fa-info-circle fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+                <button class="buttonSup" (click)="deleteHisto(reservation)">Supprimer <span> <i class="fa fa-ban fa-lg fa-fw"
+                            aria-hidden="true"></i> </span></button>
+                <button class="buttonMod" (click)="openDialog(reservation?.id_res)">Voir details<span> <i class="fa fa-info-circle fa-lg fa-fw" aria-hidden="true"></i> </span></button>
             </div>
         </div>
     </div>

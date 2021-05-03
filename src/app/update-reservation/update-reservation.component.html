@@ -6,7 +6,8 @@
             <div class="col-12 col-lg-6">
                 <div class="card bg-light mb-3">
                     <div class="card-body">
-                        <img class="img-fluid rounded" src="assets/client.jpg" />
+                        <img class="img-fluid rounded" 
+                        src = "{{this.userService.host+'/api/service/get/'+ service.id_service +'/bycentre/' +service.idCentre}}">
                         <h2 class="text-center">{{ service?.libelle_service }}</h2>
                         
                     </div>

@@ -20,7 +20,7 @@ export class UpdateReservationComponent implements OnInit {
   service:any;
 
   constructor(
-    private userService: CentreUserService,
+    public userService: CentreUserService,
     private reservationService: ReservationService,
     private route: ActivatedRoute,
     private fb: FormBuilder,

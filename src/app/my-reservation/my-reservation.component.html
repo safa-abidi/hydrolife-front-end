@@ -1,144 +1,56 @@
 <app-navbar>
-
+<br><br>
   <div class="container">
-<br><br>
-  <div *ngIf="info?.length == 0">
-    <br><br>
-    <button class="col-3 p-2 butt my-5" routerLink="/LesCentres"><span>Réserver une séance par ici ! </span></button>
-
-    <div  class="alert alert-warning">Vous n'avez aucune réservation </div><br><br><br><br>
-
-  </div>
-  <button class="col-3 p-2 butt my-5" routerLink="/History/{{ id }}"><span>Consultez votre historique ici </span></button>
-
-    <div class="card mb-3" *ngFor="let ress of info">
-      <div class="row no-gutters">
-        <div class="col">
-          <div class="card-body">
-            <h2 class="card-title my-2"> {{ ress?.nomService }} </h2>
-            <h3 class="card-text"> Pour : {{ ress?.nbre_personnes_res }} personnes</h3>
-            
-            <h3 class="card-text">Prévu pour le : {{ ress?.dateRes  | date:'shortDate'| date:'dd-MM-yyyy' }} </h3>
-            <h3 class="card-text">Prix totale : {{ ress?.montant }} TND </h3>
-  
-          </div>
+    <div class="d-flex text-center">
+        <div class="col-md-4">
+            <div class="btn-group " style="background-color: #D88C8A; border-radius: 30px;">
+                <div class="btn text-white" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+                    (viewDateChange)="closeOpenMonthViewDay()">
+                     Précédant
+                </div>
+                <div class="btn text-white gg" mwlCalendarToday [(viewDate)]="viewDate">
+                    Aujourd'hui
+                </div>
+                <div class="btn text-white " mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+                    (viewDateChange)="closeOpenMonthViewDay()">
+                     Prochain
+                </div>
+            </div>
         </div>
-        <button class="buttonMod " routerLink="/UpdateReservation/{{ ress?.id_res }}">Modifier
-          <span> <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i> </span></button>
-      </div>
+        <div class="col-md-4">
+            <h3 class="text-capitalize">{{ viewDate | calendarDate:(view + 'ViewTitle'):'Fr' }}</h3>
+        </div>
+        <div class="col-md-4">
+            <div class="btn-group" style="background-color: #1f5473; border-radius: 30px;">
+                <div class="btn text-white" (click)="setView(CalendarView.Month)"
+                    [class.active]="view === CalendarView.Month">
+                    Mois
+                </div>
+                <div class="btn text-white" (click)="setView(CalendarView.Week)"
+                    [class.active]="view === CalendarView.Week">
+                    Semaine
+                </div>
+                <div class="btn text-white" (click)="setView(CalendarView.Day)"
+                    [class.active]="view === CalendarView.Day">
+                    Jour
+                </div>
+            </div>
+        </div>
     </div>
-    
-  </div>
-  <br><br><br><br>
-  <div class="container-fluid">
-    <h2>Voir encore d'autre services :</h2>
-  <div class="card-deck">
-  <div class="card" *ngFor="let service of service">
-    <a routerLink="/Reservation/{{ service?.id_service }}"><img class="col-12 col-md-8 col-lg-5 card-img-top" 
-      src = "{{this.centreService.host+'/api/service/get/'+ service.id_service +'/bycentre/' +service.idCentre}}">		</a>
-
-    <div class="card-body">
-        <h5 class="card-title">{{ service?.libelle_service }}</h5>
-        <p class="card-text">{{ service?.description_service }}</p>
-        <p class="card-text">{{ service?.prix_service }} TND par personne</p>
-      </div>
+    <br />
+    <div [ngSwitch]="view">
+        <mwl-calendar-month-view  locale="Fr" *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+            (eventClicked)="handleEvent('Clicked', $event.event)" class="text-capitalize">
+        </mwl-calendar-month-view>
+        <mwl-calendar-week-view locale="fr" *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" class="text-capitalize">
+        </mwl-calendar-week-view>
+        <mwl-calendar-day-view locale="fr" *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" class="text-capitalize">
+        </mwl-calendar-day-view>
     </div>
-  </div>
 </div>
-<br><br>
-  </app-navbar>
-
-  <div class="row text-center">
-    <div class="col-md-4">
-      <div class="btn-group">
-        <div
-          class="btn btn-primary"
-          mwlCalendarPreviousView
-          [view]="view"
-          [(viewDate)]="viewDate"
-          (viewDateChange)="closeOpenMonthViewDay()"
-        >
-          Previous
-        </div>
-        <div
-          class="btn btn-outline-secondary"
-          mwlCalendarToday
-          [(viewDate)]="viewDate"
-        >
-          Today
-        </div>
-        <div
-          class="btn btn-primary"
-          mwlCalendarNextView
-          [view]="view"
-          [(viewDate)]="viewDate"
-          (viewDateChange)="closeOpenMonthViewDay()"
-        >
-          Next
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
-    </div>
-    <div class="col-md-4">
-      <div class="btn-group">
-        <div
-          class="btn btn-primary"
-          (click)="setView(CalendarView.Month)"
-          [class.active]="view === CalendarView.Month"
-        >
-          Month
-        </div>
-        <div
-          class="btn btn-primary"
-          (click)="setView(CalendarView.Week)"
-          [class.active]="view === CalendarView.Week"
-        >
-          Week
-        </div>
-        <div
-          class="btn btn-primary"
-          (click)="setView(CalendarView.Day)"
-          [class.active]="view === CalendarView.Day"
-        >
-          Day
-        </div>
-      </div>
-    </div>
-  </div>
-  <br />
-  <div [ngSwitch]="view">
-    <mwl-calendar-month-view
-      *ngSwitchCase="CalendarView.Month"
-      [viewDate]="viewDate"
-      [events]="events"
-      [refresh]="refresh"
-      [activeDayIsOpen]="activeDayIsOpen"
-      (dayClicked)="dayClicked($event.day)"
-      (eventClicked)="handleEvent('Clicked', $event.event)"
-
-    >
-    </mwl-calendar-month-view>
-    <mwl-calendar-week-view
-      *ngSwitchCase="CalendarView.Week"
-      [viewDate]="viewDate"
-      [events]="events"
-      [refresh]="refresh"
-      (eventClicked)="handleEvent('Clicked', $event.event)"
-
-    >
-    </mwl-calendar-week-view>
-    <mwl-calendar-day-view
-      *ngSwitchCase="CalendarView.Day"
-      [viewDate]="viewDate"
-      [events]="events"
-      [refresh]="refresh"
-      (eventClicked)="handleEvent('Clicked', $event.event)"
-
-    >
-    </mwl-calendar-day-view>
-  </div>
 
 
 <ng-template #modalContent let-close="close">
@@ -188,3 +100,51 @@
   </div>
 </ng-template>
 
+  <div class="container">
+<br><br>
+  <div *ngIf="info?.length == 0">
+    <br><br>
+    <button class="col-3 p-2 butt my-5" routerLink="/LesCentres"><span>Réserver une séance par ici ! </span></button>
+
+    <div  class="alert alert-warning">Vous n'avez aucune réservation </div><br><br><br><br>
+
+  </div>
+
+  <h1 class="my-2">Vos réservation passées : </h1>
+    <div class="card mb-3" *ngFor="let ress of info">
+      <div class="row no-gutters">
+        <div class="col">
+          <div class="card-body">
+            <h2 class="card-title my-2"> {{ ress?.nomService }} </h2>
+            <h3 class="card-text"> Pour : {{ ress?.nbre_personnes_res }} personnes</h3>
+            
+            <h3 class="card-text"> le : {{ ress?.dateRes  | date:'shortDate'| date:'dd-MM-yyyy' }} </h3>
+            <h3 class="card-text">Prix totale : {{ ress?.montant }} TND </h3>
+  
+          </div>
+        </div>
+        <button class="buttonMod " routerLink="/UpdateReservation/{{ ress?.id_res }}">Modifier
+          <span> <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+      </div>
+    </div>
+    
+  </div>
+  <br><br><br><br>
+  <div class="container-fluid">
+    <h2>Voir encore d'autre services :</h2>
+  <div class="card-deck">
+  <div class="card text-center p-2" *ngFor="let service of service">
+    <a routerLink="/Reservation/{{ service?.id_service }}"><img class="col-12 col-md-8 col-lg-10 card-img-top" 
+      src = "{{this.centreService.host+'/api/service/get/'+ service.id_service +'/bycentre/' +service.idCentre}}">		</a>
+
+    <div class="card-body">
+        <h1 class="card-title">{{ service?.libelle_service }}</h1>
+        <h4 class="card-text">{{ service?.description_service }}</h4>
+        <h4 class="card-text">{{ service?.prix_service }} TND par personne</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+</app-navbar>

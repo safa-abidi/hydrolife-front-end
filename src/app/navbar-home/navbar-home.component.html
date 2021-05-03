@@ -65,7 +65,7 @@
       <span>My Application</span>
     </mat-toolbar>
     <mat-toolbar *ngIf="Clientloggedin()">
-      <span class="ml-2">Bienvenue <span style="color: #d88c8a;">{{ this.info?.nom }}</span></span>
+      <span class="ml-2">Bienvenue <span style="color: #d88c8a;"> {{ this.info?.prenom }} {{ this.info?.nom }}  </span></span>
     </mat-toolbar>
     <ng-content></ng-content>
     <!-- Add Content Here -->

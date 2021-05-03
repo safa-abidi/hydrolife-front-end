@@ -61,12 +61,12 @@ export class AjouterServiceComponent implements OnInit {
     formData.append('file',this.documentFile);
     this.userService.createDataSer(formData).subscribe( data => {
 
-      this.toastr.success("ser bi taswira ajouté avec succès");
+      this.toastr.success("service ajouté avec succès");
 
       this.router.navigate(['/CentreService/'+ idUser]);
     },
     err => {
-      this.toastr.error("ser bi taswira non ajouté réessayer");
+      this.toastr.error("service non ajouté réessayer");
 
     }
     

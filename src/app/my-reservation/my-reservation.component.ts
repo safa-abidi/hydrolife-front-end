@@ -55,7 +55,7 @@ export class MyReservationComponent implements OnInit {
     let id = this.route.snapshot.params.id;
     
 
-    this.resService.UpCommingReservationClient(id).subscribe(
+    this.resService.OldReservationClient(id).subscribe(
       (result)=>{
         
         this.info = result;

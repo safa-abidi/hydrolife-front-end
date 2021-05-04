@@ -429,14 +429,14 @@ input[type="text"]:focus {
   font-size: 3.5rem;
   font-weight: 400;
   color: white;
-  text-shadow: 2px 1px 1px #1F5473;
+  text-shadow: 2px 1px 1px black;
   div {
       overflow: hidden;
       position: relative;
       float: right;
-      height: 65px;
-      padding-top: 10px;
-      margin-top: -10px;
+      height: 85px;
+      padding-top: 30px;
+      margin-top: -25px;
       li {
           color: #1F5473;
           font-weight: 500;
@@ -450,10 +450,56 @@ input[type="text"]:focus {
   }
 }
 
-.x{
+.hitext{
 
-    font-size: 3.4rem;
-  
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 1px 1px black;
+  position: absolute;
+  top: 35%;
+  left: 32%;
+
+}
+
+.button {
+  border-radius: 50px;
+  border: none;
+  font-size: 1.5rem;
+  padding: 25px;
+  width: 390px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  position: absolute;
+  top: 45%;
+  left: 37%;
+}
+
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 .flip2 { animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite; }
@@ -616,7 +662,7 @@ input[type="text"]:focus {
 
 
   .wordCarousel {
-    font-size: 4rem;
+    font-size: 6rem;
     font-weight: 400;
   }
 
@@ -626,7 +672,7 @@ input[type="text"]:focus {
   .centered {
 
     top: 20%;
-    left: 30%;
+    left: 25%;
 
   }
 

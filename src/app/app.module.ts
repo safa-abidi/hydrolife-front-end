@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { InscriCentreComponent } from './inscri-centre/inscri-centre.component';
 import { FooterComponent } from './footer/footer.component';
 import { CentreUserService } from './services/CentreUser.service';
@@ -77,7 +76,6 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LesCentresComponent } from './les-centres/les-centres.component';
 import { AgmCoreModule } from '@agm/core';
-import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NavbarHomeComponent } from './navbar-home/navbar-home.component';
 import { CentreDetailComponent } from './centre-detail/centre-detail.component';
@@ -105,7 +103,6 @@ import { ThankUPageComponent } from './thank-upage/thank-upage.component';
   declarations: [
     AppComponent,
     InscriCentreComponent,
-    HeaderComponent,
     InscriCentreComponent,
     FooterComponent,
     EspaceCentreComponent,
@@ -124,7 +121,6 @@ import { ThankUPageComponent } from './thank-upage/thank-upage.component';
     HomeComponent,
     AjouterGallerieComponent,
     LesCentresComponent,
-    NavbarComponent,
     NavbarHomeComponent,
     CentreDetailComponent,
     SecuDialogComponent,

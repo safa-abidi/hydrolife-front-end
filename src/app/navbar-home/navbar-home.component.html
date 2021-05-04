@@ -14,17 +14,22 @@
           </div>
         </div>
       </div>
-      <a mat-list-item style="color: #1F5473;" routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link" routerLink="/Home"> Acceuil
+      <a mat-list-item style="color: #1F5473;" routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link"
+        routerLink="/Home"> Acceuil
         <span class="sr-only">(current)</span></a>
-      <a mat-list-item style="color: #1F5473;" *ngIf="!loggedin() && !Clientloggedin()" routerLinkActive="active-link" class="nav-link"
-        routerLink="/EspaceCentre" style="color: #1F5473;">Espace centre</a>
-      <a mat-list-item style="color: #1F5473;" *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link" routerLink="/LesCentres">Les
+      <a mat-list-item style="color: #1F5473;" *ngIf="!loggedin() && !Clientloggedin()" routerLinkActive="active-link"
+        class="nav-link" routerLink="/EspaceCentre" style="color: #1F5473;">Espace centre</a>
+      <a mat-list-item style="color: #1F5473;" *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link"
+        routerLink="/LesCentres">Les
         centres</a>
-        <a mat-list-item style="color: #1F5473;" class="nav-link btn" routerLink="/MyReservation/{{ info?.id }}" *ngIf="!loggedin() && Clientloggedin()">Mes réservations</a>
-        <a mat-list-item style="color: #1F5473;" class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" (click)="openDialog()">Mon profil</a>
-        <a mat-list-item style="color: #1F5473;" class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" routerLink="EspaceCentre" (click)="logOutClient()">Logout</a>
-      <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" class="nav-link"><img (click)="open(content)" src="assets/login.png"
-          alt="login"></a>
+      <a mat-list-item style="color: #1F5473;" class="nav-link btn" routerLink="/MyReservation/{{ info?.id }}"
+        *ngIf="!loggedin() && Clientloggedin()">Mes réservations</a>
+      <a mat-list-item style="color: #1F5473;" class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()"
+        (click)="openDialog()">Mon profil</a>
+      <a mat-list-item style="color: #1F5473;" class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()"
+        routerLink="EspaceCentre" (click)="logOutClient()">Logout</a>
+      <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" class="nav-link"><img (click)="open(content)"
+          src="assets/login.png" alt="login"></a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -36,39 +41,60 @@
       <a mat-list-item class="navbar-brand" *ngIf='!loggedin()' routerLink="/Home"><img src="assets/logo.png"
           alt="logo"></a>
       <a mat-list-item class="navbar-brand" *ngIf='loggedin()'><img src="assets/logo.png" alt="logo"></a>
-      <div class="searchbar mt-4">
+
+      <div class="searchbar mt-4" *ngIf="!loggedin() && !Clientloggedin() || !loggedin() && Clientloggedin()">
         <div class="search_wrap search_wrap_3">
           <div class="search_box">
-            <input type="text" class="input search-slt" placeholder="Que cherchez vous ? ">
+            <input type="text" class="input search-slt text-center" placeholder="Que cherchez vous ? ">
             <div class="btn btn_common">
-              <i class="fas"><img src="assets/search.png" alt="" class="search"></i>
+              <i class="fas"><img src="assets/search.png" class="search"></i>
             </div>
           </div>
         </div>
       </div>
+
       <span class="spacer"></span>
       <div [ngClass]="{ hidden: (isHandset$ | async) }">
-        <a mat-list-item routerLinkActive="active-link" *ngIf="!loggedin() && !Clientloggedin()" class="nav-link" routerLink="/Home"> Acceuil
-          <span class="sr-only">(current)</span></a>
-        <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" routerLinkActive="active-link" class="nav-link"
+
+        <a mat-list-item style="color: #1F5473;" routerLinkActive="active-link" *ngIf="!loggedin()"
+        routerLink="/Home"> Acceuil
+        <span class="sr-only">(current)</span></a>
+
+        <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" routerLinkActive="active-link"
           routerLink="/EspaceCentre">Espace centre</a>
-        <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link" class="nav-link"
+
+        <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link"
           routerLink="/LesCentres">Les centres</a>
-          <a mat-list-item style="color: #1F5473;" class="nav-link btn" routerLink="/MyReservation/{{ info?.id }}" *ngIf="!loggedin() && Clientloggedin()">Mes réservations</a>
-        <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" (click)="openDialog()">Mon profil</a>
-        <a mat-list-item class="nav-link btn" *ngIf="!loggedin() && Clientloggedin()" routerLink="EspaceCentre" (click)="logOutClient()">Logout</a>
+
+        <a mat-list-item *ngIf="!loggedin() && Clientloggedin()" [matMenuTriggerFor]="beforeMenu"><img
+            src="assets/login.png" alt="login"></a>
+
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+
+          <a mat-list-item style="color: #1F5473;" class="btn nav-link" routerLink="/MyReservation/{{ info?.id }}"
+          *ngIf="!loggedin() && Clientloggedin()">Mes réservations</a>
+        
+          <a mat-list-item style="color: #1F5473;" class="btn nav-link" *ngIf="!loggedin() && Clientloggedin()"
+            (click)="openDialog()">Mon profil</a>
+     
+
+            <a mat-list-item style="color: #1F5473;" class=" btn nav-link" *ngIf="!loggedin() && Clientloggedin()"
+            routerLink="EspaceCentre" (click)="logOutClient()">Logout</a>
+
+        </mat-menu>
+
         <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" class="nav-link"><img (click)="open(content)"
             src="assets/login.png" alt="login"></a>
+
+            <a mat-list-item  *ngIf="loggedin()" style="color: #1F5473;"
+            routerLink="EspaceCentre" (click)="logOut()">Logout</a>
       </div>
     </mat-toolbar>
     <mat-toolbar>
       <span>My Application</span>
     </mat-toolbar>
-    <mat-toolbar *ngIf="Clientloggedin()">
-      <span class="ml-2">Bienvenue <span style="color: #d88c8a;"> {{ this.info?.prenom }} {{ this.info?.nom }}  </span></span>
-    </mat-toolbar>
     <ng-content></ng-content>
-    <!-- Add Content Here -->
+
   </mat-sidenav-content>
 
 </mat-sidenav-container>
@@ -77,7 +103,7 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title text-center" id="modal-basic-title">Connectez-vous à votre espace centre</h4>
+    <h4 class="modal-title text-center" id="modal-basic-title">Connectez-vous</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>

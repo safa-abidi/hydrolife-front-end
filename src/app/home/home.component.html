@@ -1,45 +1,39 @@
-
-<app-navbar-home>
 <section>
 
+  <div class="containerr">
 
+    <ngb-carousel #ngcarousel>
+      <ng-template ngbSlide id="one">
+        <div class="picsum-img-wrapper">
+          <img src="assets/carousel.jpg" alt="Slide 1">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide id="two">
+        <div class="picsum-img-wrapper">
+          <img src="assets/carousel 2.jpg" alt="Slide 2">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide id="three">
+        <div class="picsum-img-wrapper">
+          <img src="assets/inscri2.jpeg" alt="Slide 3">
+        </div>
+      </ng-template>
+    </ngb-carousel>
 
-
-
-<div class="containerr">
-
-  <ngb-carousel #ngcarousel>
-    <ng-template ngbSlide id="one">
-      <div class="picsum-img-wrapper">
-        <img src="assets/carousel.jpg" alt="Slide 1">
-      </div>
-    </ng-template>
-    <ng-template ngbSlide id="two">
-      <div class="picsum-img-wrapper">
-        <img src="assets/carousel 2.jpg" alt="Slide 2">
-      </div>
-    </ng-template>
-    <ng-template ngbSlide id="three">
-      <div class="picsum-img-wrapper">
-        <img src="assets/inscri2.jpeg" alt="Slide 3">
-      </div>
-    </ng-template>
-  </ngb-carousel>
-
-  <h4 class="wordCarousel centered">
-    <span>Bienvenue a Hydro </span>
-    <div>
+    <h4 class="wordCarousel centered">
+      <span>Bienvenue a Hydro </span>
+      <div>
         <ul class="flip3" style="padding: 0;">
-            <li><span style="color: #D88C8A; text-shadow: 1px 1px 1px black;" class="x">Life</span></li>
-            <li>Nature</li>
-            <li>Vie</li>
-           
-            
-        </ul>
-    </div>
-  </h4>
+          <li><span style="color: #D88C8A; text-shadow: 1px 1px 1px black;" class="x">Life</span></li>
+          <li>Nature</li>
+          <li>Vie</li>
 
-</div>
+
+        </ul>
+      </div>
+    </h4>
+
+  </div>
 </section>
 
 <section>
@@ -57,7 +51,7 @@
         dolore magna aliqua elit, sed do eiusmod tempor incididunt ut labore et
         dolore magna aliqua</p>
     </div>
- 
+
   </div>
 </section>
 
@@ -93,14 +87,14 @@
       <h1 class="PromText text-white ">Promotion de la semaine</h1>
       <div class=" text-white PromPara " *ngFor="let promotion of info; let i=index;">
         <div *ngIf="3>i" class="d-flex mb-3">
-        -  {{ promotion?.titre_promo }} 
+          - {{ promotion?.titre_promo }}
           <div class="font-weight-bold mx-2">
             {{ promotion?.pourcentage }} %
           </div>
         </div>
-          <button class="btn text-white m-2 p-2 buttsec4" routerLink="/AllPromotions">Consulter les promotions</button>
+        <button class="btn text-white m-2 p-2 buttsec4" routerLink="/AllPromotions">Consulter les promotions</button>
       </div>
- 
+
     </div>
 
   </div>
@@ -116,7 +110,8 @@
       <h1>Mesures supplémentaires de santé et de sécurité </h1>
       <p>Cet établissement a pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous assurer
         une détante en toute sécurité.</p>
-      <button style="color: white; background-color: #D88C8A; border-radius: 30px;" class="btn py-2 px-3" (click)="openDialog()">Voir les mesures de
+      <button style="color: white; background-color: #D88C8A; border-radius: 30px;" class="btn py-2 px-3"
+        (click)="openDialog()">Voir les mesures de
         sécurité</button>
     </div>
   </div>
@@ -136,7 +131,7 @@
       <div class="my-5 p-5 boxsec3">
         <h1 class="sec3Text text-white">Pourquoi l'hydrothérapie ?</h1>
         <p class="sec3Para  text-white">L’eau chauffée soulage et atténue de nombreuses pathologies: <br>
-          douleurs articulaires, problèmes de circulation sanguine,<br> problèmes respiratoires, maladies de peau… 
+          douleurs articulaires, problèmes de circulation sanguine,<br> problèmes respiratoires, maladies de peau…
           L’hydrothérapie <br> apporte un réél bien-être et un tonus appréciable !</p>
       </div>
 
@@ -144,4 +139,3 @@
 
   </div>
 </section>
-</app-navbar-home>

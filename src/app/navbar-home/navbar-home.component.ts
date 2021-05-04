@@ -6,7 +6,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { CentreUserService } from '../services/CentreUser.service';
 import { ClientUserService } from '../services/ClientUser.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CentreUser } from '../models/CentreUser.model';
+import { ClientUser } from '../models/ClientUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ClientProfilComponent } from '../client-profil/client-profil.component';
@@ -59,17 +59,18 @@ export class NavbarHomeComponent {
     
     let data = this.loginForm.value;
 
-    let user = new CentreUser(  
-      undefined,
+    let client = new ClientUser(  
       undefined,
       undefined,
       data.Email,
       data.Password,
+      undefined,
+      undefined,
       undefined
 
       );
 
-      this.userService.getUserDet(data.Email).subscribe(
+      this.ClientService.getUserDet(data.Email).subscribe(
         (result)=>{
           console.log(result);
           
@@ -80,27 +81,28 @@ export class NavbarHomeComponent {
         }
       )
 
-    this.userService.loginAdmin(user).subscribe(
-      (res: { jwt: any,
-              email: any})=>{
-                
-        console.log(res);
-        let token = res.jwt;
-        let Email = res.email;
-        
-        localStorage.setItem("myToken",token);
-        localStorage.setItem("myId",this.info.id)
-        let id = localStorage.getItem("myId")
-        
-        this.router.navigate(['/CentreProfil/'+id]);
-      },
-      (err: any)=>{
-        this.loginForm.reset();
-        this.toastr.error("Mot de passe ou email erroné");
-        console.log(err);
-        
-      }
-    );
+      this.ClientService.loginAdmin(client).subscribe(
+        (res: { jwt: any,
+                email: any})=>{
+                  
+          console.log(res);
+          let token = res.jwt;
+          let Email = res.email;
+          
+          localStorage.setItem("myTokenClient",token);
+          localStorage.setItem("myIdClient",this.info.id)
+          let id = localStorage.getItem("myIdClient")
+          this.loginForm.reset();
+          this.router.navigate(['/LesCentres/'+id]);
+          this.toastr.success("Bienvenure"+ ' ' + this.info?.prenom + ' ' + this.info?.nom )
+        },
+        (err: any)=>{
+          this.loginForm.reset();
+          this.toastr.error("Mot de passe ou email erroné");
+          console.log(err);
+          
+        }
+      );
     
     
   

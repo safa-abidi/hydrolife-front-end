@@ -1,4 +1,4 @@
-<app-navbar>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
     <div class="bg">
@@ -11,6 +11,8 @@
             <p class="con">Moderniser vos services pour élargir votre clientèle </p>
             <button class="button text-white" routerLink="/InscriCentre"
                 ><span>S'inscrire </span></button>
+                <button (click)="open(content)" style="background-color: #1f5473;" class="button text-white"
+                ><span>Se connecter </span></button>
         </div>
     </div>
     <br><br><br>
@@ -79,4 +81,44 @@
         </div>
     </div>
 </body>
-</app-navbar>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title text-center" id="modal-basic-title">Connectez-vous a votre espace centre</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="loginForm" name="loginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <div class="form-group inputWithIcon">
+            <input aria-describedby="EmailHelp" placeholder="Votre Email" formControlName="Email" type="Email" id="Email"
+              class="form-control">
+            <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+            <div class="alert alert-danger" *ngIf="Email?.touched && !Email?.valid">
+              <div *ngIf="Email?.errors?.required">Le mail est obligatoire</div>
+              <div *ngIf="Email?.errors?.email">Le mail doit etre valide</div>
+            </div>
+          </div>
+          <div class="form-group inputWithIcon">
+            <input aria-describedby="PasswordlHelp" placeholder="Votre Mot de passe" formControlName="Password"
+              type="Password" id="Password" class="form-control">
+            <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
+            <div class="alert alert-danger" *ngIf="Password?.touched && !Password?.valid">
+              <div *ngIf="Password?.errors?.required">Le Mot de passe est obligatoire</div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <button type="submit" [disabled]="loginForm.invalid" (click)="modal.close('Save click')"
+          class=" btn text-white m-2" style="background-color: #d88c8a; border-radius: 100px;">Connexion</button>
+      </form>
+      <div class="row">
+        <p class="mx-5 mt-3">Vous ne faite pas partie de la famille ? <a routerLink="/InscriClient"
+            (click)="modal.close('Save click')" style="color:#1F5473; font-size: medium;">Inscrivez-vous ici</a></p>
+  
+      </div>
+    </div>
+  </ng-template>
+

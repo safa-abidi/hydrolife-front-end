@@ -294,10 +294,11 @@ input[type="text"]:focus {
 }
 
 .boxsec1{
-  background-color: #1F5473; 
+  background-color: black; 
   position: relative;
-  width: 355px;
-  height: 550px;
+  width: 300px;
+  height: 400px;
+  margin-top: 50px;
 }
 
 .sec1Text{
@@ -314,7 +315,7 @@ input[type="text"]:focus {
   line-height: 1.6;
   font-size: 18px;
   top: 300px;
-  margin-left: -80px;
+  margin-left: 80px;
   position:absolute;
   clear: both;
 }
@@ -546,26 +547,6 @@ input[type="text"]:focus {
     display: none;
   }
 
-  .boxsec1{
-    position: relative;
-    width: 355px;
-    height: 550px;
-  }
-
-  .sec1Text{
-    font-size: 30px;
-    margin-top: 80px;
-    margin-left: 40px;
-    position:absolute;
-  }
-  
-  .sec1Para{
-    line-height: 1.6;
-    font-size: 15px;
-    top: 200px;
-    margin-left: 50px;
-    margin-right: 110px;
-  }
 
   .wordCarousel {
     font-size: 2rem;
@@ -586,21 +567,6 @@ input[type="text"]:focus {
 
 @media screen and (min-width: 601px) and (max-width: 992px) {
 
-  .boxsec1{
-    width: 300px;
-    height: 550px;
-  }
-  
-  .sec1Text{
-    font-size: 30px;
-    margin-left: 20px;
-  }
-  
-  .sec1Para{
-    top: 200px;
-    margin-left: 20px;
-    margin-right: 30px;
-  }
 
   .wordCarousel {
     font-size: 3rem;
@@ -622,22 +588,7 @@ input[type="text"]:focus {
 
 @media screen and (min-width: 1024px)  {
 
-  .boxsec1{
-    height: 750px;
-  }
-  
-  .sec1Text{
-    margin-left: -80px;
-  }
-  
-  .sec1Para{
-    line-height: 1.6;
-    font-size: 20px;
-    top: 350px;
-    margin-left: -100px;
-    position:absolute;
-    clear: both;
-  }
+
 
   .wordCarousel {
     font-size: 4rem;

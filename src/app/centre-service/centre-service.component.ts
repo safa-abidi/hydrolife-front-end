@@ -43,8 +43,6 @@ export class CentreServiceComponent implements OnInit {
   
 
   delete(service: any){ 
-    
-    console.log(service);
 
     
     let index = this.userService.listData.indexOf(service);

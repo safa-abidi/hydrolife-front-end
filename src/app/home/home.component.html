@@ -31,18 +31,18 @@
       </div>
     </h4>
     <h3 class="hitext "><span>Commencez vos séances </span></h3>
-    <button routerLink="/LesCentres" style="background-color: #1f5473;" class="button text-white"
-                ><span>Voir les services disponible </span></button>
+    <button routerLink="/LesCentres" style="background-color: #1f5473;" class="button text-white"><span>Voir les
+        services disponible </span></button>
 
   </div>
 </section>
 
 <section>
   <div class="d-flex mt-2">
-    <div class="col-6">
+    <div class="col-6 p-0 ">
       <img src="assets/sec1.jpg" class="img-fluid imgSec1">
     </div>
-    <div class="col-1"></div>
+    <div class="col-1 p-0"></div>
     <div class="col d-flex">
       <div class="p-5 boxsec1">
       </div>
@@ -58,42 +58,43 @@
 
 <section>
   <div class="d-flex">
-    <div class="col-1"></div>
+    <div class="col-2 p-0"></div>
     <div class="col d-flex">
-      <div class="my-4 p-5 boxsec2">
+      <div class="  boxsec2">
+
+        <h1 class="sec2Text">Les centres inscrits </h1>
+        <p class="sec2Para">Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua</p>
         <button class="btn text-white m-2 p-2 buttsec2" routerLink="/LesCentres">Consulter les centres</button>
       </div>
-      <h1 class="sec2Text">Les centres inscrits </h1>
-      <p class="sec2Para">Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua</p>
     </div>
-    <div class="col-6">
+    <div class="col-6 p-0">
       <img src="assets/sec2.png" class="img-fluid imgSec2">
     </div>
   </div>
 </section>
 
 
-<section class="my-3">
+<section>
 
   <div class="d-flex">
-    <div class="col-7 imgSec1">
-      <img src="assets/sec1.jpg" class="img-fluid">
+    <div class="col-6 p-0 imgSec1">
+      <img src="assets/prom.png" class="img-fluid">
     </div>
-    <div class="col-1 "></div>
-    <div class="d-flex">
-      <div class="my-4 p-5 boxsec4"></div>
-      <h1 class="PromText text-white ">Promotion de la semaine</h1>
-      <div class=" text-white PromPara " *ngFor="let promotion of info; let i=index;">
-        <div *ngIf="3>i" class="d-flex mb-3">
-          - {{ promotion?.titre_promo }}
-          <div class="font-weight-bold mx-2">
-            {{ promotion?.pourcentage }} %
+    <div class="text-center col">
+      <h1 class="PromText">Promotion de la semaine</h1>
+      <div class="boxsec4 p-3">
+
+        <div class="text-white PromPara " *ngFor="let promotion of info; let i=index;">
+          <div *ngIf="3>i" class="d-flex mb-3" [ngClass]="{'textt' : i == 2}">
+            - {{ promotion?.titre_promo }}
+            <div class="font-weight-bold mx-2">
+              {{ promotion?.pourcentage }} %
+            </div>
           </div>
         </div>
-        <button class="btn text-white m-2 p-2 buttsec4" routerLink="/AllPromotions">Consulter les promotions</button>
       </div>
 
     </div>
@@ -101,19 +102,23 @@
   </div>
 </section>
 
-<section class="container">
-
-  <div class="row my-5 ">
-    <div class="col-3 col-md-2 d-md-inline d-none">
-      <img src="assets/corona.png">
-    </div>
-    <div class=" mt-2 col-9 col-md-10">
-      <h1>Mesures supplémentaires de santé et de sécurité </h1>
-      <p>Cet établissement a pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous assurer
+<section>
+  <div class="d-flex">
+    <div class="col-1 p-0"></div>
+    <div class="col-4 text-center secu p-0">
+      <img src="assets/corona.png" class="m-4">
+      <h1 class="my-4">Mesures supplémentaires de santé et de sécurité </h1>
+      <p class="m-4">Cet établissement a pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous
+        assurer
         une détante en toute sécurité.</p>
       <button style="color: white; background-color: #D88C8A; border-radius: 30px;" class="btn py-2 px-3"
         (click)="openDialog()">Voir les mesures de
         sécurité</button>
+    </div>
+    <div class="col-1 p-0"></div>
+
+    <div class="col-6 p-0">
+      <img src="assets/coronaa.png" class="img-fluid imgSec2">
     </div>
   </div>
 </section>

@@ -106,13 +106,14 @@ idUser: any;
       data.tel,
       data.dateNaissance
       );
+    console.log(data.password);
     
     this.userService.updateClient(user).subscribe(
       res=>{
         
         this.toastr.success("Profil mit à jour");
 
-        this.router.navigate(['/Home/'+idUser]);
+    //    this.router.navigate(['/Home/'+idUser]);
       },
       err=>{
         console.log(err);
@@ -120,4 +121,6 @@ idUser: any;
     );
 
   }
+
+  
 }

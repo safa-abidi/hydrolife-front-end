@@ -1,131 +1,144 @@
+<div class="container-fluid">
+  <div class="row py-5 mt-4 align-items-center">
+    <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+      <img src="assets/client.jpg" alt="" class="img-fluid mb-3 d-none d-md-block">
+      <h1>HydroLife vous accompagne dans votre bien-être</h1>
+    </div>
 
+    <div class="col-md-7 col-lg-6 ml-5">
+      <br><br><br>
+      <form class="form" [formGroup]="updateClientForm" #f="ngForm" (ngSubmit)="updateUser()">
+        <div class="row">
 
-  <div class="container">
-    <div class="row py-5 mt-4 align-items-center">
-      <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
-        <img src="assets/client.jpg" alt="" class="img-fluid mb-3 d-none d-md-block">
-        <h1>HydroLife vous accompagne dans votre bien-être</h1>
-      </div>
-
-      <div class="col-md-7 col-lg-6 ml-auto">
-        <form class="form" [formGroup]="updateClientForm" #f="ngForm" (ngSubmit)="updateUser()">
-          <div class="row">
-
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-user text-muted"></i>
-                </span>
-              </div>
-              <input placeholder="Votre nom" for="nom" name="nom" id="nom" type="text" formControlName="nom"
-                class="form-control bg-white border-left-0 border-md">
-              <div class="alert-danger p-2" *ngIf="nom?.touched && !nom?.valid">
-                <div *ngIf="nom?.errors?.required">Le nom est obligatoire</div>
-                <div *ngIf="nom?.errors?.pattern">
-                  Le nom ne doit pas contenir de chiffres
-                </div>
-              </div>
+          <div class="input-group col-lg-12 mb-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                <i class="fa fa-user text-muted"></i>
+              </span>
             </div>
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-user text-muted"></i>
-                </span>
+            <input placeholder="Votre nom" for="nom" name="nom" id="nom" type="text" formControlName="nom"
+              class="form-control bg-white border-left-0 border-md">
+            <div class="alert-danger p-2" *ngIf="nom?.touched && !nom?.valid">
+              <div *ngIf="nom?.errors?.required">Le nom est obligatoire</div>
+              <div *ngIf="nom?.errors?.pattern">
+                Le nom ne doit pas contenir de chiffres
               </div>
-              <input placeholder="Votre prenom" for="prenom" name="prenom" id="prenom" type="text"
-                formControlName="prenom" class="form-control bg-white border-left-0 border-md">
-              <div class="p-2 alert-danger" *ngIf="prenom?.touched && !prenom?.valid">
-                <div *ngIf="prenom?.errors?.required">Le prenom est obligatoire</div>
-                <div *ngIf="prenom?.errors?.pattern">
-                  Le prenom ne doit pas contenir de chiffres
-                </div>
-              </div>
-            </div>
-            <div class="input-group col-lg-12 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-phone-square text-muted"></i>
-                </span>
-              </div>
-              <input for="tel" placeholder="Numéro de téléphone" type="text" id="tel" name="tel" formControlName="tel"
-                class="form-control bg-white border-md border-left-0 pl-3">
-              <div class="alert alert-danger" *ngIf="tel?.touched && !tel?.valid">
-                <div *ngIf="tel?.errors?.required">
-                  Le numéro de téléphone est obligatoire
-                </div>
-                <div *ngIf="tel?.errors?.pattern">
-                  Le numéro doit se composer de chiffres seulement
-                </div>
-                <div *ngIf="tel?.errors?.minlength">
-                  Le numéro doit se composer de 8 chiffres
-                </div>
-                <div *ngIf="tel?.errors?.maxlength">
-                  Le numéro ne doit pas dépasser 13 chiffres
-                </div>
-              </div>
-            </div>
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-envelope text-muted"></i>
-                </span>
-              </div>
-              <input for="email" placeholder="Votre Email" id="email" type="text" formControlName="email" name="email"
-                class="form-control bg-white border-left-0 border-md">
-              <div class="alert alert-danger" *ngIf="email?.touched && !email?.valid">
-                <div *ngIf="email?.errors?.required">Le email est obligatoire</div>
-                <div *ngIf="email?.errors?.email">Le email doit etre valide</div>
-              </div>
-            </div>
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-key text-muted"></i>
-                </span>
-              </div>
-              <input for="password" placeholder="Mot de passe" type="password" id="password" name="password"
-                formControlName="password" class="form-control bg-white border-left-0 border-md">
-              <div class="alert alert-danger" *ngIf="password?.touched && !password?.valid">
-                <div *ngIf="password?.errors?.required">
-                  Le mot de passe est obligatoire
-                </div>
-                <div *ngIf="password?.errors?.minlength">
-                  Le mot de passe doit se composer de 8 caractére
-                </div>
-              </div>
-            </div>
-            <div class="input-group col-lg-12 mb-4">
-              <div class="input-group-prepend">
-                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                  <i class="fa fa-map-marker text-muted"></i>
-                </span>
-              </div>
-              <input for="adresse" placeholder="Adresse du centre" id="adresse" type="text" formControlName="adresse"
-                name="adresse" class="form-control bg-white border-left-0 border-md">
-              <div class="alert alert-danger" *ngIf="adresse?.touched && !adresse?.valid">
-                <div *ngIf="adresse?.errors?.required">
-                  L'adresse est obligatoire
-                </div>
-              </div>
-            </div>
-            <div class=" col-lg-12 mb-4">
-              <mat-form-field appearance="fill">
-                <mat-label>Date de naissance</mat-label>
-                <input matInput [matDatepicker]="picker" for="dateNaissance" name="dateNaissance" id="dateNaissance"
-                  formControlName="dateNaissance">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-            </div>
-            <div class="form-group col-lg-12 mx-auto mb-0">
-              <button type="submit" class="btn btn-block py-2" style="background-color: #D88C8A; border-radius: 30px;">
-                <span class="text-white">Enregistrer les modifications</span>
-              </button>
-              <button class="btn btn-block  m-1" style="color: #1f5473" routerLink="/Home/{{ idUser }}">Annuler</button>
             </div>
           </div>
-        </form>
-      </div>
+          <div class="input-group col-lg-12 mb-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                <i class="fa fa-user text-muted"></i>
+              </span>
+            </div>
+            <input placeholder="Votre prenom" for="prenom" name="prenom" id="prenom" type="text"
+              formControlName="prenom" class="form-control bg-white border-left-0 border-md">
+            <div class="p-2 alert-danger" *ngIf="prenom?.touched && !prenom?.valid">
+              <div *ngIf="prenom?.errors?.required">Le prenom est obligatoire</div>
+              <div *ngIf="prenom?.errors?.pattern">
+                Le prenom ne doit pas contenir de chiffres
+              </div>
+            </div>
+          </div>
+          <div class="input-group col-lg-12 mb-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                <i class="fa fa-phone-square text-muted"></i>
+              </span>
+            </div>
+            <input for="tel" placeholder="Numéro de téléphone" type="text" id="tel" name="tel" formControlName="tel"
+              class="form-control bg-white border-md border-left-0 pl-3">
+            <div class="alert alert-danger" *ngIf="tel?.touched && !tel?.valid">
+              <div *ngIf="tel?.errors?.required">
+                Le numéro de téléphone est obligatoire
+              </div>
+              <div *ngIf="tel?.errors?.pattern">
+                Le numéro doit se composer de chiffres seulement
+              </div>
+              <div *ngIf="tel?.errors?.minlength">
+                Le numéro doit se composer de 8 chiffres
+              </div>
+              <div *ngIf="tel?.errors?.maxlength">
+                Le numéro ne doit pas dépasser 13 chiffres
+              </div>
+            </div>
+          </div>
+          <div class="input-group col-lg-12 mb-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                <i class="fa fa-envelope text-muted"></i>
+              </span>
+            </div>
+            <input for="email" placeholder="Votre Email" id="email" type="text" formControlName="email" name="email"
+              class="form-control bg-white border-left-0 border-md">
+            <div class="alert alert-danger" *ngIf="email?.touched && !email?.valid">
+              <div *ngIf="email?.errors?.required">Le email est obligatoire</div>
+              <div *ngIf="email?.errors?.email">Le email doit etre valide</div>
+            </div>
+          </div>
+
+          <div class="input-group col mb-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-white border-md border-right-0">
+                <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+              </span>
+            </div>
+            <mat-form-field class="col border-left-0" appearance="fill">
+              <mat-label>Date de naissance</mat-label>
+              <input matInput [matDatepicker]="picker" for="dateNaissance" name="dateNaissance" id="dateNaissance"
+                formControlName="dateNaissance">
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <div class="input-group col-lg-12 mb-4">
+
+
+          </div>
+          <div class="input-group col-lg-12 mb-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                <i class="fa fa-map-marker text-muted"></i>
+              </span>
+            </div>
+            <input for="adresse" placeholder="Adresse du centre" id="adresse" type="text" formControlName="adresse"
+              name="adresse" class="form-control bg-white border-left-0 border-md">
+            <div class="alert alert-danger" *ngIf="adresse?.touched && !adresse?.valid">
+              <div *ngIf="adresse?.errors?.required">
+                L'adresse est obligatoire
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group col-lg-12 mb-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-white px-4 border-md border-right-0">
+                <i class="fa fa-key text-muted"></i>
+              </span>
+            </div>
+            <input for="password" placeholder="Mot de passe" type="password" id="password" name="password"
+              formControlName="password" class="form-control bg-white border-left-0 border-md">
+            <div class="alert alert-danger" *ngIf="password?.touched && !password?.valid">
+              <div *ngIf="password?.errors?.required">
+                Le mot de passe est obligatoire
+              </div>
+              <div *ngIf="password?.errors?.minlength">
+                Le mot de passe doit se composer de 8 caractére
+              </div>
+            </div>
+            
+          </div>
+          <p class="text-center col-lg-12 mb-4 p-0"> Si vous ne pas souhaiter changer votre mot de passe retapé votre mot de pass actuel </p>
+
+          <div class="form-group col-lg-12 mx-auto mb-0">
+            <button type="submit" class="btn btn-block py-2" [disabled]="updateClientForm.invalid"
+              style="background-color: #D88C8A; border-radius: 30px;">
+              <span class="text-white">Enregistrer les modifications</span>
+            </button>
+            <button class="btn btn-block  m-1" style="color: #1f5473" routerLink="/Home/{{ idUser }}">Annuler</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
-
+</div>

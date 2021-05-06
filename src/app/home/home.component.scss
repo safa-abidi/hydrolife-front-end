@@ -368,14 +368,14 @@ input[type="text"]:focus {
 
 .boxsec3{
   background-color: #D88C8A; 
-  width: 450px; 
-  height: 350px; 
+  position: relative;
+  width: 300px;
+  height: 450px;
 }
 
 .sec3Text{
-  font-size: 30px;
-  margin-top: 0px;
-  position:absolute;
+  color: black;
+  font-size: 40px;
   clear: both;
   display: inline-block;
   white-space: nowrap;
@@ -383,10 +383,12 @@ input[type="text"]:focus {
 
 .sec3Para{
   line-height: 1.6;
-  font-size: 15px;
+  font-size: 20px;
   margin-top: 120px;
-  margin-left: -30px;
   position:absolute;
+  clear: both;
+  display: inline-block;
+  white-space: nowrap;
 
 }
 
@@ -639,86 +641,3 @@ input[type="text"]:focus {
   }
 
 }
-
-@media screen and (max-width: 600px) {
-
-
-
-}
-
-@media screen and (min-width: 601px) and (max-width: 992px) {
-
-
-}
-
-@media screen and (min-width: 1500px) {
-
-
-}
-
-@media screen and (max-width: 600px) {
-
-.imgSec3{
-  display: none;
-}
-
-.boxsec3{
-  position: relative;
-  width: 355px;
-  height: 550px;
-}
-
-.sec3Text{
-  font-size: 25px;
-  margin-top: 80px;
-  margin-left: 0px;
-  position:absolute;
-}
-
-.sec3Para{
-  line-height: 1.6;
-  font-size: 15px;
-  top: 100px;
-  margin-left: 0px;
-  margin-right: 10px;
-}
-
-}
-
-@media screen and (min-width: 601px) and (max-width: 992px) {
-
-  
-  .boxsec3{
-    width: 300px; 
-    height: 450px; 
-  }
-  
-  .sec3Text{
-    font-size: 25px;
-    margin-left: -40px;
-  }
-  
-  .sec3Para{
-    margin-left: -30px;
-    margin-right: 20px;
-  
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .boxsec3{
-    width: 400px; 
-    height: 450px; 
-  }
-  
-  .sec3Text{
-    font-size: 25px;
-    margin-left: 0px;
-  }
-  
-  .sec3Para{
-    margin-left: -30px;
-    margin-right: 20px;
-  
-  }
- }

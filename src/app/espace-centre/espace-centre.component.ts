@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { CentreUserService } from '../services/CentreUser.service';
-import { ClientUserService } from '../services/ClientUser.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CentreUser } from '../models/CentreUser.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';

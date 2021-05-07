@@ -8,6 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ImageService } from './../services/Image.service';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-inscri-centre',
@@ -16,19 +18,96 @@ import { ImageService } from './../services/Image.service';
 })
 export class InscriCentreComponent implements OnInit {
 
-
-
-
-  
+  loginForm: FormGroup
+  closeResult = '';
+  info: any;
 
 
 public centres: CentreUser[] = [];
 
 constructor(private centreUserService: CentreUserService,
             private Router: Router,
-            private toastr: ToastrService) {}
+            private toastr: ToastrService,
+            private modalService: NgbModal,
+            private fb: FormBuilder,
+            private route: ActivatedRoute,
+            private router:Router,
+            public dialog: MatDialog) { 
+              let formControls = {
+                Email: new FormControl('',[
+                  Validators.required,
+                  Validators.email
+                ]),
+                Password: new FormControl('',[
+                  Validators.required,
+                  Validators.minLength(6)
+                ]),
+                
+        
+              }
+          
+              this.loginForm = this.fb.group(formControls)
+            }
 
-ngOnInit(): void {}
+            get Email() { return this.loginForm.get('Email') };
+            get Password() { return this.loginForm.get('Password') };
+
+            login() {
+    
+              let data = this.loginForm.value;
+          
+              let client = new CentreUser(  
+                undefined,
+                undefined,
+                undefined,
+                data.Email,
+                data.Password,
+                undefined,
+                undefined
+          
+                );
+          
+                this.centreUserService.getUserDet(data.Email).subscribe(
+                  (result)=>{
+                    console.log(result);
+                    
+                    this.info = result;
+                  },
+                  (error)=>{
+                    console.log(error);
+                  }
+                )
+          
+                this.centreUserService.loginAdmin(client).subscribe(
+                  (res: { jwt: any,
+                          email: any})=>{
+                            
+                    console.log(res);
+                    let token = res.jwt;
+                    let Email = res.email;
+                    
+                    localStorage.setItem("myToken",token);
+                    localStorage.setItem("myId",this.info.id)
+                    let id = localStorage.getItem("myId")
+                    this.loginForm.reset();
+                    this.router.navigate(['/CentreProfil/'+id]);
+                  },
+                  (err: any)=>{
+                    this.loginForm.reset();
+                    this.toastr.error("Mot de passe ou email erroné");
+                    console.log(err);
+                    
+                  }
+                );
+              
+              
+            
+            }
+
+ngOnInit(): void {
+  let id = localStorage.getItem("myId");
+
+}
 
 onSubmit(form: NgForm) {
   this.centreUserService.addUser(form.value).subscribe(
@@ -43,6 +122,48 @@ onSubmit(form: NgForm) {
     }
   );
 }
+
+loginClient(){
+  let id = localStorage.getItem("myId");
+
+  this.centreUserService.getOneUser(id).subscribe(
+    (resultat: any) => {
+      this.info = resultat;
+      
+    }
+  )
+}
+
+
+loggedin(){
+  return localStorage.getItem("myToken");
+ 
+}
+
+ 
+Clientloggedin(){
+  return localStorage.getItem("myToken");
+ 
+}
+
+open(content: any) {
+  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.closeResult = `Closed with: ${result}`;
+  }, (reason) => {
+    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  });
+}
+
+private getDismissReason(reason: any): string {
+  if (reason === ModalDismissReasons.ESC) {
+    return 'by pressing ESC';
+  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+    return 'by clicking on a backdrop';
+  } else {
+    return `with: ${reason}`;
+  }
+}
+header_var= false;
 
  /* addUserForm: FormGroup
 

@@ -76,6 +76,7 @@ export class CentreReservationComponent implements OnInit {
       res=>{
         
         this.toastr.show("réservation suprimée")    
+        window.location.reload();
       },
       err =>{
         console.log(err);

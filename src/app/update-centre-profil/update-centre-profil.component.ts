@@ -105,7 +105,7 @@ export class UpdateCentreProfilComponent implements OnInit {
         
         this.toastr.success("Profil mit à jour");
 
-        this.router.navigate(['/CentreProfil/'+idUser]);
+        this.router.navigate(['/CentreService/'+idUser]);
       },
       err=>{
         console.log(err);

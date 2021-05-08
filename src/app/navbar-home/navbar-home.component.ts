@@ -24,6 +24,8 @@ export class NavbarHomeComponent {
   loginForm: FormGroup
   closeResult = '';
   info: any;
+   id = localStorage.getItem("myId");
+
   
 
   constructor(private breakpointObserver: BreakpointObserver,

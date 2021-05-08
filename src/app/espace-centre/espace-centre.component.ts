@@ -84,7 +84,7 @@ export class EspaceCentreComponent implements OnInit {
           localStorage.setItem("myId",this.info.id)
           let id = localStorage.getItem("myId")
           this.loginForm.reset();
-          this.router.navigate(['/CentreProfil/'+id]);
+          this.router.navigate(['/CentreService/'+id]);
         },
         (err: any)=>{
           this.loginForm.reset();

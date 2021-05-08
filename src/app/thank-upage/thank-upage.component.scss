@@ -2,7 +2,9 @@
 .thankyou-page ._header {
     padding: 200px 30px;
     text-align: center;
-    background-image: url("https://images.pexels.com/photos/6629566/pexels-photo-6629566.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url("https://media.blenderartists.org/uploads/default/original/4X/3/2/e/32e9a26b1c09071d189cbcf5b7a11b28806ad3cb.jpeg");
 }
 .thankyou-page ._header .logo {
     max-width: 200px;
@@ -15,6 +17,7 @@
     font-size: 65px;
     font-weight: 800;
     color: white;
+    text-shadow: 2px 2px black;
     margin: 0;
 }
 .thankyou-page ._body {
@@ -33,7 +36,7 @@
 .thankyou-page ._body ._box h2 {
     font-size: 30px;
     font-weight: 600;
-    color: #4ab74a;
+    color: #1f5473;
 }
 .thankyou-page ._footer {
     text-align: center;
@@ -41,7 +44,7 @@
 }
 
 .thankyou-page ._footer .btn {
-    background: #4ab74a;
+    background: #1f5473;
     color: white;
     border: 0;
     font-size: 14px;
@@ -60,14 +63,14 @@
     padding: 8px 50px;
     border-radius: 30px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.5em;
     letter-spacing: 2px;
     transition: 0.2s ease;
     font-weight: bold;
     margin: 5px 0px;
     &.green {
-      border: 4px solid #1F5473;
-      color: #1F5473;
+      border: 4px solid #d88c8a;
+      color: #d88c8a;
       &:before {
         content: "";
         position: absolute;
@@ -75,13 +78,13 @@
         top: 0;
         width: 0%;
         height: 100%;
-        background: #1F5473;
+        background: #d88c8a;
         z-index: -1;
         transition: 0.2s ease;
       }
       &:hover {
         color: white;
-        background: #1F5473;
+        background: #d88c8a;
         transition: 0.2s ease;
         &:before {
           width: 100%;

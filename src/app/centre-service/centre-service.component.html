@@ -4,13 +4,13 @@
 <div class="container">
   <div>
     <button class="button my-5" routerLink="/AjouterService/{{ id }}"><span>Nouveau service </span></button>
-<div *ngIf="info?.length == 0">
+<div *ngIf="userService.listData?.length == 0">
   <br><br><br><br>
   <div  class="alert alert-warning"> <p> Vous n'avez aucun service </p></div> <br><br><br></div>
   <div class="card mb-3" *ngFor="let service of userService.listData; let i = index">
     <div class="row no-gutters">
-      <div class="col" >
-        <img style="width: 80%;" src = "{{this.userService.host+'/api/service/get/'+ service.id_service +'/bycentre/' +service.idCentre}}">		
+      <div class="col text-center" >
+        <img style="" src = "{{this.userService.host+'/api/service/get/'+ service.id_service +'/bycentre/' +service.idCentre}}">		
       </div>
       <div class="col">
         <div class="card-body">

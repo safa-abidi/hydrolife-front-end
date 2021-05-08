@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CentreUserService } from '../services/CentreUser.service';
-import { CentreUser } from '../models/CentreUser.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CentreProfComponent } from '../centre-prof/centre-prof.component';
+import {MatDialog} from '@angular/material/dialog';
 @Component({
   selector: 'app-dash-nav',
   templateUrl: './dash-nav.component.html',
@@ -14,9 +15,9 @@ export class DashNavComponent implements OnInit {
 
   constructor(private http: HttpClient,
               private userService: CentreUserService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              public dialog: MatDialog) {  }
 
-  ) { }
 
   public isActive:boolean = true;
 
@@ -32,5 +33,7 @@ export class DashNavComponent implements OnInit {
       }
     )
   }
-
+  openDialog() {
+    this.dialog.open(CentreProfComponent);
+  }
 }

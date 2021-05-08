@@ -3,10 +3,12 @@ div a {
   color: #1f5473;
   font-size: large;
   margin-right: 50px;
+  cursor: pointer;
   
 }
 div a:hover{
   text-decoration: none;
+  color: #1f5473;
 }
 div li {
   list-style: none;

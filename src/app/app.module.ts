@@ -14,7 +14,6 @@ import { FooterComponent } from './footer/footer.component';
 import { CentreUserService } from './services/CentreUser.service';
 import { ImageService } from './services/Image.service';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
-import { CentreProfilComponent } from './centre-profil/centre-profil.component';
 import { CentreServiceComponent } from './centre-service/centre-service.component';
 import { CentrePromotionComponent } from './centre-promotion/centre-promotion.component';
 import { CentreReservationComponent } from './centre-reservation/centre-reservation.component';
@@ -97,6 +96,7 @@ import { ImageDetailComponent } from './image-detail/image-detail.component';
 import { HistoReservationComponent } from './histo-reservation/histo-reservation.component';
 import { HistoResClientComponent } from './histo-res-client/histo-res-client.component';
 import { ThankUPageComponent } from './thank-upage/thank-upage.component';
+import { CentreProfComponent } from './centre-prof/centre-prof.component';
 
 
 @NgModule({
@@ -106,7 +106,6 @@ import { ThankUPageComponent } from './thank-upage/thank-upage.component';
     InscriCentreComponent,
     FooterComponent,
     EspaceCentreComponent,
-    CentreProfilComponent,
     CentreServiceComponent,
     CentrePromotionComponent,
     CentreReservationComponent,
@@ -137,7 +136,8 @@ import { ThankUPageComponent } from './thank-upage/thank-upage.component';
     ImageDetailComponent,
     HistoReservationComponent,
     HistoResClientComponent,
-    ThankUPageComponent
+    ThankUPageComponent,
+    CentreProfComponent
 
   ],
   imports: [

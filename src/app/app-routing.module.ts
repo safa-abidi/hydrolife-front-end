@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { InscriCentreComponent} from './inscri-centre/inscri-centre.component';
 import { EspaceCentreComponent } from './espace-centre/espace-centre.component';
-import { CentreProfilComponent } from './centre-profil/centre-profil.component';
 import { CentrePromotionComponent } from './centre-promotion/centre-promotion.component';
 import { CentreReservationComponent } from './centre-reservation/centre-reservation.component';
 import { CentreServiceComponent } from './centre-service/centre-service.component';
@@ -48,7 +47,6 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'InscriCentre', component: InscriCentreComponent },
   { path: 'EspaceCentre', component: EspaceCentreComponent },
-  { path: 'CentreProfil/:id', component: CentreProfilComponent, canActivate:[AuthGuard] },
   { path: 'CentrePromotion/:id', component: CentrePromotionComponent, canActivate:[AuthGuard] },
   { path: 'HistoRes/:id', component: HistoReservationComponent, canActivate:[AuthGuard] },
   { path: 'CentreReservation/:id', component: CentreReservationComponent, canActivate:[AuthGuard] },

@@ -38,14 +38,13 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <a mat-list-item class="navbar-brand" *ngIf='!loggedin()' routerLink="/Home"><img src="assets/logo.png"
+      <a mat-list-item class="navbar-brand" routerLink="/Home"><img src="assets/logo.png"
           alt="logo"></a>
-      <a mat-list-item class="navbar-brand" *ngIf='loggedin()'><img src="assets/logo.png" alt="logo"></a>
 
-      <div class="searchbar mt-4" *ngIf="!loggedin() && !Clientloggedin() || !loggedin() && Clientloggedin()">
+      <div class="searchbar mt-4">
         <div class="search_wrap search_wrap_3">
           <div class="search_box">
-            <input type="text" class="input search-slt text-center" placeholder="Que cherchez vous ? ">
+            <input type="text" class="input search-slt text-center" placeholder="Que cherchez-vous ? ">
             <div class="btn btn_common">
               <i class="fas"><img src="assets/search.png" class="search"></i>
             </div>
@@ -63,8 +62,11 @@
         <a mat-list-item *ngIf="!loggedin() && !Clientloggedin()" routerLinkActive="active-link"
           routerLink="/EspaceCentre">Espace centre</a>
 
-        <a mat-list-item *ngIf="!loggedin()" routerLinkActive="active-link"
+        <a mat-list-item routerLinkActive="active-link"
           routerLink="/LesCentres">Les centres</a>
+
+          <a mat-list-item *ngIf="loggedin() && !Clientloggedin()" routerLinkActive="active-link"
+          routerLink="/CentreProfil/{{ id }}">Mon espace</a>
 
         <a mat-list-item *ngIf="!loggedin() && Clientloggedin()" [matMenuTriggerFor]="beforeMenu"><img
             src="assets/login.png" alt="login"></a>

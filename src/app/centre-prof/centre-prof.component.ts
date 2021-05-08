@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CentreUserService } from '../services/CentreUser.service';
 import { ActivatedRoute } from '@angular/router';
+
 @Component({
-  selector: 'app-centre-profil',
-  templateUrl: './centre-profil.component.html',
-  styleUrls: ['./centre-profil.component.scss']
+  selector: 'app-centre-prof',
+  templateUrl: './centre-prof.component.html',
+  styleUrls: ['./centre-prof.component.scss']
 })
-export class CentreProfilComponent implements OnInit {
+export class CentreProfComponent implements OnInit {
 
   info: any;
   
@@ -19,7 +20,7 @@ export class CentreProfilComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let idUser = this.route.snapshot.params.id;
+    let idUser = localStorage.getItem("myId")
      
     this.userService.getOneUser(idUser).subscribe(
       (result)=>{

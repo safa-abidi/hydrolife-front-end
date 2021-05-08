@@ -91,7 +91,7 @@ export class CentreReservationComponent implements OnInit {
     this.resService.deleteRes(reservation.id_res).subscribe(
       res=>{
         
-        this.toastr.show("réservation annulée");
+        this.toastr.warning("réservation suprimée de votre historique");
         
       },
       err =>{

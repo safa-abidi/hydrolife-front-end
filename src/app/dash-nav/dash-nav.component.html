@@ -1,22 +1,21 @@
 <div class="container-fluid">
-    <div class="p-5 all">
-      <div class="text-center d-flex">
-        <li><a routerLinkActive="active-link" routerLink="/CentreProfil/{{ info?.id }}">
-          Profile
-        </a></li>
-        <li><a routerLinkActive="active-link" routerLink="/CentreService/{{ info?.id }}" >
+  <div class="p-5 all">
+    <div class="text-center d-flex">
+      <li><a routerLinkActive="active-link" routerLink="/CentreService/{{ info?.id }}">
           Services
         </a></li>
-        <li><a routerLinkActive="active-link" routerLink="/CentrePromotion/{{ info?.id }}" >
+      <li><a routerLinkActive="active-link" routerLink="/CentrePromotion/{{ info?.id }}">
           Promotions
         </a></li>
-        <li><a routerLinkActive="active-link" routerLink="/CentreReservation/{{ info?.id }}" >
+      <li><a routerLinkActive="active-link" routerLink="/CentreReservation/{{ info?.id }}">
           Réservations
         </a></li>
-        <li><a routerLinkActive="active-link" routerLink="/CentreGallerie/{{ info?.id }}" >
+        <li><a (click)="openDialog()">
+          Profile
+        </a></li>
+      <li><a routerLinkActive="active-link" routerLink="/CentreGallerie/{{ info?.id }}">
           Galerie
         </a></li>
-      </div>
     </div>
+  </div>
 </div>
-

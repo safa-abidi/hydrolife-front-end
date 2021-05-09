@@ -63,10 +63,7 @@ export class CentreDetailComponent implements OnInit {
     this.userService.getOneUser(id).subscribe(
       (result)=>{
         
-        this.info = result;
-        console.log(result);
-        
-        
+        this.info = result;        
       },
       (error)=>{
         console.log(error);

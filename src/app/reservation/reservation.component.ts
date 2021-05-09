@@ -57,13 +57,10 @@ export class ReservationComponent implements OnInit {
       (result)=>{
         
         this.service = result;
-        console.log(this.service);
+
         this.userService.getOneUser(this.service.idCentre).subscribe(
           (result)=>{
-            this.info=result
-            console.log(this.info);
-            
-            
+            this.info=result                      
           }
         )
       },
@@ -87,6 +84,12 @@ export class ReservationComponent implements OnInit {
       
     this.reservationService.addReservation(idService,dets).subscribe(
       res=>{
+        console.log(idService,dets);
+        localStorage.setItem("idSer",idService)
+        localStorage.setItem("dateRes",data.dateRes)
+        localStorage.setItem("nbre_personnes_res ",data.nbre_personnes_res)
+
+        
         
         this.toastr.success("Votre réservation a été faite avec success");
         this.router.navigate(['/CheckOut/'+id]);

@@ -8,6 +8,8 @@ import { ImageService } from '../services/Image.service';
 })
 export class ImageDetailComponent implements OnInit {
 
+  info:any;
+
   constructor(
     public crudApi: ImageService, 
 
@@ -17,14 +19,22 @@ export class ImageDetailComponent implements OnInit {
 
    
   ngOnInit(): void {
-    localStorage.removeItem("idImg");
 
-  /*  let id = localStorage.getItem("idImg");
-    this.crudApi.getOnePhoto(id).subscribe(
-      response =>{this.crudApi.listData = response;
+    let id = localStorage.getItem("idImg")
+
+    this.crudApi.getOnePhotoDets(id).subscribe(
+      (result)=>{
+        
+        this.info = result;
         localStorage.removeItem("idImg");
+        console.log(result);
+        
+        
+      },
+      (error)=>{
+        console.log(error);
       }
-     );*/
+    );
 
   }
 

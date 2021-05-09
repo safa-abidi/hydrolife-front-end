@@ -47,10 +47,12 @@
       <div class="p-5 boxsec1">
       </div>
       <h1 class="sec1Text text-white">Bienvenue a <span style="color: black;"> HydroLife </span> </h1>
-      <p class="sec1Para text-white">Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua</p>
+      <p class="sec1Para text-white">HydroLife est une plateform <span style="color: black;">e 100% Tunisienne dédier à
+          l'hydrothérapie.</span>
+        Vous pouvez retrouver ici to<span style="color: black;">us les centres d'hydrothérapie, réserver et</span> payer
+        en ligne d'une façon &nbsp;
+        <span style="color: black;"> moderne et sécuriser.</span>
+      </p>
     </div>
 
   </div>
@@ -60,13 +62,11 @@
   <div class="d-flex">
     <div class="col-2 p-0"></div>
     <div class="col d-flex">
-      <div class="  boxsec2">
+      <div class="boxsec2">
 
         <h1 class="sec2Text">Les centres inscrits </h1>
-        <p class="sec2Para">Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua</p>
+        <p class="sec2Para">Consultez tous les centres et leurs services ainsi que les services complémentaires.
+          Prenez contact avec le centre choisi pour avoir plus d'informations sur l'un des services proposer </p>
         <button class="btn text-white m-2 p-2 buttsec2" routerLink="/LesCentres">Consulter les centres</button>
       </div>
     </div>
@@ -89,10 +89,9 @@
 
         <div class="text-white PromPara " *ngFor="let promotion of info; let i=index;">
           <div *ngIf="3>i" class="d-flex mb-3" [ngClass]="{'textt' : i == 2}">
-            - {{ promotion?.titre_promo }}
-            <div class="font-weight-bold mx-2">
-              {{ promotion?.pourcentage }} %
-            </div>
+            <a routerLink="/Reservation/{{ idSer }}" > - {{ promotion?.titre_promo }}
+              {{ promotion?.pourcentage }} %</a>
+
           </div>
         </div>
       </div>
@@ -134,8 +133,8 @@
     </div>
     <div class=" ml-4 d-flex">
       <div class="my-5 p-5 boxsec3">
-       <h1 class="sec3Text">Pourquoi l'hydrothérapie ?</h1>
-         <p class="sec3Para">L’eau chauffée soulage et atténue de nombreuses pathologies: <br>
+        <h1 class="sec3Text">Pourquoi l'hydrothérapie ?</h1>
+        <p class="sec3Para">L’eau chauffée soulage et atténue de nombreuses pathologies: <br>
           douleurs articulaires, problèmes de circulation sanguine,<br> problèmes respiratoires, maladies de peau…
           L’hydrothérapie <br> apporte un réél bien-être et un tonus appréciable !</p>
       </div>

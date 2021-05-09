@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
 
   closeResult = '';
   info: any;
-  
+  idSer:any;
 
   constructor( private modalService: NgbModal,
     public dialog: MatDialog,
@@ -60,7 +60,13 @@ export class HomeComponent implements OnInit {
         
         this.info = result;
         console.log(this.info);
-        
+
+        for (let i = 0; i < 2; i++) {
+
+        this.idSer = this.info[i].services[0].id_service
+
+        }
+            
       },
       (error)=>{
         console.log(error);

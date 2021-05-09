@@ -1,0 +1,21 @@
+.hide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    background-color:rgba(0, 0, 0, 0.5);
+
+  }
+
+  .containerr {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+    
+.myIMG:hover + .hide {
+  display: block;
+
+}

@@ -12,6 +12,14 @@
     margin: 5px;
   }
 
+  /*.trunc{
+    font-size: medium ;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }*/
+
   .button span {
     cursor: pointer;
     display: inline-block;

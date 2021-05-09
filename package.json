@@ -27,6 +27,7 @@
     "@types/google-maps": "^3.2.2",
     "angular-calendar": "^0.28.22",
     "angular-responsive-carousel": "^2.0.2",
+    "angular-text-truncate": "0.0.2",
     "bootstrap": "^4.6.0",
     "date-fns": "^2.21.1",
     "jquery": "^3.6.0",

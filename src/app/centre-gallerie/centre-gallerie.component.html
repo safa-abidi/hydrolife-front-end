@@ -1,5 +1,6 @@
 
 <app-dash-nav></app-dash-nav>
+<script src="truncate.js"></script>
 <div class="container">
   <button class="button my-5" routerLink="/AjouterGallerie/{{ idCentre }}"><span>Nouvelle photo </span></button>
 </div>
@@ -10,7 +11,7 @@
 		<img class="photo"   src = "{{this.crudApi.host+'/api/photo/find/'+item.id_photo}}" alt="">		
 		<div class="capition">
 			<h2>{{item.titre_photo}}</h2>
-			<p>{{item.description}}.</p>
+			<p class="trunc">{{item.description}}.</p>
           <button class="buttonSup" (click) = "removeData(item.id_photo)" >Supprimer <span> <i><img src="assets/trash.png" class="trash"></i> </span></button>
 		</div>		
 	</div>	

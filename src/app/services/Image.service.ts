@@ -61,6 +61,10 @@ export class ImageService {
    getOnePhoto(id : any){
     return this.http.get(`${this.apiServerUrl}/api/photo/find/${id}`)
    }
+
+   getOnePhotoDets(id : any){
+    return this.http.get(`${this.apiServerUrl}/api/photo/getbyid/${id}`)
+   }
    
 
 }

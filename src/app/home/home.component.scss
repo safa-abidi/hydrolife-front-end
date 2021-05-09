@@ -410,9 +410,14 @@ input[type="text"]:focus {
 }
 
 .PromPara{
-  font-size: 30px;
+  font-size: 50px;
   margin-left: 80px;
   margin-top: 90px;
+}
+
+.PromPara a{
+  cursor: pointer;
+  font-size: x-large;
 }
 
 .textt{

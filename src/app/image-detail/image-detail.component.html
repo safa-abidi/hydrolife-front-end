@@ -1,6 +1,11 @@
 
-    <div *ngFor="let item of crudApi.listData ">
+<div class="containerr">
+      <div class="myIMG">
       <img src="{{this.crudApi.host+'/api/photo/find/'+id}}"
         style="object-fit: cover; width: 100%;">
-
       </div>
+      <div class="hide">
+        <h1>{{ info?.titre_photo }}</h1>
+        <h3>{{ info?.description }}</h3>
+      </div>
+    </div>

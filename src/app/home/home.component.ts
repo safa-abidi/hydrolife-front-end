@@ -59,7 +59,6 @@ export class HomeComponent implements OnInit {
       (result)=>{
         
         this.info = result;
-        console.log(this.info);
 
         for (let i = 0; i < 2; i++) {
 

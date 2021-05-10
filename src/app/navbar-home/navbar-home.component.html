@@ -66,7 +66,7 @@
           routerLink="/LesCentres">Les centres</a>
 
           <a mat-list-item *ngIf="loggedin() && !Clientloggedin()" routerLinkActive="active-link"
-          routerLink="/CentreProfil/{{ id }}">Mon espace</a>
+          routerLink="/CentreService/{{ id }}">Mon espace</a>
 
         <a mat-list-item *ngIf="!loggedin() && Clientloggedin()" [matMenuTriggerFor]="beforeMenu"><img
             src="assets/login.png" alt="login"></a>

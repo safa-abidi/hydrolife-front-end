@@ -99,6 +99,7 @@ import { ThankUPageComponent } from './thank-upage/thank-upage.component';
 import { CentreProfComponent } from './centre-prof/centre-prof.component';
 import {NgxPrintModule} from 'ngx-print';
 import { FactureComponent } from './facture/facture.component';
+import { SearchHistoComponent } from './search-histo/search-histo.component';
 
 
 @NgModule({
@@ -140,7 +141,8 @@ import { FactureComponent } from './facture/facture.component';
     HistoResClientComponent,
     ThankUPageComponent,
     CentreProfComponent,
-    FactureComponent
+    FactureComponent,
+    SearchHistoComponent
 
   ],
   imports: [

@@ -54,6 +54,7 @@
 </div>
 
 <ng-template #modalContent let-close="close">
+    <div id="print">
     <div class="modal-header">
         <h4 class="modal-title">Détail réservation</h4>
         <button type="button" class="close" (click)="close()">
@@ -160,12 +161,15 @@
             </div>
         </div>
     </div>
+</div>
     <div class="modal-footer">
 
         <button class="buttonSup" (click)="close()" (click)="delete(modalData?.event)"
             routerLink="/CentreReservation/{{ id }}">Supprimer <span> <i class="fa fa-ban fa-lg fa-fw"
                     aria-hidden="true"></i> </span></button>
         <button class="buttonMod " (click)="close()">Fermer</button>
+        <button class="button" [useExistingCss]="true"
+        printSectionId="print" printTitle="Facture de réservation" ngxPrint>Imprimer <span> <i class="fa fa-print"></i> </span> </button> 
     </div>
 </ng-template>
 

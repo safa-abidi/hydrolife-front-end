@@ -166,6 +166,12 @@
     background: #285d7c;
     border-radius: 30px;
   }
+
+  .trunc{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 /*---------------------------------------------------------RESPONSIVE SECTION----------------------------------------------------------------------------*/
 
 

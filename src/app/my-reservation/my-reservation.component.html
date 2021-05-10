@@ -60,7 +60,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body">
+  <div class="modal-body" id="print">
       <div class="row">
 
         <div class="col-md-6">
@@ -97,6 +97,8 @@
     <button class="buttonMod " (click)="close()" routerLink="/UpdateReservation/{{  modalData?.event?.id }}">Modifier
       <span> <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i> </span></button>
       <button class="buttonSup " (click)="close()">Super</button>
+      <button class="buttonSup text-white" [useExistingCss]="true"
+      printSectionId="print" printTitle="Reçu de réservation passée" ngxPrint>Imprimer <span> <i class="fa fa-print"></i> </span> </button> 
   </div>
 </ng-template>
 
@@ -113,7 +115,7 @@
   <h1 class="my-2">Vos réservation passées : </h1>
     <div class="card mb-3" *ngFor="let ress of info">
       <div class="row no-gutters">
-        <div class="col">
+        <div class="col" id="print">
           <div class="card-body">
             <h2 class="card-title my-2"> {{ ress?.nomService }} </h2>
             <h3 class="card-text"> Pour : {{ ress?.nbre_personnes_res }} personnes</h3>
@@ -123,8 +125,8 @@
   
           </div>
         </div>
-        <button class="buttonMod " routerLink="/UpdateReservation/{{ ress?.id_res }}">Modifier
-          <span> <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+        <button class="buttonSup text-white" [useExistingCss]="true"
+          printSectionId="print" printTitle="Reçu de réservation passée" ngxPrint>Imprimer <span> <i class="fa fa-print"></i> </span> </button> 
       </div>
     </div>
     
@@ -139,7 +141,7 @@
 
     <div class="card-body">
         <h1 class="card-title">{{ service?.libelle_service }}</h1>
-        <h4 class="card-text">{{ service?.description_service }}</h4>
+        <h4 class="card-text trunc">{{ service?.description_service }}</h4>
         <h4 class="card-text">{{ service?.prix_service }} TND par personne</h4>
       </div>
     </div>

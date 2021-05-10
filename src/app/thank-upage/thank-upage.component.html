@@ -1,7 +1,7 @@
     
     <div class="thankyou-page">
         <div class="_header">
-            <h1>Merci {{ info.nom }} {{ info.prenom }} !</h1>
+            <h1>Merci {{ info?.nom }} {{ info?.prenom }} !</h1>
         </div>
         <div class="_body">
             <div class="_box">
@@ -11,7 +11,10 @@
                 <p>
                     HydroLife team vous souhaite un merveilleux séjour et une bonne remise en forme 
                 </p>
-            </div>
+                <br>
+                <br>
+                    <h3 class="mb-4" style="font-size: x-large;">Voici votre facture de réservation :</h3>
+            <app-facture></app-facture>
         </div>
         <div class="_footer">
             <button class="btnn green" routerLink="/Home">Acceuil</button>

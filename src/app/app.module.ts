@@ -97,6 +97,8 @@ import { HistoReservationComponent } from './histo-reservation/histo-reservation
 import { HistoResClientComponent } from './histo-res-client/histo-res-client.component';
 import { ThankUPageComponent } from './thank-upage/thank-upage.component';
 import { CentreProfComponent } from './centre-prof/centre-prof.component';
+import {NgxPrintModule} from 'ngx-print';
+import { FactureComponent } from './facture/facture.component';
 
 
 @NgModule({
@@ -137,11 +139,13 @@ import { CentreProfComponent } from './centre-prof/centre-prof.component';
     HistoReservationComponent,
     HistoResClientComponent,
     ThankUPageComponent,
-    CentreProfComponent
+    CentreProfComponent,
+    FactureComponent
 
   ],
   imports: [
     NgImageSliderModule,
+    NgxPrintModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

@@ -4,14 +4,15 @@ import { ClientUserService } from '../services/ClientUser.service';
 import { CentreUserService } from '../services/CentreUser.service';
 
 @Component({
-  selector: 'app-thank-upage',
-  templateUrl: './thank-upage.component.html',
-  styleUrls: ['./thank-upage.component.scss']
+  selector: 'app-facture',
+  templateUrl: './facture.component.html',
+  styleUrls: ['./facture.component.scss']
 })
-export class ThankUPageComponent implements OnInit {
+export class FactureComponent implements OnInit {
 
   info:any;
   infoSer:any;
+  infoCentre:any;
   dateRes = localStorage.getItem("dateRes");
   idSer = localStorage.getItem("idSer");  
   nbre_personnes_res  = localStorage.getItem("nbre_personnes_res ");
@@ -41,8 +42,15 @@ export class ThankUPageComponent implements OnInit {
     this.centreService.getOneService(this.idSer).subscribe(
       (result)=> {
         this.infoSer = result;
+       
+    this.centreService.getOneUser(this.infoSer?.idCentre).subscribe(
+      (result)=> {
+        this.infoCentre = result;
+        
+        }
+      )     
+    }
+  );
+}
 
-      }
-    );
-  }
 }

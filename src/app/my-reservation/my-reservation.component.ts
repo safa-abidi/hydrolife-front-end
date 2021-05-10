@@ -86,7 +86,7 @@ export class MyReservationComponent implements OnInit {
           },
           draggable: false,
          
-        }; console.log(event);
+        };
         
         
         

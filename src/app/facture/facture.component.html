@@ -1,0 +1,106 @@
+
+		<div class="invoice-box" id="print">
+			<table>
+				<tr class="top">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td class="title">
+									<img src="assets/logo.png" alt="HydroLife" style="width: 100%; max-width: 300px" />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+                                    {{ infoCentre?.nom }}<br />
+									{{ infoCentre?.adresse }}<br />
+
+								</td>
+
+								<td>
+                                    {{ infoCentre?.tel }}<br />
+									{{ infoCentre?.email }}<br />
+									
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+                <tr class="heading">
+					<td>Coordonnée du client</td>
+					<td></td>
+
+				</tr>
+
+                <tr class="item">
+					<td>{{ info?.nom }} {{ info?.prenom }} </td>
+
+					<td></td>
+				</tr>
+
+                <tr class="item">
+					<td>{{ info?.adresse }}</td>
+
+					<td></td>
+				</tr>
+                <tr class="item">
+					<td>{{ info?.email }}</td>
+
+					<td></td>
+				</tr>
+
+                <tr class="item">
+					<td>{{ info?.tel }}</td>
+
+					<td></td>
+				</tr>
+
+
+				<tr class="heading">
+					<td>Méthode de paiement</td>
+
+					<td>Online #</td>
+				</tr>
+
+				<tr class="heading">
+
+                    <td>Détail</td>
+
+					<td></td>
+		
+				</tr>
+
+				<tr class="item">
+					<td> Service : </td>
+
+					<td>{{ infoSer?.libelle_service }} / {{ infoSer?.prix_service }} TND </td>
+				</tr>
+
+				<tr class="item">
+					<td>Nombre de personnes :</td>
+
+					<td>{{ nbre_personnes_res  }}</td>
+				</tr>
+
+				<tr class="item last">
+					<td>Pour le : </td>
+
+					<td>{{ dateRes | date:'shortDate' | date:'dd-MM-yyyy'}}</td>
+				</tr>
+
+				<tr class="total">
+					<td></td>
+
+					<td>Total: $385.00</td>
+				</tr>
+			</table>
+		</div>
+        <button class="button" [useExistingCss]="true"
+        printSectionId="print" printTitle="Facture de réservation" ngxPrint>Imprimer <span> <i class="fa fa-print"></i> </span> </button> 

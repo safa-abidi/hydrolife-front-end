@@ -34,6 +34,7 @@
     "moment": "^2.29.1",
     "ng-image-slider": "^2.8.0",
     "ngx-gallery": "^5.10.0",
+    "ngx-print": "^1.2.0-beta.6",
     "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

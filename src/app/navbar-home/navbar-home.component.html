@@ -7,7 +7,7 @@
       <div class="searchbarRes">
         <div class="search_wrapRes search_wrap_3Res">
           <div class="search_boxRes">
-            <input type="text" class="inputRes search-sltRes" placeholder="vous cherchez ?">
+            <input type="text" class="inputRes search-sltRes" placeholder="Chercher un service">
             <div class="btn btn_commonRes">
               <img src="assets/search.png" class="searchRes">
             </div>
@@ -41,16 +41,7 @@
       <a mat-list-item class="navbar-brand" routerLink="/Home"><img src="assets/logo.png"
           alt="logo"></a>
 
-      <div class="searchbar mt-4">
-        <div class="search_wrap search_wrap_3">
-          <div class="search_box">
-            <input type="text" class="input search-slt text-center" placeholder="Que cherchez-vous ? ">
-            <div class="btn btn_common">
-              <i class="fas"><img src="assets/search.png" class="search"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+          <app-recherche-service></app-recherche-service>
 
       <span class="spacer"></span>
       <div [ngClass]="{ hidden: (isHandset$ | async) }">

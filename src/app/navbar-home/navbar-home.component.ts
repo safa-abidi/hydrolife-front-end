@@ -74,7 +74,6 @@ export class NavbarHomeComponent {
 
       this.ClientService.getUserDet(data.Email).subscribe(
         (result)=>{
-          console.log(result);
           
           this.info = result;
         },

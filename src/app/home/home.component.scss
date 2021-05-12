@@ -296,15 +296,15 @@ input[type="text"]:focus {
 .boxsec1{
   background-color: black; 
   position: relative;
-  width: 300px;
+  width: 250px;
   height: 400px;
-  margin-top: 50px;
+  margin-top: 70px;
+  margin-left: -80px;
 }
 
 .sec1Text{
   font-size: 40px;
-  margin-top: 80px;
-  margin-left: 80px;
+  margin-top: 150px;
   position:absolute;
   clear: both;
   display: inline-block;
@@ -314,8 +314,7 @@ input[type="text"]:focus {
 .sec1Para{
   line-height: 1.6;
   font-size: 18px;
-  top: 300px;
-  margin-left: 80px;
+  top: 270px;
   position:absolute;
   clear: both;
 }
@@ -332,16 +331,18 @@ input[type="text"]:focus {
 .boxsec2{
   background-color: #D88C8A; 
   position: relative;
-  width: 400px;
-  height: 600px;
+  width: 600px;
+  height: 500px;
   margin-top: 150px;
+  margin-right: -80px;
+  z-index: 1;
+
 }
 
 .sec2Text{
   color: black;
   font-size: 50px;
   margin-top: 40px;
-  margin-left: -150px;
   position:absolute;
   clear: both;
   display: inline-block;
@@ -352,7 +353,6 @@ input[type="text"]:focus {
   line-height: 1.6;
   font-size: 18px;
   top: 200px;
-  margin-left: -150px;
   position:absolute;
   clear: both;
 }
@@ -561,25 +561,139 @@ input[type="text"]:focus {
 
 @media screen and (max-width: 600px) {
 
-  .imgSec1{
+  .flip3{
     display: none;
   }
 
+  .hitext{
+    font-size: 1rem;
+    font-weight: 200;
+    left: 25%;
+  }
 
+  .button {
+    font-size: 0.85rem;
+    padding: 5px;
+    width: 200px;
+    left: 20%;
+    margin: 5px;
+    top: 50%;
+  }
+
+  .imgSec1{
+    display: none;
+  }
+  
   .wordCarousel {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 250;
 
   }
-  .x{
-    font-size: 2rem;
-  }
   .centered {
-
     top: 20%;
     left: 10%;
-
   }
+
+  .boxsec1{
+   display: none;
+  }
+  
+  .sec1Text{
+    color: black;
+    font-size: 30px;
+    margin-top: 0px;
+  }
+  
+  .sec1Para{
+    line-height: 1.6;
+    font-size: 18px;
+    top: 80px;
+    position: relative;
+    text-align: center;
+  }
+
+  .boxsec2{
+    margin: 150px 0px 10px 10px ;
+    width: 300px;
+    margin-right: 0px;
+    margin-left: 10px;
+    z-index: 0;
+  }
+  
+  .sec2Text{
+    color: black;
+    font-size: 30px;
+  }
+  
+  .sec2Para{
+    top: 150px;
+  }
+  
+  .buttsec2{
+    font-size: 1.2rem; 
+    background-color: #1F5473; 
+    border-radius: 100px; 
+    position: absolute;
+    bottom: 100px;
+    left: 40px;
+  }
+
+  .boxsec4{    
+    margin-top: 10px;
+    width: 300px;
+    height: 300px;
+    margin-left: 0px;
+  
+  }
+  
+  .PromText{
+    font-size: 27px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .PromPara{
+    margin-left: 0px;
+    margin-top: 50px;
+  }
+  
+  .PromPara a{
+    cursor: pointer;
+    font-size: large;
+  }
+
+  .secu{
+    margin-top: 50px;
+    h1{
+      font-size: large;
+      font-weight: 500;
+    }
+  
+  }
+
+  .boxsec3{
+    padding: 20px;
+    position: relative;
+    width: 300px;
+    height: 450px;
+  }
+  
+  .sec3Text{
+    color: black;
+    font-size: 22px;
+  }
+  
+  .sec3Para{
+    line-height: 1.6;
+    font-size: 18px;
+    margin-top: 70px;
+    position:initial;
+    white-space: unset;
+   
+  
+  }
+  
+
 
 }
 

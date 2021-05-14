@@ -14,6 +14,14 @@ mat-sidenav-content{
   background: inherit;
 }
 
+@media (min-width: 768px) {
+
+  .sidenav{
+    display: none;
+  }
+  
+}
+
 mat-toolbar {
  
 background-color:#E1E1E1 ;
@@ -31,7 +39,7 @@ background-color:#E1E1E1 ;
 }
 
 .spacer{
-  flex: 1 1 auto;
+  //flex: 1 1 auto;
 }
 
 .mat-toolbar a{
@@ -134,85 +142,10 @@ a {
   .resStyle {
     margin: 0;
   }
+  .log{
+    display: none;
+  }
 }
-
-  .search_wrapRes{
-      margin: 38px auto;
-    }
-    
-    .search_wrapRes .search_boxRes{
-      position: relative;
-      width: 500px;
-      height: 60px;
-    }
-  
-    .searchRes {
-      height: 25px;
-      width: auto;
-      display: inline-block;
-      border: none;
-      right: 15px;
-      z-index: 2;
-      cursor: pointer;
-    }
-    
-    .search_wrapRes .search_boxRes .inputRes{
-      position: absolute;
-      top: -10px;
-      width: 40%;
-      height: 60%;
-      padding: 10px 20px;
-      border-radius: 3px;
-      font-size: 18px;
-      background: transparent;
-      border: 2px solid #d88c8a;
-    }
-    
-    .search_wrapRes .search_boxRes .btn{
-      top: 0px;
-      width: 70px;
-      height: 110%;
-      z-index: 1;
-      cursor: pointer;
-    }
-    
-    .search_wrapRes .search_boxRes .btn.btn_commonRes .fas{
-      position: absolute;
-      top: 23%;
-      left: 35%;
-      transform: translate(-50%,-50%);
-     // color: #fff;
-      font-size: 20px;
-    }
-    
-    .search_wrapRes.search_wrap_3Res .search_boxRes .inputRes{
-      padding-right: 80px;
-    }
-    
-    .search_wrapRes.search_wrap_3Res .search_boxRes .inputRes{
-      border-radius: 50px;
-    }
-    
-    .search_wrapRes.search_wrap_3Res .search_boxRes .btn{
-      right: 0px;
-      border-radius: 50%;
-    }
-    
-    .search-secRes{
-        padding: 2rem;
-    }
-    
-    .search-sltRes{
-        display: block;
-        width: 100%;
-        font-size: 0.875rem;
-        line-height: 1.5;
-        color: #55595c;
-        background-color: #fff;
-        background-image: none;
-        border: 1px solid #ccc;
-        border-radius:0;
-    }
 
     @media screen and (max-width: 960px) {
       .searchbar{
@@ -220,9 +153,9 @@ a {
       }
     }
 
-    .example-spacer {
+   /* .example-spacer {
       flex: 1 1 auto;
-    }
+    }*/
 
     input[type="text"] {
       width: 100%;

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClientUserService } from '../services/ClientUser.service';
-import { CentreUserService } from '../services/CentreUser.service';
 
 @Component({
   selector: 'app-thank-upage',
@@ -11,20 +10,15 @@ import { CentreUserService } from '../services/CentreUser.service';
 export class ThankUPageComponent implements OnInit {
 
   info:any;
-  infoSer:any;
-  dateRes = localStorage.getItem("dateRes");
-  idSer = localStorage.getItem("idSer");  
-  nbre_personnes_res  = localStorage.getItem("nbre_personnes_res ");
 
   constructor(
     public userService: ClientUserService,
-    public centreService: CentreUserService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
 
-    this.getSer();
+
 
     let id = this.route.snapshot.params.id;
 
@@ -34,15 +28,5 @@ export class ThankUPageComponent implements OnInit {
 
       }
     );  
-  }
-
-  getSer(){
-    
-    this.centreService.getOneService(this.idSer).subscribe(
-      (result)=> {
-        this.infoSer = result;
-
-      }
-    );
   }
 }

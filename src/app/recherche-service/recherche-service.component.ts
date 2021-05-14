@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
 import { CentreUserService } from '../services/CentreUser.service';
 import { SearchService } from '../services/Search.service';
 
@@ -12,10 +10,6 @@ import { SearchService } from '../services/Search.service';
   styleUrls: ['./recherche-service.component.scss']
 })
 export class RechercheServiceComponent implements OnInit {
-
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions!: Observable<string[]>;
 
   info:any;
   LeMot:any;
@@ -47,17 +41,6 @@ export class RechercheServiceComponent implements OnInit {
 
     this.LeMot = this.SearchForm.get('mot');
 
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
-
-  }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
   onSubmit(){ 

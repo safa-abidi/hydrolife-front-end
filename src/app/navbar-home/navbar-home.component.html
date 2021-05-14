@@ -4,16 +4,11 @@
     [opened]="(isHandset$ | async) === false">
     <mat-toolbar>HydroLife</mat-toolbar>
     <mat-nav-list>
-      <div class="searchbarRes">
-        <div class="search_wrapRes search_wrap_3Res">
-          <div class="search_boxRes">
-            <input type="text" class="inputRes search-sltRes" placeholder="Chercher un service">
-            <div class="btn btn_commonRes">
-              <img src="assets/search.png" class="searchRes">
-            </div>
-          </div>
-        </div>
-      </div>
+ 
+      
+
+        <a class="navbar-brand" routerLink="/Home"><img src="assets/logo.png"
+          alt="logo"></a>
       <a mat-list-item style="color: #1F5473;" routerLinkActive="active-link" *ngIf="!loggedin()" class="nav-link"
         routerLink="/Home"> Acceuil
         <span class="sr-only">(current)</span></a>
@@ -38,13 +33,18 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <a mat-list-item class="navbar-brand" routerLink="/Home"><img src="assets/logo.png"
-          alt="logo"></a>
-
+     
+        <a mat-list-item class="navbar-brand d-none d-md-inline"
+         routerLink="/Home"><img src="assets/logo.png"
+            alt="logo"></a>
           <app-recherche-service></app-recherche-service>
 
+          
+          
       <span class="spacer"></span>
       <div [ngClass]="{ hidden: (isHandset$ | async) }">
+
+        
 
         <a mat-list-item style="color: #1F5473;" routerLinkActive="active-link" *ngIf="!loggedin()"
         routerLink="/Home"> Acceuil

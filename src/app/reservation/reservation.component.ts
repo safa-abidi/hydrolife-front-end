@@ -84,10 +84,9 @@ export class ReservationComponent implements OnInit {
       
     this.reservationService.addReservation(idService,dets).subscribe(
       res=>{
-
-        localStorage.setItem("idSer",idService)
-        localStorage.setItem("dateRes",data.dateRes)
-        localStorage.setItem("nbre_personnes_res ",data.nbre_personnes_res)
+        console.log(res);
+        
+        localStorage.setItem("idRes",res.id_res)
 
         
         

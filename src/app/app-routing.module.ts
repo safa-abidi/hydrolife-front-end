@@ -28,6 +28,7 @@ import { UpdateReservationComponent } from './update-reservation/update-reservat
 import { HistoReservationComponent } from './histo-reservation/histo-reservation.component';
 import { HistoResClientComponent } from './histo-res-client/histo-res-client.component';
 import { ThankUPageComponent } from './thank-upage/thank-upage.component';
+import { SearchHistoComponent } from './search-histo/search-histo.component';
 
 
 
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'CentreReservation/:id', component: CentreReservationComponent, canActivate:[AuthGuard] },
   { path: 'CentreService/:id', component: CentreServiceComponent, canActivate:[AuthGuard] },
   { path: 'CentreGallerie/:id', component: CentreGallerieComponent, canActivate:[AuthGuard] },
+  { path: 'HistoClient/:id', component: SearchHistoComponent, canActivate:[AuthGuard] },
   { path: 'UpdateCentreProfil/:id', component: UpdateCentreProfilComponent , canActivate:[AuthGuard] },
   { path: 'AjouterService/:id', component: AjouterServiceComponent , canActivate:[AuthGuard] },
   { path: 'UpdateService/:id_service', component: UpdateServiceComponent , canActivate:[AuthGuard] },

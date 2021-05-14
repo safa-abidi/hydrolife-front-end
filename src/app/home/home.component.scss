@@ -43,92 +43,6 @@ ngb-carousel {
 	outline: none;
 	color: #8b7d77;
 }
-
-.search_wrap{
-	margin: 38px auto;
-}
-
-.search_wrap .search_box{
-	position: relative;
-	width: 500px;
-	height: 60px;
-}
-
-.search_wrap .search_box .input{
-	top: -40px;
-	left: 50px;
-	width: 55%;
-	height: 60%;
-	padding: 10px 20px;
-	border-radius: 3px;
-	font-size: 18px;
-	background: transparent;
-	border: 2px solid #d88c8a;
-}
- 
-agm-map {
-  height: 600px;
-}
-
-.search_wrap .search_box .btn{
-	width: 70px;
-	height: 110%;
-	z-index: 1;
-	cursor: pointer;
-}
-
-.btn_common{
-	left: 650px; 
-	bottom: 102px;
-}
-
-.search_wrap .search_box .btn.btn_common .fas{
-	position: absolute;
-	top: -25%;
-	left: 60%;
-	transform: translate(-50%,-50%);
-	color: #fff;
-	font-size: 20px;
-}
-
-.search_wrap.search_wrap_3 .search_box .input{
-	padding-right: 80px;
-}
-
-.search_wrap.search_wrap_3 .search_box .input{
-	border-radius: 50px;
-}
-
-.search_wrap.search_wrap_3 .search_box .btn{
-	right: 0px;
-	border-radius: 50%;
-}
-
-.search-sec{
-    padding: 2rem;
-}
-
-.search-slt{
-    display: block;
-    width: 100%;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: #55595c;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius:0;
-}
-
-@media (max-width: 600px){
-	.btn_common{
-		left: 5px; 
-		bottom: 11px;
-	}
-	.searchbar{
-    display: none;
-  }
-}
   
 .form-control.ng-invalid.ng-dirty.ng-touched {
     border: 2px solid red;
@@ -686,7 +600,7 @@ input[type="text"]:focus {
   .sec3Para{
     line-height: 1.6;
     font-size: 18px;
-    margin-top: 70px;
+    margin-top: 60px;
     position:initial;
     white-space: unset;
    
@@ -699,64 +613,224 @@ input[type="text"]:focus {
 
 @media screen and (min-width: 601px) and (max-width: 992px) {
 
+  .hitext{
+    font-size: 2rem;
+    font-weight: 300;
+    left: 28%;
+  }
 
+  .button {
+    font-size: 1.1rem;
+    padding: 10px;
+    width: 250px;
+    left: 35%;
+    margin: 5px;
+    top: 50%;
+  }
+  
+  .wordCarousel {
+    font-size: 1.8rem;
+    font-weight: 250;
+
+  }
+  .centered {
+    top: 20%;
+    left: 10%;
+  }
+
+  .boxsec1{
+    background-color: black; 
+    position: relative;
+    width: 100px;
+    height: 200px;
+    margin-top: 30px;
+    margin-left: -80px;
+  }
+  
+  .sec1Text{
+    color: black;
+    font-size: 30px;
+    margin-top: 0px;
+  }
+  
+  .sec1Para{
+    line-height: 1.6;
+    font-size: 18px;
+    top: 80px;
+    position: relative;
+    text-align: center;
+  }
+
+  .boxsec2{
+    width: 400px;
+    height: 400px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: -40px;
+    z-index: 1;
+  
+  }
+  
+  .sec2Text{
+    color: black;
+    font-size: 30px;
+  }
+  
+  .sec2Para{
+    top: 150px;
+  }
+  
+  .buttsec2{
+    font-size: 1.2rem; 
+    background-color: #1F5473; 
+    border-radius: 100px; 
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+  }
+
+  .boxsec4{    
+    margin-top: 10px;
+    width: 300px;
+    height: 200px;
+    margin-left: 0px;
+  }
+  
+  .PromText{
+    font-size: 27px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .PromPara{
+    margin-left: 0px;
+    margin-top: 50px;
+  }
+  
+  .PromPara a{
+    cursor: pointer;
+    font-size: large;
+  }
+
+  .secu{
+    margin-top: 0px;
+    h1{
+      font-size: medium;
+      font-weight: 500;
+    }
+  }
+
+  .boxsec3{
+    position: relative;
+    width: 300px;
+    height: 400px;
+  }
+  
+  .sec3Text{
+    color: black;
+    font-size: 22px;
+  }
+  
+  .sec3Para{
+    line-height: 1.6;
+    font-size: 18px;
+    margin-top: 60px;
+    position:initial;
+    white-space: unset;
+  }
+  
   .wordCarousel {
     font-size: 3rem;
     font-weight: 300;
   }
 
-  .x{
-    font-size: 3rem;
-  }
   .centered {
-
     top: 20%;
     left: 20%;
 
   }
 
-  
-}
-
-@media screen and (min-width: 1024px)  {
-
-
-
-  .wordCarousel {
-    font-size: 4rem;
-    font-weight: 400;
-  }
-
-  .x{
-    font-size: 3.5rem;
-  }
-  .centered {
-
-    top: 20%;
-    left: 27%;
-
-  }
-  
 }
 
 @media screen and (min-width: 1300px) and (max-width: 2560px) { 
 
-
-
-
   .wordCarousel {
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: 400;
   }
 
-  .x{
-    font-size: 3.2rem;
-  }
   .centered {
-
     top: 20%;
-    left: 25%;
+    left: 23%;
+  }
 
+  .hitext{
+    font-size: 3rem;
+    font-weight: 400;
+    left: 32%;
+  }
+
+  .button {
+    font-size: 1.5rem;
+    padding: 20px;
+    width: 350px;
+    left: 40%;
+    margin: 5px;
+    top: 50%;
+  }
+
+  .boxsec1{
+    background-color: black; 
+    position: relative;
+    width: 250px;
+    height: 400px;
+    margin-top: 10px;
+    margin-left: -80px;
+  }
+  
+  .sec1Text{
+    font-size: 40px;
+    margin-top: 50px;
+    position:absolute;
+    clear: both;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  
+  .sec1Para{
+    line-height: 1.6;
+    font-size: 18px;
+    top: 170px;
+    position:absolute;
+    clear: both;
+  }
+
+  .boxsec4{
+  
+    background-color: #1F5473;
+    width: 550px;
+    height: 300px;
+    margin-left: 80px;
+  
+  }
+  
+  .PromText{
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 10px;
+  }
+  
+  .PromPara{
+    font-size: 50px;
+    margin-left: 80px;
+    margin-top: 90px;
+  }
+  
+  .PromPara a{
+    cursor: pointer;
+    font-size: x-large;
   }
 
 }

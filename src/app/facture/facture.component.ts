@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClientUserService } from '../services/ClientUser.service';
 import { CentreUserService } from '../services/CentreUser.service';
+import { ReservationService } from '../services/Reservation.service';
 
 @Component({
   selector: 'app-facture',
@@ -11,21 +12,21 @@ import { CentreUserService } from '../services/CentreUser.service';
 export class FactureComponent implements OnInit {
 
   info:any;
-  infoSer:any;
+  infoRes:any;
   infoCentre:any;
-  dateRes = localStorage.getItem("dateRes");
-  idSer = localStorage.getItem("idSer");  
-  nbre_personnes_res  = localStorage.getItem("nbre_personnes_res ");
+  infoSer:any;
+  idRes = localStorage.getItem("idRes"); 
 
   constructor(
     public userService: ClientUserService,
     public centreService: CentreUserService,
+    public ResService: ReservationService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
 
-    this.getSer();
+    this.getRes();
 
     let id = this.route.snapshot.params.id;
 
@@ -37,18 +38,30 @@ export class FactureComponent implements OnInit {
     );  
   }
 
-  getSer(){
+  getRes(){
     
-    this.centreService.getOneService(this.idSer).subscribe(
+    this.ResService.getOneRes(this.idRes).subscribe(
       (result)=> {
-        this.infoSer = result;
+        this.infoRes = result;
+        console.log(result);
+        
        
-    this.centreService.getOneUser(this.infoSer?.idCentre).subscribe(
-      (result)=> {
-        this.infoCentre = result;
+    this.centreService.getOneUser(this.infoRes?.idCentre).subscribe(
+      (res)=> {
+        this.infoCentre = res;
+        console.log(res);
         
         }
-      )     
+      ) ,
+      this.centreService.getOneService(this.infoRes?.idService).subscribe(
+        (response)=> {
+          this.infoSer = response;
+          console.log(response);
+          
+          //localStorage.removeItem("idRes")
+          
+          }
+        )    
     }
   );
 }

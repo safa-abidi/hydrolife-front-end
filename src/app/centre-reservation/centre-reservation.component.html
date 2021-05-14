@@ -174,8 +174,10 @@
 </ng-template>
 
 <div class="container">
+    <div class="d-flex">
     <h1 class="my-4">Historique des réservations :</h1>
-
+    <button class="btn btn-warning" routerLink="/HistoClient/{{ id }}">Recherche par client</button>
+</div>
     <div *ngIf="info?.length == 0">
         <br><br>
         <div class="alert alert-warning">Vous n'avez aucune réservation en historique </div><br><br><br><br>

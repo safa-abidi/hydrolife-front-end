@@ -28,6 +28,11 @@ export class SearchService {
     
     return this.http.get(`${this.apiServerUrl}/api/centre/search?mot=${mot}`);
   }
+
+  SearchClientHisto(mot:any , mot2:any){
+    
+    return this.http.get(`${this.apiServerUrl}/api/reservation/rechercherhistoriqueclient?mot=${mot}&mot2=${mot2}`);
+  }
    
 
 }

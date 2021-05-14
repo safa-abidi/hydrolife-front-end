@@ -86,19 +86,25 @@
 				<tr class="item">
 					<td>Nombre de personnes :</td>
 
-					<td>{{ nbre_personnes_res  }}</td>
+					<td>{{ infoRes?.nbre_personnes_res  }}</td>
 				</tr>
 
 				<tr class="item last">
 					<td>Pour le : </td>
 
-					<td>{{ dateRes | date:'shortDate' | date:'dd-MM-yyyy'}}</td>
+					<td>{{ infoRes?.dateRes | date:'shortDate' | date:'dd-MM-yyyy'}}</td>
+				</tr>
+
+				<tr class="item last">
+					<td>Promotion : </td>
+
+					<td>{{ infoRes?.pourcentagePromo }} %</td>
 				</tr>
 
 				<tr class="total">
 					<td></td>
 
-					<td>Total: $385.00</td>
+					<td>Total: {{ infoRes?.montant }} TND</td>
 				</tr>
 			</table>
 		</div>

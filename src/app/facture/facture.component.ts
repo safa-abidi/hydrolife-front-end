@@ -15,6 +15,7 @@ export class FactureComponent implements OnInit {
   infoRes:any;
   infoCentre:any;
   infoSer:any;
+  pourcentagePromo:any;
   idRes = localStorage.getItem("idRes"); 
 
   constructor(
@@ -43,22 +44,20 @@ export class FactureComponent implements OnInit {
     this.ResService.getOneRes(this.idRes).subscribe(
       (result)=> {
         this.infoRes = result;
-        console.log(result);
+        this.pourcentagePromo = this.infoRes.pourcentagePromo
+        
         
        
     this.centreService.getOneUser(this.infoRes?.idCentre).subscribe(
       (res)=> {
         this.infoCentre = res;
-        console.log(res);
-        
+
         }
       ) ,
       this.centreService.getOneService(this.infoRes?.idService).subscribe(
         (response)=> {
-          this.infoSer = response;
-          console.log(response);
-          
-          //localStorage.removeItem("idRes")
+          this.infoSer = response;  
+          localStorage.removeItem("idRes")
           
           }
         )    

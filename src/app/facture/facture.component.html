@@ -5,8 +5,8 @@
 					<td colspan="2">
 						<table>
 							<tr>
-								<td class="title">
-									<img src="assets/logo.png" alt="HydroLife" style="width: 100%; max-width: 300px" />
+								<td class="title text-center">
+									<img src="assets/logoFacture.png" alt="HydroLife" style="width: 100%; max-width: 300px" />
 								</td>
 							</tr>
 						</table>
@@ -95,7 +95,7 @@
 					<td>{{ infoRes?.dateRes | date:'shortDate' | date:'dd-MM-yyyy'}}</td>
 				</tr>
 
-				<tr class="item last">
+				<tr class="item last" *ngIf="pourcentagePromo != 0">
 					<td>Promotion : </td>
 
 					<td>{{ infoRes?.pourcentagePromo }} %</td>
@@ -108,5 +108,5 @@
 				</tr>
 			</table>
 		</div>
-        <button class="button" [useExistingCss]="true"
+        <button class="button float-right mb-5 mt-2" [useExistingCss]="true"
         printSectionId="print" printTitle="Facture de réservation" ngxPrint>Imprimer <span> <i class="fa fa-print"></i> </span> </button> 

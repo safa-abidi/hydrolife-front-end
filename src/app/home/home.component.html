@@ -119,7 +119,7 @@
   </div>
 </section>
 
-<agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+<agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" class="col-2">
   <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
 </agm-map>
 

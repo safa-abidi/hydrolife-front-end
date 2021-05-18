@@ -98,7 +98,7 @@
       <span> <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i> </span></button>
       <button class="buttonSup " (click)="close()">Super</button>
       <button class="buttonSup text-white" [useExistingCss]="true"
-      printSectionId="print" printTitle="Reçu de réservation passée" ngxPrint>Imprimer <span> <i class="fa fa-print"></i> </span> </button> 
+      printSectionId="print" printTitle="Reçu de réservation" ngxPrint>Imprimer <span> <i class="fa fa-print"></i> </span> </button> 
   </div>
 </ng-template>
 
@@ -112,7 +112,7 @@
 
   </div>
 
-  <h1 class="my-2">Vos réservation passées : </h1>
+  <h1 class="my-2">Vos réservations passées : </h1>
     <div class="card mb-3" *ngFor="let ress of info">
       <div class="row no-gutters">
         <div class="col" id="print">

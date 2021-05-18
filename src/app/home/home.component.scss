@@ -649,13 +649,14 @@ input[type="text"]:focus {
   
   .sec1Text{
     color: black;
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 0px;
+    margin-left: 35px;
   }
   
   .sec1Para{
     line-height: 1.6;
-    font-size: 18px;
+    font-size: 15px;
     top: 80px;
     position: relative;
     text-align: center;
@@ -664,10 +665,8 @@ input[type="text"]:focus {
   .boxsec2{
     width: 400px;
     height: 400px;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-right: -40px;
     z-index: 1;
+    margin: 10px -40px 0px 10px;
   
   }
   
@@ -727,13 +726,14 @@ input[type="text"]:focus {
   }
   
   .sec3Text{
-    color: black;
+    color: white;
     font-size: 22px;
   }
   
   .sec3Para{
+    color: white;
     line-height: 1.6;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 60px;
     position:initial;
     white-space: unset;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientUserService } from './../services/ClientUser.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ClientUser } from '../models/ClientUser.model';
 
@@ -14,9 +14,11 @@ export class LoginClientComponent implements OnInit {
 
   logClientForm: FormGroup;
   info: any;
+  //returnUrl!: string;
 
   constructor(
     private fb: FormBuilder,
+    private route: ActivatedRoute,
     private userService:ClientUserService,
     private router : Router,
     private toastr: ToastrService
@@ -40,7 +42,10 @@ export class LoginClientComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let id = localStorage.getItem("myIdClient")
+    let id = localStorage.getItem("myIdClient");
+
+    //this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
+
   }
 
 
@@ -73,7 +78,6 @@ export class LoginClientComponent implements OnInit {
       (res: { jwt: any,
               email: any})=>{
                 
-        console.log(res);
         let token = res.jwt;
         let Email = res.email;
         
@@ -81,7 +85,12 @@ export class LoginClientComponent implements OnInit {
         localStorage.setItem("myIdClient",this.info.id)
         let id = localStorage.getItem("myIdClient")
         this.logClientForm.reset();
+        //this.router.navigateByUrl(this.returnUrl);
+        //console.log(this.returnUrl);
         this.router.navigate(['/LesCentres/'+id]);
+
+        
+        
       },
       (err: any)=>{
         this.logClientForm.reset();

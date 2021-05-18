@@ -12,13 +12,11 @@
             </div>
 
             <div class="container">
-                <div
-                    class=" col-xs-2 col-sm-2 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 bg-light">
+                <div class=" col-xs-2 col-sm-2 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 bg-light">
 
                     <div class="d-flex">
-                        <div
-                            class="col-xs-2 col-sm-2 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-                            <div class="panel panel-primary p-1" *ngIf="div1" >
+                        <div class="col-xs-2 col-sm-2 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+                            <div class="panel panel-primary p-1" *ngIf="div1">
                                 <div class="panel-heading m-3">
                                     <h3 class="panel-title  ">résultat de recherche pour: <span
                                             style="color: #d88c8a;">"{{ LeMot.value }}"</span></h3>
@@ -41,12 +39,19 @@
                                                 </tr>
                                             </div>
                                         </div>
+                                        <span class="px-2 small text-muted font-weight-bold text-muted"></span>
+
                                     </a>
                                 </div>
 
                                 <div class="panel-body" *ngFor="let centre of infoCentre">
                                     <a (click)="Close()" routerLink="/CentreDetail/{{ centre.id }}">
-                                        <div class="row" >
+                                        <div class="row">
+                                            <div class="col-xs-1 col-3 col-md-4 text-center mb-2 ">
+                                                <img class="img-fluid"
+                                                    src="assets/map.png"
+                                                    alt="Service Pic">
+                                            </div>
                                             <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
                                                 <h3>{{ centre?.nom }}</h3>
                                                 <tr>

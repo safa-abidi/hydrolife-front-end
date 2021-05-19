@@ -35,10 +35,12 @@ export class SearchHistoComponent implements OnInit {
     let formControls = {
       mot: new FormControl('',[
         Validators.pattern("[A-Za-z .'-]+"),
+        Validators.required,
         Validators.minLength(2)
       ]),
       mot2: new FormControl('',[
         Validators.pattern("[A-Za-z .'-]+"),
+        Validators.required,
         Validators.minLength(2)
       ])
   } 

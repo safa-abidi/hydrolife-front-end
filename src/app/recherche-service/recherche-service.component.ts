@@ -59,6 +59,8 @@ export class RechercheServiceComponent implements OnInit {
       (result)=>{
         
         this.info = result;
+        console.log(result);
+        
         
       } ),
     this.Search.SearchCentre(this.LeMot.value).subscribe(

@@ -75,6 +75,8 @@ export class CentreDetailComponent implements OnInit {
       (result)=>{
         
         this.services = result;
+        console.log(result);
+        
         
 
       },
@@ -92,6 +94,8 @@ export class CentreDetailComponent implements OnInit {
     
     this.crudApi.getByCentreIdBis(id).subscribe(
       response =>{this.crudApi.listData = response;
+        console.log(response);
+        
         
       }
      );

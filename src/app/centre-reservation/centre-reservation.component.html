@@ -176,15 +176,16 @@
 <div class="container">
     <div class="d-flex">
     <h1 class="my-4">Historique des réservations :</h1>
-    <button class="btn btn-warning" routerLink="/HistoClient/{{ id }}">Recherche par client</button>
+    <button class="buttonRech" routerLink="/HistoClient/{{ id }}">Recherche par client</button>
 </div>
     <div *ngIf="info?.length == 0">
         <br><br>
         <div class="alert alert-warning">Vous n'avez aucune réservation en historique </div><br><br><br><br>
     </div>
 
-    <div class="card mb-3" *ngFor="let reservation of info">
-        <div class="row no-gutters">
+    <div *ngFor="let reservation of info; let i=index;">
+        <div class="card mb-3" *ngIf="3>i">
+        <div class="row no-gutters" >
             <div class="col">
                 <div class="card-body">
                     <h2 class="card-title my-2">Nom du client : {{ reservation?.nomClient }} {{
@@ -203,6 +204,7 @@
             <button class="buttonMod" (click)="openDialog(reservation?.id_res)">Voir details<span> <i
                         class="fa fa-info-circle fa-lg fa-fw" aria-hidden="true"></i> </span></button>
         </div>
+    </div>
     </div>
 </div>
 

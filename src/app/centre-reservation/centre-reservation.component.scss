@@ -168,6 +168,46 @@
   color: white;
 }
 
+.buttonRech {
+  border-radius: 30px;
+  background-color: #D88C8A;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1rem;
+  padding: 5px;
+  width: 170px;
+  height: 40px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.buttonRech span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonRech span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonRech:hover span {
+  padding-right: 25px;
+}
+
+.buttonRech:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 /*---------------------------------------------------------RESPONSIVE SECTION----------------------------------------------------------------------------*/
 
 

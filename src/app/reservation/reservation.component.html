@@ -18,7 +18,7 @@
                 <div class="card bg-light mb-3">
                     <div class="card-body">
                         <p class="price mb-3">{{ service?.prix_service }} TND</p>
-                        <!--<p class="price_discounted">149.90 $</p>-->
+                        <p class="price_discounted">{{ service?.pourcentagePromo }}</p>
                         <form class="form" [formGroup]="addReservationForm" #f="ngForm" (ngSubmit)="onSubmit()">
                             <div class="form-group">
                                 <label for="colors">Nombre de personnes<span class="text-danger">*</span> </label>

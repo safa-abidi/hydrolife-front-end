@@ -24,9 +24,7 @@ export class NavbarHomeComponent {
   loginForm: FormGroup
   closeResult = '';
   info: any;
-   id = localStorage.getItem("myId");
-
-  
+  id = localStorage.getItem("myId");
 
   constructor(private breakpointObserver: BreakpointObserver,
      private modalService: NgbModal,
@@ -46,13 +44,10 @@ export class NavbarHomeComponent {
           Validators.required,
           Validators.minLength(6)
         ]),
-        
-
       }
   
       this.loginForm = this.fb.group(formControls)
     }
-
 
   get Email() { return this.loginForm.get('Email') };
   get Password() { return this.loginForm.get('Password') };
@@ -104,13 +99,10 @@ export class NavbarHomeComponent {
           
         }
       );
-    
-    
-  
   }
   
   ngOnInit(): void {
-    let id = localStorage.getItem("myId");
+    
     this.info = this.loginClient()
  
   }
@@ -132,7 +124,6 @@ export class NavbarHomeComponent {
    
   }
 
-   
   Clientloggedin(){
     return localStorage.getItem("myTokenClient");
    

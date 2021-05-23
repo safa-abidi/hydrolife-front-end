@@ -29,9 +29,7 @@ export class CentreServiceComponent implements OnInit {
     this.userService.getAllServicesOfCenter(this.id).subscribe(
       (result)=>{
         
-        this.userService.listData = result;
-        console.log(result);
-        
+        this.userService.listData = result; 
         
       },
       (error)=>{

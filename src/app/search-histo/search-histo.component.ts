@@ -21,6 +21,7 @@ export class SearchHistoComponent implements OnInit {
   LeMot2:any;
   info:any;
   div1:any = true;
+  id = localStorage.getItem("myId");
 
 
   constructor(

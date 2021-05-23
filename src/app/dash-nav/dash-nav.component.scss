@@ -21,14 +21,14 @@ a {
 }
 
 .all{
-  margin-left: 500px;
+  margin-left: 450px;
   margin-top: 50px;
 }
 
 /*------------------------------------------------------RESPONSIVE SECTION------------------------------------------------------------------------*/
 @media screen and (max-width: 600px) {
   div a {
-      margin: 0px 8px;
+      margin: 0px 3px;
       font-size:small;
       font-weight: 500;
       
@@ -56,9 +56,6 @@ a {
     margin: 10px 10px;
     font-weight: 500;
     
-  }
-  .all{
-    margin-left: 350px;
   }
 
 }

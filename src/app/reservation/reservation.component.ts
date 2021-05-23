@@ -32,9 +32,8 @@ export class ReservationComponent implements OnInit {
     let formControls = {
       nbre_personnes_res: new FormControl('',[
         Validators.required,
-        Validators.pattern("[0-9]+"),
-        Validators.minLength(1),
-        Validators.maxLength(2)
+        Validators.pattern("[1-9]+"),
+        Validators.minLength(1)
 
 
       ]),
@@ -57,9 +56,7 @@ export class ReservationComponent implements OnInit {
       (result)=>{
         
         this.service = result;
-        console.log(this.service);
         
-
         this.userService.getOneUser(this.service.idCentre).subscribe(
           (result)=>{
             this.info=result                      

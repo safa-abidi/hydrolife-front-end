@@ -21,7 +21,7 @@
     </ngb-carousel>
 
     <h4 class="wordCarousel centered">
-      <span>Bienvenue à Hydro<span class=" d-md-none" style="color: #D88C8A;">Life</span> </span> 
+      <span>Bienvenue à Hydro<span class=" d-md-none" style="color: #D88C8A;">Life</span> </span>
       <div>
         <ul class="flip3" style="padding: 0;">
           <li><span style="color: #D88C8A; text-shadow: 1px 1px 1px black;" class="">Life</span></li>
@@ -37,34 +37,34 @@
   </div>
 </section>
 
- <section>
+<section>
   <div class="d-flex mt-md-2 mt-5">
     <div class="col-md-6 imgSec1 p-0 ">
       <img src="assets/sec1.jpg" class="img-fluid ">
     </div>
-   
-      <div class="p-5 d-none d-md-inline boxsec1"></div>
-      <div class="col d-flex m-0">
-      <h1 class="sec1Text">Bienvenue a HydroLife </h1>
+
+    <div class="p-5 d-none d-md-inline boxsec1"></div>
+    <div class="col d-flex m-0">
+      <h1 class="sec1Text">Bienvenue à HydroLife </h1>
       <p class="sec1Para">HydroLife est une plateforme 100% Tunisienne dédier à
-          l'hydrothérapie.
+        l'hydrothérapie.
         Vous pouvez retrouver ici tous les centres d'hydrothérapie, réserver et payer
-        en ligne d'une façon moderne et sécuriser.
+        en ligne d'une façon moderne et sécurisée.
       </p>
     </div>
 
   </div>
 </section>
 
- <section>
+<section>
   <div class="d-md-flex">
     <div class="col-2 d-none d-lg-inline p-0 mr-3"></div>
-    
-      <div class=" p-4 boxsec2">
-         <div class=" d-flex p-0">
-       <h1 class="sec2Text">Les centres inscrits </h1>
+
+    <div class=" p-4 boxsec2">
+      <div class=" d-flex p-0">
+        <h1 class="sec2Text">Les centres inscrits </h1>
         <p class="sec2Para">Consultez tous les centres et leurs services ainsi que les services complémentaires.
-          Prenez contact avec le centre choisi pour avoir <br> plus d'informations sur l'un des services proposer </p>
+          Prenez contact avec le centre choisi pour avoir <br> plus d'informations sur l'un des services proposés. </p>
         <button class="btn text-white m-2 p-2 buttsec2" routerLink="/LesCentres">Consulter les centres</button>
       </div>
     </div>
@@ -76,25 +76,22 @@
 
 
 <section>
-<h1 class="PromText d-md-none">Promotion de la semaine</h1>
+  <h1 class="PromText d-md-none">Les Promotions de la semaine</h1>
   <div class="d-md-flex">
     <div class="col-md-6 col-12 p-md-0">
       <img src="assets/prom.png" class="img-fluid">
     </div>
     <div class="text-center col">
-      <h1 class="PromText d-none d-md-inline-block">Promotion de la semaine</h1>
+      <h1 class="PromText d-none d-md-inline-block">Les Promotions de la semaine</h1>
       <div class="boxsec4 p-3">
         <div class="text-white PromPara " *ngFor="let promotion of info; let i=index;">
           <div *ngIf="3>i" class="d-flex mb-3" [ngClass]="{'textt' : i == 2}">
-            <a routerLink="/Reservation/{{ idSer }}" > - {{ promotion?.titre_promo + ":" }}
+            <a routerLink="/Reservation/{{ idSer }}"> - {{ promotion?.titre_promo + ":" }}
               {{ promotion?.pourcentage + "%" }} </a>
-
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
 </section>
 
@@ -104,7 +101,8 @@
     <div class="col-12 col-md-4 text-center secu p-0">
       <img src="assets/corona.png" class="m-4 m-md-3">
       <h1 class="my-4 my-md-3">Mesures supplémentaires de santé et de sécurité </h1>
-      <p class="m-4 m-md-3">Cet établissement a pris des mesures supplémentaires concernant la santé et l'hygiène afin de vous
+      <p class="m-4 m-md-3">Cet établissement a pris des mesures supplémentaires concernant la santé et l'hygiène afin
+        de vous
         assurer
         une détante en toute sécurité.</p>
       <button style="color: white; background-color: #D88C8A; border-radius: 30px;" class="btn py-2 px-3"
@@ -133,7 +131,7 @@
         <h1 class="sec3Text">Pourquoi l'hydrothérapie ?</h1>
         <p class="sec3Para">L’eau chauffée soulage et atténue de nombreuses pathologies: <br>
           douleurs articulaires, problèmes de circulation sanguine,<br> problèmes respiratoires, maladies de peau…
-          L’hydrothérapie <br> apporte un réél bien-être et un tonus appréciable !</p>
+          L’hydrothérapie <br> apporte un réel bien-être et un tonus appréciable !</p>
       </div>
 
     </div>

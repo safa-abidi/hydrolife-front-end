@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
 
         for (let i = 0; i < 2; i++) {
 
-        this.idSer = this.info[i].services[0].id_service
+        this.idSer = this.info[i]?.services[0]?.id_service
 
         }
             

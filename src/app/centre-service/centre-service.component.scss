@@ -46,11 +46,11 @@
     text-align: center;
     font-size: 1rem;
     padding: 5px;
-    width: 130px;
+    width: 200px;
     height: 50px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 48px;
+    margin: 48px 8px 48px 48px;
   }
   
   .buttonMod span {
@@ -125,13 +125,13 @@
     border: none;
     color: #FFFFFF;
     text-align: center;
-    font-size: 0.9rem;
-    padding: 2px;
-    width: 130px;
+    font-size: 1rem;
+    padding: 5px;
+    width: 200px;
     height: 50px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 48px;
+    margin: 48px 8px 48px 48px;
   }
   
   .buttonSup span {
@@ -169,35 +169,4 @@
     cursor: pointer;
   }
 
-/*---------------------------------------------------------RESPONSIVE SECTION----------------------------------------------------------------------------*/
 
-
-
-@media screen and (max-width: 600px) {
-    .buttonMod {
-        font-size: 1.1rem;
-        padding: 3px;
-        width: 150px;
-        height: 50px;
-        margin-left: 250px;
-      }
-  
-  }
-  @media screen and (min-width: 601px) and (max-width: 767px) {
-    .buttonMod {
-        font-size: 1.1rem;
-        padding: 3px;
-        width: 150px;
-        height: 50px;
-        margin-left: 310px;
-      }
-    }
-    @media screen and (min-width: 768px) and (max-width: 991px)  {
-        .buttonMod {
-            font-size: 1.1rem;
-            padding: 3px;
-            width: 150px;
-            height: 50px;
-            margin-left: 490px;
-          }
-        }

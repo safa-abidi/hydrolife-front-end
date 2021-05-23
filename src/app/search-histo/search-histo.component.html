@@ -1,62 +1,68 @@
 <div class="container">
-    <br><br><br>
-    <form class="text-center" [formGroup]="SearchClientForm" #f="ngForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-        <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-white px-4 border-md border-right-0">
-                <i class="fa fa-user text-muted"></i>
-              </span>
-            </div>
-            <input placeholder="Nom du client" for="mot" name="mot" id="mot" type="text" formControlName="mot"
-              class="form-control bg-white border-left-0 border-md">
-          </div>
-
-          <div class="input-group col-lg-6 mb-4">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-white px-4 border-md border-right-0">
-                <i class="fa fa-user text-muted"></i>
-              </span>
-            </div>
-            <input placeholder="Prenom du client" for="mot2" name="mot2" id="mot2" type="text" formControlName="mot2"
-              class="form-control bg-white border-left-0 border-md">
-          </div>
+  <br><br><br>
+  <form class="text-center" [formGroup]="SearchClientForm" #f="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="input-group col-lg-6 mb-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-white px-4 border-md border-right-0">
+            <i class="fa fa-user text-muted"></i>
+          </span>
         </div>
+        <input placeholder="Nom du client" for="mot" name="mot" id="mot" type="text" formControlName="mot"
+          class="form-control bg-white border-left-0 border-md">
+      </div>
 
- <button type="submit" class="buttonSup" [disabled]="f.invalid" >
-    <span> Chercher<i><img src="assets/searchw.png" class="trash"></i> </span>
- </button>
-      </form>
-
-        <br><br><br>
-      <div class=" p-4" *ngIf="div1"> <br><h2> Insérér le mot et le prénom du client </h2> <br></div><br><br><br>
-
-      <div *ngIf="info?.length == 0">
-          <br><br>
-        <div class="alert alert-warning p-4"> <br><h4> Aucune résultat retrouver </h4> <br></div></div>
-
-
-<div class="card mb-3" *ngFor="let client of info">
-    
-    <div class="row no-gutters">
-        <div class="col">
-            <div class="card-body">
-                <h2 class="card-title my-2">mot du client : {{ client?.nomClient }} {{
-                    client?.prenomClient }}</h2>
-                <h3 class="card-text"> Service : {{ client?.nomService }} </h3>
-
-                <h3 class="card-text">Date de réservation : {{ client?.dateRes | date:'shortDate'|
-                    date:'dd-MM-yyyy' }} </h3>
-                <h3 class="card-text">Nombre de personnes : {{ client?.nbre_personnes_res }} </h3>
-
-            </div>
+      <div class="input-group col-lg-6 mb-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-white px-4 border-md border-right-0">
+            <i class="fa fa-user text-muted"></i>
+          </span>
         </div>
-
-        <button class="buttonSup" (click)="deleteHisto(client)">Supprimer <span> <i
-                    class="fa fa-ban fa-lg fa-fw" aria-hidden="true"></i> </span></button>
-        <button class="buttonMod" (click)="openDialog(client?.id_res)">Voir details<span> <i
-                    class="fa fa-info-circle fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+        <input placeholder="Prenom du client" for="mot2" name="mot2" id="mot2" type="text" formControlName="mot2"
+          class="form-control bg-white border-left-0 border-md">
+      </div>
     </div>
-   
-</div>
+
+    <button type="submit" class="buttonSup" [disabled]="f.invalid">
+      <span> Chercher<i><img src="assets/searchw.png" class="trash"></i> </span>
+    </button>
+    <button class="btn" style="color: #1f5473" routerLink="/CentreReservation/{{ id }}">Annuler</button>
+  </form>
+
+  <br><br><br>
+  <div class=" p-4" *ngIf="div1"> <br>
+    <h2> Insérér le mot et le prénom du client </h2> <br>
+  </div><br><br><br>
+
+  <div *ngIf="info?.length == 0">
+    <br><br>
+    <div class="alert alert-warning p-4"> <br>
+      <h4> Aucune résultat retrouver </h4> <br>
+    </div>
+  </div>
+
+
+  <div class="card mb-3" *ngFor="let client of info">
+
+    <div class="row no-gutters">
+      <div class="col">
+        <div class="card-body">
+          <h2 class="card-title my-2">mot du client : {{ client?.nomClient }} {{
+            client?.prenomClient }}</h2>
+          <h3 class="card-text"> Service : {{ client?.nomService }} </h3>
+
+          <h3 class="card-text">Date de réservation : {{ client?.dateRes | date:'shortDate'|
+            date:'dd-MM-yyyy' }} </h3>
+          <h3 class="card-text">Nombre de personnes : {{ client?.nbre_personnes_res }} </h3>
+
+        </div>
+      </div>
+
+      <button class="buttonSup" (click)="deleteHisto(client)">Supprimer <span> <i class="fa fa-ban fa-lg fa-fw"
+            aria-hidden="true"></i> </span></button>
+      <button class="buttonMod" (click)="openDialog(client?.id_res)">Voir details<span> <i
+            class="fa fa-info-circle fa-lg fa-fw" aria-hidden="true"></i> </span></button>
+    </div>
+
+  </div>
 </div>

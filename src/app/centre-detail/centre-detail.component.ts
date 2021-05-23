@@ -3,8 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { CentreUserService } from '../services/CentreUser.service';
 import { ImageService } from '../services/Image.service';
 import {MatDialog} from '@angular/material/dialog';
-
-
 import  { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SecuDialogComponent } from '../secu-dialog/secu-dialog.component';
 import { ImageDetailComponent } from '../image-detail/image-detail.component';
@@ -28,6 +26,7 @@ export class CentreDetailComponent implements OnInit {
   public list:any = [];
   closeResult = '';
   idClient:any;
+  pourcentagePromo:any;
 
   constructor(
     public userService: CentreUserService,
@@ -75,9 +74,11 @@ export class CentreDetailComponent implements OnInit {
       (result)=>{
         
         this.services = result;
-        console.log(result);
+        for(let n:number = 0; n<this.services?.length; n++){ 
+        this.pourcentagePromo = this.services[n].pourcentagePromo
+        console.log(this.pourcentagePromo);
         
-        
+        }
 
       },
       (error)=>{
@@ -94,9 +95,6 @@ export class CentreDetailComponent implements OnInit {
     
     this.crudApi.getByCentreIdBis(id).subscribe(
       response =>{this.crudApi.listData = response;
-        console.log(response);
-        
-        
       }
      );
    

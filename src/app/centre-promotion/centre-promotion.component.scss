@@ -46,7 +46,7 @@
     text-align: center;
     font-size: 1rem;
     padding: 3px;
-    width: 130px;
+    width: 140px;
     height: 40px;
     transition: all 0.5s;
     cursor: pointer;
@@ -119,45 +119,12 @@
     right: 0;
   }
 
-/*---------------------------------------------------------RESPONSIVE SECTION----------------------------------------------------------------------------*/
-
-
-
-@media screen and (max-width: 600px) {
-    .buttonMod {
-        font-size: 1.1rem;
-        padding: 3px;
-        width: 150px;
-        height: 50px;
-        margin-left: 250px;
-      }
-  
+.trash {
+  height: 25px;
+  width: auto;
+  display: inline-block;
+  border: none;
+  right: 15px;
+  z-index: 2;
+  cursor: pointer;
   }
-  @media screen and (min-width: 601px) and (max-width: 767px) {
-    .buttonMod {
-        font-size: 1.1rem;
-        padding: 3px;
-        width: 150px;
-        height: 50px;
-        margin-left: 310px;
-      }
-    }
-    @media screen and (min-width: 768px) and (max-width: 991px)  {
-        .buttonMod {
-            font-size: 1.1rem;
-            padding: 3px;
-            width: 150px;
-            height: 50px;
-            margin-left: 490px;
-          }
-        }
-
-        .trash {
-          height: 25px;
-          width: auto;
-          display: inline-block;
-          border: none;
-          right: 15px;
-          z-index: 2;
-          cursor: pointer;
-        }

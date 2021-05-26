@@ -26,7 +26,7 @@ export class CentreDetailComponent implements OnInit {
   public list:any = [];
   closeResult = '';
   idClient:any;
-  pourcentagePromo:any;
+  pourcentageProm:any;
 
   constructor(
     public userService: CentreUserService,
@@ -74,11 +74,6 @@ export class CentreDetailComponent implements OnInit {
       (result)=>{
         
         this.services = result;
-        for(let n:number = 0; n<this.services?.length; n++){ 
-        this.pourcentagePromo = this.services[n].pourcentagePromo
-        console.log(this.pourcentagePromo);
-        
-        }
 
       },
       (error)=>{

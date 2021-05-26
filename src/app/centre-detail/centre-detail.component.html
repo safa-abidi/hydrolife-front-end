@@ -60,7 +60,7 @@
       <div class="row">
       <img class="col-12 col-md-8 col-lg-5" src = "{{this.userService.host+'/api/service/get/'+ service.id_service +'/bycentre/' +service.idCentre}}">		
         <div class="col-12 col-md-4 mt-md-5 col-lg-5">
-          <h1>{{ service?.libelle_service }} <h3 *ngIf="this.pourcentagePromo == 0" class="discount">-{{ service?.pourcentagePromo }}%</h3> </h1>
+          <h1>{{ service?.libelle_service }} <h3 *ngIf="service.pourcentagePromo > 0"  class="discount">-{{ service?.pourcentagePromo }}%</h3>  </h1>
           <p> {{ service?.description_service }} </p>
           <h3>Prix : {{ service?.prix_service }} TND / personne</h3>
           <button class="button" routerLink="/Reservation/{{service.id_service}}"><span>Réserver

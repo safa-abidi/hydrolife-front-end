@@ -46,7 +46,7 @@
     <div class="p-5 d-none d-md-inline boxsec1"></div>
     <div class="col d-flex m-0">
       <h1 class="sec1Text">Bienvenue à HydroLife </h1>
-      <p class="sec1Para">HydroLife est une plateforme 100% Tunisienne dédier à
+      <p class="sec1Para">HydroLife est une plateforme 100% Tunisienne dédiée à
         l'hydrothérapie.
         Vous pouvez retrouver ici tous les centres d'hydrothérapie, réserver et payer
         en ligne d'une façon moderne et sécurisée.
@@ -84,6 +84,7 @@
     <div class="text-center col">
       <h1 class="PromText d-none d-md-inline-block">Les Promotions de la semaine</h1>
       <div class="boxsec4 p-3">
+        <p *ngIf="info?.length == 0" class="text-white h3 text-center ">Aucune promotion n'est disponible pour le moment</p>
         <div class="text-white PromPara " *ngFor="let promotion of info; let i=index;">
           <div *ngIf="3>i" class="d-flex mb-3" [ngClass]="{'textt' : i == 2}">
             <a routerLink="/Reservation/{{ idSer }}"> - {{ promotion?.titre_promo + ":" }}

@@ -103,5 +103,6 @@ export class InscriClientComponent implements OnInit {
     
   }
 
+  maxDate = new Date();
 
 }

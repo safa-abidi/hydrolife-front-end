@@ -1,8 +1,8 @@
 
 <br><br>
   <div class="container">
-    <div class="d-flex text-center">
-        <div class="col-md-4">
+    <div class="d-md-flex text-center">
+        <div class="col-2 col-md-4">
             <div class="btn-group " style="background-color: #D88C8A; border-radius: 30px;">
                 <div class="btn text-white" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
                     (viewDateChange)="closeOpenMonthViewDay()">
@@ -20,7 +20,7 @@
         <div class="col-md-4">
             <h3 class="text-capitalize">{{ viewDate | calendarDate:(view + 'ViewTitle'):'Fr' }}</h3>
         </div>
-        <div class="col-md-4">
+        <div class="col-2 col-md-4">
             <div class="btn-group" style="background-color: #1f5473; border-radius: 30px;">
                 <div class="btn text-white" (click)="setView(CalendarView.Month)"
                     [class.active]="view === CalendarView.Month">
@@ -113,7 +113,8 @@
   </div>
 
   <h1 class="my-2">Vos réservations passées : </h1>
-    <div class="card mb-3" *ngFor="let ress of info">
+    <div  *ngFor="let ress of info; let i = index">
+      <div class="card mb-3" *ngIf="3>i">
       <div class="row no-gutters">
         <div class="col" id="print">
           <div class="card-body">
@@ -128,6 +129,7 @@
         <button class="buttonSup text-white" [useExistingCss]="true"
           printSectionId="print" printTitle="Reçu de réservation passée" ngxPrint>Imprimer <span> <i class="fa fa-print"></i> </span> </button> 
       </div>
+    </div>
     </div>
     
   </div>

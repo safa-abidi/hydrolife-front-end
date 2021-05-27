@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { CentreUserService } from '../services/CentreUser.service';
 import { SearchService } from '../services/Search.service';
 
@@ -11,10 +12,15 @@ import { SearchService } from '../services/Search.service';
 })
 export class RechercheServiceComponent implements OnInit {
 
+
+  options: any;
+
+
   info:any;
   LeMot:any;
   infoCentre:any;
   div1:any = false;
+  closeResult = '';
   
 
  SearchForm: FormGroup
@@ -36,6 +42,7 @@ export class RechercheServiceComponent implements OnInit {
  }
 
  get mot() { return this.SearchForm.get('mot') }
+
 
   ngOnInit(): void {
 
@@ -59,18 +66,24 @@ export class RechercheServiceComponent implements OnInit {
       (result)=>{
         
         this.info = result;
- 
         
-      } ),
+      }),
     this.Search.SearchCentre(this.LeMot.value).subscribe(
       (result)=>{
         
         this.infoCentre = result
-  
         
       })
+  }
 
-     
+  DynamicClose(){
+    this.LeMot = this.SearchForm.get('mot');
+
+    if (this.LeMot?.value.length == 0) {
+      
+      this.div1=false;
+
+    }
   }
 
   Close(){

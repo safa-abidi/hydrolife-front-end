@@ -92,16 +92,21 @@
   color: black;
 }
 
-.trunc{
-    font-size: medium ;
-    font-weight: 500;
-    width: 400px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.discount {
+  color: red;
+  font-weight:bold;
+  font-size: 100%;
+}
 
   @media screen and (max-width: 600px) {
+
+    .tit h5 {
+      font-size: small;
+    }
+
+    .cen p{
+      font-size: small;
+    }
 
    .search_wrap{
       margin: 0px;
@@ -180,6 +185,16 @@
         border: 1px solid #ccc;
         border-radius:0;
     }
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
   }
 
 @media screen and (min-width: 601px) and (max-width: 992px) {

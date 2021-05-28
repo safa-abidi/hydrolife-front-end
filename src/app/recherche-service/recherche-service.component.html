@@ -11,8 +11,9 @@
             </div>
 
             <div class="container" #content>
+                <div class="all" [ngClass]="{'none' : info?.length == 0 && infoCentre?.length == 0,'one' : info?.length == 1 && infoCentre?.length == 0 || info?.length == 0 && infoCentre?.length == 1}">
                 <div class="col-6 col-md-12 col-lg-8 bg-light">
-                    <div class="row">
+                    <div class="d-flex">
                         <div class="p-1" *ngIf="div1">
                             <div class="row tit m-1 my-md-3">
                                 <h5 class="col col-md-3">résultat de recherche pour: <span style="color: #d88c8a;">"{{
@@ -48,10 +49,10 @@
                             <div class="panel-body" *ngFor="let centre of infoCentre">
                                 <a (click)="Close()" routerLink="/CentreDetail/{{ centre.id }}">
                                     <div class="d-md-flex">
-                                        <div class="col-5 col-md-6 text-center mb-3">
+                                        <div class="col-5 col-md-4 text-center mb-3">
                                             <img class="img-fluid" src="assets/map.png" alt="Service Pic">
                                         </div>
-                                        <div class="col cen">
+                                        <div class="col cen p-0">
                                             <h3> {{ centre?.nom }} </h3>
 
                                             <p class="trunc d-none d-md-inline"> {{ centre?.adresse }} </p>
@@ -63,7 +64,7 @@
                                 </a>
                             </div>
                             <div *ngIf="info?.length == 0 && infoCentre?.length == 0" class="col">
-                                <div class="alert alert-warning col-10 p-2 m-3 text-center">
+                                <div class="alert alert-warning col p-2 m-3 text-center">
                                     <p> Aucun résultat trouvé </p>
                                 </div>
                             </div>
@@ -72,4 +73,5 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>

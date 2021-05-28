@@ -187,16 +187,6 @@
     }
   }
 
-  .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
-
 @media screen and (min-width: 601px) and (max-width: 992px) {
 
   .search_wrap{
@@ -361,6 +351,22 @@
       border: 1px solid #ccc;
       border-radius:0;
   }
+}
+
+.all{
+  transform: translate(-6%,-8%);
+  width: 830px;
+
+  }
+
+.none{
+  transform: translate(-6%,-18%);
+
+}
+
+.one{
+  transform: translate(-6%,-13%);
+
 }
 
 

@@ -19,7 +19,7 @@
                     <p class="discount">-{{ service?.pourcentagePromo }}%</p>
                     <form class="form" [formGroup]="addReservationForm" #f="ngForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
-                            <label for="colors">Nombre de personnes<span class="text-danger">*</span> </label>
+                            <label for="colors">Nombre de personnes</label>
                             <input placeholder="Nombre de personnes" class="form-control" for="nbre_personnes_res"
                                 id="nbre_personnes_res" type="text" formControlName="nbre_personnes_res"
                                 name="nbre_personnes_res">

@@ -102,6 +102,9 @@ export class NavbarHomeComponent {
   }
   
   ngOnInit(): void {
+
+  let id = localStorage.getItem("myId");
+
     
     this.info = this.loginClient()
  

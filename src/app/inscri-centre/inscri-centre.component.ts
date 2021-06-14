@@ -112,7 +112,7 @@ ngOnInit(): void {
 onSubmit(form: NgForm) {
   this.centreUserService.addUser(form.value).subscribe(
     (response: CentreUser) => {
-      this.Router.navigate(['/Home']);
+      this.Router.navigate(['/EspaceCentre']);
       console.log(response);
       this.toastr.success('Votre centre est inscrit avec succée');
       form.reset();

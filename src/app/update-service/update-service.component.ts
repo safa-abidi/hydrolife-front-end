@@ -89,4 +89,36 @@ export class UpdateServiceComponent implements OnInit {
 
   }
 
+  /*UpdateData() {
+    const formData = new  FormData();
+    const updateservice = this.updateServiceForm.value;
+    let idUser = localStorage.getItem("myId");
+    
+    
+    formData.append('service',JSON.stringify(updateservice));
+    formData.append('file',this.documentFile);
+    this.userService.updateService(formData).subscribe( data => {
+
+      this.toastr.success("service mit à jour succès");
+
+     // this.router.navigate(['/CentreService/'+ idUser]);
+    },
+    err => {
+      this.toastr.error("service non mit à jour réessayer");
+      console.log(err);
+      
+
+    }
+    
+    );
+  }*/
+
+  public documentFile: any= File;
+
+  onSelectFile(event: any) {
+
+    const file=event.target.files[0];
+    this.documentFile=file;
+  }
+
 }

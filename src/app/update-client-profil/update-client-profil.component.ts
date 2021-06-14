@@ -113,7 +113,7 @@ idUser: any;
         
         this.toastr.success("Profil mit à jour");
 
-    //    this.router.navigate(['/Home/'+idUser]);
+        this.router.navigate(['/Home/'+idUser]);
       },
       err=>{
         console.log(err);

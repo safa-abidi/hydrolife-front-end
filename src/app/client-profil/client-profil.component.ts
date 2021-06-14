@@ -27,9 +27,7 @@ export class ClientProfilComponent implements OnInit {
       (result)=>{
         
         this.info = result;
-        console.log(result);
         
-
       },
       (error)=>{
         console.log(error);

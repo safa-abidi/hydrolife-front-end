@@ -55,7 +55,6 @@ export class CentreReservationComponent implements OnInit {
     this.resService.OldReservation(id).subscribe(
       (result)=>{
         this.info = result;
-        console.log(this.info);
         
       },
       (error)=>{

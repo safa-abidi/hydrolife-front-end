@@ -22,7 +22,6 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { ClientProfilComponent } from './client-profil/client-profil.component';
 import { UpdateClientProfilComponent } from './update-client-profil/update-client-profil.component';
 import { MyReservationComponent } from './my-reservation/my-reservation.component';
-import { PromotionAllComponent } from './promotion-all/promotion-all.component';
 import { AjouterPromSerComponent } from './ajouter-prom-ser/ajouter-prom-ser.component';
 import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
 import { HistoReservationComponent } from './histo-reservation/histo-reservation.component';
@@ -72,7 +71,6 @@ const routes: Routes = [
   { path: 'History/:id', component: HistoResClientComponent, canActivate:[ClientAuthGuard] },
   { path: 'UpdateClientProfil/:id', component: UpdateClientProfilComponent, canActivate:[ClientAuthGuard] },
   { path: 'MyReservation/:id', component: MyReservationComponent, canActivate:[ResAuthGuard] },
-  { path: 'AllPromotions', component: PromotionAllComponent },
   { path: 'CheckOut/:id', component: ThankUPageComponent, canActivate:[ResAuthGuard] },
 
 

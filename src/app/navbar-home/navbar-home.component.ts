@@ -103,8 +103,6 @@ export class NavbarHomeComponent {
   
   ngOnInit(): void {
 
-  let id = localStorage.getItem("myId");
-
     
     this.info = this.loginClient()
  
@@ -175,15 +173,6 @@ export class NavbarHomeComponent {
      }
   }
 
-  latitude = 51.678418;
-  longitude = 7.809007;
-  locationChosen = false;
-
-  onChoseLocation(event: any) {
-    this.latitude = event.coords.lat;
-    this.longitude = event.coords.lng;
-    this.locationChosen = true;
-  }
 
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

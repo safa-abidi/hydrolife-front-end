@@ -89,7 +89,6 @@ import { ReservationDetailComponent } from './reservation-detail/reservation-det
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgImageSliderModule } from 'ng-image-slider';
-import { PromotionAllComponent } from './promotion-all/promotion-all.component';
 import { AjouterPromSerComponent } from './ajouter-prom-ser/ajouter-prom-ser.component';
 import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
 import { ImageDetailComponent } from './image-detail/image-detail.component';
@@ -134,7 +133,6 @@ import { RechercheServiceComponent } from './recherche-service/recherche-service
     UpdateClientProfilComponent,
     MyReservationComponent,
     ReservationDetailComponent,
-    PromotionAllComponent,
     AjouterPromSerComponent,
     UpdateReservationComponent,
     ImageDetailComponent,
